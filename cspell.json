@@ -1,0 +1,14 @@
+{
+	"dictionaries": ["typescript"],
+	"ignorePaths": [".github", "CHANGELOG.md", "node_modules", "pnpm-lock.yaml"],
+	"words": [
+		"astro",
+		"astrojs",
+		"knip",
+		"konami",
+		"konamimojisplosion",
+		"packagejson",
+		"squiggleconf",
+		"tseslint"
+	]
+}

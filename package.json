@@ -1,0 +1,77 @@
+{
+	"name": "squiggleconf",
+	"version": "0.0.0",
+	"description": "Website for a lovely conference that is definitely real and happening.",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/JoshuaKGoldberg/SquiggleConf"
+	},
+	"license": "MIT",
+	"author": {
+		"name": "Josh Goldberg",
+		"email": "npm@joshuakgoldberg.com"
+	},
+	"type": "module",
+	"main": "./lib/index.js",
+	"files": [
+		"lib/",
+		"package.json",
+		"LICENSE.md",
+		"README.md"
+	],
+	"scripts": {
+		"astro": "astro",
+		"build": "astro build",
+		"check": "astro check",
+		"dev": "astro dev",
+		"format": "prettier .",
+		"lint": "eslint . --max-warnings 0",
+		"lint:knip": "knip",
+		"lint:md": "markdownlint \"**/*.md\" \".github/**/*.md\" --rules sentences-per-line",
+		"lint:packages": "pnpm dedupe --check",
+		"lint:spelling": "cspell \"**\" \".github/**/*\"",
+		"prepare": "husky",
+		"tsc": "tsc"
+	},
+	"lint-staged": {
+		"*": "prettier --ignore-unknown --write"
+	},
+	"devDependencies": {
+		"@astrojs/check": "^0.5.6",
+		"@eslint-community/eslint-plugin-eslint-comments": "^4.3.0",
+		"@eslint/js": "^9.2.0",
+		"@konami-emoji-blast/astro": "0.0.0",
+		"@release-it/conventional-changelog": "^8.0.1",
+		"@types/eslint-plugin-markdown": "^2.0.2",
+		"accessible-astro-components": "^2.3.5",
+		"astro": "^4.4.9",
+		"cspell": "^8.8.1",
+		"eslint": "^9.2.0",
+		"eslint-plugin-jsdoc": "^48.2.4",
+		"eslint-plugin-jsonc": "^2.15.1",
+		"eslint-plugin-markdown": "^5.0.0",
+		"eslint-plugin-n": "^17.6.0",
+		"eslint-plugin-package-json": "^0.13.1",
+		"eslint-plugin-perfectionist": "^2.10.0",
+		"eslint-plugin-regexp": "^2.5.0",
+		"eslint-plugin-yml": "^1.14.0",
+		"husky": "^9.0.11",
+		"jsonc-eslint-parser": "^2.4.0",
+		"knip": "^5.14.0",
+		"konami-emoji-blast": "^0.5.3",
+		"lint-staged": "^15.2.2",
+		"markdownlint": "^0.34.0",
+		"markdownlint-cli": "^0.40.0",
+		"prettier": "^3.2.5",
+		"prettier-plugin-curly": "^0.2.1",
+		"prettier-plugin-packagejson": "^2.5.0",
+		"release-it": "^17.2.1",
+		"sentences-per-line": "^0.2.1",
+		"typescript": "^5.4.5",
+		"typescript-eslint": "^7.8.0"
+	},
+	"packageManager": "pnpm@9.1.0",
+	"engines": {
+		"node": ">=18"
+	}
+}
