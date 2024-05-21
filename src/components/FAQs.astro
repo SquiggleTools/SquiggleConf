@@ -2,11 +2,7 @@
 import Heading from "./Heading.astro";
 import SquiggleFlanked from "./SquiggleFlanked.astro";
 
-import FullSection from "./FullSection.astro";
-
 import dropdown from "~/assets/dropdown.svg";
-import AnchorButton from "./AnchorButton.astro";
-import BodyText from "./BodyText.astro";
 import { Image } from "astro:assets";
 
 const faqs = [
@@ -18,7 +14,7 @@ const faqs = [
 ];
 ---
 
-<FullSection>
+<section class="faq-section">
 	<SquiggleFlanked class="squiggle-flanked" width="full">
 		<Heading class="heading" level="h2">FAQs</Heading>
 	</SquiggleFlanked>
@@ -36,9 +32,15 @@ const faqs = [
 			))
 		}
 	</div>
-</FullSection>
+</section>
 
-<style define:vars={{ dropdown: dropdown.src }}>
+<style>
+	.faq-section {
+		padding: 0 var(--widthBodyPadding);
+		max-width: var(--widthBodyFull);
+		width: 100%;
+	}
+
 	.squiggle-flanked {
 		margin-bottom: 3rem;
 	}
@@ -56,28 +58,39 @@ const faqs = [
 		display: flex;
 		flex-direction: column;
 		gap: 2rem;
+		width: 100%;
 	}
 
 	details {
 		font-family: var(--fontFamilyBody);
 		font-weight: var(--fontWeightLight);
-		width: var(--widthBodyFull);
 		text-align: left;
+		width: 100%;
 	}
 
 	summary {
-		font-size: var(--fontSizeH4);
 		cursor: pointer;
+		font-size: var(--fontSizeH4);
 		list-style: none;
+		position: relative;
 	}
 
 	details summary img {
-		float: right;
-		display: inline-block;
+		position: absolute;
+		top: 0;
+		right: 0;
 		transition: 350ms transform;
 	}
 
 	details[open] summary img {
 		transform: rotate(180deg);
+	}
+
+	html.dark summary img {
+		filter: invert();
+	}
+
+	html:not(.dark) summary img {
+		filter: hue-rotate(180deg);
 	}
 </style>

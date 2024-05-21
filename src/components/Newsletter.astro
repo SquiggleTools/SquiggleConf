@@ -7,11 +7,11 @@ const { class: className, ...rest } = Astro.props;
 ---
 
 <form class:list={["newsletter", className]} {...rest}>
-	<label
-		>Enter your email for deadlines, announcements, and other great SquiggleConf
-		news.</label
-	>
-	<input type="email" placeholder="you.are@awesome.com" />
+	<label for="email">
+		Enter your email for deadlines, announcements, and other great SquiggleConf
+		news.
+	</label>
+	<input id="email" type="email" placeholder="you.are@awesome.com" />
 	<button type="submit">Subscribe</button>
 </form>
 
@@ -22,13 +22,12 @@ const { class: className, ...rest } = Astro.props;
 		font-family: var(--fontFamilyBody);
 		font-size: var(--fontSizeBody);
 		font-weight: var(--fontWeightBody);
-		gap: 1rem;
 		grid-column-gap: 1rem;
-		grid-row-gap: 0.5rem;
+		grid-row-gap: 1rem;
 		grid-template-columns: repeat(2, auto);
 		grid-template-rows: repeat(2, auto);
 		margin: auto;
-		padding: 0 2rem;
+		padding: 0 var(--widthBodyPadding);
 	}
 
 	label {
@@ -48,7 +47,7 @@ const { class: className, ...rest } = Astro.props;
 	}
 
 	button {
-		background: #49aaca;
+		background: var(--colorEmphasized);
 		border-radius: 1rem;
 		border: none;
 		font-family: var(--fontFamilyHeading);
@@ -60,8 +59,12 @@ const { class: className, ...rest } = Astro.props;
 	}
 
 	input {
+		border: 1px solid var(--colorEmphasized);
 		border-radius: 0.5rem;
 		padding: 0.5rem 0.75rem;
-		border: 1px solid #117799;
+	}
+
+	input::placeholder {
+		color: var(--colorEmphasized);
 	}
 </style>

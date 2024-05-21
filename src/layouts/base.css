@@ -1,9 +1,14 @@
 @layer base {
 	:root {
-		scrollbar-gutter: stable;
+		color-scheme: light;
 
-		--colorInverted: #fff;
+		--colorEmphasized: #1b80a1;
+		--colorEmphasizedBackground: #085e7a;
+		--colorInverted: #edebe4;
+		--colorInvertedMild: #78c1d9;
+		--colorForeground: #203238;
 		--colorSubtle: #a5e2fc;
+		--colorOffWhite: #eaeaff;
 
 		--fontFamilyBody: var(--fontFamilyHeading);
 		--fontFamilyHeading: "Josefin Sans Variable";
@@ -24,8 +29,22 @@
 
 		--lineHeightBody: 1.2;
 
+		--transitionFast: 117ms;
+		--transitionMedium: 280ms;
+		--transitionSlow: 700ms;
+
 		--widthBodyFull: 70rem;
 		--widthBodyLean: 50rem;
+		--widthBodyPadding: clamp(1rem, 5vw, 2rem);
+	}
+
+	html.dark {
+		color-scheme: dark;
+
+		--colorEmphasized: #0685af;
+		--colorForeground: #78c1d9;
+		--colorInverted: #10141b;
+		--colorSubtle: #062430;
 	}
 
 	@media (prefers-reduced-motion: no-preference) {

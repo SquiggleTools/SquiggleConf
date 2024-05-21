@@ -1,14 +1,14 @@
 ---
-import { Image } from "astro:assets";
 import HeroName from "./HeroName.astro";
 import SquiggleWave from "./SquiggleWave.astro";
 
 import SquiggleLong from "~/assets/squiggle-long.svg";
-import Tickets from "./Tickets.astro";
 import AnchorButton from "./AnchorButton.astro";
+import ThemeToggle from "./ThemeToggle.astro";
 ---
 
 <div class="primary-hero">
+	<ThemeToggle />
 	<div class="squiggles">
 		<SquiggleWave left={-5} scale={0.5} top={5} />
 		<SquiggleWave left={20} scale={0.5} top={5} />
@@ -45,6 +45,7 @@ import AnchorButton from "./AnchorButton.astro";
 <style>
 	.primary-hero {
 		background: linear-gradient(180deg, #002547 0%, #156283 100%);
+		overflow: hidden;
 		padding: clamp(2.5rem, 7.5vw, 5rem) 2rem;
 		position: relative;
 		text-align: center;
@@ -79,5 +80,10 @@ import AnchorButton from "./AnchorButton.astro";
 		height: 1rem;
 		right: 0;
 		left: 0;
+	}
+
+	html.dark .wave-long {
+		/* border: 10px solid #11141b; */
+		filter: invert();
 	}
 </style>

@@ -9,43 +9,46 @@ import twitter from "~/assets/twitter.svg";
 import { Image } from "astro:assets";
 ---
 
-<HeroName color="inherit" level="h2" />
+<footer>
+	<HeroName color="inherit" level="h2" />
 
-<div class="halves">
-	<div class="half texts">
-		<a href="">Code of Conduct</a>
-		<a href="">Cookie Policy</a>
-		<a href="">Terms of Service</a>
-	</div>
-	<div class="half logos">
-		<div>
-			<a href="">
-				<Image alt="Bluesky" src={bsky} />
-			</a>
-			<a href="">
-				<Image alt="Mastodon" src={mastodon} />
-			</a>
-			<a href="">
-				<Image alt="Twitter" src={twitter} />
-			</a>
+	<div class="halves">
+		<div class="half texts">
+			<a href="">Code of Conduct</a>
+			<a href="">Cookie Policy</a>
+			<a href="">Terms of Service</a>
 		</div>
-		<div>
-			<a href="">
-				<Image alt="Discord" src={discord} />
-			</a>
-			<a href="">
-				<Image alt="GitHub" src={github} />
-			</a>
+		<div class="half logos">
+			<div class="logos-line">
+				<a href="">
+					<Image alt="Bluesky" src={bsky} />
+				</a>
+				<a href="">
+					<Image alt="Mastodon" src={mastodon} />
+				</a>
+				<a href="">
+					<Image alt="Twitter" src={twitter} />
+				</a>
+			</div>
+			<div class="logos-line">
+				<a href="">
+					<Image alt="Discord" src={discord} />
+				</a>
+				<a href="">
+					<Image alt="GitHub" src={github} />
+				</a>
+			</div>
 		</div>
 	</div>
-</div>
+</footer>
 
 <style>
 	.halves {
 		display: flex;
 		justify-content: space-between;
+		margin: 4rem auto clamp(0.5rem, 5vw, 4rem);
 		max-width: var(--widthBodyFull);
-		margin: 4rem auto;
+		padding: 0 var(--widthBodyPadding);
 	}
 
 	.halves a {
@@ -67,5 +70,16 @@ import { Image } from "astro:assets";
 		gap: 1rem;
 		text-align: right;
 		flex-direction: column;
+	}
+
+	.logos-line {
+		display: flex;
+		gap: 1rem;
+		justify-content: flex-end;
+	}
+
+	html.dark .logos img {
+		filter: invert();
+		opacity: 0.7;
 	}
 </style>

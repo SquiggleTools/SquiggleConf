@@ -5,6 +5,7 @@ import { SkipLinks } from "accessible-astro-components";
 
 import Head from "~/components/Head.astro";
 import Footer from "~/components/Footer.astro";
+import ThemeToggle from "~/components/ThemeToggle.astro";
 
 import "./base.css";
 import "./normalize.css";
@@ -14,11 +15,19 @@ import "./normalize.css";
 	<Head />
 	<body class="body">
 		<SkipLinks />
-		<slot />
+		<main>
+			<slot />
+		</main>
 		<Footer />
 		<style>
 			body {
-				background: linear-gradient(180deg, #ffffff 20%, #d9f4ff 100%);
+				background: linear-gradient(
+					180deg,
+					var(--colorInverted) 20%,
+					var(--colorSubtle) 100%
+				);
+
+				color: var(--colorForeground);
 			}
 		</style>
 	</body>

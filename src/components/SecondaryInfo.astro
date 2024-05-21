@@ -50,7 +50,7 @@ const sections = [
 		flex-wrap: wrap;
 		font-family: var(--fontFamilyHeading);
 		max-width: var(--widthBodyFull);
-		padding: 0 2rem;
+		padding: 0 var(--widthBodyPadding);
 		text-align: center;
 		width: 100%;
 		margin: auto;
@@ -70,11 +70,7 @@ const sections = [
 		margin-top: 0.75rem;
 	}
 
-	@media (min-width: 700px) {
-		.secondary-info {
-			padding: 0 2rem;
-		}
-
+	@media (min-width: 560px) {
 		.item {
 			width: calc(49% - 0.5rem);
 			padding: 0 0.25rem;
@@ -82,6 +78,10 @@ const sections = [
 	}
 
 	@media (min-width: 819px) {
+		.secondary-info {
+			padding: 0;
+		}
+
 		.item {
 			width: calc(24% - 0.25rem);
 			min-width: 12rem;
