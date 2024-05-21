@@ -1,0 +1,26 @@
+@layer normalize {
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		margin: 0;
+	}
+
+	h1,
+	h2,
+	h3,
+	li,
+	ol,
+	p,
+	ul {
+		margin: 0;
+		padding: 0;
+		font-size: inherit;
+	}
+
+	ol,
+	ul {
+		list-style: none;
+	}
+}

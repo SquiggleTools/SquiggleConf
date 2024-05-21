@@ -1,0 +1,16 @@
+---
+import type { ImageMetadata } from "astro";
+
+import { Image } from "astro:assets";
+import SectionWrapper from "./SectionWrapper.astro";
+
+export interface Props {
+	align: "left" | "right";
+	image: ImageMetadata;
+}
+---
+
+<SectionWrapper>
+	<Image alt="" src={Astro.props.image} />
+	<slot />
+</SectionWrapper>

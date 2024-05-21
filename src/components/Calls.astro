@@ -1,0 +1,70 @@
+---
+import Heading from "./Heading.astro";
+import SquiggleFlanked from "./SquiggleFlanked.astro";
+
+import FullSection from "./FullSection.astro";
+import AnchorButton from "./AnchorButton.astro";
+import BodyText from "./BodyText.astro";
+---
+
+<div class="calls">
+	<FullSection class="split">
+		<SquiggleFlanked class="squiggle-flanked" width="lean">
+			<Heading class="heading" level="h2">Call for Speakers</Heading>
+		</SquiggleFlanked>
+
+		<BodyText width="lean">Come share your love of web dev tooling.</BodyText>
+		<BodyText width="lean"
+			>First-time and experienced speakers welcome.</BodyText
+		>
+		<AnchorButton class="action-button">Speak at SquiggleConf 2024</AnchorButton
+		>
+		<BodyText width="lean">Call for Papers (CFP) open until June 30th.</BodyText
+		>
+	</FullSection>
+
+	<FullSection class="split">
+		<SquiggleFlanked class="squiggle-flanked" width="lean">
+			<Heading class="heading" level="h2">Sponsors</Heading>
+		</SquiggleFlanked>
+
+		<BodyText width="lean">
+			Get your branding in front of enthusiastic web developers and key players
+			in the tooling space.
+		</BodyText>
+		<AnchorButton class="action-button">Sponsorship Prospectus</AnchorButton>
+		<BodyText>Contact us at sponsorships@squiggleconf.com.</BodyText>
+	</FullSection>
+</div>
+
+<style>
+	.calls {
+		display: flex;
+		gap: 7rem;
+		flex-direction: column;
+	}
+
+	@media (min-width: 1017px) {
+		.calls {
+			justify-content: center;
+			flex-direction: row;
+		}
+
+		.split {
+			width: 40%;
+		}
+	}
+
+	.squiggle-flanked {
+		margin-bottom: 3rem;
+	}
+
+	.action-button {
+		display: inline-block;
+		margin: 2rem;
+	}
+
+	.heading {
+		font-size: var(--fontSizeH2);
+	}
+</style>

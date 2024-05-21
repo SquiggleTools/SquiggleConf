@@ -1,0 +1,42 @@
+---
+import { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
+interface Props {
+	name: string;
+	photo: ImageMetadata;
+	position: string;
+}
+---
+
+<li class="speaker">
+	<Image alt="" class="speaker-image" src={Astro.props.photo} />
+	<div class="name">{Astro.props.name}</div>
+	<div class="position">{Astro.props.position}</div>
+</li>
+
+<style>
+	.speaker {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.25rem;
+		max-width: 40vw;
+	}
+
+	.speaker-image {
+		border-radius: 100%;
+		height: clamp(5rem, 20vw, 8rem);
+		width: clamp(5rem, 20vw, 8rem);
+		margin-bottom: 0.5rem;
+	}
+
+	.name {
+		font-size: var(--fontSizeBody);
+	}
+
+	.position {
+		font-size: var(--fontSizeBodySmall);
+		font-weight: var(--fontWeightLight);
+	}
+</style>

@@ -1,0 +1,41 @@
+---
+import AnchorButton from "./AnchorButton.astro";
+
+interface Props {
+	class?: string;
+}
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<div class:list={["tickets", className]} {...rest}>
+	<AnchorButton>$350 Early Bird Tickets</AnchorButton>
+	<div class="notes">
+		<div class="note">$500 after July 1st</div>
+		<div class="note">Workshop tickets coming July 15th</div>
+	</div>
+</div>
+
+<style>
+	.tickets {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		margin: auto;
+		gap: 1rem;
+		max-width: var(--widthBodyFull);
+		width: 100%;
+	}
+
+	.notes {
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
+	}
+
+	.note {
+		font-family: var(--fontFamilyBody);
+		font-size: var(--fontSizeBody);
+		font-weight: var(--fontWeightBody);
+	}
+</style>

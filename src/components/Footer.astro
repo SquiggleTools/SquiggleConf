@@ -1,0 +1,71 @@
+---
+import HeroName from "~/components/HeroName.astro";
+
+import bsky from "~/assets/bsky.svg";
+import discord from "~/assets/discord.svg";
+import github from "~/assets/github.svg";
+import mastodon from "~/assets/mastodon.svg";
+import twitter from "~/assets/twitter.svg";
+import { Image } from "astro:assets";
+---
+
+<HeroName color="inherit" level="h2" />
+
+<div class="halves">
+	<div class="half texts">
+		<a href="">Code of Conduct</a>
+		<a href="">Cookie Policy</a>
+		<a href="">Terms of Service</a>
+	</div>
+	<div class="half logos">
+		<div>
+			<a href="">
+				<Image alt="Bluesky" src={bsky} />
+			</a>
+			<a href="">
+				<Image alt="Mastodon" src={mastodon} />
+			</a>
+			<a href="">
+				<Image alt="Twitter" src={twitter} />
+			</a>
+		</div>
+		<div>
+			<a href="">
+				<Image alt="Discord" src={discord} />
+			</a>
+			<a href="">
+				<Image alt="GitHub" src={github} />
+			</a>
+		</div>
+	</div>
+</div>
+
+<style>
+	.halves {
+		display: flex;
+		justify-content: space-between;
+		max-width: var(--widthBodyFull);
+		margin: 4rem auto;
+	}
+
+	.halves a {
+		font-family: var(--fontFamilyBody);
+		font-size: var(--fontSizeBodyLarge);
+		font-weight: var(--fontWeightSemibold);
+		text-decoration: none;
+		color: inherit;
+	}
+
+	.texts {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.logos {
+		display: flex;
+		gap: 1rem;
+		text-align: right;
+		flex-direction: column;
+	}
+</style>

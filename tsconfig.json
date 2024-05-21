@@ -1,12 +1,16 @@
 {
 	"compilerOptions": {
+		"baseUrl": ".",
 		"declaration": true,
 		"declarationMap": true,
 		"esModuleInterop": true,
 		"module": "NodeNext",
-		"moduleResolution": "NodeNext",
+		"moduleResolution": "Bundler",
 		"noEmit": true,
 		"outDir": "lib",
+		"paths": {
+			"~/*": ["src/*"]
+		},
 		"resolveJsonModule": true,
 		"skipLibCheck": true,
 		"sourceMap": true,

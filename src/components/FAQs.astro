@@ -1,0 +1,83 @@
+---
+import Heading from "./Heading.astro";
+import SquiggleFlanked from "./SquiggleFlanked.astro";
+
+import FullSection from "./FullSection.astro";
+
+import dropdown from "~/assets/dropdown.svg";
+import AnchorButton from "./AnchorButton.astro";
+import BodyText from "./BodyText.astro";
+import { Image } from "astro:assets";
+
+const faqs = [
+	["What kinds of talks are you looking for?", "Lorem ipsum"],
+	["Airport / parking / train / travel info?", "Lorem ipsum"],
+	["Where do I go each day?", "Lorem ipsum"],
+	["Is there a hotel recommendation?", "Lorem ipsum"],
+	["How do I ask questions not covered here?", "Lorem ipsum"],
+];
+---
+
+<FullSection>
+	<SquiggleFlanked class="squiggle-flanked" width="full">
+		<Heading class="heading" level="h2">FAQs</Heading>
+	</SquiggleFlanked>
+
+	<div class="faqs">
+		{
+			faqs.map(([question, answer]) => (
+				<details>
+					<summary>
+						{question}
+						<Image alt="" src={dropdown} />
+					</summary>
+					{answer}
+				</details>
+			))
+		}
+	</div>
+</FullSection>
+
+<style define:vars={{ dropdown: dropdown.src }}>
+	.squiggle-flanked {
+		margin-bottom: 3rem;
+	}
+
+	.action-button {
+		display: inline-block;
+		margin: 2rem;
+	}
+
+	.heading {
+		font-size: var(--fontSizeH2);
+	}
+
+	.faqs {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	details {
+		font-family: var(--fontFamilyBody);
+		font-weight: var(--fontWeightLight);
+		width: var(--widthBodyFull);
+		text-align: left;
+	}
+
+	summary {
+		font-size: var(--fontSizeH4);
+		cursor: pointer;
+		list-style: none;
+	}
+
+	details summary img {
+		float: right;
+		display: inline-block;
+		transition: 350ms transform;
+	}
+
+	details[open] summary img {
+		transform: rotate(180deg);
+	}
+</style>

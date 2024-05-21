@@ -1,0 +1,25 @@
+---
+import "@fontsource/cardo";
+import "@fontsource-variable/josefin-sans";
+import { SkipLinks } from "accessible-astro-components";
+
+import Head from "~/components/Head.astro";
+import Footer from "~/components/Footer.astro";
+
+import "./base.css";
+import "./normalize.css";
+---
+
+<html lang="en">
+	<Head />
+	<body class="body">
+		<SkipLinks />
+		<slot />
+		<Footer />
+		<style>
+			body {
+				background: linear-gradient(180deg, #ffffff 20%, #d9f4ff 100%);
+			}
+		</style>
+	</body>
+</html>

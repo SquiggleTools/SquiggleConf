@@ -1,0 +1,37 @@
+@layer base {
+	:root {
+		scrollbar-gutter: stable;
+
+		--colorInverted: #fff;
+		--colorSubtle: #a5e2fc;
+
+		--fontFamilyBody: var(--fontFamilyHeading);
+		--fontFamilyHeading: "Josefin Sans Variable";
+
+		--fontSizeBody: 1.15rem;
+		--fontSizeBodyLarge: 1.5rem;
+		--fontSizeBodySmall: 1rem;
+		--fontSizeHero: clamp(4rem, 15vw, 6rem);
+		--fontSizeH2: clamp(1.75rem, 5vw, 2rem);
+		--fontSizeH3: clamp(1.5rem, 3.5vw, 1.75rem);
+		--fontSizeH4: clamp(1.25rem, 2.75vw, 1.5rem);
+
+		--fontWeightLight: 200;
+		--fontWeightBody: 300;
+		--fontWeightSemibold: 400;
+
+		--letterSpacingHeading: -0.04em;
+
+		--lineHeightBody: 1.2;
+
+		--widthBodyFull: 70rem;
+		--widthBodyLean: 50rem;
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		html,
+		body {
+			scroll-behavior: smooth;
+		}
+	}
+}

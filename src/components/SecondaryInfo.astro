@@ -1,0 +1,91 @@
+---
+const sections = [
+	[
+		"🗣️",
+		"Superb Speakers",
+		"Oct 3rd: Enjoy a dozen talks by tooling aficionados, dev experts, and new voices in the space.",
+	],
+	[
+		"🛠️",
+		"Wonderful Workshops",
+		"Oct 4th: Opt into a half-day workshop of your choice from one of our superb speakers or sponsors.",
+	],
+	[
+		"🏙️",
+		"Lovely Location",
+		"Right in of Boston’s historic district, a quick walk from Faneuil Hall Marketplace and the Boston harbor.",
+	],
+	[
+		"💪",
+		"Always Accessible",
+		"Our aim is to build an inclusive community -- including making the conference accessible for all.",
+	],
+];
+---
+
+<ul class="secondary-info">
+	{
+		sections.map(([emoji, title, contents]) => (
+			<li class="item">
+				<h3>
+					<div class="emoji">{emoji}</div>
+					<div class="title">
+						{title.split(" ").map((word) => (
+							<div>{word}</div>
+						))}
+					</div>
+				</h3>
+				<div class="contents">{contents}</div>
+			</li>
+		))
+	}
+</ul>
+
+<style>
+	.secondary-info {
+		align-items: center;
+		display: flex;
+		row-gap: 2rem;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		font-family: var(--fontFamilyHeading);
+		max-width: var(--widthBodyFull);
+		padding: 0 2rem;
+		text-align: center;
+		width: 100%;
+		margin: auto;
+	}
+
+	.emoji {
+		font-size: 3rem;
+	}
+
+	.title {
+		font-size: var(--fontSizeH4);
+	}
+
+	.contents {
+		font-size: var(--fontSizeBody);
+		font-weight: var(--fontWeightLight);
+		margin-top: 0.75rem;
+	}
+
+	@media (min-width: 700px) {
+		.secondary-info {
+			padding: 0 2rem;
+		}
+
+		.item {
+			width: calc(49% - 0.5rem);
+			padding: 0 0.25rem;
+		}
+	}
+
+	@media (min-width: 819px) {
+		.item {
+			width: calc(24% - 0.25rem);
+			min-width: 12rem;
+			padding: 0 0.25rem;
+		}
+	}
+</style>

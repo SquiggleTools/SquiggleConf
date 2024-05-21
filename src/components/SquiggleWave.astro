@@ -1,0 +1,28 @@
+---
+import { Image } from "astro:assets";
+
+import SquiggleWaveImage from "~/assets/squiggle-wave.svg";
+
+interface Props {
+	left: number;
+	scale: number;
+	top: number;
+}
+---
+
+<Image
+	alt=""
+	class="squiggle-wave"
+	src={SquiggleWaveImage}
+	style={{
+		left: `${Astro.props.left}%`,
+		top: `${Astro.props.top}%`,
+		transform: `scale(${Astro.props.scale})`,
+	}}
+/>
+
+<style>
+	.squiggle-wave {
+		position: absolute;
+	}
+</style>

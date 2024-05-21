@@ -1,0 +1,54 @@
+---
+import Heading from "./Heading.astro";
+import SquiggleFlanked from "./SquiggleFlanked.astro";
+---
+
+<section class="primary-info">
+	<p class="byline">
+		A Boston software conference for excellent web development tooling.
+	</p>
+
+	<SquiggleFlanked class="flanked" width="full">
+		<div class="date-cell">
+			<Heading class="heading" level="h2">Talks</Heading>
+			<p class="date">Thursday <span class="together">Oct. 3rd</span></p>
+		</div>
+		<div class="date-cell">
+			<Heading class="heading" level="h2">Workshops</Heading>
+			<p class="date">Friday <span class="together">Oct. 4th</span></p>
+		</div>
+	</SquiggleFlanked>
+</section>
+
+<style>
+	.byline {
+		font-family: var(--fontFamilyHeading);
+		font-size: var(--fontSizeH2);
+		margin: auto;
+		max-width: min(90vw, 35rem);
+		text-align: center;
+		position: relative;
+		z-index: 1;
+	}
+
+	.flanked {
+		margin: 5rem 0;
+	}
+
+	.date-cell {
+		text-align: center;
+	}
+
+	.heading {
+		font-size: var(--fontSizeH2);
+	}
+
+	.date {
+		font-family: var(--fontFamilyHeading);
+		font-size: var(--fontSizeH3);
+	}
+
+	.together {
+		display: inline-block;
+	}
+</style>

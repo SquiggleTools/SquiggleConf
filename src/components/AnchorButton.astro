@@ -1,0 +1,26 @@
+---
+interface Props {
+	class?: string;
+	href?: string;
+}
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<a class:list={["anchor-button", Astro.props.class]} {...rest}>
+	<slot />
+</a>
+
+<style>
+	.anchor-button {
+		background: #117799;
+		border-radius: 1rem;
+		box-shadow: 0 3px 7px rgba(0, 0, 0, 0.25);
+		color: var(--colorInverted);
+		font-family: var(--fontFamilyHeading);
+		font-size: var(--fontSizeBodyLarge);
+		font-weight: 700;
+		padding: 1rem 2rem;
+		text-decoration: none;
+	}
+</style>

@@ -1,0 +1,39 @@
+---
+export interface Props {
+	as?: string;
+	class?: string;
+	width: "full" | "lean";
+}
+
+const { as: As = "div", class: className, width, ...rest } = Astro.props;
+---
+
+<As
+	class:list={[
+		"body-text",
+		className,
+		width === "full" ? "body-text-full" : "body-text-lean",
+	]}
+	{...rest}
+>
+	<slot />
+</As>
+
+<style>
+	.body-text {
+		font-family: var(--fontFamilyBody);
+		font-size: var(--fontSizeBodyLarge);
+		font-weight: var(--fontWeightBody);
+		line-height: var(--lineHeightBody);
+		text-align: center;
+		padding: 0 2rem;
+	}
+
+	.body-text-full {
+		max-width: var(--widthBodyFull);
+	}
+
+	.body-text-lean {
+		max-width: var(--widthBodyLean);
+	}
+</style>

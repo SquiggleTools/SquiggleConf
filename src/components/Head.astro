@@ -1,0 +1,105 @@
+---
+import heMan from "~/assets/he-man.jpg";
+
+const description =
+	"A Boston conference focused on excellent software tooling.";
+const image = new URL(heMan.src, Astro.site);
+const title = "SquiggleConf ⚡ Supercharging web developers and tools.";
+const keywords = [
+	"squiggleconf",
+	"conference",
+	"devtools",
+	"javascript",
+	"typescript",
+	"static analysis",
+];
+
+const metaPairs = [
+	{
+		content: description,
+		name: `description`,
+	},
+	{
+		content: keywords.join(),
+		name: `keywords`,
+	},
+	{
+		content: title,
+		property: `og:title`,
+	},
+	{
+		content: description,
+		property: `og:description`,
+	},
+	{
+		content: image,
+		property: `og:image`,
+	},
+	{
+		content: image,
+		property: `og:image:secure_url`,
+	},
+	{
+		content: `website`,
+		property: `og:type`,
+	},
+	{
+		content: Astro.url,
+		property: `og:url`,
+	},
+	{
+		content: image,
+		name: `thumbnail`,
+	},
+	{
+		content: `summary`,
+		name: `twitter:card`,
+	},
+	{
+		content: Astro.site,
+		name: `twitter:domain`,
+	},
+	{
+		content: "Josh Goldberg",
+		name: `twitter:creator`,
+	},
+	{
+		content: image,
+		name: `twitter:image`,
+	},
+	{
+		content: `@JoshuaKGoldberg`,
+		name: `twitter:site`,
+	},
+	{
+		content: title,
+		name: `twitter:title`,
+	},
+	{
+		content: description,
+		name: `twitter:description`,
+	},
+];
+---
+
+<head>
+	<meta charset="utf-8" />
+	<link
+		href="/favicon-dark.svg"
+		media="(prefers-color-scheme: dark)"
+		rel="icon"
+		type="image/svg+xml"
+	/>
+	<link
+		href="/favicon.svg"
+		media="(prefers-color-scheme: light)"
+		rel="icon"
+		type="image/svg+xml"
+	/>
+	{metaPairs.map((meta) => <meta {...meta} />)}
+	<meta content={description} name="description" />
+	<meta content={keywords.join()} name="keywords" />
+	<meta content={Astro.generator} name="generator" />
+	<meta content="width=device-width" name="viewport" />
+	<title>{title}</title>
+</head>

@@ -1,0 +1,87 @@
+---
+import { Image } from "astro:assets";
+import Heading from "./Heading.astro";
+import SquiggleFlanked from "./SquiggleFlanked.astro";
+
+import danVanderkam from "~/assets/dan-vanderkam.jpg";
+import rizelScarlett from "~/assets/rizel-scarlett.png";
+import titianCernicovaDragomir from "~/assets/titian-cernicova-dragomir.jpg";
+import FullSection from "./FullSection.astro";
+import Speaker from "./Speaker.astro";
+import SpeakerPlaceholder from "./SpeakerPlaceholder.astro";
+import BodyText from "./BodyText.astro";
+
+const speakers = [
+	{
+		name: "Dan Vanderkam",
+		photo: danVanderkam,
+		position: "Author, Effective TypeScript",
+	},
+	{
+		name: "Rizèl Scarlett",
+		photo: rizelScarlett,
+		position: "Staff Developer Advocate, TBD",
+	},
+	{
+		name: "Titian Cernicova-Dragomir",
+		photo: titianCernicovaDragomir,
+		position: "Software Lead, Bloomberg",
+	},
+] as const;
+---
+
+<FullSection>
+	<SquiggleFlanked class="squiggle-flanked" width="lean">
+		<Heading class="heading" level="h2">Speakers</Heading>
+	</SquiggleFlanked>
+
+	<BodyText class="text-first" width="lean">
+		Meet the developers around the TypeScript, Rust, and Go tools that make the
+		squiggles you depend on every day.
+	</BodyText>
+
+	<div class="speakers-area">
+		<ul class="speakers">
+			{speakers.map((speaker) => <Speaker {...speaker} />)}
+		</ul>
+
+		<ul class="speakers">
+			{new Array(10).fill(null).map(() => <SpeakerPlaceholder />)}
+		</ul>
+	</div>
+
+	<BodyText width="lean">
+		You’ll emerge with the best techniques to supercharge your projects —
+		whether you’re already a TypeScript wizard or looking to become one.
+	</BodyText>
+</FullSection>
+
+<style>
+	.squiggle-flanked {
+		margin-bottom: 3rem;
+	}
+
+	.heading {
+		font-size: var(--fontSizeH2);
+	}
+
+	.speakers-area {
+		margin: 2.5rem auto;
+		max-width: 50rem;
+		padding: 0 2rem;
+	}
+
+	.speakers {
+		display: flex;
+		flex-wrap: wrap;
+		font-family: var(--fontFamilyBody);
+		gap: 2rem;
+		justify-content: center;
+		justify-content: space-evenly;
+		margin: 1rem auto;
+	}
+
+	.speakers + .speakers {
+		margin-top: 2rem;
+	}
+</style>

@@ -1,0 +1,17 @@
+---
+interface Props {
+	level: "h1" | "h2" | "h3";
+	class?: string;
+}
+
+const { level: As, ...rest } = Astro.props;
+---
+
+<As class:list={[Astro.props.class, "heading"]} {...rest}><slot /></As>
+
+<style>
+	.heading {
+		font-family: var(--fontFamilyHeading);
+		letter-spacing: var(--letterSpacingHeading);
+	}
+</style>
