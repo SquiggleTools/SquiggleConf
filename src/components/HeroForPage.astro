@@ -1,0 +1,39 @@
+---
+import Arrow from "~/components/Arrow.astro";
+import Heading from "~/components/Heading.astro";
+import Hero from "~/components/Hero.astro";
+---
+
+<Hero>
+	<div>
+		<Heading class="hero-heading" level="h1"><slot /></Heading>
+		<a class="back" href="/">
+			<Arrow />
+			SquiggleConf
+		</a>
+	</div>
+</Hero>
+
+<style>
+	.hero-heading {
+		color: var(--colorOffWhite);
+		font-size: var(--fontSizeHero);
+	}
+
+	.back {
+		color: var(--colorInvertedMild);
+		font-family: var(--fontFamilyBody);
+		text-decoration: none;
+		font-size: var(--fontSizeH3);
+		text-align: left;
+		display: block;
+	}
+
+	.code-of-conduct-contents {
+		margin: 3.5rem var(--widthBodyPadding) 5rem;
+	}
+
+	.contents-body-text {
+		margin: 2rem auto;
+	}
+</style>

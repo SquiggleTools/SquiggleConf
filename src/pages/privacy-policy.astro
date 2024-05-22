@@ -1,0 +1,26 @@
+---
+import BodyText from "~/components/BodyText.astro";
+import FullSection from "~/components/FullSection.astro";
+import HeroForPage from "~/components/HeroForPage.astro";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+	<HeroForPage>Privacy Policy</HeroForPage>
+
+	<FullSection class="page-contents">
+		<BodyText class="contents-body-text">
+			Hi. This will be filled out soon.
+		</BodyText>
+	</FullSection>
+</BaseLayout>
+
+<style>
+	.page-contents {
+		margin: 3.5rem var(--widthBodyPadding) 5rem;
+	}
+
+	.contents-body-text {
+		margin: 2rem auto;
+	}
+</style>

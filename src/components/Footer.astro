@@ -14,9 +14,8 @@ import { Image } from "astro:assets";
 
 	<div class="halves">
 		<div class="half texts">
-			<a href="">Code of Conduct</a>
-			<a href="">Cookie Policy</a>
-			<a href="">Terms of Service</a>
+			<a href="/code-of-conduct">Code of Conduct</a>
+			<a href="/privacy-policy">Privacy Policy</a>
 		</div>
 		<div class="half logos">
 			<div class="logos-line">
@@ -29,8 +28,7 @@ import { Image } from "astro:assets";
 				<a href="">
 					<Image alt="Twitter" src={twitter} />
 				</a>
-			</div>
-			<div class="logos-line">
+			</div><div class="logos-line">
 				<a href="">
 					<Image alt="Discord" src={discord} />
 				</a>
@@ -40,45 +38,71 @@ import { Image } from "astro:assets";
 			</div>
 		</div>
 	</div>
+
+	<style>
+		.halves {
+			display: flex;
+			justify-content: space-between;
+			margin: 4rem auto clamp(0.5rem, 5vw, 4rem);
+			max-width: var(--widthBodyFull);
+			padding: 0 var(--widthBodyPadding);
+		}
+
+		.halves a {
+			font-family: var(--fontFamilyBody);
+			font-size: var(--fontSizeBodyLarge);
+			font-weight: var(--fontWeightSemibold);
+			text-decoration: none;
+			color: inherit;
+		}
+
+		.half {
+			display: flex;
+			max-width: 45vw;
+			flex-wrap: wrap;
+		}
+
+		.texts {
+			flex-direction: column;
+			gap: 1.5rem;
+			justify-content: center;
+		}
+
+		.logos {
+			gap: 1rem;
+			flex-direction: column;
+		}
+
+		.logos-line {
+			display: flex;
+			gap: 1rem;
+			align-items: right;
+			justify-content: right;
+		}
+
+		.logos img {
+			height: 2rem;
+			width: 2rem;
+		}
+
+		html.dark .logos img {
+			filter: invert() hue-rotate(180deg);
+		}
+
+		@media (min-width: 819px) {
+			.texts {
+				align-items: center;
+				flex-direction: row;
+			}
+
+			.logos {
+				flex-direction: row;
+				gap: 1.5rem;
+			}
+
+			.logos-line {
+				display: contents;
+			}
+		}
+	</style>
 </footer>
-
-<style>
-	.halves {
-		display: flex;
-		justify-content: space-between;
-		margin: 4rem auto clamp(0.5rem, 5vw, 4rem);
-		max-width: var(--widthBodyFull);
-		padding: 0 var(--widthBodyPadding);
-	}
-
-	.halves a {
-		font-family: var(--fontFamilyBody);
-		font-size: var(--fontSizeBodyLarge);
-		font-weight: var(--fontWeightSemibold);
-		text-decoration: none;
-		color: inherit;
-	}
-
-	.texts {
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
-	}
-
-	.logos {
-		display: flex;
-		gap: 1rem;
-		text-align: right;
-		flex-direction: column;
-	}
-
-	.logos-line {
-		display: flex;
-		gap: 1rem;
-		justify-content: flex-end;
-	}
-
-	html.dark .logos img {
-		filter: invert() hue-rotate(180deg);
-	}
-</style>
