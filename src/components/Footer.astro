@@ -10,15 +10,16 @@ import { Image } from "astro:assets";
 ---
 
 <footer>
-	<HeroName color="inherit" level="h2" />
-
 	<div class="halves">
-		<div class="half texts">
-			<a href="/code-of-conduct">Code of Conduct</a>
-			<a href="/privacy-policy">Privacy Policy</a>
+		<div class="half logo">
+			<HeroName align="left" color="inherit" level="h2" />
 		</div>
-		<div class="half logos">
-			<div class="logos-line">
+		<div class="half texts">
+			<div class="line texts-line">
+				<a href="/code-of-conduct">Code of Conduct</a>
+				<a href="/privacy-policy">Privacy Policy</a>
+			</div>
+			<div class="logos">
 				<a href="">
 					<Image alt="Bluesky" src={bsky} />
 				</a>
@@ -28,7 +29,6 @@ import { Image } from "astro:assets";
 				<a href="">
 					<Image alt="Twitter" src={twitter} />
 				</a>
-			</div><div class="logos-line">
 				<a href="">
 					<Image alt="Discord" src={discord} />
 				</a>
@@ -40,15 +40,18 @@ import { Image } from "astro:assets";
 	</div>
 
 	<style>
-		.halves {
-			display: flex;
-			justify-content: space-between;
-			margin: 4rem auto clamp(0.5rem, 5vw, 4rem);
-			max-width: var(--widthBodyFull);
-			padding: 0 var(--widthBodyPadding);
+		footer {
+			margin-bottom: 2rem;
 		}
 
-		.halves a {
+		.texts {
+			align-items: center;
+			display: flex;
+			flex-direction: column;
+			margin-top: 1rem;
+		}
+
+		.texts a {
 			font-family: var(--fontFamilyBody);
 			font-size: var(--fontSizeBodyLarge);
 			font-weight: var(--fontWeightSemibold);
@@ -56,52 +59,54 @@ import { Image } from "astro:assets";
 			color: inherit;
 		}
 
-		.half {
+		.line {
 			display: flex;
-			max-width: 45vw;
-			flex-wrap: wrap;
-		}
-
-		.texts {
-			flex-direction: column;
-			gap: 1.5rem;
-			justify-content: center;
+			gap: 1rem;
 		}
 
 		.logos {
-			gap: 1rem;
-			flex-direction: column;
-		}
-
-		.logos-line {
 			display: flex;
 			gap: 1rem;
-			align-items: right;
-			justify-content: right;
 		}
 
-		.logos img {
+		.texts-line {
+			margin: 1rem 0;
+		}
+
+		.line img {
 			height: 2rem;
 			width: 2rem;
 		}
 
-		html.dark .logos img {
+		html.dark .texts img {
 			filter: invert() hue-rotate(180deg);
 		}
 
 		@media (min-width: 819px) {
+			.halves {
+				display: flex;
+				justify-content: space-between;
+				margin: 2rem auto clamp(0.5rem, 5vw, 4rem);
+				max-width: var(--widthBodyFull);
+				padding: 0 var(--widthBodyPadding);
+			}
+
 			.texts {
-				align-items: center;
-				flex-direction: row;
+				gap: 1rem;
+			}
+
+			.texts-line {
+				display: flex;
+				flex-direction: column;
+				justify-content: right;
+				text-align: right;
+				width: 100%;
 			}
 
 			.logos {
-				flex-direction: row;
-				gap: 1.5rem;
-			}
-
-			.logos-line {
-				display: contents;
+				display: flex;
+				justify-content: right;
+				width: 100%;
 			}
 		}
 	</style>
