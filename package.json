@@ -36,6 +36,9 @@
 	"lint-staged": {
 		"*": "prettier --ignore-unknown --write"
 	},
+	"dependencies": {
+		"sharp": "^0.33.4"
+	},
 	"devDependencies": {
 		"@astrojs/check": "^0.5.6",
 		"@astropub/md": "^0.4.0",
