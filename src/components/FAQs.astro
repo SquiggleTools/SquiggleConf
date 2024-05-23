@@ -1,34 +1,102 @@
 ---
+import { markdown } from "@astropub/md";
+import { Image } from "astro:assets";
+
+import dropdown from "~/assets/dropdown.svg";
+
 import Heading from "./Heading.astro";
 import SquiggleFlanked from "./SquiggleFlanked.astro";
 
-import dropdown from "~/assets/dropdown.svg";
-import { Image } from "astro:assets";
+type FAQSection = [string, [string, string][]];
 
-const faqs = [
-	["What kinds of talks are you looking for?", "Lorem ipsum"],
-	["Airport / parking / train / travel info?", "Lorem ipsum"],
-	["Where do I go each day?", "Lorem ipsum"],
-	["Is there a hotel recommendation?", "Lorem ipsum"],
-	["How do I ask questions not covered here?", "Lorem ipsum"],
-];
+const faqs: FAQSection[] = [
+	[
+		"Schedule",
+		[
+			[
+				"What is the full schedule of events?",
+				"We will let you know soon! This is partially dependent on the CFP and corporate sponsorships. Subscribe to the newsletter to be the first to know!",
+			],
+		],
+	],
+	[
+		"Speaking",
+		[
+			[
+				"Do I need to be a known tooling author to talk?",
+				'Absolutely not! We\'d like to hear from a broad range of folks, not just "insiders".',
+			],
+			[
+				"Do I need to be an experienced speaker to talk?",
+				"Absolutely not! We love new speakers, especially first-timers.",
+			],
+			[
+				"What kinds of talks are you looking for?",
+				// https://github.com/astro-community/md/issues/9
+				(await markdown(`All sorts! Anything interesting and related to web dev tooling. At the very least:
+
+- Best practices for software architecture and/or common web stacks
+- Discussions on trends in web dev tooling
+- Deep dives into how interesting tools work
+- Overviews of important concepts, libraries, and/or frameworks
+- The personal side of dev tooling
+
+You can read more in the [CFP](#call-for-speakers).
+`)) as string,
+			],
+		],
+	],
+	[
+		"Travel",
+		[
+			[
+				"How do I get there? (airport, parking, and train information)",
+				(await markdown(
+					`[Boston Logan International Airport (BOS)](https://massport.com/logan-airport) is your best bet to get into Boston from out-of-town.
+					
+					Once you're in Boston, see [neaq.org/visit/directions-and-parking/](https://www.neaq.org/visit/directions-and-parking) for directions to the New England Aquarium. The Simons Theater is in the same address.`,
+				)) as string,
+			],
+			[
+				"Is there a hotel recommendation?",
+				"Not yet. We will let you know soon. Subscribe to the newsletter to be the first to know!",
+			],
+		],
+	],
+	[
+		"Other",
+		[
+			[
+				"How do I ask questions not covered here?",
+				"Reach out to us, we'd be happy to talk! questions@squiggleconf.com",
+			],
+		],
+	],
+] as const;
 ---
 
 <section class="faq-section">
 	<SquiggleFlanked class="squiggle-flanked" width="full">
-		<Heading class="heading" level="h2">FAQs</Heading>
+		<Heading class="h2" id="faqs" level="h2">FAQs</Heading>
 	</SquiggleFlanked>
 
 	<div class="faqs">
 		{
-			faqs.map(([question, answer]) => (
-				<details>
-					<summary>
-						{question}
-						<Image alt="" src={dropdown} />
-					</summary>
-					{answer}
-				</details>
+			faqs.map(([title, section]) => (
+				<div class="section">
+					<Heading class="h3" level="h3">
+						{title}
+					</Heading>
+					{section.map(([question, answer]) => (
+						<details class="details">
+							<summary>
+								{question}
+								<Image alt="" src={dropdown} />
+							</summary>
+							{answer}
+						</details>
+					))}
+				</div>
 			))
 		}
 	</div>
@@ -50,19 +118,24 @@ const faqs = [
 		margin: 2rem;
 	}
 
-	.heading {
+	.h2 {
 		font-size: var(--fontSizeH2);
 	}
 
 	.faqs {
 		display: flex;
 		flex-direction: column;
-		gap: 2rem;
+		gap: 3rem;
 		width: 100%;
+	}
+
+	.h3 {
+		font-size: var(--fontSizeH3);
 	}
 
 	details {
 		font-family: var(--fontFamilyBody);
+		font-size: var(--fontSizeBody);
 		font-weight: var(--fontWeightLight);
 		text-align: left;
 		width: 100%;
@@ -73,6 +146,11 @@ const faqs = [
 		font-size: var(--fontSizeH4);
 		list-style: none;
 		position: relative;
+		margin-top: 1.5rem;
+	}
+
+	details[open] summary {
+		margin-bottom: 1rem;
 	}
 
 	details summary img {
@@ -92,5 +170,15 @@ const faqs = [
 
 	html:not(.dark) summary img {
 		filter: hue-rotate(180deg);
+	}
+</style>
+
+<style is:global>
+	details ul {
+		margin: 0.75rem 0 0.75rem 1rem;
+	}
+
+	details li {
+		list-style: initial;
 	}
 </style>

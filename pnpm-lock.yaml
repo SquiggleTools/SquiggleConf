@@ -11,6 +11,9 @@ importers:
       '@astrojs/check':
         specifier: ^0.5.6
         version: 0.5.10(prettier-plugin-astro@0.13.0)(prettier@3.2.5)(typescript@5.4.5)
+      '@astropub/md':
+        specifier: ^0.4.0
+        version: 0.4.0(@astrojs/markdown-remark@5.1.0)
       '@eslint-community/eslint-plugin-eslint-comments':
         specifier: ^4.3.0
         version: 4.3.0(eslint@9.2.0)
@@ -23,9 +26,6 @@ importers:
       '@fontsource/cardo':
         specifier: ^5.0.13
         version: 5.0.13
-      '@konami-emoji-blast/astro':
-        specifier: 0.0.0
-        version: 0.0.0(astro@4.8.2(@types/node@20.12.11)(typescript@5.4.5))
       '@release-it/conventional-changelog':
         specifier: ^8.0.1
         version: 8.0.1(release-it@17.2.1(typescript@5.4.5))
@@ -77,9 +77,6 @@ importers:
       knip:
         specifier: ^5.14.0
         version: 5.14.0(@types/node@20.12.11)(typescript@5.4.5)
-      konami-emoji-blast:
-        specifier: ^0.5.3
-        version: 0.5.3
       lint-staged:
         specifier: ^15.2.2
         version: 15.2.2
@@ -157,6 +154,11 @@ packages:
   '@astrojs/telemetry@3.1.0':
     resolution: {integrity: sha512-/ca/+D8MIKEC8/A9cSaPUqQNZm+Es/ZinRv0ZAzvu2ios7POQSsVD+VOj7/hypWNsNM3T7RpfgNq7H2TU1KEHA==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0}
+
+  '@astropub/md@0.4.0':
+    resolution: {integrity: sha512-f0kJIfywRKLcVqlizqUPModBBuJ7WwBEIWJEt1Eq/ksSYixtOl8HQWMZKJhv9Xtc9OKHhkQf0AQc56EV1xNUnw==}
+    peerDependencies:
+      '@astrojs/markdown-remark': ^4
 
   '@babel/code-frame@7.24.2':
     resolution: {integrity: sha512-y5+tLQyV8pg3fsiln67BVLD1P13Eg4lh5RW9mF0zUuvLrv9uIQ4MCL+CRT+FTsBlBjcIan6PGsLcBN0m3ClUyQ==}
@@ -942,11 +944,6 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
-
-  '@konami-emoji-blast/astro@0.0.0':
-    resolution: {integrity: sha512-KVBHBbVpO8GMtAkWBQw6+QEKU2LYVbtscPmmsGwf3hqJ2tDpwSIR4ux0reAeV9zFEQJ4vdABtt5o3R7Blgam8w==}
-    peerDependencies:
-      astro: ^2 || ^3 || ^4
 
   '@ljharb/through@2.3.13':
     resolution: {integrity: sha512-/gKJun8NNiWGZJkGzI/Ragc53cOdcLNdzjLaIa+GEjguQs0ulsurx8WN0jijdK9yPqDvziX995sMRLyLt1uZMQ==}
@@ -1997,10 +1994,6 @@ packages:
   emmet@2.4.7:
     resolution: {integrity: sha512-O5O5QNqtdlnQM2bmKHtJgyChcrFMgQuulI+WdiOw2NArzprUqqxUW6bgYtKvzKgrsYpuLWalOkdhNP+1jluhCA==}
 
-  emoji-blast@0.10.0:
-    resolution: {integrity: sha512-1r5rtGIKM7I2Q76vEHEhR+UpbO59C1JcSjpTncLJFORW0L0r3fDq4PWA1/8a6DXeuOpVNRbtVin3d1N21sZHvQ==}
-    engines: {node: '>=18'}
-
   emoji-regex@10.3.0:
     resolution: {integrity: sha512-QpLs9D9v9kArv4lfDEgg1X/gN5XLnf/A6l9cs8SPZLRZR3ZkY9+kwIQTxm+fsSej5UMYGE8fdoaZVIBlqG0XTw==}
 
@@ -3016,12 +3009,6 @@ packages:
     peerDependencies:
       '@types/node': '>=18'
       typescript: '>=5.0.4'
-
-  konami-code-js@0.8.1:
-    resolution: {integrity: sha512-bJ0tuWYLYiUueIVTpA0MV4h4Gz1X16uuJggh5TpIWXOQoLv0238SU7Im23z2wYKCCBsOfk5j4HKWB/pqdCgu5Q==}
-
-  konami-emoji-blast@0.5.3:
-    resolution: {integrity: sha512-ib1dWR+d1PXUWRRyjIYq5/dc6PvV0cGmccclLOlkl+mUMzLUdu8oySA+DTJr71XIsISXqHEUvTQmO7IuwJ8zYQ==}
 
   latest-version@7.0.0:
     resolution: {integrity: sha512-KvNT4XqAMzdcL6ka6Tl3i2lYeFDgXNCuIX+xNx6ZMVR1dFq+idXd9FLKNMOIx0t9mJ9/HudyX4oZWXZQ0UJHeg==}
@@ -4806,6 +4793,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  '@astropub/md@0.4.0(@astrojs/markdown-remark@5.1.0)':
+    dependencies:
+      '@astrojs/markdown-remark': 5.1.0
+
   '@babel/code-frame@7.24.2':
     dependencies:
       '@babel/highlight': 7.24.5
@@ -5476,11 +5467,6 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.4.15
-
-  '@konami-emoji-blast/astro@0.0.0(astro@4.8.2(@types/node@20.12.11)(typescript@5.4.5))':
-    dependencies:
-      astro: 4.8.2(@types/node@20.12.11)(typescript@5.4.5)
-      konami-emoji-blast: 0.5.3
 
   '@ljharb/through@2.3.13':
     dependencies:
@@ -6682,8 +6668,6 @@ snapshots:
     dependencies:
       '@emmetio/abbreviation': 2.3.3
       '@emmetio/css-abbreviation': 2.1.8
-
-  emoji-blast@0.10.0: {}
 
   emoji-regex@10.3.0: {}
 
@@ -7891,13 +7875,6 @@ snapshots:
       typescript: 5.4.5
       zod: 3.23.8
       zod-validation-error: 3.3.0(zod@3.23.8)
-
-  konami-code-js@0.8.1: {}
-
-  konami-emoji-blast@0.5.3:
-    dependencies:
-      emoji-blast: 0.10.0
-      konami-code-js: 0.8.1
 
   latest-version@7.0.0:
     dependencies:

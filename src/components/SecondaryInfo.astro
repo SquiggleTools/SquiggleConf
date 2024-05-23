@@ -1,6 +1,16 @@
 ---
 const sections = [
 	[
+		"🎪",
+		"Engaging Events",
+		"Mingle with fellow developers at meetups and mixers before, during, and after the conference.",
+	],
+	[
+		"🏙️",
+		"Lovely Location",
+		"Right in Boston’s historic district, next to Faneuil Hall Marketplace and the Boston harbor.",
+	],
+	[
 		"🗣️",
 		"Superb Speakers",
 		"Oct 3rd: Enjoy a dozen talks by tooling aficionados, dev experts, and new voices in the space.",
@@ -8,17 +18,7 @@ const sections = [
 	[
 		"🛠️",
 		"Wonderful Workshops",
-		"Oct 4th: Opt into a half-day workshop of your choice from one of our superb speakers or sponsors.",
-	],
-	[
-		"🏙️",
-		"Lovely Location",
-		"Right in of Boston’s historic district, a quick walk from Faneuil Hall Marketplace and the Boston harbor.",
-	],
-	[
-		"💪",
-		"Always Accessible",
-		"Our aim is to build an inclusive community -- including making the conference accessible for all.",
+		"Oct 4th: Opt into a half-day workshop of your choice from our superb speakers and sponsors.",
 	],
 ];
 ---
@@ -86,6 +86,17 @@ const sections = [
 			width: calc(24% - 0.25rem);
 			min-width: 12rem;
 			padding: 0 0.25rem;
+		}
+	}
+
+	@media (min-width: 1017px) {
+		.secondary-info {
+			margin-left: -1rem;
+			width: calc(100% + 2rem);
+		}
+
+		.item {
+			padding: 0;
 		}
 	}
 </style>

@@ -1,7 +1,8 @@
 ---
 interface Props {
-	level: "h1" | "h2" | "h3";
 	class?: string;
+	id?: string;
+	level: "h1" | "h2" | "h3";
 }
 
 const { level: As, ...rest } = Astro.props;
