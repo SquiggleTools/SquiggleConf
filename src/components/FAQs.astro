@@ -6,6 +6,8 @@ import dropdown from "~/assets/dropdown.svg";
 
 import Heading from "./Heading.astro";
 import SquiggleFlanked from "./SquiggleFlanked.astro";
+import Newsletter from "./Newsletter.astro";
+import AnchorButton from "./AnchorButton.astro";
 
 type FAQSection = [string, [string, string][]];
 
@@ -51,11 +53,15 @@ You can read more in the [CFP](#call-for-speakers).
 		[
 			[
 				"If I can't afford a full ticket, is there a way for me to come?",
-				"We'll have scholarships for local bootcamp and university students. We'll also have space for [volunteers](#about-us).",
+				(await markdown(
+					'We\'ll have a plethora of discounts and scholarships for diversity, local bootcamp and university students, and loyal attendees of <a href="https://bostonts.club" target="_blank">Boston TS Club</a>. We\'ll also have space for [volunteers](#about-us).',
+				)) as string,
 			],
 			[
-				"What is your COVID refund policy?",
-				"Full refunds. Do not come to SquiggleConf if you are sick, please.",
+				"What is your refund policy?",
+				(await markdown(
+					"Full refunds. If you can't make it, please let us know - we can work with you. <br /> Do not come to SquiggleConf if you have any COVID symptoms.",
+				)) as string,
 			],
 		],
 	],
@@ -81,7 +87,9 @@ Once you're in Boston, see [neaq.org/visit/directions-and-parking](https://www.n
 		[
 			[
 				"How do I ask questions not covered here?",
-				"Reach out to us, we'd be happy to talk! questions@squiggleconf.com",
+				(await markdown(
+					'Reach out to us, we\'d be happy to talk! <a href="mailto:questions@squiggleconf.com" target="_blank">questions@squiggleconf.com</a>',
+				)) as string,
 			],
 		],
 	],
@@ -103,7 +111,7 @@ Once you're in Boston, see [neaq.org/visit/directions-and-parking](https://www.n
 					{section.map(([question, answer]) => (
 						<details class="details">
 							<summary>
-								{question}
+								<span>{question}</span>
 								<Image alt="" src={dropdown} />
 							</summary>
 							{answer}
@@ -151,6 +159,7 @@ Once you're in Boston, see [neaq.org/visit/directions-and-parking](https://www.n
 		font-size: var(--fontSizeBody);
 		font-weight: var(--fontWeightLight);
 		line-height: var(--lineHeightBody);
+		margin-bottom: 1rem;
 		text-align: left;
 		width: 100%;
 	}
@@ -161,6 +170,8 @@ Once you're in Boston, see [neaq.org/visit/directions-and-parking](https://www.n
 		list-style: none;
 		position: relative;
 		margin-top: 1.5rem;
+		display: flex;
+		justify-content: space-between;
 	}
 
 	details[open] summary {
@@ -168,9 +179,6 @@ Once you're in Boston, see [neaq.org/visit/directions-and-parking](https://www.n
 	}
 
 	details summary img {
-		position: absolute;
-		top: 0;
-		right: 0;
 		transition: var(--transitionMedium) transform;
 	}
 
