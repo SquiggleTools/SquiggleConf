@@ -4,7 +4,7 @@ import heMan from "~/assets/he-man.jpg";
 const description =
 	"A Boston conference focused on excellent software tooling.";
 const image = new URL(heMan.src, Astro.site);
-const title = "SquiggleConf ⚡ Supercharging web developers and tools.";
+const title = "SquiggleConf | Supercharging web devs and their tools.";
 const keywords = [
 	"squiggleconf",
 	"conference",
@@ -84,18 +84,7 @@ const metaPairs = [
 
 <head>
 	<meta charset="utf-8" />
-	<link
-		href="/favicon-dark.svg"
-		media="(prefers-color-scheme: dark)"
-		rel="icon"
-		type="image/svg+xml"
-	/>
-	<link
-		href="/favicon.svg"
-		media="(prefers-color-scheme: light)"
-		rel="icon"
-		type="image/svg+xml"
-	/>
+	<link href="/favicon.svg" rel="icon" type="image/svg+xml" />
 	{metaPairs.map((meta) => <meta {...meta} />)}
 	<meta content={description} name="description" />
 	<meta content={keywords.join()} name="keywords" />
