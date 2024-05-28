@@ -1,12 +1,57 @@
 ---
 import joshGoldberg from "~/assets/josh-goldberg.png";
 import dimitriMitropulous from "~/assets/dimitri-mitropoulos.jpg";
+import bostonTSClub from "~/assets/boston-ts-club.svg";
+import michiganTypeScript from "~/assets/michigan-typescript.png";
 import AnchorButton from "./AnchorButton.astro";
 import BodyText from "./BodyText.astro";
 import FullSection from "./FullSection.astro";
 import Heading from "./Heading.astro";
-import Speaker from "./Speaker.astro";
+import Bio, { Props as BioProps } from "./Bio.astro";
 import SquiggleFlanked from "./SquiggleFlanked.astro";
+
+const bios: Omit<BioProps, "size">[] = [
+	{
+		links: {
+			bluesky: "bostonts.club",
+			linkedin: "https://www.linkedin.com/groups/13008308",
+			mastodon: "https://mastodon.social/@BostonTS",
+			twitter: "BosTypeScript",
+			website: "https://bostonts.club",
+		},
+		name: "Boston TS Club",
+		photo: bostonTSClub,
+	},
+	{
+		links: {
+			github: "dimitropoulos",
+			linkedin: "https://linkedin.com/in/dimitrimitropoulos",
+		},
+		name: "Dimitri Mitropoulos",
+		photo: dimitriMitropulous,
+	},
+	{
+		links: {
+			bluesky: "joshuakgoldberg.com",
+			github: "JoshuaKGoldberg",
+			mastodon: "fosstodon.org/@JoshuaKGoldberg",
+			twitter: "JoshuaKGoldberg",
+			website: "https://joshuakgoldberg.com",
+		},
+		name: "Josh Goldberg",
+		photo: joshGoldberg,
+	},
+	{
+		links: {
+			bluesky: "michigantypescript.com",
+			mastodon: "https://fosstodon.org/@MichiganTypeScript",
+			twitter: "MiTypeScript",
+			youtube: "MichiganTypeScript",
+		},
+		name: "Michigan TypeScript",
+		photo: michiganTypeScript,
+	},
+] as const;
 ---
 
 <FullSection>
@@ -28,27 +73,7 @@ import SquiggleFlanked from "./SquiggleFlanked.astro";
 		background or resources.
 	</BodyText>
 	<div class="bios">
-		<Speaker
-			links={{
-				github: "dimitropoulos",
-				linkedin: "dimitrimitropoulos",
-			}}
-			name="Dimitri Mitropoulos"
-			photo={dimitriMitropulous}
-			size="medium"
-		/>
-		<Speaker
-			links={{
-				bluesky: "joshuakgoldberg.com",
-				github: "JoshuaKGoldberg",
-				mastodon: "fosstodon.org/@JoshuaKGoldberg",
-				twitter: "JoshuaKGoldberg",
-				website: "https://joshuakgoldberg.com",
-			}}
-			name="Josh Goldberg"
-			photo={joshGoldberg}
-			size="medium"
-		/>
+		{bios.map((bio) => <Bio class="about-us-bio" {...bio} size="medium" />)}
 	</div>
 	<AnchorButton class="action-button">Volunteer at SquiggleConf</AnchorButton>
 </FullSection>
@@ -69,9 +94,21 @@ import SquiggleFlanked from "./SquiggleFlanked.astro";
 
 	.bios {
 		display: flex;
+		flex-wrap: wrap;
 		justify-content: center;
 		gap: 3rem;
 		margin: 3rem 0 1.5rem;
 		width: 100%;
+		padding: 0 var(--widthBodyPadding);
+	}
+
+	.about-us-bio {
+		min-width: 40%;
+	}
+
+	@media (min-width: 819px) {
+		.about-us-bio {
+			min-width: unset;
+		}
 	}
 </style>

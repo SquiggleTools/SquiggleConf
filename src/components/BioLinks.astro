@@ -7,6 +7,7 @@ import linkedin from "~/assets/linkedin.svg";
 import mastodon from "~/assets/mastodon.svg";
 import twitter from "~/assets/twitter.svg";
 import website from "~/assets/website.svg";
+import youtube from "~/assets/youtube.svg";
 
 interface Props {
 	links: BioLinksPlatforms;
@@ -20,6 +21,7 @@ export interface BioLinksPlatforms {
 	mastodon?: string;
 	twitter?: string;
 	website?: string;
+	youtube?: string;
 }
 
 const { links, name } = Astro.props;
@@ -50,11 +52,7 @@ const { links, name } = Astro.props;
 	}
 	{
 		links.linkedin && (
-			<a
-				href={`https://linkedin.com/in/${links.linkedin}`}
-				target="_blank"
-				rel="noreferrer"
-			>
+			<a href={links.linkedin} target="_blank" rel="noreferrer">
 				<Image alt={`${name} on LinkedIn`} class="link" src={linkedin} />
 			</a>
 		)
@@ -81,6 +79,13 @@ const { links, name } = Astro.props;
 		links.website && (
 			<a href={links.website} target="_blank" rel="noreferrer">
 				<Image alt={`${name}'s website'`} class="link" src={website} />
+			</a>
+		)
+	}
+	{
+		links.youtube && (
+			<a href={links.youtube} target="_blank" rel="noreferrer">
+				<Image alt={`${name} on YouTube'`} class="link" src={youtube} />
 			</a>
 		)
 	}

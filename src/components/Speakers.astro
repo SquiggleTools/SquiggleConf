@@ -6,11 +6,11 @@ import danVanderkam from "~/assets/dan-vanderkam.jpg";
 import rizelScarlett from "~/assets/rizel-scarlett.png";
 import titianCernicovaDragomir from "~/assets/titian-cernicova-dragomir.jpg";
 import FullSection from "./FullSection.astro";
-import Speaker, { Props as SpeakerProps } from "./Speaker.astro";
-import SpeakerPlaceholder from "./SpeakerPlaceholder.astro";
+import Speaker, { Props as BioProps } from "./Bio.astro";
+import SpeakerPlaceholder from "./BioPlaceholder.astro";
 import BodyText from "./BodyText.astro";
 
-const speakers: Omit<SpeakerProps, "size">[] = [
+const speakers: Omit<BioProps, "size">[] = [
 	{
 		name: "Dan Vanderkam",
 		photo: danVanderkam,
@@ -27,7 +27,7 @@ const speakers: Omit<SpeakerProps, "size">[] = [
 		position: "Staff Developer Advocate, TBD",
 		links: {
 			github: "blackgirlbytes",
-			linkedin: "rizel-bobb-semple",
+			linkedin: "https://linkedin.com/in/rizel-bobb-semple",
 			twitter: "blackgirlbytes",
 		},
 	},
@@ -37,7 +37,7 @@ const speakers: Omit<SpeakerProps, "size">[] = [
 		position: "Software Engineer, Bloomberg",
 		links: {
 			github: "dragomirtitian",
-			linkedin: "titian-cernicova-dragomir-2b37457a",
+			linkedin: "https://linkedin.com/in/titian-cernicova-dragomir-2b37457a",
 			twitter: "titiancernicova",
 		},
 	},

@@ -5,6 +5,7 @@ import { Image } from "astro:assets";
 import BioLinks, { BioLinksPlatforms } from "./BioLinks.astro";
 
 export interface Props {
+	class?: string;
 	links: BioLinksPlatforms;
 	name: string;
 	photo: ImageMetadata;
@@ -12,23 +13,29 @@ export interface Props {
 	size: "medium" | "large";
 }
 
-const { links, name, photo, position, size } = Astro.props;
+const {
+	class: className,
+	links,
+	name,
+	photo,
+	position,
+	size,
+	...rest
+} = Astro.props;
 ---
 
 <li
-	class:list={[
-		"speaker",
-		size === "large" ? "speaker-large" : "speaker-medium",
-	]}
+	{...rest}
+	class:list={["bio", className, size === "large" ? "bio-large" : "bio-medium"]}
 >
-	<Image alt="" class="speaker-image" src={photo} />
+	<Image alt="" class="bio-image" src={photo} />
 	<div class="name">{name}</div>
 	{position && <div class="position">{position}</div>}
 	<BioLinks name={name} links={links} />
 </li>
 
 <style>
-	.speaker {
+	.bio {
 		align-items: center;
 		display: flex;
 		flex-basis: 0;
@@ -39,17 +46,17 @@ const { links, name, photo, position, size } = Astro.props;
 		max-width: 40vw;
 	}
 
-	.speaker-medium {
+	.bio-medium {
 		--imageSize: clamp(3.5rem, 10vw, 6rem);
 		--fontSize: var(--fontSizeBodySmall);
 	}
 
-	.speaker-large {
+	.bio-large {
 		--imageSize: clamp(5rem, 20vw, 8rem);
 		--fontSize: var(--fontSizeBody);
 	}
 
-	.speaker-image {
+	.bio-image {
 		border-radius: 100%;
 		height: var(--imageSize);
 		width: var(--imageSize);
