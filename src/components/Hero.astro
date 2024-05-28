@@ -6,6 +6,8 @@ import SquiggleWave from "./SquiggleWave.astro";
 import ThemeToggle from "./ThemeToggle.astro";
 ---
 
+<Header />
+
 <div class="hero" id="home">
 	<ThemeToggle />
 	<div class="squiggles">
@@ -30,7 +32,6 @@ import ThemeToggle from "./ThemeToggle.astro";
 		<SquiggleWave left={55} scale={1} top={85} />
 		<SquiggleWave left={80} scale={1} top={85} />
 	</div>
-	<Header />
 	<div class="contents">
 		<slot />
 	</div>
@@ -72,7 +73,7 @@ import ThemeToggle from "./ThemeToggle.astro";
 		display: flex;
 		flex-direction: column;
 		gap: 2rem;
-		padding: clamp(5rem, 10vw, 9rem) 2rem clamp(2.5rem, 7.5vw, 5rem);
+		padding: clamp(2.5rem, 7.5vw, 5rem) 2rem;
 		position: relative;
 	}
 
@@ -88,5 +89,11 @@ import ThemeToggle from "./ThemeToggle.astro";
 	html.dark .wave-long {
 		/* border: 10px solid #11141b; */
 		filter: invert();
+	}
+
+	@media (min-width: 700px) {
+		.contents {
+			padding: clamp(6rem, 8vw, 7rem) 2rem clamp(2.5rem, 7.5vw, 5rem);
+		}
 	}
 </style>
