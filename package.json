@@ -45,7 +45,6 @@
 		"@eslint-community/eslint-plugin-eslint-comments": "^4.3.0",
 		"@eslint/js": "^9.2.0",
 		"@fontsource-variable/josefin-sans": "^5.0.21",
-		"@fontsource/cardo": "^5.0.13",
 		"@release-it/conventional-changelog": "^8.0.1",
 		"@types/eslint-plugin-markdown": "^2.0.2",
 		"accessible-astro-components": "^2.3.6",

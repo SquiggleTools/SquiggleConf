@@ -27,9 +27,6 @@ importers:
       '@fontsource-variable/josefin-sans':
         specifier: ^5.0.21
         version: 5.0.21
-      '@fontsource/cardo':
-        specifier: ^5.0.13
-        version: 5.0.13
       '@release-it/conventional-changelog':
         specifier: ^8.0.1
         version: 8.0.1(release-it@17.2.1(typescript@5.4.5))
@@ -781,9 +778,6 @@ packages:
 
   '@fontsource-variable/josefin-sans@5.0.21':
     resolution: {integrity: sha512-64tZlQ9weEr3OqkG5OAToWuGA7BUTbB9xnwRAhWWkEB+6pbeZ2Mvind7j+OfmCqt9AtiAjuZ8XwDjI7bpsHpWA==}
-
-  '@fontsource/cardo@5.0.13':
-    resolution: {integrity: sha512-v/e27QVbrpBDo08+segddPrEdccDBfuNEqOGU3ongRHd3mqklxGdEMblxD8cDx3J0JtZBPiPamRCPHz2Y5B1aA==}
 
   '@humanwhocodes/config-array@0.13.0':
     resolution: {integrity: sha512-DZLEEqFWQFiyK6h5YIeynKx7JlvCYWL0cImfSRXZ9l4Sg2efkFGTuFf6vzXjK1cq6IYkU+Eg/JizXw+TD2vRNw==}
@@ -2430,6 +2424,7 @@ packages:
 
   glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
+    deprecated: Glob versions prior to v9 are no longer supported
 
   global-directory@4.0.1:
     resolution: {integrity: sha512-wHTUcDUoZ1H5/0iVqEudYW4/kAlN5cZ3j/bXn0Dpbizl9iaUVeWSHqiOjsgk6OW2bkLclbBjzewBz6weQ1zA2Q==}
@@ -2640,6 +2635,7 @@ packages:
 
   inflight@1.0.6:
     resolution: {integrity: sha512-k92I/b08q4wvFscXCLvqfsHCrjrF7yiXsQuIVvVE7N82W3+aqpzuUdBbfhWcy/FZR3/4IgflMgKLOsvPDrGCJA==}
+    deprecated: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
 
   inherits@2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
@@ -5341,8 +5337,6 @@ snapshots:
   '@eslint/js@9.2.0': {}
 
   '@fontsource-variable/josefin-sans@5.0.21': {}
-
-  '@fontsource/cardo@5.0.13': {}
 
   '@humanwhocodes/config-array@0.13.0':
     dependencies:
