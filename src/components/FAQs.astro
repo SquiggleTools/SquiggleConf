@@ -6,8 +6,6 @@ import dropdown from "~/assets/dropdown.svg";
 
 import Heading from "./Heading.astro";
 import SquiggleFlanked from "./SquiggleFlanked.astro";
-import Newsletter from "./Newsletter.astro";
-import AnchorButton from "./AnchorButton.astro";
 
 type FAQSection = [string, [string, string][]];
 
@@ -15,6 +13,20 @@ const faqs: FAQSection[] = [
 	[
 		"Schedule",
 		[
+			[
+				"What events are you planning?",
+				(await markdown(`
+We will let you know soon! This is partially dependent on corporate sponsorships. Subscribe to the newsletter to be the first to know!
+
+<br />
+
+At the very least, SquiggleConf will include:
+
+- Social events for all attendees around the conference
+- Breaks and breakout sessions during the conference
+- Spaces to ask speakers questions and network with other attendees
+				`)) as string,
+			],
 			[
 				"What is the full schedule of events?",
 				"We will let you know soon! This is partially dependent on the CFP and corporate sponsorships. Subscribe to the newsletter to be the first to know!",
