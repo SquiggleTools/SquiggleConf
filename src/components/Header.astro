@@ -1,0 +1,46 @@
+<header>
+	<div class="header-contents">
+		<a href="#home">Home</a>
+		<a href="#speakers">Speakers</a>
+		<a href="#call-for-speakers">CFP</a>
+		<a href="#sponsors">Sponsors</a>
+		<a href="#about-us">About Us</a>
+		<a href="#faqs">FAQs</a>
+	</div>
+</header>
+
+<style>
+	header {
+		background: linear-gradient(
+			to bottom,
+			var(--colorHeroShadow) 0%,
+			transparent 100%
+		);
+		padding: 2rem;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+	}
+
+	.header-contents {
+		max-width: var(--widthBodyFull);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin: auto;
+	}
+
+	.header-contents a {
+		font-family: var(--fontFamilyHeading);
+		font-size: var(--fontSizeBodyLarge);
+		text-decoration: none;
+		text-shadow: 0 0 3px var(--colorHeroShadow);
+	}
+
+	@media (min-width: 700px) {
+		.header-contents {
+			background: blue;
+		}
+	}
+</style>

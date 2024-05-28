@@ -1,11 +1,12 @@
 ---
-import SquiggleWave from "./SquiggleWave.astro";
-
 import SquiggleLong from "~/assets/squiggle-long.svg";
+
+import Header from "./Header.astro";
+import SquiggleWave from "./SquiggleWave.astro";
 import ThemeToggle from "./ThemeToggle.astro";
 ---
 
-<div class="hero">
+<div class="hero" id="home">
 	<ThemeToggle />
 	<div class="squiggles">
 		<SquiggleWave left={-5} scale={0.5} top={5} />
@@ -29,6 +30,7 @@ import ThemeToggle from "./ThemeToggle.astro";
 		<SquiggleWave left={55} scale={1} top={85} />
 		<SquiggleWave left={80} scale={1} top={85} />
 	</div>
+	<Header />
 	<div class="contents">
 		<slot />
 	</div>
@@ -41,9 +43,12 @@ import ThemeToggle from "./ThemeToggle.astro";
 
 <style>
 	.hero {
-		background: linear-gradient(180deg, #002547 0%, #156283 100%);
+		background: linear-gradient(
+			180deg,
+			var(--colorHeroShadow) 0%,
+			#156283 100%
+		);
 		overflow: hidden;
-		padding: clamp(2.5rem, 7.5vw, 5rem) 2rem;
 		position: relative;
 		text-align: center;
 	}
@@ -67,6 +72,7 @@ import ThemeToggle from "./ThemeToggle.astro";
 		display: flex;
 		flex-direction: column;
 		gap: 2rem;
+		padding: clamp(5rem, 10vw, 9rem) 2rem clamp(2.5rem, 7.5vw, 5rem);
 		position: relative;
 	}
 

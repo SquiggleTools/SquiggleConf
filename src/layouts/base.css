@@ -7,8 +7,10 @@
 		--colorInverted: #edebe4;
 		--colorInvertedMild: #78c1d9;
 		--colorForeground: #203238;
-		--colorSubtle: #a5e2fc;
 		--colorOffWhite: #eaeaff;
+		--colorSubtle: #a5e2fc;
+		--colorHeroShadow: #002547;
+		--colorTextShadow: rgba(35, 49, 70, 0.75);
 
 		--fontFamilyBody: var(--fontFamilyHeading);
 		--fontFamilyHeading: "Josefin Sans Variable";
