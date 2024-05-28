@@ -72,9 +72,9 @@ const bios: Omit<BioProps, "size">[] = [
 		participants to engage, learn, and advance their careers—regardless of their
 		background or resources.
 	</BodyText>
-	<div class="bios">
+	<ul class="bios">
 		{bios.map((bio) => <Bio class="about-us-bio" {...bio} size="medium" />)}
-	</div>
+	</ul>
 	<AnchorButton
 		class="action-button"
 		href="https://docs.google.com/forms/d/1Mlge2UI8pCvCdYIferfEn0KQSnq28fE3tEPHur1iqa0/edit"
