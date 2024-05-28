@@ -2,6 +2,8 @@
 	:root {
 		color-scheme: light;
 
+		--colorBackdropDark: #c9e6f3;
+		--colorBackdropLight: #edebe4;
 		--colorEmphasized: #1b80a1;
 		--colorEmphasizedBackground: #085e7a;
 		--colorInverted: #edebe4;
@@ -23,9 +25,9 @@
 		--fontSizeH3: clamp(1.5rem, 3.5vw, 1.75rem);
 		--fontSizeH4: clamp(1.25rem, 2.75vw, 1.5rem);
 
-		--fontWeightLight: 200;
-		--fontWeightBody: 300;
-		--fontWeightSemibold: 400;
+		--fontWeightLight: 300;
+		--fontWeightBody: 400;
+		--fontWeightSemibold: 500;
 
 		--letterSpacingHeading: -0.04em;
 
@@ -43,8 +45,10 @@
 	html.dark {
 		color-scheme: dark;
 
+		--colorBackdropDark: var(--colorSubtle);
+		--colorBackdropLight: var(--colorInverted);
 		--colorEmphasized: #0685af;
-		--colorForeground: #78c1d9;
+		--colorForeground: rgb(168, 213, 228);
 		--colorInverted: #10141b;
 		--colorSubtle: #062430;
 	}
