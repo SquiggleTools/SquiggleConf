@@ -50,8 +50,8 @@ const speakers: Omit<SpeakerProps, "size">[] = [
 	</SquiggleFlanked>
 
 	<BodyText size="large" width="lean">
-		Meet the developers around the TypeScript, Rust, and Go tools that make the
-		squiggles you depend on every day.
+		Meet the developers around the Go, TypeScript, Rust, and Zig tools that make
+		the squiggles you depend on every day.
 	</BodyText>
 
 	<div class="speakers-area">
@@ -60,7 +60,11 @@ const speakers: Omit<SpeakerProps, "size">[] = [
 		</ul>
 
 		<ul class="speakers">
-			{new Array(10).fill(null).map(() => <SpeakerPlaceholder />)}
+			{
+				new Array(10)
+					.fill(null)
+					.map((_, index) => <SpeakerPlaceholder index={index} />)
+			}
 		</ul>
 	</div>
 

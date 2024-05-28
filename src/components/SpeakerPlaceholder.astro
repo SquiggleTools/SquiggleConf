@@ -1,6 +1,22 @@
+---
+interface Props {
+	index: number;
+}
+
+const indexNames = new Map([
+	[0, "Static Analysis Superstar"],
+	[1, "Language Afficianado"],
+	[2, "Build Systems Champion"],
+	[3, "TypeScript Wizard"],
+	[4, "Interpersonnal Advocate"],
+]);
+
+const name = indexNames.get(Astro.props.index) ?? "To Be Announced";
+---
+
 <li class="speaker">
 	<div class="speaker-image"></div>
-	<div class="name">To Be Announced</div>
+	<div class="name">{name}</div>
 </li>
 
 <style>
@@ -9,6 +25,8 @@
 		flex-direction: column;
 		align-items: center;
 		gap: 0.75rem;
+		flex-basis: 0;
+		flex-grow: 2;
 	}
 
 	.speaker-image {
