@@ -15,7 +15,7 @@
 		--fontFamilyBody: var(--fontFamilyHeading);
 		--fontFamilyHeading: "Josefin Sans Variable";
 
-		--fontSizeBody: 1.15rem;
+		--fontSizeBody: 1.35rem;
 		--fontSizeBodyLarge: 1.5rem;
 		--fontSizeBodySmall: 1rem;
 		--fontSizeHero: clamp(4rem, 15vw, 6rem);
