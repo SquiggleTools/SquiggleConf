@@ -75,7 +75,14 @@ const bios: Omit<BioProps, "size">[] = [
 	<div class="bios">
 		{bios.map((bio) => <Bio class="about-us-bio" {...bio} size="medium" />)}
 	</div>
-	<AnchorButton class="action-button">Volunteer at SquiggleConf</AnchorButton>
+	<AnchorButton
+		class="action-button"
+		href="https://docs.google.com/forms/d/1Mlge2UI8pCvCdYIferfEn0KQSnq28fE3tEPHur1iqa0/edit"
+		target="_blank"
+		rel="noreferrer"
+	>
+		Volunteer at SquiggleConf
+	</AnchorButton>
 </FullSection>
 
 <style>
