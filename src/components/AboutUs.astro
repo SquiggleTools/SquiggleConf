@@ -1,10 +1,12 @@
 ---
-import Heading from "./Heading.astro";
-import SquiggleFlanked from "./SquiggleFlanked.astro";
-
-import FullSection from "./FullSection.astro";
+import joshGoldberg from "~/assets/josh-goldberg.png";
+import dimitriMitropulous from "~/assets/dimitri-mitropoulos.jpg";
 import AnchorButton from "./AnchorButton.astro";
 import BodyText from "./BodyText.astro";
+import FullSection from "./FullSection.astro";
+import Heading from "./Heading.astro";
+import Speaker from "./Speaker.astro";
+import SquiggleFlanked from "./SquiggleFlanked.astro";
 ---
 
 <FullSection>
@@ -12,20 +14,42 @@ import BodyText from "./BodyText.astro";
 		<Heading class="heading" id="about-us" level="h2">About Us</Heading>
 	</SquiggleFlanked>
 
-	<BodyText as="p" size="large" width="lean">
+	<BodyText as="p" size="medium" width="lean">
 		Our goal with SquiggleConf is to create an enriching conference environment
 		to talk about the latest and greatest in web developer tooling. We aim to
-		include everyone from newcomers to the space, web platform team members, and
-		authors & maintainers of open source tools.
+		include everyone from newcomers to the space and web platform team members
+		to authors & maintainers of open source tools.
 	</BodyText>
 	<br />
-	<BodyText as="p" size="large" width="lean">
+	<BodyText as="p" size="medium" width="lean">
 		SquiggleConf is a production of Squiggle.Tools, a nonprofit organization
 		(501(c)3 pending) offering ongoing learning opportunities that enable
 		participants to engage, learn, and advance their careers—regardless of their
 		background or resources.
 	</BodyText>
-	<br />
+	<div class="bios">
+		<Speaker
+			links={{
+				github: "dimitropoulos",
+				linkedin: "dimitrimitropoulos",
+			}}
+			name="Dimitri Mitropoulos"
+			photo={dimitriMitropulous}
+			size="medium"
+		/>
+		<Speaker
+			links={{
+				bluesky: "joshuakgoldberg.com",
+				github: "JoshuaKGoldberg",
+				mastodon: "fosstodon.org/@JoshuaKGoldberg",
+				twitter: "JoshuaKGoldberg",
+				website: "https://joshuakgoldberg.com",
+			}}
+			name="Josh Goldberg"
+			photo={joshGoldberg}
+			size="medium"
+		/>
+	</div>
 	<AnchorButton class="action-button">Volunteer at SquiggleConf</AnchorButton>
 </FullSection>
 
@@ -41,5 +65,13 @@ import BodyText from "./BodyText.astro";
 
 	.heading {
 		font-size: var(--fontSizeH2);
+	}
+
+	.bios {
+		display: flex;
+		justify-content: center;
+		gap: 3rem;
+		margin: 3rem 0 1.5rem;
+		width: 100%;
 	}
 </style>

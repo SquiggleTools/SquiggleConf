@@ -1,0 +1,101 @@
+---
+import { Image } from "astro:assets";
+
+import bluesky from "~/assets/bluesky.svg";
+import github from "~/assets/github.svg";
+import linkedin from "~/assets/linkedin.svg";
+import mastodon from "~/assets/mastodon.svg";
+import twitter from "~/assets/twitter.svg";
+import website from "~/assets/website.svg";
+
+interface Props {
+	links: BioLinksPlatforms;
+	name: string;
+}
+
+export interface BioLinksPlatforms {
+	bluesky?: string;
+	github?: string;
+	linkedin?: string;
+	mastodon?: string;
+	twitter?: string;
+	website?: string;
+}
+
+const { links, name } = Astro.props;
+---
+
+<div class="bio-links">
+	{
+		links.bluesky && (
+			<a
+				href={`https://bsky.app/profile/${links.bluesky}`}
+				target="_blank"
+				rel="noreferrer"
+			>
+				<Image alt={`${name} on bluesky`} class="link" src={bluesky} />
+			</a>
+		)
+	}
+	{
+		links.github && (
+			<a
+				href={`https://github.com/${links.github}`}
+				target="_blank"
+				rel="noreferrer"
+			>
+				<Image alt={`${name} on GitHub`} class="link" src={github} />
+			</a>
+		)
+	}
+	{
+		links.linkedin && (
+			<a
+				href={`https://linkedin.com/in/${links.linkedin}`}
+				target="_blank"
+				rel="noreferrer"
+			>
+				<Image alt={`${name} on LinkedIn`} class="link" src={linkedin} />
+			</a>
+		)
+	}
+	{
+		links.mastodon && (
+			<a href={links.mastodon} target="_blank" rel="noreferrer">
+				<Image alt={`${name} on mastodon`} class="link" src={mastodon} />
+			</a>
+		)
+	}
+	{
+		links.twitter && (
+			<a
+				href={`https://twitter.com/${links.twitter}`}
+				target="_blank"
+				rel="noreferrer"
+			>
+				<Image alt={`${name} on Twitter`} class="link" src={twitter} />
+			</a>
+		)
+	}
+	{
+		links.website && (
+			<a href={links.website} target="_blank" rel="noreferrer">
+				<Image alt={`${name}'s website'`} class="link" src={website} />
+			</a>
+		)
+	}
+</div>
+
+<style>
+	.bio-links {
+		align-items: center;
+		display: flex;
+		gap: 0.5rem;
+		margin-top: 0.25rem;
+	}
+
+	.link {
+		height: 1rem;
+		width: 1rem;
+	}
+</style>

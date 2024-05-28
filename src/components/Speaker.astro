@@ -2,37 +2,60 @@
 import { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
 
-interface Props {
+import BioLinks, { BioLinksPlatforms } from "./BioLinks.astro";
+
+export interface Props {
+	links: BioLinksPlatforms;
 	name: string;
 	photo: ImageMetadata;
-	position: string;
+	position?: string;
+	size: "medium" | "large";
 }
+
+const { links, name, photo, position, size } = Astro.props;
 ---
 
-<li class="speaker">
-	<Image alt="" class="speaker-image" src={Astro.props.photo} />
-	<div class="name">{Astro.props.name}</div>
-	<div class="position">{Astro.props.position}</div>
+<li
+	class:list={[
+		"speaker",
+		size === "large" ? "speaker-large" : "speaker-medium",
+	]}
+>
+	<Image alt="" class="speaker-image" src={photo} />
+	<div class="name">{name}</div>
+	{position && <div class="position">{position}</div>}
+	<BioLinks name={name} links={links} />
 </li>
 
 <style>
 	.speaker {
+		align-items: center;
 		display: flex;
 		flex-direction: column;
-		align-items: center;
+		font-family: var(--fontFamilyBody);
 		gap: 0.25rem;
 		max-width: 40vw;
 	}
 
+	.speaker-medium {
+		--imageSize: clamp(3.5rem, 10vw, 6rem);
+		--fontSize: var(--fontSizeBodySmall);
+	}
+
+	.speaker-large {
+		--imageSize: clamp(5rem, 20vw, 8rem);
+		--fontSize: var(--fontSizeBody);
+	}
+
 	.speaker-image {
 		border-radius: 100%;
-		height: clamp(5rem, 20vw, 8rem);
-		width: clamp(5rem, 20vw, 8rem);
+		height: var(--imageSize);
+		width: var(--imageSize);
 		margin-bottom: 0.5rem;
 	}
 
 	.name {
-		font-size: var(--fontSizeBody);
+		font-size: var(--fontSize);
 	}
 
 	.position {
