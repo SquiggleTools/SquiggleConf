@@ -2,6 +2,7 @@
 interface Props {
 	class?: string;
 	href?: string;
+	target?: string;
 }
 
 const { class: className, ...rest } = Astro.props;
@@ -22,5 +23,14 @@ const { class: className, ...rest } = Astro.props;
 		font-weight: 700;
 		padding: 1rem 2rem;
 		text-decoration: none;
+		transition:
+			var(--transitionFast) transform,
+			var(--transitionFast) box-shadow;
+	}
+
+	.anchor-button:focus,
+	.anchor-button:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 6px 14px var(--colorTextShadow);
 	}
 </style>
