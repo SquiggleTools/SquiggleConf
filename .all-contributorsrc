@@ -19,6 +19,22 @@
         "projectManagement",
         "tool"
       ]
+    },
+    {
+      "login": "dimitropoulos",
+      "name": "Dimitri Mitropoulos",
+      "avatar_url": "https://avatars.githubusercontent.com/u/15232461?v=4",
+      "profile": "https://github.com/dimitropoulos",
+      "contributions": [
+        "code",
+        "content",
+        "doc",
+        "ideas",
+        "infra",
+        "maintenance",
+        "projectManagement",
+        "tool"
+      ]
     }
   ],
   "contributorsPerLine": 7,
