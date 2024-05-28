@@ -44,14 +44,12 @@ interface Props {
 
 	<style>
 		.hero-name {
+			align-items: center;
 			display: flex;
 			flex-direction: column;
 			gap: 1rem;
 			margin: auto;
-		}
-
-		.hero-name-center {
-			align-items: center;
+			text-align: center;
 		}
 
 		.hero-name.hero-name-inverted {
@@ -105,6 +103,7 @@ interface Props {
 			display: flex;
 			flex-direction: column;
 			gap: 0.5rem;
+			margin-top: 1rem;
 			font-size: var(--fontSizeH3);
 			font-family: var(--fontFamilyHeading);
 			letter-spacing: var(--letterSpacingHeading);
@@ -132,19 +131,18 @@ interface Props {
 			z-index: 1;
 		}
 
-		@media (min-width: 700px) {
+		@media (min-width: 1170px) {
 			.details {
+				flex-direction: row;
 				margin-top: 2rem;
 			}
 
 			.word-contents {
 				position: relative;
 			}
-		}
 
-		@media (min-width: 819px) {
-			.details {
-				flex-direction: row;
+			.hero-name-left {
+				text-align: left;
 			}
 
 			.dot {

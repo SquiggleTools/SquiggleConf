@@ -1,12 +1,13 @@
 ---
-import HeroName from "~/components/HeroName.astro";
+import { Image } from "astro:assets";
 
+import HeroName from "~/components/HeroName.astro";
 import bluesky from "~/assets/bluesky.svg";
 import discord from "~/assets/discord.svg";
 import github from "~/assets/github.svg";
+import linkedin from "~/assets/linkedin.svg";
 import mastodon from "~/assets/mastodon.svg";
 import twitter from "~/assets/twitter.svg";
-import { Image } from "astro:assets";
 ---
 
 <footer>
@@ -20,19 +21,22 @@ import { Image } from "astro:assets";
 				<a href="/privacy-policy">Privacy Policy</a>
 			</div>
 			<div class="logos">
-				<a href="">
+				<a href="https://bluesky.squiggleconf.com" target="_blank">
 					<Image alt="Bluesky" src={bluesky} />
 				</a>
-				<a href="">
+				<a href="https://linkedin.squiggleconf.com" target="_blank">
+					<Image alt="LinkedIn" src={linkedin} />
+				</a>
+				<a href="https://mastodon.squiggleconf.com" target="_blank">
 					<Image alt="Mastodon" src={mastodon} />
 				</a>
-				<a href="">
+				<a href="https://twitter.squiggleconf.com" target="_blank">
 					<Image alt="Twitter" src={twitter} />
 				</a>
-				<a href="">
+				<a href="https://discord.squiggleconf.com" target="_blank">
 					<Image alt="Discord" src={discord} />
 				</a>
-				<a href="">
+				<a href="https://github.squiggleconf.com" target="_blank">
 					<Image alt="GitHub" src={github} />
 				</a>
 			</div>
@@ -82,7 +86,7 @@ import { Image } from "astro:assets";
 			filter: invert() hue-rotate(180deg);
 		}
 
-		@media (min-width: 819px) {
+		@media (min-width: 1170px) {
 			.halves {
 				display: flex;
 				justify-content: space-between;
