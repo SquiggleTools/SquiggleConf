@@ -24,9 +24,9 @@ importers:
       '@eslint/js':
         specifier: ^9.2.0
         version: 9.2.0
-      '@fontsource-variable/josefin-sans':
-        specifier: ^5.0.21
-        version: 5.0.21
+      '@fontsource-variable/inter':
+        specifier: ^5.0.18
+        version: 5.0.18
       '@release-it/conventional-changelog':
         specifier: ^8.0.1
         version: 8.0.1(release-it@17.2.1(typescript@5.4.5))
@@ -776,8 +776,8 @@ packages:
     resolution: {integrity: sha512-ESiIudvhoYni+MdsI8oD7skpprZ89qKocwRM2KEvhhBJ9nl5MRh7BXU5GTod7Mdygq+AUl+QzId6iWJKR/wABA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@fontsource-variable/josefin-sans@5.0.21':
-    resolution: {integrity: sha512-64tZlQ9weEr3OqkG5OAToWuGA7BUTbB9xnwRAhWWkEB+6pbeZ2Mvind7j+OfmCqt9AtiAjuZ8XwDjI7bpsHpWA==}
+  '@fontsource-variable/inter@5.0.18':
+    resolution: {integrity: sha512-rJzSrtJ3b7djiGFvRuTe6stDfbYJGhdQSfn2SI2WfXviee7Er0yKAHE5u7FU7OWVQQQ1x3+cxdmx9NdiAkcrcA==}
 
   '@humanwhocodes/config-array@0.13.0':
     resolution: {integrity: sha512-DZLEEqFWQFiyK6h5YIeynKx7JlvCYWL0cImfSRXZ9l4Sg2efkFGTuFf6vzXjK1cq6IYkU+Eg/JizXw+TD2vRNw==}
@@ -5336,7 +5336,7 @@ snapshots:
 
   '@eslint/js@9.2.0': {}
 
-  '@fontsource-variable/josefin-sans@5.0.21': {}
+  '@fontsource-variable/inter@5.0.18': {}
 
   '@humanwhocodes/config-array@0.13.0':
     dependencies:
