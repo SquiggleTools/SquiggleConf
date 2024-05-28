@@ -31,7 +31,9 @@ const { links, name, photo, position, size } = Astro.props;
 	.speaker {
 		align-items: center;
 		display: flex;
+		flex-basis: 0;
 		flex-direction: column;
+		flex-grow: 2;
 		font-family: var(--fontFamilyBody);
 		gap: 0.25rem;
 		max-width: 40vw;
