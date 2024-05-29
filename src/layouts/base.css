@@ -34,6 +34,7 @@
 		--letterSpacingHeading: -0.04em;
 
 		--lineHeightBody: 1.4;
+		--lineHeightSecondary: 1.1;
 
 		--transitionFast: 117ms;
 		--transitionMedium: 280ms;
@@ -50,12 +51,13 @@
 		--colorBackdropDark: var(--colorSubtle);
 		--colorBackdropLight: var(--colorInverted);
 		--colorEmphasized: #0685af;
-		--colorForeground: rgb(203, 228, 235);
-		--colorForegroundBody: rgb(216, 230, 234);
+		--colorForeground: rgb(188, 223, 233);
+		--colorForegroundBody: rgb(210, 235, 241);
 		--colorInverted: #10141b;
 		--colorSubtle: #062430;
 
 		--lineHeightBody: 1.5;
+		--lineHeightSecondary: 1.1;
 	}
 
 	@media (prefers-reduced-motion: no-preference) {
