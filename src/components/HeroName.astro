@@ -81,6 +81,10 @@ interface Props {
 			position: relative;
 		}
 
+		.word + .word {
+			margin-top: 1rem;
+		}
+
 		.squiggle {
 			position: absolute;
 			bottom: -0.5rem;
@@ -126,10 +130,23 @@ interface Props {
 			z-index: 1;
 		}
 
+		@media (min-width: 700px) {
+			.details {
+				margin-top: 3rem;
+			}
+
+			.word + .word {
+				margin-top: 0;
+			}
+		}
+
 		@media (min-width: 1017px) {
 			.details {
 				flex-direction: row;
-				margin-top: 2rem;
+			}
+
+			.word + .word {
+				margin-top: 0;
 			}
 
 			.word-contents {
