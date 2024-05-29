@@ -15,13 +15,14 @@
 		--colorSubtle: var(--colorSubtleLight);
 		--colorHeroShadow: #002547;
 		--colorTextShadow: rgba(35, 49, 70, 0.75);
+		--colorUnhappy: #7f3a5c;
 
 		--fontFamilyBody: "Urbanist";
 		--fontFamilyHeading: "Josefin Sans Variable";
 
-		--fontSizeBody: 1.35rem;
+		--fontSizeBody: 1.2rem;
 		--fontSizeBodyLarge: 1.5rem;
-		--fontSizeBodySmall: 1.1rem;
+		--fontSizeBodySmall: 1rem;
 		--fontSizeBodySmaller: 1rem;
 		--fontSizeHero: clamp(4rem, 15vw, 6rem);
 		--fontSizeH2: clamp(1.75rem, 5vw, 2rem);

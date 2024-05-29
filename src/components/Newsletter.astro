@@ -1,4 +1,6 @@
 ---
+import BodyText from "./BodyText.astro";
+
 interface Props {
 	class?: string;
 }
@@ -6,7 +8,13 @@ interface Props {
 const { class: className, ...rest } = Astro.props;
 ---
 
-<form class:list={["newsletter", className]} {...rest}>
+<form
+	{...rest}
+	class:list={["newsletter", className]}
+	action="https://app.loops.so/api/newsletter-form/clwpkthom0067d11n8jbrxb3b"
+	id="newsletter"
+	method="POST"
+>
 	<label for="email">
 		Enter your email for deadlines, announcements, and other great SquiggleConf
 		news.
@@ -14,6 +22,74 @@ const { class: className, ...rest } = Astro.props;
 	<input id="email" type="email" placeholder="you.are@awesome.com" />
 	<button class="button" type="submit">Subscribe</button>
 </form>
+
+<BodyText aria-live="assertive" id="newsletter-message" />
+
+<script>
+	const form = document.getElementById("newsletter") as HTMLFormElement;
+
+	function setMessage(text: string, status: "happy" | "unhappy") {
+		const messageDiv = document.getElementById(
+			"newsletter-message",
+		) as HTMLDivElement;
+
+		messageDiv.textContent = text;
+
+		if (status === "unhappy") {
+			messageDiv.classList.add("unhappy");
+		} else {
+			messageDiv.classList.remove("unhappy");
+		}
+	}
+
+	form.addEventListener("submit", (event) => {
+		event.preventDefault();
+
+		const submitButton = form.querySelector("button") as HTMLButtonElement;
+		submitButton.disabled = true;
+
+		const emailInput = form.querySelector("input") as HTMLInputElement;
+		const email = emailInput.value;
+
+		const formBody = "userGroup=&email=" + encodeURIComponent(email);
+
+		fetch(form.action, {
+			method: "POST",
+			body: formBody,
+			headers: {
+				"Content-Type": "application/x-www-form-urlencoded",
+			},
+		})
+			.then((response) => [response.ok, response.json(), response] as const)
+			.then(([ok, dataPromise, response]) => {
+				dataPromise.then((data) => {
+					console.log({ data });
+
+					if (ok) {
+						setMessage("Thanks for signing up!", "happy");
+						form.reset();
+						return;
+					}
+
+					setMessage(
+						`There was an issue: ${data || response.statusText}`,
+						"unhappy",
+					);
+				});
+			})
+			.catch((error) => {
+				setMessage(
+					error.message === "Failed to fetch"
+						? "Too many requests. Try again later, please?"
+						: error.message,
+					"unhappy",
+				);
+			})
+			.finally(() => {
+				submitButton.disabled = false;
+			});
+	});
+</script>
 
 <style>
 	.newsletter {
@@ -77,5 +153,14 @@ const { class: className, ...rest } = Astro.props;
 
 	input::placeholder {
 		color: var(--colorForeground);
+	}
+
+	#newsletter-message {
+		margin: 1rem auto 0;
+		text-align: center;
+	}
+
+	#newsletter-message.unhappy {
+		color: var(--colorUnhappy);
 	}
 </style>
