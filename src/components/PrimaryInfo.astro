@@ -5,7 +5,7 @@ import SquiggleFlanked from "./SquiggleFlanked.astro";
 ---
 
 <section class="primary-info">
-	<h2>A conference for excellent web dev tooling.</h2>
+	<h2 class="primary-h2">A conference for excellent web dev tooling.</h2>
 
 	<BodyText class="byline" size="medium">
 		SquiggleConf brings together the admirers, contributors, and maintainers of
@@ -27,9 +27,10 @@ import SquiggleFlanked from "./SquiggleFlanked.astro";
 </section>
 
 <style>
-	h2 {
+	.primary-h2 {
 		font-family: var(--fontFamilyHeading);
 		font-size: var(--fontSizeH2);
+		padding: 0 var(--widthBodyPadding);
 		margin: auto;
 		text-align: center;
 		position: relative;
