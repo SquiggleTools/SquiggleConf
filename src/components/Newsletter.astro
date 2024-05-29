@@ -119,10 +119,15 @@ const { class: className, ...rest } = Astro.props;
 			var(--transitionFast) box-shadow;
 	}
 
-	.button:focus,
-	.button:hover {
+	.button:focus:not(:disabled),
+	.button:hover:not(:disabled) {
 		transform: translateY(-3px);
 		box-shadow: 0 6px 14px var(--colorTextShadow);
+	}
+
+	.button[disabled] {
+		opacity: 0.5;
+		cursor: wait;
 	}
 
 	input {
