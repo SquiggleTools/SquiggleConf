@@ -3,17 +3,32 @@ interface Props {
 	class?: string;
 	id?: string;
 	level: "h1" | "h2" | "h3";
+	link?: boolean;
 }
 
 const { level: As, ...rest } = Astro.props;
 ---
 
-<As class:list={[Astro.props.class, "heading"]} {...rest}><slot /></As>
+<As class:list={[Astro.props.class, "heading"]} {...rest}>
+	{
+		Astro.props.link ? (
+			<a href={`#${Astro.props.id}`}>
+				<slot />
+			</a>
+		) : (
+			<slot />
+		)
+	}
+</As>
 
 <style>
 	.heading {
 		font-family: var(--fontFamilyHeading);
 		letter-spacing: var(--letterSpacingHeading);
 		scroll-margin-top: 2rem;
+	}
+
+	.heading a {
+		text-decoration: none;
 	}
 </style>
