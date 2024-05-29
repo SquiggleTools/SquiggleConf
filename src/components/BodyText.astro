@@ -23,11 +23,13 @@ const { as: As = "div", class: className, size, width, ...rest } = Astro.props;
 
 <style>
 	.body-text {
+		color: var(--colorForegroundBody);
 		font-family: var(--fontFamilyBody);
 		font-weight: var(--fontWeightBody);
 		line-height: var(--lineHeightBody);
 		text-align: center;
 		padding: 0 var(--widthBodyPadding);
+		transition: var(--transitionMedium) line-height;
 	}
 
 	.body-text-medium {

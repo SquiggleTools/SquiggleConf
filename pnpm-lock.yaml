@@ -27,6 +27,9 @@ importers:
       '@fontsource-variable/josefin-sans':
         specifier: ^5.0.21
         version: 5.0.21
+      '@fontsource/urbanist':
+        specifier: ^5.0.20
+        version: 5.0.20
       '@release-it/conventional-changelog':
         specifier: ^8.0.1
         version: 8.0.1(release-it@17.2.1(typescript@5.4.5))
@@ -778,6 +781,9 @@ packages:
 
   '@fontsource-variable/josefin-sans@5.0.21':
     resolution: {integrity: sha512-64tZlQ9weEr3OqkG5OAToWuGA7BUTbB9xnwRAhWWkEB+6pbeZ2Mvind7j+OfmCqt9AtiAjuZ8XwDjI7bpsHpWA==}
+
+  '@fontsource/urbanist@5.0.20':
+    resolution: {integrity: sha512-cTbD74+OiR9Y7CCWN7shaaEMgrv6ujgDRbMO6/PUszdND7wWPz+/Dot/MBkdDzkW68i73i3LqQ/5G+iAeyJUVQ==}
 
   '@humanwhocodes/config-array@0.13.0':
     resolution: {integrity: sha512-DZLEEqFWQFiyK6h5YIeynKx7JlvCYWL0cImfSRXZ9l4Sg2efkFGTuFf6vzXjK1cq6IYkU+Eg/JizXw+TD2vRNw==}
@@ -5337,6 +5343,8 @@ snapshots:
   '@eslint/js@9.2.0': {}
 
   '@fontsource-variable/josefin-sans@5.0.21': {}
+
+  '@fontsource/urbanist@5.0.20': {}
 
   '@humanwhocodes/config-array@0.13.0':
     dependencies:

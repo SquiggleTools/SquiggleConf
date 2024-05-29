@@ -8,30 +8,32 @@
 		--colorEmphasizedBackground: #085e7a;
 		--colorInverted: #edebe4;
 		--colorInvertedMild: #78c1d9;
-		--colorForeground: #203238;
+		--colorForeground: #1f3840;
+		--colorForegroundBody: #203238;
 		--colorOffWhite: #eaeaff;
 		--colorSubtle: #a5e2fc;
 		--colorHeroShadow: #002547;
 		--colorTextShadow: rgba(35, 49, 70, 0.75);
 
-		--fontFamilyBody: var(--fontFamilyHeading);
+		--fontFamilyBody: "Urbanist";
 		--fontFamilyHeading: "Josefin Sans Variable";
 
 		--fontSizeBody: 1.35rem;
 		--fontSizeBodyLarge: 1.5rem;
-		--fontSizeBodySmall: 1rem;
+		--fontSizeBodySmall: 1.1rem;
+		--fontSizeBodySmaller: 1rem;
 		--fontSizeHero: clamp(4rem, 15vw, 6rem);
 		--fontSizeH2: clamp(1.75rem, 5vw, 2rem);
 		--fontSizeH3: clamp(1.5rem, 3.5vw, 1.75rem);
-		--fontSizeH4: clamp(1.25rem, 2.75vw, 1.5rem);
+		--fontSizeH4: clamp(1.15rem, 2.5vw, 1.35rem);
 
 		--fontWeightLight: 300;
-		--fontWeightBody: 400;
+		--fontWeightBody: 300;
 		--fontWeightSemibold: 500;
 
 		--letterSpacingHeading: -0.04em;
 
-		--lineHeightBody: 1.2;
+		--lineHeightBody: 1.4;
 
 		--transitionFast: 117ms;
 		--transitionMedium: 280ms;
@@ -48,9 +50,12 @@
 		--colorBackdropDark: var(--colorSubtle);
 		--colorBackdropLight: var(--colorInverted);
 		--colorEmphasized: #0685af;
-		--colorForeground: rgb(168, 213, 228);
+		--colorForeground: rgb(203, 228, 235);
+		--colorForegroundBody: rgb(216, 230, 234);
 		--colorInverted: #10141b;
 		--colorSubtle: #062430;
+
+		--lineHeightBody: 1.5;
 	}
 
 	@media (prefers-reduced-motion: no-preference) {
