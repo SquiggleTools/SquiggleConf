@@ -12,7 +12,7 @@ const { class: className, ...rest } = Astro.props;
 		news.
 	</label>
 	<input id="email" type="email" placeholder="you.are@awesome.com" />
-	<button type="submit">Subscribe</button>
+	<button class="button" type="submit">Subscribe</button>
 </form>
 
 <style>
@@ -34,8 +34,19 @@ const { class: className, ...rest } = Astro.props;
 		grid-area: 1 / 1 / 2 / 2;
 	}
 
-	button {
+	.button {
+		cursor: pointer;
+		color: var(--colorOffWhite);
 		grid-area: 1 / 2 / 2 / 3;
+		transition:
+			var(--transitionFast) transform,
+			var(--transitionFast) box-shadow;
+	}
+
+	.button:focus,
+	.button:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 6px 14px var(--colorTextShadow);
 	}
 
 	input {
