@@ -37,6 +37,7 @@
 		"*": "prettier --ignore-unknown --write"
 	},
 	"dependencies": {
+		"@vercel/analytics": "^1.3.1",
 		"sharp": "^0.33.4"
 	},
 	"devDependencies": {
