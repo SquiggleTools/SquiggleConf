@@ -5,17 +5,9 @@
 		id="themeToggle"
 	>
 	</button>
-	<button
-		aria-label="Clear theme preference (enable JavaScript to use)"
-		class="theme-button"
-		id="themeClear"
-	>
-		✖
-	</button>
 </div>
 
 <script is:inline>
-	const clear = () => document.getElementById("themeClear");
 	const html = () => document.documentElement;
 	const toggle = () => document.getElementById("themeToggle");
 
@@ -42,23 +34,11 @@
 		const startingTheme =
 			typeof localStorage !== "undefined" && localStorage.getItem("theme");
 
-		if (startingTheme) {
-			clear().classList.add("clear-active");
-		}
-
 		const theme = startingTheme ?? getThemePreference();
 
 		updateElementsForTheme(theme);
 
-		clear().addEventListener("click", () => {
-			localStorage.removeItem("theme");
-			clear().classList.remove("clear-active");
-			updateElementsForTheme(getThemePreference());
-		});
-
 		toggle().addEventListener("click", () => {
-			clear().classList.add("clear-active");
-
 			const newTheme = html().classList.contains("dark") ? "light" : "dark";
 			updateElementsForTheme(newTheme);
 			localStorage.setItem("theme", newTheme);
@@ -119,25 +99,6 @@
 	html:not(.dark) #themeToggle::before {
 		transform: rotate(-90deg);
 		opacity: 0;
-	}
-
-	#themeClear {
-		color: var(--colorOffWhite);
-		position: absolute;
-		left: -1rem;
-		margin-top: 0;
-		opacity: 1;
-		transition:
-			var(--transitionMedium) color,
-			var(--transitionFast) margin-top,
-			var(--transitionFast) opacity;
-	}
-
-	#themeClear:not(.clear-active) {
-		opacity: 0;
-		margin-top: 0.5rem;
-		animation: 1s fadeOut;
-		animation-fill-mode: forwards;
 	}
 
 	@keyframes fadeOut {
