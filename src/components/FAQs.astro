@@ -136,7 +136,7 @@ Once you're in Boston, see <a href="https://www.neaq.org/visit/directions-and-pa
 								<span>{question}</span>
 								<Image alt="" src={dropdown} />
 							</summary>
-							{answer}
+							<div class="answer">{answer}</div>
 						</details>
 					))}
 				</div>
@@ -214,6 +214,12 @@ Once you're in Boston, see <a href="https://www.neaq.org/visit/directions-and-pa
 
 	html:not(.dark) summary img {
 		filter: hue-rotate(180deg);
+	}
+
+	@media (min-width: 819px) {
+		.answer {
+			padding-right: 2rem;
+		}
 	}
 </style>
 
