@@ -27,136 +27,137 @@ interface Props {
 				<Image alt="" class="squiggle" src={squiggleLogo} />
 			</span><span class="word"><span class="word-contents">Conf</span></span>
 		</span>
-		<p class="details">
-			<span class="together">October 3-4, 2024</span>
-			<span class="dot">·</span>
-			<span class="together">Boston New England Aquarium</span>
-		</p>
 	</Heading>
 
-	<style>
-		.hero-name {
-			align-items: center;
-			display: flex;
-			flex-direction: column;
-			gap: 1rem;
-			margin: auto;
-			text-align: center;
-		}
+	<p class="details">
+		<span class="together">October 3-4, 2024</span>
+		<span class="dot">·</span>
+		<span class="together">Boston New England Aquarium</span>
+	</p>
+</div>
 
-		.hero-name.hero-name-inverted {
-			--colorHeadingText: var(--colorOffWhite);
-			--colorShadow: rgba(0, 0, 0, 0.35);
-		}
+<style>
+	.hero-name {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		margin: auto;
+		text-align: center;
+	}
 
-		.hero-name.hero-name-inherited {
-			--colorHeadingText: inherit;
-			--colorShadow: rgba(240, 240, 255, 0.35);
-		}
+	.hero-name.hero-name-inverted {
+		--colorHeadingText: var(--colorOffWhite);
+		--colorShadow: rgba(0, 0, 0, 0.35);
+	}
 
-		html.dark .hero-name {
-			--colorShadow: transparent;
-		}
+	.hero-name.hero-name-inherited {
+		--colorHeadingText: inherit;
+		--colorShadow: rgba(240, 240, 255, 0.35);
+	}
 
-		.hero-heading {
-			box-sizing: border-box;
-			display: inline-flex;
-			color: var(--colorHeadingText);
-			flex-direction: column;
-			font-size: var(--fontSizeHero);
-			overflow: hidden;
-			padding: 0.75rem 0 0.25rem;
-			position: relative;
-		}
+	html.dark .hero-name {
+		--colorShadow: transparent;
+	}
 
-		.hero-name-center .hero-heading {
-			align-items: center;
-		}
+	.hero-heading {
+		box-sizing: border-box;
+		display: inline-flex;
+		color: var(--colorHeadingText);
+		flex-direction: column;
+		font-size: var(--fontSizeHero);
+		overflow: hidden;
+		padding: 0.75rem 0 0.5rem;
+		position: relative;
+	}
 
-		.word {
-			display: inline-block;
-			position: relative;
+	.hero-name-center .hero-heading {
+		align-items: center;
+	}
+
+	.word {
+		display: inline-block;
+		position: relative;
+	}
+
+	.word + .word {
+		margin-top: 1rem;
+	}
+
+	.squiggle {
+		position: absolute;
+		bottom: -0.5rem;
+		left: 0;
+		width: 100%;
+	}
+
+	.heading-text {
+		position: relative;
+		text-shadow: 0 3px 7px var(--colorShadow);
+		z-index: 1;
+	}
+
+	.details {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		margin-top: 1rem;
+		font-weight: 700;
+		font-size: var(--fontSizeH3);
+		font-family: var(--fontFamilyHeading);
+		letter-spacing: var(--letterSpacingHeading);
+		text-shadow: 0 3px 7px var(--colorShadow);
+	}
+
+	.hero-name-center .details {
+		text-align: center;
+	}
+
+	.hero-name-inverted .details {
+		color: #cae6ff;
+	}
+
+	.together {
+		display: inline-block;
+	}
+
+	.dot {
+		display: none;
+	}
+
+	.word-contents {
+		position: relative;
+		z-index: 1;
+	}
+
+	@media (min-width: 700px) {
+		.details {
+			margin-top: 2rem;
 		}
 
 		.word + .word {
-			margin-top: 1rem;
+			margin-top: 0;
 		}
+	}
 
-		.squiggle {
-			position: absolute;
-			bottom: -0.5rem;
-			left: 0;
-			width: 100%;
-		}
-
-		.heading-text {
-			position: relative;
-			text-shadow: 0 3px 7px var(--colorShadow);
-			z-index: 1;
-		}
-
+	@media (min-width: 1017px) {
 		.details {
-			display: flex;
-			flex-direction: column;
-			gap: 0.5rem;
-			margin-top: 1rem;
-			font-size: var(--fontSizeH3);
-			font-family: var(--fontFamilyHeading);
-			letter-spacing: var(--letterSpacingHeading);
-			text-shadow: 0 3px 7px var(--colorShadow);
+			flex-direction: row;
 		}
 
-		.hero-name-center .details {
-			text-align: center;
-		}
-
-		.hero-name-inverted .details {
-			color: #cae6ff;
-		}
-
-		.together {
-			display: inline-block;
-		}
-
-		.dot {
-			display: none;
+		.word + .word {
+			margin-top: 0;
 		}
 
 		.word-contents {
 			position: relative;
-			z-index: 1;
 		}
 
-		@media (min-width: 700px) {
-			.details {
-				margin-top: 3rem;
-			}
-
-			.word + .word {
-				margin-top: 0;
-			}
+		.hero-name-left {
+			text-align: left;
 		}
 
-		@media (min-width: 1017px) {
-			.details {
-				flex-direction: row;
-			}
-
-			.word + .word {
-				margin-top: 0;
-			}
-
-			.word-contents {
-				position: relative;
-			}
-
-			.hero-name-left {
-				text-align: left;
-			}
-
-			.dot {
-				display: initial;
-			}
+		.dot {
+			display: initial;
 		}
-	</style>
-</div>
+	}
+</style>
