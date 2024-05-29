@@ -15,7 +15,7 @@ const name = indexNames.get(Astro.props.index) ?? "To Be Announced";
 ---
 
 <li class="speaker">
-	<div class="speaker-image"></div>
+	<div class="bio-image"></div>
 	<div class="name">{name}</div>
 </li>
 
@@ -29,7 +29,7 @@ const name = indexNames.get(Astro.props.index) ?? "To Be Announced";
 		flex-grow: 2;
 	}
 
-	.speaker-image {
+	.bio-image {
 		background: var(--colorSubtle);
 		border-radius: 100%;
 		height: 6rem;

@@ -12,7 +12,7 @@
 		--colorForegroundBody: #203238;
 		--colorOffWhite: #eaeaff;
 		--colorSubtleLight: #a5e2fc;
-		--colorSubtle: var(--colorSubtle);
+		--colorSubtle: var(--colorSubtleLight);
 		--colorHeroShadow: #002547;
 		--colorTextShadow: rgba(35, 49, 70, 0.75);
 
