@@ -1,9 +1,7 @@
 ---
-import heMan from "~/assets/he-man.jpg";
-
 const description =
 	"A Boston conference focused on excellent software tooling.";
-const image = new URL(heMan.src, Astro.site);
+const image = new URL("favicon.png", Astro.site).toString();
 const title = "SquiggleConf | Supercharging web devs and their tools.";
 const keywords = [
 	"squiggleconf",
@@ -13,6 +11,8 @@ const keywords = [
 	"typescript",
 	"static analysis",
 ];
+
+console.log({ image });
 
 const metaPairs = [
 	{
