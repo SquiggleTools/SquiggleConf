@@ -1,10 +1,13 @@
+import { konamiEmojiBlast } from "@konami-emoji-blast/astro";
+
 import vercel from "@astrojs/vercel/serverless";
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
-	site: "https://2024.squiggleconf.com",
-	output: "server",
 	adapter: vercel({
 		webAnalytics: { enabled: true },
 	}),
+	integrations: [konamiEmojiBlast()],
+	output: "server",
+	site: "https://2024.squiggleconf.com",
 });
