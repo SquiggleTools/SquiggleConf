@@ -1,14 +1,16 @@
 ---
 import AboutUs from "~/components/AboutUs.astro";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import Calls from "~/components/Calls.astro";
 import FAQs from "~/components/FAQs.astro";
+import Header from "~/components/Header.astro";
+import Information from "~/components/Information.astro";
 import PrimaryHero from "~/components/PrimaryHero.astro";
 import Speakers from "~/components/Speakers.astro";
-import BaseLayout from "~/layouts/BaseLayout.astro";
-import Information from "~/components/Information.astro";
-import Calls from "~/components/Calls.astro";
 ---
 
 <BaseLayout>
+	<Header />
 	<PrimaryHero />
 	<div class="contents">
 		<Information />
