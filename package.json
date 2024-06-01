@@ -39,7 +39,6 @@
 	"dependencies": {
 		"@astrojs/vercel": "^7.6.0",
 		"@konami-emoji-blast/astro": "^0.0.1",
-		"@vercel/analytics": "^1.3.1",
 		"konami-emoji-blast": "^0.5.3",
 		"sharp": "^0.33.4"
 	},
