@@ -1,6 +1,5 @@
-import { konamiEmojiBlast } from "@konami-emoji-blast/astro";
-
 import vercel from "@astrojs/vercel/serverless";
+import { konamiEmojiBlast } from "@konami-emoji-blast/astro";
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
