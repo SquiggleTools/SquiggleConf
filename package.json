@@ -53,7 +53,7 @@
 		"@types/eslint-plugin-markdown": "2.0.2",
 		"accessible-astro-components": "2.3.6",
 		"astro": "4.8.2",
-		"cspell": "8.8.1",
+		"cspell": "8.8.3",
 		"eslint": "9.2.0",
 		"eslint-plugin-jsdoc": "48.2.4",
 		"eslint-plugin-jsonc": "2.15.1",
