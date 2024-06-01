@@ -25,7 +25,6 @@ import Hero from "~/components/Hero.astro";
 		font-family: var(--fontFamilyBody);
 		text-decoration: none;
 		font-size: var(--fontSizeH3);
-		text-align: left;
 		display: block;
 	}
 
@@ -35,5 +34,11 @@ import Hero from "~/components/Hero.astro";
 
 	.contents-body-text {
 		margin: 2rem auto;
+	}
+
+	@media (min-width: 819px) {
+		.back {
+			text-align: left;
+		}
 	}
 </style>
