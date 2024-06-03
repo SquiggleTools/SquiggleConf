@@ -84,6 +84,23 @@ See also [Sponsors](#sponsors) for options to get ticket discounts and promote y
 				)) as string,
 			],
 			[
+				"What does or doesn't a ticket include?",
+				(await markdown(
+					`
+Your ticket gets you:
+
+- Access to all attendee social events before, during, and after the conference
+- Complete access to the talks day (Thursday, October 3rd)
+- Light beverages and snacks through the conference day
+
+Note that talk tickets do not include:
+
+- Meals, including lunch at <a href="https://faneuilhallmarketplace.com" rel="noreferrer" target="_blank">Faneuil Hall Marketplace</a>
+- Paid workshop access: those tickets will be separate and are not yet available
+					`,
+				)) as string,
+			],
+			[
 				"What is your refund policy?",
 				(await markdown(
 					"Full refunds. If you can't make it, please let us know - we can work with you. <br /> Do not come to SquiggleConf if you have any COVID symptoms.",
