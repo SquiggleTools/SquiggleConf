@@ -52,7 +52,7 @@
 		"@release-it/conventional-changelog": "8.0.1",
 		"@types/eslint-plugin-markdown": "2.0.2",
 		"accessible-astro-components": "2.3.6",
-		"astro": "4.10.1",
+		"astro": "4.10.2",
 		"cspell": "8.8.4",
 		"eslint": "9.4.0",
 		"eslint-plugin-jsdoc": "48.2.9",
