@@ -55,7 +55,7 @@
 		"astro": "4.11.1",
 		"cspell": "8.9.1",
 		"eslint": "9.5.0",
-		"eslint-plugin-jsdoc": "48.4.0",
+		"eslint-plugin-jsdoc": "48.5.0",
 		"eslint-plugin-jsonc": "2.16.0",
 		"eslint-plugin-markdown": "5.0.0",
 		"eslint-plugin-n": "17.9.0",
