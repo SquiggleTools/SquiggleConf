@@ -76,7 +76,7 @@
 		"release-it": "17.4.1",
 		"sentences-per-line": "0.2.1",
 		"typescript": "5.5.3",
-		"typescript-eslint": "7.14.1"
+		"typescript-eslint": "7.15.0"
 	},
 	"engines": {
 		"node": ">=18"
