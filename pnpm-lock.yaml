@@ -10,10 +10,10 @@ importers:
     dependencies:
       '@astrojs/vercel':
         specifier: ^7.6.0
-        version: 7.7.2(astro@4.11.4(@types/node@20.12.11)(typescript@5.5.3))
+        version: 7.7.2(astro@4.11.5(@types/node@20.12.11)(typescript@5.5.3))
       '@konami-emoji-blast/astro':
         specifier: ^0.0.1
-        version: 0.0.1(astro@4.11.4(@types/node@20.12.11)(typescript@5.5.3))(konami-emoji-blast@0.5.3)
+        version: 0.0.1(astro@4.11.5(@types/node@20.12.11)(typescript@5.5.3))(konami-emoji-blast@0.5.3)
       konami-emoji-blast:
         specifier: ^0.5.3
         version: 0.5.3
@@ -49,8 +49,8 @@ importers:
         specifier: 2.3.6
         version: 2.3.6
       astro:
-        specifier: 4.11.4
-        version: 4.11.4(@types/node@20.12.11)(typescript@5.5.3)
+        specifier: 4.11.5
+        version: 4.11.5(@types/node@20.12.11)(typescript@5.5.3)
       cspell:
         specifier: 8.10.0
         version: 8.10.0
@@ -1365,8 +1365,8 @@ packages:
     resolution: {integrity: sha512-x1FCFnFifvYDDzTaLII71vG5uvDwgtmDTEVWAxrgeiR8VjMONcCXJx7E+USjDtHlwFmt9MysbqgF9b9Vjr6w+w==}
     engines: {node: '>=4'}
 
-  astro@4.11.4:
-    resolution: {integrity: sha512-jSCnPD+r4MO5Pxl04XfCydzZiL/p70q1ddYind02JDGQDLlps4d2s/AfT/7be12gf1PpR13ACcvO6aJFUIVQXA==}
+  astro@4.11.5:
+    resolution: {integrity: sha512-TCRhuaLwrxwMhS8S1GG+ZTdrAXigX9C8E/YUTs/r2t+owHxDgwl86IV9xH1IHrCPoqhK6civyAQNOT+GKmkb0A==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -4548,13 +4548,13 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/vercel@7.7.2(astro@4.11.4(@types/node@20.12.11)(typescript@5.5.3))':
+  '@astrojs/vercel@7.7.2(astro@4.11.5(@types/node@20.12.11)(typescript@5.5.3))':
     dependencies:
       '@astrojs/internal-helpers': 0.4.1
       '@vercel/analytics': 1.3.1
       '@vercel/edge': 1.1.1
       '@vercel/nft': 0.27.2
-      astro: 4.11.4(@types/node@20.12.11)(typescript@5.5.3)
+      astro: 4.11.5(@types/node@20.12.11)(typescript@5.5.3)
       esbuild: 0.21.5
       fast-glob: 3.3.2
       set-cookie-parser: 2.6.0
@@ -5198,9 +5198,9 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.4.15
 
-  '@konami-emoji-blast/astro@0.0.1(astro@4.11.4(@types/node@20.12.11)(typescript@5.5.3))(konami-emoji-blast@0.5.3)':
+  '@konami-emoji-blast/astro@0.0.1(astro@4.11.5(@types/node@20.12.11)(typescript@5.5.3))(konami-emoji-blast@0.5.3)':
     dependencies:
-      astro: 4.11.4(@types/node@20.12.11)(typescript@5.5.3)
+      astro: 4.11.5(@types/node@20.12.11)(typescript@5.5.3)
       konami-emoji-blast: 0.5.3
 
   '@mapbox/node-pre-gyp@1.0.11':
@@ -5757,7 +5757,7 @@ snapshots:
     dependencies:
       tslib: 2.6.2
 
-  astro@4.11.4(@types/node@20.12.11)(typescript@5.5.3):
+  astro@4.11.5(@types/node@20.12.11)(typescript@5.5.3):
     dependencies:
       '@astrojs/compiler': 2.8.1
       '@astrojs/internal-helpers': 0.4.1
