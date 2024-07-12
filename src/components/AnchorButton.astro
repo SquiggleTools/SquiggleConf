@@ -9,7 +9,7 @@ interface Props {
 const { class: className, ...rest } = Astro.props;
 ---
 
-<a class:list={["anchor-button", Astro.props.class]} target="blank" {...rest}>
+<a class:list={["anchor-button", Astro.props.class]} target="_blank" {...rest}>
 	<slot />
 </a>
 
