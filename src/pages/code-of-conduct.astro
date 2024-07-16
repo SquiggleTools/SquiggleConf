@@ -1,14 +1,18 @@
 ---
 import BodyText from "~/components/BodyText.astro";
 import FullSection from "~/components/FullSection.astro";
+import Header from "~/components/Header.astro";
 import HeroForPage from "~/components/HeroForPage.astro";
+import PrimaryContents from "~/components/PrimaryContents.astro";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 ---
 
 <BaseLayout>
+	<Header />
+
 	<HeroForPage>Code of Conduct</HeroForPage>
 
-	<FullSection class="page-contents">
+	<PrimaryContents>
 		<BodyText class="contents-body-text" size="large">
 			SquiggleConf is dedicated to providing a respectful, harassment-free
 			community for everyone. We do not tolerate harassment or bullying of any
@@ -63,16 +67,12 @@ import BaseLayout from "~/layouts/BaseLayout.astro";
 			The content of this Code of Conduct is licensed under a Creative Commons
 			Attribution-ShareAlike 4.0 International license.
 		</BodyText>
-	</FullSection>
+	</PrimaryContents>
+
+	<style>
+		.contents-body-text {
+			margin: 2rem auto;
+			word-break: break-word;
+		}
+	</style>
 </BaseLayout>
-
-<style>
-	.page-contents {
-		margin: 3.5rem var(--widthBodyPadding) 5rem;
-	}
-
-	.contents-body-text {
-		margin: 2rem auto;
-		word-break: break-word;
-	}
-</style>

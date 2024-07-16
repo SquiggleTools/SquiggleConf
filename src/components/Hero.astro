@@ -3,13 +3,9 @@ import SquiggleLong from "~/assets/squiggle-long.svg";
 
 import SquiggleWave from "./SquiggleWave.astro";
 import ThemeToggle from "./ThemeToggle.astro";
-
-interface Props {
-	shifted?: boolean;
-}
 ---
 
-<div class:list={["hero", Astro.props.shifted && "hero-shifted"]} id="home">
+<div class="hero" id="home">
 	<ThemeToggle />
 	<div class="squiggles">
 		<SquiggleWave left={-5} scale={0.5} top={5} />
@@ -93,7 +89,7 @@ interface Props {
 	}
 
 	@media (min-width: 700px) {
-		.hero-shifted .contents {
+		.contents {
 			padding-top: clamp(7rem, 10vw, 9rem);
 		}
 	}

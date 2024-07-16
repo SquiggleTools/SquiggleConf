@@ -1,0 +1,36 @@
+---
+import HeroForPage from "~/components/HeroForPage.astro";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import FAQs from "~/components/FAQs.astro";
+import BodyText from "~/components/BodyText.astro";
+import PrimaryContents from "~/components/PrimaryContents.astro";
+import Header from "~/components/Header.astro";
+---
+
+<BaseLayout>
+	<Header />
+
+	<HeroForPage>Frequently Asked Questions</HeroForPage>
+
+	<PrimaryContents class="primary-faq-contents">
+		<BodyText class="byline" size="medium">
+			Got any questions not covered here? Reach out to us, we’d be happy to
+			talk!
+			<br />
+			<a href="mailto:questions@squiggleconf.com">questions@squiggleconf.com</a>
+		</BodyText>
+
+		<FAQs />
+	</PrimaryContents>
+</BaseLayout>
+
+<style>
+	.contents-body-text {
+		margin: 2rem auto;
+		word-break: break-word;
+	}
+
+	.primary-faq-contents {
+		gap: 4rem;
+	}
+</style>
