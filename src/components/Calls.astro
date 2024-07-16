@@ -7,55 +7,36 @@ import AnchorButton from "./AnchorButton.astro";
 import BodyText from "./BodyText.astro";
 ---
 
-<div class="calls">
-	<FullSection>
-		<SquiggleFlanked class="squiggle-flanked" width="lean">
-			<Heading class="heading" id="sponsorships" level="h2" link>
-				Sponsorships
-			</Heading>
-		</SquiggleFlanked>
+<FullSection>
+	<SquiggleFlanked class="squiggle-flanked" width="lean">
+		<Heading class="heading" id="sponsorships" level="h2" link>
+			Sponsorships
+		</Heading>
+	</SquiggleFlanked>
 
-		<BodyText size="large" width="lean">
-			Get your branding in front of enthusiastic web developers and key players
-			in great web tooling.
-		</BodyText>
-		<AnchorButton
-			class="action-button"
-			href="https://docs.google.com/document/d/1zyWidlU_kx9TDZQx4pez4tQX-kWRyXS18ukhoC9dLko"
+	<BodyText size="large" width="lean">
+		Get your branding in front of enthusiastic web developers and key players in
+		great web tooling.
+	</BodyText>
+	<AnchorButton
+		class="action-button"
+		href="https://docs.google.com/document/d/1zyWidlU_kx9TDZQx4pez4tQX-kWRyXS18ukhoC9dLko"
+		target="_blank"
+		rel="noreferrer"
+	>
+		Sponsorship Prospectus
+	</AnchorButton>
+	<BodyText size="large">
+		Contact us at <a
+			href="mailto:sponsorships@squiggleconf.com"
 			target="_blank"
-			rel="noreferrer"
 		>
-			Sponsorship Prospectus
-		</AnchorButton>
-		<BodyText size="large">
-			Contact us at <a
-				href="mailto:sponsorships@squiggleconf.com"
-				target="_blank"
-			>
-				sponsorships@squiggleconf.com</a
-			>.
-		</BodyText>
-	</FullSection>
-</div>
+			sponsorships@squiggleconf.com</a
+		>.
+	</BodyText>
+</FullSection>
 
 <style>
-	.calls {
-		display: flex;
-		gap: 7rem;
-		flex-direction: column;
-	}
-
-	@media (min-width: 1017px) {
-		.calls {
-			justify-content: center;
-			flex-direction: row;
-		}
-
-		.split {
-			width: 40%;
-		}
-	}
-
 	.squiggle-flanked {
 		margin-bottom: 3rem;
 	}

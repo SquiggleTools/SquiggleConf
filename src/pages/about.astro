@@ -1,0 +1,147 @@
+---
+import joshGoldberg from "~/assets/josh-goldberg.png";
+import dimitriMitropoulos from "~/assets/dimitri-mitropoulos.jpg";
+import bostonTSClub from "~/assets/boston-ts-club.svg";
+import michiganTypeScript from "~/assets/michigan-typescript.png";
+import AnchorButton from "~/components/AnchorButton.astro";
+import Bio, { Props as BioProps } from "~/components/Bio.astro";
+import BodyText from "~/components/BodyText.astro";
+import Heading from "~/components/Heading.astro";
+import HeroForPage from "~/components/HeroForPage.astro";
+import PrimaryContents from "~/components/PrimaryContents.astro";
+import SquiggleFlanked from "~/components/SquiggleFlanked.astro";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+
+const bios: Omit<BioProps, "size">[] = [
+	{
+		links: {
+			bluesky: "bostonts.club",
+			linkedin: "https://www.linkedin.com/groups/13008308",
+			mastodon: "https://mastodon.social/@BostonTS",
+			twitter: "BosTypeScript",
+			website: "https://bostonts.club",
+		},
+		name: "Boston TS Club",
+		photo: bostonTSClub,
+	},
+	{
+		links: {
+			github: "dimitropoulos",
+			linkedin: "https://linkedin.com/in/dimitrimitropoulos",
+		},
+		name: "Dimitri Mitropoulos",
+		photo: dimitriMitropoulos,
+	},
+	{
+		links: {
+			bluesky: "joshuakgoldberg.com",
+			github: "JoshuaKGoldberg",
+			mastodon: "fosstodon.org/@JoshuaKGoldberg",
+			twitter: "JoshuaKGoldberg",
+			website: "https://joshuakgoldberg.com",
+		},
+		name: "Josh Goldberg",
+		photo: joshGoldberg,
+	},
+	{
+		links: {
+			bluesky: "michigantypescript.com",
+			mastodon: "https://fosstodon.org/@MichiganTypeScript",
+			twitter: "MiTypeScript",
+			youtube: "MichiganTypeScript",
+		},
+		name: "Michigan TypeScript",
+		photo: michiganTypeScript,
+	},
+] as const;
+---
+
+<BaseLayout>
+	<HeroForPage>About Us</HeroForPage>
+
+	<PrimaryContents>
+		<BodyText as="p" size="large" width="full">
+			Our goal with SquiggleConf is to create an enriching conference
+			environment to talk about the latest and greatest in web developer
+			tooling. We aim to include everyone from newcomers to the space and web
+			platform team members to authors & maintainers of open source tools.
+		</BodyText>
+
+		<br />
+
+		<SquiggleFlanked class="squiggle-flanked" width="lean">
+			<Heading class="heading" id="about-us" level="h2" link>Volunteer</Heading>
+		</SquiggleFlanked>
+
+		<BodyText as="p" size="large" width="full">
+			Volunteering gives you an opportunity to get right in the thick of the
+			conference, including access to speakers, sponsors, and other organizers &
+			volunteers. Additionally, we'll cover your ticket to the conference and a
+			workshop the next day, and you'll get a nice swag bag from us at the end.
+			If you can't afford a ticket, this can be a great way to experience
+			SquiggleConf!
+		</BodyText>
+
+		<AnchorButton
+			class="action-button"
+			href="https://docs.google.com/forms/d/1Mlge2UI8pCvCdYIferfEn0KQSnq28fE3tEPHur1iqa0/edit"
+			target="_blank"
+			rel="noreferrer"
+		>
+			Volunteer at SquiggleConf
+		</AnchorButton>
+
+		<SquiggleFlanked class="squiggle-flanked" width="lean">
+			<Heading class="heading" id="about-us" level="h2" link>
+				Squiggle.Tools
+			</Heading>
+		</SquiggleFlanked>
+
+		<BodyText as="p" size="large" width="full">
+			SquiggleConf is a production of Squiggle.Tools, a nonprofit organization
+			(501(c)3 pending) offering ongoing learning opportunities that enable
+			participants to engage, learn, and advance their careers—regardless of
+			their background or resources.
+		</BodyText>
+
+		<ul class="bios">
+			{bios.map((bio) => <Bio class="about-us-bio" {...bio} size="medium" />)}
+		</ul>
+	</PrimaryContents>
+</BaseLayout>
+
+<style>
+	.squiggle-flanked {
+		margin: 3rem;
+	}
+
+	.action-button {
+		display: inline-block;
+		margin: 2rem;
+	}
+
+	.heading {
+		font-size: var(--fontSizeH2);
+	}
+
+	.bios {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 3rem;
+		margin: 3rem 0 1.5rem;
+		max-width: var(--widthBodyFull);
+		width: 100%;
+		padding: 0 var(--widthBodyPadding);
+	}
+
+	.about-us-bio {
+		min-width: 40%;
+	}
+
+	@media (min-width: 819px) {
+		.about-us-bio {
+			min-width: unset;
+		}
+	}
+</style>
