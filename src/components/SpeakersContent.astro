@@ -7,8 +7,9 @@ import rizelScarlett from "~/assets/rizel-scarlett.png";
 import titianCernicovaDragomir from "~/assets/titian-cernicova-dragomir.jpg";
 import FullSection from "./FullSection.astro";
 import Speaker, { Props as BioProps } from "./Bio.astro";
-import SpeakerPlaceholder from "./BioPlaceholder.astro";
 import BodyText from "./BodyText.astro";
+import SpeakersList from "./SpeakersList.astro";
+import SpeakersArea from "./SpeakersArea.astro";
 
 const speakers: Omit<BioProps, "size">[] = [
 	{
@@ -54,24 +55,15 @@ const speakers: Omit<BioProps, "size">[] = [
 		the squiggles you depend on every day.
 	</BodyText>
 
-	<div class="speakers-area">
-		<ul class="speakers">
+	<br />
+
+	<SpeakersArea>
+		<SpeakersList>
 			{speakers.map((speaker) => <Speaker {...speaker} size="large" />)}
-		</ul>
+		</SpeakersList>
 
-		<ul class="speakers">
-			{
-				new Array(10)
-					.fill(null)
-					.map((_, index) => <SpeakerPlaceholder index={index} />)
-			}
-		</ul>
-	</div>
-
-	<BodyText size="large" width="lean">
-		You’ll emerge with the best techniques to supercharge your projects —
-		whether you’re already a tooling wizard or trying to become one.
-	</BodyText>
+		<slot />
+	</SpeakersArea>
 </FullSection>
 
 <style>
@@ -81,25 +73,5 @@ const speakers: Omit<BioProps, "size">[] = [
 
 	.heading {
 		font-size: var(--fontSizeH2);
-	}
-
-	.speakers-area {
-		margin: 3.5rem auto;
-		max-width: 50rem;
-		padding: 0 var(--widthBodyPadding);
-	}
-
-	.speakers {
-		display: flex;
-		flex-wrap: wrap;
-		font-family: var(--fontFamilyBody);
-		gap: 2rem;
-		justify-content: center;
-		justify-content: space-evenly;
-		margin: 1rem auto;
-	}
-
-	.speakers + .speakers {
-		margin-top: 2rem;
 	}
 </style>

@@ -3,8 +3,9 @@ import "@fontsource-variable/josefin-sans";
 import "@fontsource/urbanist";
 import { SkipLinks } from "accessible-astro-components";
 
-import Head from "~/components/Head.astro";
 import Footer from "~/components/Footer.astro";
+import Head from "~/components/Head.astro";
+import Header from "~/components/Header.astro";
 
 import "./base.css";
 import "./normalize.css";
@@ -15,6 +16,7 @@ import "./normalize.css";
 	<body class="body">
 		<SkipLinks />
 		<main>
+			<Header />
 			<slot />
 		</main>
 		<Footer />
