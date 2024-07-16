@@ -46,9 +46,17 @@ const speakers: Omit<BioProps, "size">[] = [
 ---
 
 <FullSection>
-	<SquiggleFlanked class="squiggle-flanked" width="lean">
-		<Heading class="heading" id="speakers" level="h2" link>Speakers</Heading>
-	</SquiggleFlanked>
+	{
+		Astro.props.heading && (
+			<>
+				<SquiggleFlanked class="squiggle-flanked" width="lean">
+					<Heading class="heading" id="speakers" level="h2" link>
+						Speakers
+					</Heading>
+				</SquiggleFlanked>
+			</>
+		)
+	}
 
 	<BodyText size="large" width="lean">
 		Meet the developers around the Go, TypeScript, Rust, and Zig tools that make

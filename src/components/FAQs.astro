@@ -38,33 +38,6 @@ At the very least, SquiggleConf will include:
 		],
 	],
 	[
-		"Speaking",
-		[
-			[
-				"Do I need to be a known tooling author to talk?",
-				'Absolutely not! We\'d like to hear from a broad range of folks, not just "insiders".',
-			],
-			[
-				"Do I need to be an experienced speaker to talk?",
-				"Absolutely not! We love new speakers, especially first-timers.",
-			],
-			[
-				"What kinds of talks are you looking for?",
-				// https://github.com/astro-community/md/issues/9
-				(await markdown(`All sorts! Anything interesting and related to web dev tooling. Examples include:
-
-- Best practices for software architecture and/or common web stacks
-- Discussions on trends in web dev tooling
-- Deep dives into how interesting tools work
-- Overviews of important concepts, libraries, and/or frameworks
-- The personal side of dev tooling
-
-You can read more in the [CFP](#call-for-speakers).
-`)) as string,
-			],
-		],
-	],
-	[
 		"Tickets",
 		[
 			[
@@ -73,14 +46,14 @@ You can read more in the [CFP](#call-for-speakers).
 					`
 We will later this summer. Subscribe to the newsletter to be the first to know!
 
-See also [Sponsors](#sponsors) for options to get ticket discounts and promote your development brand.
+See also [Sponsorships](/#sponsorships) for options to get ticket discounts and promote your development brand.
 					`,
 				)) as string,
 			],
 			[
 				"If I can't afford a full ticket, is there a way for me to come?",
 				(await markdown(
-					'We\'ll have a plethora of discounts and scholarships for diversity, local bootcamp and university students, and loyal attendees of <a href="https://bostonts.club" target="_blank">Boston TS Club</a>. We\'ll also have space for [volunteers](#about-us).',
+					'We\'ll have a plethora of discounts and scholarships for diversity, local bootcamp and university students, and loyal attendees of <a href="https://bostonts.club" target="_blank">Boston TS Club</a>. We\'ll also have space for [volunteers](/about#volunteering).',
 				)) as string,
 			],
 			[
@@ -105,36 +78,6 @@ Note that talk tickets do not include:
 				"What is your refund policy?",
 				(await markdown(
 					"Full refunds. If you can't make it, please let us know - we can work with you. <br /> Do not come to SquiggleConf if you have any COVID symptoms.",
-				)) as string,
-			],
-		],
-	],
-	[
-		"Travel",
-		[
-			[
-				"How do I get there? (airport, parking, and train information)",
-				(await markdown(
-					`<a href="https://massport.com/logan-airport" target="_blank" rel="noreferrer">Boston Logan International Airport (BOS)</a> is your best bet to get into Boston from out-of-town.
-					
-Once you're in Boston, see <a href="https://www.neaq.org/visit/directions-and-parking" target="_blank" rel="noreferrer">neaq.org/visit/directions-and-parking</a> for directions to the New England Aquarium. The Simons Theater is in the same address.`,
-				)) as string,
-			],
-			[
-				"Is there a hotel recommendation?",
-				(await markdown(
-					`Yes! We recommend the <a href="https://www.harborsideinnboston.com/" target="_blank">Harborside Inn</a> down the street from the venue. Call or email them to see if there are discounted rooms still available in our block -- and let us know if not.`,
-				)) as string,
-			],
-		],
-	],
-	[
-		"Other",
-		[
-			[
-				"How do I ask questions not covered here?",
-				(await markdown(
-					'Reach out to us, we\'d be happy to talk! <a href="mailto:questions@squiggleconf.com" target="_blank">questions@squiggleconf.com</a>',
 				)) as string,
 			],
 		],

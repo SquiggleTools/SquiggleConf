@@ -1,0 +1,85 @@
+---
+import BodyText from "~/components/BodyText.astro";
+import Heading from "~/components/Heading.astro";
+import HeroForPage from "~/components/HeroForPage.astro";
+import PrimaryContents from "~/components/PrimaryContents.astro";
+import SquiggleFlanked from "~/components/SquiggleFlanked.astro";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+	<HeroForPage>Travel</HeroForPage>
+
+	<PrimaryContents>
+		<SquiggleFlanked class="squiggle-flanked" width="lean">
+			<Heading class="heading" id="accomodations" level="h2" link>
+				Accomodations
+			</Heading>
+		</SquiggleFlanked>
+
+		<BodyText as="p" size="large" width="full">
+			We recommend the
+			<a href="https://www.harborsideinnboston.com" target="_blank">
+				Harborside Inn
+			</a>
+			down the street from the venue. Call or email them to see if there are discounted
+			rooms still available under group code
+			<strong>SQUOCT24</strong> — and let us know if not.
+		</BodyText>
+
+		<br />
+		<br />
+
+		<iframe
+			allowfullscreen=""
+			height="450"
+			loading="lazy"
+			referrerpolicy="no-referrer-when-downgrade"
+			src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2948.2158780259606!2d-71.05545732319314!3d42.35923837119303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e370864b81aa3b%3A0x29c5617b4f529e85!2sHarborside%20Inn!5e0!3m2!1sen!2sus!4v1721144122397!5m2!1sen!2sus"
+			style="border:0;"
+			width="600"></iframe>
+
+		<br />
+
+		<SquiggleFlanked class="squiggle-flanked" width="lean">
+			<Heading class="heading" id="flights" level="h2" link>Flights</Heading>
+		</SquiggleFlanked>
+
+		<BodyText as="p" size="large" width="full">
+			<a
+				href="https://massport.com/logan-airport"
+				target="_blank"
+				rel="noreferrer"
+			>
+				Boston Logan International Airport (BOS)</a
+			> is your best bet to get into Boston from out-of-town.
+		</BodyText>
+
+		<br />
+
+		<SquiggleFlanked class="squiggle-flanked" width="lean">
+			<Heading class="heading" id="local-directions" level="h2" link>
+				Local Directions
+			</Heading>
+		</SquiggleFlanked>
+
+		<BodyText as="p" size="large" width="full">
+			Once you're in Boston, see <a
+				href="https://www.neaq.org/visit/directions-and-parking"
+				target="_blank"
+				rel="noreferrer">neaq.org/visit/directions-and-parking</a
+			> for directions to the New England Aquarium. The Simons Theater is in the
+			same address.
+		</BodyText>
+	</PrimaryContents>
+</BaseLayout>
+
+<style>
+	.squiggle-flanked {
+		margin: 3rem;
+	}
+
+	.heading {
+		font-size: var(--fontSizeH2);
+	}
+</style>
