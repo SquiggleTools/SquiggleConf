@@ -21,12 +21,20 @@ const src = width === "full" ? squiggleFlankingFull : squiggleFlankingLean;
 	]}
 	{...rest}
 >
-	<Image alt="" class="squiggle" src={src} />
+	<Image alt="" class="squiggle noselect" src={src} />
 	<slot />
-	<Image alt="" class="squiggle squiggle-right" src={src} />
+	<Image alt="" class="squiggle squiggle-right noselect" src={src} />
 </div>
 
 <style>
+	.noselect {
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
 	.squiggle-flanked {
 		align-items: center;
 		display: flex;
