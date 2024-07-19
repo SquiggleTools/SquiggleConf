@@ -1,6 +1,6 @@
 <h1 align="center">SquiggleConf</h1>
 
-<p align="center">Website for a lovely conference that is definitely real and happening.</p>
+<p align="center">Website for SquiggleConf: a conference for excellent web dev tooling.</p>
 
 <p align="center">
 	<!-- prettier-ignore-start -->

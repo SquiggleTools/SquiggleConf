@@ -1,7 +1,7 @@
 {
 	"name": "squiggleconf",
 	"version": "0.0.0",
-	"description": "Website for a lovely conference that is definitely real and happening.",
+	"description": "Website for SquiggleConf: a conference for excellent web dev tooling.",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/JoshuaKGoldberg/SquiggleConf"
