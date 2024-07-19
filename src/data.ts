@@ -3,7 +3,16 @@ import discord from "./assets/discord.svg";
 import github from "./assets/github.svg";
 import linkedin from "./assets/linkedin.svg";
 import mastodon from "./assets/mastodon.svg";
+import openjsFoundationColor from "./assets/sponsors/openjs-foundation-color.svg";
 import twitter from "./assets/twitter.svg";
+
+export const sponsors = [
+	{
+		href: "https://openjsf.org?utm_source=squiggleconf",
+		logo: openjsFoundationColor,
+		title: "OpenJS Foundation",
+	},
+];
 
 export const socials = [
 	{

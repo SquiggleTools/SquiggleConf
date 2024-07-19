@@ -5,9 +5,29 @@ import SquiggleFlanked from "./SquiggleFlanked.astro";
 import FullSection from "./FullSection.astro";
 import AnchorButton from "./AnchorButton.astro";
 import BodyText from "./BodyText.astro";
+import { sponsors } from "~/data";
+import { Image } from "astro:assets";
 ---
 
 <FullSection>
+	<SquiggleFlanked class="squiggle-flanked" width="lean">
+		<Heading class="heading" id="sponsors" level="h2" link> Sponsors </Heading>
+	</SquiggleFlanked>
+	<BodyText size="large" width="lean">
+		The support of our generous sponsors help make SquiggleConf possible. They
+		have our sincere appreciation and thanks.
+	</BodyText>
+
+	<div class="sponsors">
+		{
+			sponsors.map((sponsor) => (
+				<a href={sponsor.href} rel="noreferrer" target="_blank">
+					<Image alt="" src={sponsor.logo} />
+				</a>
+			))
+		}
+	</div>
+
 	<SquiggleFlanked class="squiggle-flanked" width="lean">
 		<Heading class="heading" id="sponsorships" level="h2" link>
 			Sponsorships
@@ -41,12 +61,22 @@ import BodyText from "./BodyText.astro";
 		margin-bottom: 3rem;
 	}
 
+	.heading {
+		font-size: var(--fontSizeH2);
+	}
+
+	.sponsors {
+		display: flex;
+		max-width: 21rem;
+		margin: auto;
+	}
+
+	.sponsors img {
+		max-width: 100%;
+	}
+
 	.action-button {
 		display: inline-block;
 		margin: 2rem;
-	}
-
-	.heading {
-		font-size: var(--fontSizeH2);
 	}
 </style>
