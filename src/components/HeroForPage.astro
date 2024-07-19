@@ -1,17 +1,15 @@
 ---
 import Arrow from "~/components/Arrow.astro";
 import Heading from "~/components/Heading.astro";
-import Hero from "~/components/Hero.astro";
+import Hero from "./Hero.astro";
 ---
 
 <Hero>
-	<div>
-		<Heading class="hero-heading" level="h1"><slot /></Heading>
-		<a class="back" href="/">
-			<Arrow />
-			SquiggleConf
-		</a>
-	</div>
+	<Heading class="hero-heading" level="h1"><slot /></Heading>
+	<a class="back" href="/">
+		<Arrow />
+		SquiggleConf
+	</a>
 </Hero>
 
 <style>

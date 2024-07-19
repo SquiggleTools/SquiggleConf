@@ -1,12 +1,12 @@
 ---
 import HeroForPage from "~/components/HeroForPage.astro";
-import BaseLayout from "~/layouts/BaseLayout.astro";
+import ContentLayout from "~/layouts/ContentLayout.astro";
 import FAQs from "~/components/FAQs.astro";
 import BodyText from "~/components/BodyText.astro";
 import PrimaryContents from "~/components/PrimaryContents.astro";
 ---
 
-<BaseLayout>
+<ContentLayout>
 	<HeroForPage>Frequently Asked Questions</HeroForPage>
 
 	<PrimaryContents class="primary-faq-contents">
@@ -18,7 +18,7 @@ import PrimaryContents from "~/components/PrimaryContents.astro";
 
 		<FAQs />
 	</PrimaryContents>
-</BaseLayout>
+</ContentLayout>
 
 <style>
 	.primary-faq-contents {

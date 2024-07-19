@@ -10,7 +10,7 @@ import Heading from "~/components/Heading.astro";
 import HeroForPage from "~/components/HeroForPage.astro";
 import PrimaryContents from "~/components/PrimaryContents.astro";
 import SquiggleFlanked from "~/components/SquiggleFlanked.astro";
-import BaseLayout from "~/layouts/BaseLayout.astro";
+import ContentLayout from "~/layouts/ContentLayout.astro";
 
 const bios: Omit<BioProps, "size">[] = [
 	{
@@ -56,7 +56,7 @@ const bios: Omit<BioProps, "size">[] = [
 ] as const;
 ---
 
-<BaseLayout>
+<ContentLayout>
 	<HeroForPage>About Us</HeroForPage>
 
 	<PrimaryContents>
@@ -110,7 +110,7 @@ const bios: Omit<BioProps, "size">[] = [
 			{bios.map((bio) => <Bio class="about-us-bio" {...bio} size="medium" />)}
 		</ul>
 	</PrimaryContents>
-</BaseLayout>
+</ContentLayout>
 
 <style>
 	.squiggle-flanked {

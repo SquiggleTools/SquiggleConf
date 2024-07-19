@@ -1,0 +1,30 @@
+---
+import "@fontsource-variable/josefin-sans";
+import "@fontsource/urbanist";
+import { SkipLinks } from "accessible-astro-components";
+
+import Footer from "~/components/Footer.astro";
+import Header from "~/components/Header.astro";
+
+import BaseLayout from "./BaseLayout.astro";
+---
+
+<BaseLayout>
+	<SkipLinks />
+	<main>
+		<Header />
+		<slot />
+	</main>
+	<Footer />
+	<style>
+		body {
+			background: linear-gradient(
+				180deg,
+				var(--colorBackdropLight) 20%,
+				var(--colorBackdropDark) 100%
+			);
+
+			color: var(--colorForeground);
+		}
+	</style>
+</BaseLayout>

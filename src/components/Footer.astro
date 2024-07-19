@@ -1,13 +1,8 @@
 ---
-import { Image } from "astro:assets";
-
 import HeroName from "~/components/HeroName.astro";
-import bluesky from "~/assets/bluesky.svg";
-import discord from "~/assets/discord.svg";
-import github from "~/assets/github.svg";
-import linkedin from "~/assets/linkedin.svg";
-import mastodon from "~/assets/mastodon.svg";
-import twitter from "~/assets/twitter.svg";
+import { locations } from "~/data";
+
+import LocationLink from "./LocationLink.astro";
 ---
 
 <footer>
@@ -20,30 +15,7 @@ import twitter from "~/assets/twitter.svg";
 				<a href="/code-of-conduct">Code of Conduct</a>
 			</div>
 			<div class="logos">
-				<a href="https://bsky.app/profile/squiggleconf.com" target="_blank">
-					<Image alt="Bluesky" src={bluesky} />
-				</a>
-				<a
-					href="https://www.github.com/SquiggleTools/SquiggleConf"
-					target="_blank"
-				>
-					<Image alt="GitHub" src={github} />
-				</a>
-				<a
-					href="https://www.linkedin.com/company/squiggleconf/about"
-					target="_blank"
-				>
-					<Image alt="LinkedIn" src={linkedin} />
-				</a>
-				<a href="https://fosstodon.org/@SquiggleConf" target="_blank">
-					<Image alt="Mastodon" src={mastodon} />
-				</a>
-				<a href="https://twitter.com/SquiggleConf" target="_blank">
-					<Image alt="Twitter" src={twitter} />
-				</a>
-				<a href="https://discord.squiggleconf.com" target="_blank">
-					<Image alt="Discord" src={discord} />
-				</a>
+				{locations.map((location) => <LocationLink {...location} />)}
 			</div>
 		</div>
 	</div>

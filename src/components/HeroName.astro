@@ -7,8 +7,12 @@ import Heading from "./Heading.astro";
 interface Props {
 	align: "center" | "left";
 	color: "inherit" | "inverted";
+	class?: string;
 	level: "h1" | "h2";
+	size?: "normal" | "small";
 }
+
+const { class: className, ...rest } = Astro.props;
 ---
 
 <div
@@ -18,7 +22,10 @@ interface Props {
 		Astro.props.color === "inverted"
 			? "hero-name-inverted"
 			: "hero-name-inherited",
+		Astro.props.size === "small" ? "hero-name-small" : "hero-name-normal",
+		className,
 	]}
+	{...rest}
 >
 	<Heading class="hero-heading" level={Astro.props.level}>
 		<span class="heading-text">
@@ -41,7 +48,6 @@ interface Props {
 		align-items: center;
 		display: flex;
 		flex-direction: column;
-		margin: auto;
 		text-align: center;
 	}
 
@@ -59,12 +65,24 @@ interface Props {
 		--colorShadow: transparent;
 	}
 
+	.hero-name.hero-name-normal {
+		--fontSizeHeroHeading: var(--fontSizeHero);
+		--fontSizeDetails: var(--fontSizeH3);
+		--marginDetails: 2rem;
+	}
+
+	.hero-name.hero-name-small {
+		--fontSizeHeroHeading: var(--fontSizeHeroSmall);
+		--fontSizeDetails: var(--fontSizeH4);
+		--marginDetails: 0.75rem;
+	}
+
 	.hero-heading {
 		box-sizing: border-box;
 		display: inline-flex;
 		color: var(--colorHeadingText);
 		flex-direction: column;
-		font-size: var(--fontSizeHero);
+		font-size: var(--fontSizeHeroHeading);
 		overflow: hidden;
 		padding: 0.75rem 0 0.5rem;
 		position: relative;
@@ -102,7 +120,7 @@ interface Props {
 		gap: 0.5rem;
 		margin-top: 1rem;
 		font-weight: 700;
-		font-size: var(--fontSizeH3);
+		font-size: var(--fontSizeDetails);
 		font-family: var(--fontFamilyHeading);
 		letter-spacing: var(--letterSpacingHeading);
 		text-shadow: 0 3px 7px var(--colorShadow);
@@ -131,7 +149,7 @@ interface Props {
 
 	@media (min-width: 700px) {
 		.details {
-			margin-top: 2rem;
+			margin-top: var(--marginDetails);
 		}
 
 		.word + .word {

@@ -4,10 +4,10 @@ import Heading from "~/components/Heading.astro";
 import HeroForPage from "~/components/HeroForPage.astro";
 import PrimaryContents from "~/components/PrimaryContents.astro";
 import SquiggleFlanked from "~/components/SquiggleFlanked.astro";
-import BaseLayout from "~/layouts/BaseLayout.astro";
+import ContentLayout from "~/layouts/ContentLayout.astro";
 ---
 
-<BaseLayout>
+<ContentLayout>
 	<HeroForPage>Travel</HeroForPage>
 
 	<PrimaryContents>
@@ -72,7 +72,7 @@ import BaseLayout from "~/layouts/BaseLayout.astro";
 			same address.
 		</BodyText>
 	</PrimaryContents>
-</BaseLayout>
+</ContentLayout>
 
 <style>
 	.squiggle-flanked {

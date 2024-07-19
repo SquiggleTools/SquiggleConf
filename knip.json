@@ -1,6 +1,6 @@
 {
 	"$schema": "https://unpkg.com/knip@latest/schema.json",
-	"entry": ["src/pages/index.astro!", "src/layouts/BaseLayout.astro!"],
+	"entry": ["src/pages/index.astro!", "src/layouts/ContentLayout.astro!"],
 	"ignoreDependencies": ["sharp"],
 	"ignoreExportsUsedInFile": { "interface": true, "type": true },
 	"project": ["src/**/*.ts!"]

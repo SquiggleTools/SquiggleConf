@@ -25,6 +25,7 @@
 		--fontSizeBodySmall: 1rem;
 		--fontSizeBodySmaller: 1rem;
 		--fontSizeHero: clamp(4rem, 15vw, 6rem);
+		--fontSizeHeroSmall: clamp(2.5rem, 12vw, 4rem);
 		--fontSizeH2: clamp(1.75rem, 5vw, 2rem);
 		--fontSizeH3: clamp(1.5rem, 3.5vw, 1.75rem);
 		--fontSizeH4: clamp(1.15rem, 2.5vw, 1.35rem);

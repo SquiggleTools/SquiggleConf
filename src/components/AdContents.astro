@@ -1,0 +1,58 @@
+---
+import { Image } from "astro:assets";
+
+import HeroName from "./HeroName.astro";
+import { ImageMetadata } from "astro";
+
+interface Props {
+	logo: ImageMetadata;
+	title: string;
+}
+---
+
+<div class="ad-contents">
+	<div class="ad-top">
+		<h1>Thank you to our sponsor</h1>
+		<strong>OpenJS Foundation</strong>
+	</div>
+
+	<Image alt="" class="ad-logo" src={Astro.props.logo} />
+
+	<div class="ad-bottom">
+		<HeroName align="center" color="inverted" level="h2" size="small" />
+	</div>
+</div>
+
+<style>
+	.ad-contents {
+		align-items: center;
+		color: var(--colorOffWhite);
+		display: flex;
+		flex-direction: column;
+		font-family: var(--fontFamilyHeading);
+		padding: 3rem;
+		height: 100%;
+		justify-content: space-between;
+		position: relative;
+		width: 100%;
+	}
+
+	.ad-bottom,
+	.ad-top {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	h1 {
+		font-size: 2rem;
+	}
+
+	strong {
+		font-size: 3.5rem;
+	}
+
+	.ad-logo {
+		height: 10rem;
+	}
+</style>

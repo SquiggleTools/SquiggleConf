@@ -1,15 +1,14 @@
 ---
 import BodyText from "~/components/BodyText.astro";
 import Calls from "~/components/Calls.astro";
-import Heading from "~/components/Heading.astro";
 import Information from "~/components/Information.astro";
 import PrimaryContents from "~/components/PrimaryContents.astro";
 import PrimaryHero from "~/components/PrimaryHero.astro";
 import SpeakersContent from "~/components/SpeakersContent.astro";
-import BaseLayout from "~/layouts/BaseLayout.astro";
+import ContentLayout from "~/layouts/ContentLayout.astro";
 ---
 
-<BaseLayout>
+<ContentLayout>
 	<PrimaryHero />
 	<PrimaryContents>
 		<div class="contents">
@@ -28,7 +27,7 @@ import BaseLayout from "~/layouts/BaseLayout.astro";
 			<Calls />
 		</div>
 	</PrimaryContents>
-</BaseLayout>
+</ContentLayout>
 
 <style>
 	.contents {

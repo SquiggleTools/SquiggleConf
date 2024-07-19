@@ -1,11 +1,8 @@
 ---
 import "@fontsource-variable/josefin-sans";
 import "@fontsource/urbanist";
-import { SkipLinks } from "accessible-astro-components";
 
-import Footer from "~/components/Footer.astro";
 import Head from "~/components/Head.astro";
-import Header from "~/components/Header.astro";
 
 import "./base.css";
 import "./normalize.css";
@@ -13,23 +10,7 @@ import "./normalize.css";
 
 <html lang="en">
 	<Head />
-	<body class="body">
-		<SkipLinks />
-		<main>
-			<Header />
-			<slot />
-		</main>
-		<Footer />
-		<style>
-			body {
-				background: linear-gradient(
-					180deg,
-					var(--colorBackdropLight) 20%,
-					var(--colorBackdropDark) 100%
-				);
-
-				color: var(--colorForeground);
-			}
-		</style>
+	<body>
+		<slot />
 	</body>
 </html>

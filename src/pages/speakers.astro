@@ -1,5 +1,5 @@
 ---
-import BaseLayout from "~/layouts/BaseLayout.astro";
+import ContentLayout from "~/layouts/ContentLayout.astro";
 import BodyText from "~/components/BodyText.astro";
 import HeroForPage from "~/components/HeroForPage.astro";
 import PrimaryContents from "~/components/PrimaryContents.astro";
@@ -8,7 +8,7 @@ import BioPlaceholder from "~/components/BioPlaceholder.astro";
 import SpeakersList from "~/components/SpeakersList.astro";
 ---
 
-<BaseLayout>
+<ContentLayout>
 	<HeroForPage>Speakers</HeroForPage>
 
 	<PrimaryContents>
@@ -27,7 +27,7 @@ import SpeakersList from "~/components/SpeakersList.astro";
 			</SpeakersList>
 		</SpeakersContent>
 	</PrimaryContents>
-</BaseLayout>
+</ContentLayout>
 
 <style>
 	.below-placeholders {
