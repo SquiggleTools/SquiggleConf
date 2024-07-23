@@ -3,5 +3,5 @@
 	"entry": ["src/pages/index.astro!", "src/layouts/ContentLayout.astro!"],
 	"ignoreDependencies": ["sharp"],
 	"ignoreExportsUsedInFile": { "interface": true, "type": true },
-	"project": ["src/**/*.ts!"]
+	"project": ["src/**/*.astro!", "src/**/*.ts!"]
 }
