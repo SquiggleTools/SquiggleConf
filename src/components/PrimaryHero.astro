@@ -1,4 +1,6 @@
 ---
+import { forms } from "~/data";
+
 import AnchorButton from "./AnchorButton.astro";
 import Hero from "./Hero.astro";
 import HeroName from "./HeroName.astro";
@@ -13,15 +15,38 @@ import HeroName from "./HeroName.astro";
 	>
 		$450 Tickets Available Now
 	</AnchorButton>
+
+	<div class="sub-mentions">
+		<a
+			class="sub-mention"
+			href={forms.scholarship}
+			target="_blank"
+			rel="noreferrer"
+		>
+			Apply for DEI Scholarship ↗
+		</a>
+		<a
+			class="sub-mention"
+			href={forms.volunteer}
+			target="_blank"
+			rel="noreferrer"
+		>
+			Apply to Volunteer ↗
+		</a>
+	</div>
 </Hero>
 
 <style>
-	.aside {
+	.sub-mentions {
+		align-items: center;
+		display: flex;
+		gap: 2rem;
+	}
+
+	.sub-mention {
 		color: #cae6ff;
-		font-size: var(--fontSizeBodySmall);
+		font-size: var(--fontSizeBody);
 		font-family: var(--fontFamilyHeading);
-		font-weight: 200;
-		padding: 0;
-		margin-top: -1rem;
+		text-underline-offset: 0.2em;
 	}
 </style>

@@ -11,6 +11,7 @@ import HeroForPage from "~/components/HeroForPage.astro";
 import PrimaryContents from "~/components/PrimaryContents.astro";
 import SquiggleFlanked from "~/components/SquiggleFlanked.astro";
 import ContentLayout from "~/layouts/ContentLayout.astro";
+import { forms } from "~/data";
 
 const bios: Omit<BioProps, "size">[] = [
 	{
@@ -70,6 +71,29 @@ const bios: Omit<BioProps, "size">[] = [
 		<br />
 
 		<SquiggleFlanked class="squiggle-flanked" width="lean">
+			<Heading class="heading" id="dei-scholarship" level="h2" link>
+				DEI Scholarship
+			</Heading>
+		</SquiggleFlanked>
+
+		<BodyText as="p" size="large" width="full">
+			We believe that a thriving tech industry needs to be diverse, equitable,
+			and inclusive. That includes the individuals and teams contributing to web
+			dev tooling. We’d like to sponsor historically underrepresented
+			individuals to attend SquiggleConf as our way of helping move towards that
+			vision.
+		</BodyText>
+
+		<AnchorButton
+			class="action-button"
+			href={forms.scholarship}
+			target="_blank"
+			rel="noreferrer"
+		>
+			Apply for the DEI Scholarship
+		</AnchorButton>
+
+		<SquiggleFlanked class="squiggle-flanked" width="lean">
 			<Heading class="heading" id="volunteering" level="h2" link>
 				Volunteering
 			</Heading>
@@ -86,7 +110,7 @@ const bios: Omit<BioProps, "size">[] = [
 
 		<AnchorButton
 			class="action-button"
-			href="https://docs.google.com/forms/d/1Mlge2UI8pCvCdYIferfEn0KQSnq28fE3tEPHur1iqa0/edit"
+			href={forms.volunteer}
 			target="_blank"
 			rel="noreferrer"
 		>
