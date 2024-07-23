@@ -1,8 +1,15 @@
 {
 	"dictionaries": ["typescript"],
-	"ignorePaths": [".github", "CHANGELOG.md", "node_modules", "pnpm-lock.yaml"],
+	"ignorePaths": [
+		".github",
+		"CHANGELOG.md",
+		"node_modules",
+		"pnpm-lock.yaml",
+		"*.svg"
+	],
 	"words": [
 		"Afficianado",
+		"allowfullscreen",
 		"astro",
 		"astrojs",
 		"astropub",
@@ -28,6 +35,8 @@
 		"knip",
 		"konami",
 		"konamimojisplosion",
+		"referrerpolicy",
+		"SQUOCT",
 		"michigantypescript",
 		"mitropoulos",
 		"neaq",
