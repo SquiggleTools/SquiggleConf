@@ -6,6 +6,11 @@ import mastodon from "./assets/mastodon.svg";
 import openjsFoundationColor from "./assets/sponsors/openjs-foundation-color.svg";
 import twitter from "./assets/twitter.svg";
 
+export const forms = {
+	scholarship: "https://forms.gle/pnoAmVgijk3p4j5C7",
+	volunteer: "https://forms.gle/YfRvmSPBMpGe3T2g9",
+};
+
 export const sponsors = [
 	{
 		href: "https://openjsf.org?utm_source=squiggleconf",
