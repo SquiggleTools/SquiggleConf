@@ -19,7 +19,7 @@ export const sponsors = [
 	},
 ];
 
-export const socials = [
+const socials = [
 	{
 		alt: "Bluesky",
 		href: "https://bsky.app/profile/squiggleconf.com",
