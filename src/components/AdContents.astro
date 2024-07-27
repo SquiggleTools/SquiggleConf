@@ -13,7 +13,7 @@ interface Props {
 <div class="ad-contents">
 	<div class="ad-top">
 		<h1>Thank you to our sponsor</h1>
-		<strong>OpenJS Foundation</strong>
+		<strong>{Astro.props.title}</strong>
 	</div>
 
 	<Image alt="" class="ad-logo" src={Astro.props.logo} />
@@ -53,7 +53,9 @@ interface Props {
 	}
 
 	.ad-logo {
+		height: 100%;
 		max-height: 10rem;
 		max-width: 70vw;
+		width: 100%;
 	}
 </style>
