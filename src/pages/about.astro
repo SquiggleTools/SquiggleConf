@@ -11,7 +11,7 @@ import HeroForPage from "~/components/HeroForPage.astro";
 import PrimaryContents from "~/components/PrimaryContents.astro";
 import SquiggleFlanked from "~/components/SquiggleFlanked.astro";
 import ContentLayout from "~/layouts/ContentLayout.astro";
-import { forms } from "~/data";
+import { links } from "~/data";
 
 const bios: Omit<BioProps, "size">[] = [
 	{
@@ -86,7 +86,7 @@ const bios: Omit<BioProps, "size">[] = [
 
 		<AnchorButton
 			class="action-button"
-			href={forms.scholarship}
+			href={links.scholarship}
 			target="_blank"
 			rel="noreferrer"
 		>
@@ -110,7 +110,7 @@ const bios: Omit<BioProps, "size">[] = [
 
 		<AnchorButton
 			class="action-button"
-			href={forms.volunteer}
+			href={links.volunteer}
 			target="_blank"
 			rel="noreferrer"
 		>

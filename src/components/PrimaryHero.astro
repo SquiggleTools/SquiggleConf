@@ -1,37 +1,45 @@
 ---
-import { forms } from "~/data";
+import { links } from "~/data";
 
 import AnchorButton from "./AnchorButton.astro";
 import Hero from "./Hero.astro";
 import HeroName from "./HeroName.astro";
+import NoBreak from "./NoBreak.astro";
 ---
 
 <Hero>
 	<HeroName align="center" color="inverted" level="h1" />
-	<AnchorButton
-		href="https://buytickets.at/squiggleconf/1249793/r/website"
-		target="_blank"
-		rel="noreferrer"
-	>
+	<AnchorButton href={links.tickets} target="_blank" rel="noreferrer">
 		$450 Tickets Available Now
 	</AnchorButton>
 
 	<div class="sub-mentions">
 		<a
 			class="sub-mention"
-			href={forms.scholarship}
+			href={links.scholarship}
 			target="_blank"
 			rel="noreferrer"
 		>
-			Apply for DEI Scholarship ↗
+			<NoBreak>Apply for</NoBreak>
+			<NoBreak>DEI Scholarship ↗</NoBreak>
 		</a>
 		<a
 			class="sub-mention"
-			href={forms.volunteer}
+			href={links.volunteer}
 			target="_blank"
 			rel="noreferrer"
 		>
-			Apply to Volunteer ↗
+			<NoBreak>Apply to</NoBreak>
+			<NoBreak>Volunteer ↗</NoBreak>
+		</a>
+		<a
+			class="sub-mention"
+			href={links.tickets}
+			target="_blank"
+			rel="noreferrer"
+		>
+			<NoBreak>Bulk Tickets</NoBreak>
+			<NoBreak>Now Available ↗</NoBreak>
 		</a>
 	</div>
 </Hero>
@@ -40,7 +48,7 @@ import HeroName from "./HeroName.astro";
 	.sub-mentions {
 		align-items: center;
 		display: flex;
-		gap: 2rem;
+		gap: clamp(1rem, 5vw, 2rem);
 	}
 
 	.sub-mention {

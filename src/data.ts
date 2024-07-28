@@ -6,8 +6,9 @@ import mastodon from "./assets/mastodon.svg";
 import openjsFoundationColor from "./assets/sponsors/openjs-foundation-color.svg";
 import twitter from "./assets/twitter.svg";
 
-export const forms = {
+export const links = {
 	scholarship: "https://forms.gle/pnoAmVgijk3p4j5C7",
+	tickets: "https://buytickets.at/squiggleconf/1249793/r/website",
 	volunteer: "https://forms.gle/YfRvmSPBMpGe3T2g9",
 };
 
