@@ -3,6 +3,7 @@ import discord from "./assets/discord.svg";
 import github from "./assets/github.svg";
 import linkedin from "./assets/linkedin.svg";
 import mastodon from "./assets/mastodon.svg";
+import inngestBlack from "./assets/sponsors/inngest-black.svg";
 import openjsFoundationColor from "./assets/sponsors/openjs-foundation-color.svg";
 import twitter from "./assets/twitter.svg";
 
@@ -13,6 +14,11 @@ export const links = {
 };
 
 export const sponsors = [
+	{
+		href: "https://inngest.com?utm_source=squiggleconf",
+		logo: inngestBlack,
+		title: "Inngest",
+	},
 	{
 		href: "https://openjsf.org?utm_source=squiggleconf",
 		logo: openjsFoundationColor,
