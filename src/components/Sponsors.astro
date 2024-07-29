@@ -22,7 +22,7 @@ import { Image } from "astro:assets";
 		{
 			sponsors.map((sponsor) => (
 				<a href={sponsor.href} rel="noreferrer" target="_blank">
-					<Image alt="" src={sponsor.logo} />
+					<Image alt="" src={sponsor.logo} height={128} />
 				</a>
 			))
 		}
@@ -66,15 +66,12 @@ import { Image } from "astro:assets";
 	}
 
 	.sponsors {
-		display: flex;
 		align-items: center;
+		display: flex;
+		flex-direction: column;
+		padding: 2rem 2rem 4rem;
 		justify-content: center;
-		gap: 4rem;
 		margin: auto;
-	}
-
-	.sponsors a {
-		padding: 0 1rem;
 	}
 
 	.sponsors img {
@@ -84,5 +81,16 @@ import { Image } from "astro:assets";
 	.action-button {
 		display: inline-block;
 		margin: 2rem;
+	}
+
+	@media (min-width: 819px) {
+		.sponsors {
+			flex-direction: row;
+			gap: 4rem;
+		}
+
+		.sponsors a {
+			padding: 1.5rem 3.5rem;
+		}
 	}
 </style>
