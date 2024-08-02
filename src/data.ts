@@ -3,6 +3,7 @@ import discord from "./assets/discord.svg";
 import github from "./assets/github.svg";
 import linkedin from "./assets/linkedin.svg";
 import mastodon from "./assets/mastodon.svg";
+import thisWeekInReact from "./assets/partners/this-week-in-react.png";
 import inngestBlack from "./assets/sponsors/inngest-black.svg";
 import openjsFoundationColor from "./assets/sponsors/openjs-foundation-color.svg";
 import twitter from "./assets/twitter.svg";
@@ -12,6 +13,14 @@ export const links = {
 	tickets: "https://buytickets.at/squiggleconf/1249793/r/website",
 	volunteer: "https://forms.gle/YfRvmSPBMpGe3T2g9",
 };
+
+export const partners = [
+	{
+		href: "https://thisweekinreact.com?utm_source=squiggleconf",
+		logo: thisWeekInReact,
+		title: "This Week In React",
+	},
+];
 
 export const sponsors = [
 	{
