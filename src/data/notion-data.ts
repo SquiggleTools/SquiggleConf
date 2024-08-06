@@ -56,7 +56,7 @@ export const peopleBySlug = {
 		},
 		name: "Chris Griffing",
 		qualification: "WASM Fanatic",
-		role: "[GitKraken](https://www.gitkraken.com), [GitLens](https://www.gitkraken.com/gitlens)\\)",
+		role: "[GitKraken](https://www.gitkraken.com)",
 		slug: "chris-griffing",
 	},
 	"corina-murg": {
