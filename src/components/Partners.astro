@@ -1,19 +1,16 @@
 ---
 import { Image } from "astro:assets";
 
-import { partners } from "~/data";
+import { partners } from "~/data/index.js";
 
-import Heading from "./Heading.astro";
-import SquiggleFlanked from "./SquiggleFlanked.astro";
 import FullSection from "./FullSection.astro";
-import AnchorButton from "./AnchorButton.astro";
 import BodyText from "./BodyText.astro";
+import HeadingFlanked from "./HeadingFlanked.astro";
 ---
 
 <FullSection>
-	<SquiggleFlanked class="squiggle-flanked" width="lean">
-		<Heading class="heading" id="partners" level="h2" link>Partners</Heading>
-	</SquiggleFlanked>
+	<HeadingFlanked id="partners">Partners</HeadingFlanked>
+
 	<BodyText size="large" width="lean">
 		Our partners are lovely friends in the industry who also work to push the
 		state of web dev tooling forward.
@@ -23,7 +20,18 @@ import BodyText from "./BodyText.astro";
 		{
 			partners.map((partner) => (
 				<a href={partner.href} rel="noreferrer" target="_blank">
-					<Image alt="" src={partner.logo} height={128} />
+					<Image
+						alt=""
+						class="partner-logo-dark"
+						src={partner.logos.dark}
+						height={128}
+					/>
+					<Image
+						alt=""
+						class="partner-logo-light"
+						src={partner.logos.light}
+						height={128}
+					/>
 				</a>
 			))
 		}
@@ -31,25 +39,18 @@ import BodyText from "./BodyText.astro";
 </FullSection>
 
 <style>
-	.squiggle-flanked {
-		margin-bottom: 3rem;
-	}
-
-	.heading {
-		font-size: var(--fontSizeH2);
-	}
-
 	.partners {
 		align-items: center;
 		display: flex;
 		flex-direction: column;
-		padding: 2rem 2rem 4rem;
+		padding: 2rem;
 		justify-content: center;
 		margin: auto;
 	}
 
-	.partners img {
-		/* max-width: 14rem; */
+	html.dark .partner-logo-light,
+	html:not(.dark) .partner-logo-dark {
+		display: none;
 	}
 
 	@media (min-width: 819px) {

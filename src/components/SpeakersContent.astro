@@ -1,85 +1,61 @@
 ---
-import Heading from "./Heading.astro";
-import SquiggleFlanked from "./SquiggleFlanked.astro";
+import { talks } from "~/data";
 
-import danVanderkam from "~/assets/dan-vanderkam.jpg";
-import rizelScarlett from "~/assets/rizel-scarlett.png";
-import titianCernicovaDragomir from "~/assets/titian-cernicova-dragomir.jpg";
-import FullSection from "./FullSection.astro";
-import Speaker, { Props as BioProps } from "./Bio.astro";
 import BodyText from "./BodyText.astro";
-import SpeakersList from "./SpeakersList.astro";
-import SpeakersArea from "./SpeakersArea.astro";
-
-const speakers: Omit<BioProps, "size">[] = [
-	{
-		name: "Dan Vanderkam",
-		photo: danVanderkam,
-		position: "Author, Effective TypeScript",
-		links: {
-			github: "danvk",
-			twitter: "danvdk",
-			website: "https://www.danvk.org",
-		},
-	},
-	{
-		name: "Rizèl Scarlett",
-		photo: rizelScarlett,
-		position: "Staff Developer Advocate, TBD",
-		links: {
-			github: "blackgirlbytes",
-			linkedin: "https://linkedin.com/in/rizel-bobb-semple",
-			twitter: "blackgirlbytes",
-		},
-	},
-	{
-		name: "Titian Cernicova-Dragomir",
-		photo: titianCernicovaDragomir,
-		position: "Software Engineer, Bloomberg",
-		links: {
-			github: "dragomirtitian",
-			linkedin: "https://linkedin.com/in/titian-cernicova-dragomir-2b37457a",
-			twitter: "titiancernicova",
-		},
-	},
-] as const;
+import CardsList from "./CardsList.astro";
+import FullSection from "./FullSection.astro";
+import HeadingFlanked from "./HeadingFlanked.astro";
+import Speaker from "./SpeakerSmall.astro";
+import SubtleCard from "./SubtleCard.astro";
+import TagLine from "./TagLine.astro";
 ---
 
 <FullSection>
-	{
-		Astro.props.heading && (
-			<>
-				<SquiggleFlanked class="squiggle-flanked" width="lean">
-					<Heading class="heading" id="speakers" level="h2" link>
-						Speakers
-					</Heading>
-				</SquiggleFlanked>
-			</>
-		)
-	}
-
-	<BodyText size="large" width="lean">
-		Meet the developers around the Go, TypeScript, Rust, and Zig tools that make
-		the squiggles you depend on every day.
+	<TagLine />
+	<br />
+	<BodyText as="p" class="speakers-body-text" size="large" width="lean">
+		See full details on <a href="/sessions">Sessions</a> and <a href="/speakers"
+			>Speakers</a
+		>.
 	</BodyText>
 
-	<br />
+	<CardsList class="speakers-list">
+		{
+			talks.flatMap((talk) =>
+				talk.people.map((person) => (
+					<SubtleCard class="speaker-card">
+						<Speaker href={`/talks#${talk.slug}`} person={person} />
+					</SubtleCard>
+				)),
+			)
+		}
+	</CardsList>
 
-	<SpeakersArea>
-		<SpeakersList>
-			{speakers.map((speaker) => <Speaker {...speaker} size="large" />)}
-		</SpeakersList>
-
-		<slot />
-	</SpeakersArea>
+	<BodyText as="p" class="speakers-body-text" size="large" width="lean">
+		You’ll emerge with the best techniques to supercharge your projects —
+		whether you’re already a tooling wizard or trying to become one.
+		<br />
+		<br />
+		See full details on <a href="/sessions">Sessions</a> and <a href="/speakers"
+			>Speakers</a
+		>.
+	</BodyText>
 </FullSection>
 
 <style>
-	.squiggle-flanked {
-		margin-bottom: 3rem;
+	.speakers-body-text {
+		margin: auto;
 	}
 
-	.heading {
-		font-size: var(--fontSizeH2);
+	@media (min-width: 700px) {
+		.speaker-card {
+			width: 47%;
+		}
+	}
+
+	@media (min-width: 1017px) {
+		.speaker-card {
+			width: 31%;
+		}
 	}
 </style>

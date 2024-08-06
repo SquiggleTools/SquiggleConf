@@ -1,36 +1,75 @@
 ---
-import ContentLayout from "~/layouts/ContentLayout.astro";
-import BodyText from "~/components/BodyText.astro";
 import HeroForPage from "~/components/HeroForPage.astro";
 import PrimaryContents from "~/components/PrimaryContents.astro";
-import SpeakersContent from "~/components/SpeakersContent.astro";
-import BioPlaceholder from "~/components/BioPlaceholder.astro";
-import SpeakersList from "~/components/SpeakersList.astro";
+import ContentLayout from "~/layouts/ContentLayout.astro";
+import { peopleBySlug, talksBySlug } from "~/data/notion-data";
+import Speaker from "~/components/Speaker.astro";
+import BodyText from "~/components/BodyText.astro";
+
+const speakersToExclude = new Set([
+	// Sylwia might not be able to make it 😢
+	"sylwia-vargas",
+]);
 ---
 
 <ContentLayout>
 	<HeroForPage>Speakers</HeroForPage>
 
 	<PrimaryContents>
-		<SpeakersContent>
-			<SpeakersList>
-				{
-					new Array(10)
-						.fill(null)
-						.map((_, index) => <BioPlaceholder index={index} />)
-				}
+		<BodyText class="speakers-top" size="large" width="full">
+			Our speakers will all be in-person for SquiggleConf 2024.
+			<br />
+			See talk and workshop details on <a href="/sessions">Sessions</a>.
+		</BodyText>
 
-				<BodyText class="below-placeholders" size="large" width="lean">
-					Look forward to seeing speakers announced here, on social media, and
-					to our newsletter over the next few weeks.
-				</BodyText>
-			</SpeakersList>
-		</SpeakersContent>
+		<ul class="speakers-list">
+			{
+				Object.values(peopleBySlug)
+					.filter((person) => !speakersToExclude.has(person.slug))
+					.sort((a, b) =>
+						!!a.bio === !!b.bio ? a.name.localeCompare(b.name) : a.bio ? -1 : 1,
+					)
+					.map((person) => (
+						<Speaker
+							speaker={person}
+							talks={Object.values(talksBySlug).filter((talk) =>
+								talk.people.includes(person),
+							)}
+						/>
+					))
+			}
+		</ul>
+
+		<BodyText class="speakers-bottom" size="large" width="full">
+			Our speakers will all be in-person for SquiggleConf 2024.
+			<br />
+			See talk and workshop details on <a href="/sessions">Sessions</a>.
+		</BodyText>
 	</PrimaryContents>
-</ContentLayout>
+</ContentLayout>;
 
 <style>
-	.below-placeholders {
-		margin-top: 4rem;
+	.speakers-top {
+		margin-bottom: 2rem;
+	}
+
+	.speakers-list {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		flex-wrap: wrap;
+		list-style-type: none;
+		margin: 2rem;
+		padding: 0 var(--widthBodyPadding);
+	}
+
+	.speakers-bottom {
+		margin-top: 3.5rem;
+	}
+
+	@media (min-width: 1017px) {
+		.speakers-list {
+			width: var(--widthBodyLean);
+		}
 	}
 </style>

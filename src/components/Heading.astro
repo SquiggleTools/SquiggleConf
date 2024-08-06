@@ -3,16 +3,16 @@ interface Props {
 	class?: string;
 	id?: string;
 	level: "h1" | "h2" | "h3";
-	link?: boolean;
+	link?: boolean | string;
 }
 
-const { level: As, ...rest } = Astro.props;
+const { level: As, link, ...rest } = Astro.props;
 ---
 
 <As class:list={[Astro.props.class, "heading"]} {...rest}>
 	{
-		Astro.props.link ? (
-			<a href={`#${Astro.props.id}`}>
+		link ? (
+			<a href={link === true ? `#${Astro.props.id}` : link}>
 				<slot />
 			</a>
 		) : (

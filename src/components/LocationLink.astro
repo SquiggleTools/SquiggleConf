@@ -15,7 +15,7 @@ interface Props {
 	href={Astro.props.href}
 	target="_blank"
 >
-	<Image alt={Astro.props.alt} src={Astro.props.src} />
+	<Image alt={Astro.props.alt} class="social-image" src={Astro.props.src} />
 	<slot />
 </a>
 
@@ -29,8 +29,20 @@ interface Props {
 		text-decoration: none;
 	}
 
+	.social-image {
+		height: 2rem;
+		width: 2rem;
+	}
+
 	html.dark img,
 	.social-link-inverted img {
 		filter: brightness(0.5) invert() hue-rotate(180deg);
+	}
+
+	@media (min-width: 819px) {
+		.social-image {
+			height: 2.5rem;
+			width: 2.5rem;
+		}
 	}
 </style>

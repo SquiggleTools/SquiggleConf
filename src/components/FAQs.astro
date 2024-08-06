@@ -2,10 +2,11 @@
 import { markdown } from "@astropub/md";
 import { Image } from "astro:assets";
 
-import dropdown from "~/assets/dropdown.svg";
+import dropdown from "~/assets/glyphs/dropdown.svg";
 
 import Heading from "./Heading.astro";
-import SquiggleFlanked from "./SquiggleFlanked.astro";
+import HeadingFlanked from "./HeadingFlanked.astro";
+import { links } from "~/data";
 
 type FAQSection = [string, [string, string][]];
 
@@ -19,8 +20,8 @@ const faqs: FAQSection[] = [
 		[
 			[
 				"What events are you planning?",
-				(await markdown(`
-We will let you know soon! This is partially dependent on corporate sponsorships. Subscribe to the newsletter to be the first to know!
+				await markdown(`
+We will let you know soon! This is partially dependent on corporate sponsorships. Subscribe to the <a href="/#newsletter">newsletter</a> to be the first to know!
 
 <br />
 
@@ -29,20 +30,32 @@ At the very least, SquiggleConf will include:
 - Social events for all attendees around the conference
 - Breaks and breakout sessions during the conference
 - Spaces to ask speakers questions and network with other attendees
-				`)) as string,
+				`),
 			],
 			[
 				"What is the full schedule of events?",
-				"We will let you know soon! This is partially dependent on the CFP and corporate sponsorships. Subscribe to the newsletter to be the first to know!",
+				await markdown(
+					`We will let you know soon! This is partially dependent on the CFP and corporate sponsorships. Subscribe to the <a href="/#newsletter">newsletter</a> to be the first to know!`,
+				),
 			],
 		],
 	],
 	[
-		"Talks",
+		"Sessions",
 		[
+			[
+				"How can I ask speakers questions?",
+				await markdown(`Talks have time reserved for live Q&A. Additionally, each session has a channel in Discord where you can ask questions.
+				<br />
+				We'd also encourage you to find them in-person between sessions and start conversations. They're friendly people.`),
+			],
 			[
 				"Will talks be recorded?",
 				"Yes! Talks will be made available online for free after the conference.",
+			],
+			[
+				"Will workshops be recorded?",
+				"No, workshops are intended to be a live in-person experience.",
 			],
 		],
 	],
@@ -51,43 +64,40 @@ At the very least, SquiggleConf will include:
 		[
 			[
 				"Do you have bulk purchasing and/or group options?",
-				(await markdown(
-					`
-We will later this summer. Subscribe to the newsletter to be the first to know!
-
-See also [Sponsorships](/#sponsorships) for options to get ticket discounts and promote your development brand.
-					`,
-				)) as string,
+				await markdown(
+					`Yes! See the [tickets purchase link](${links.tickets}) for the options.`,
+				),
 			],
 			[
 				"If I can't afford a full ticket, is there a way for me to come?",
-				(await markdown(
-					'We\'ll have a plethora of discounts and scholarships for diversity, local bootcamp and university students, and loyal attendees of <a href="https://bostonts.club" target="_blank">Boston TS Club</a>. We\'ll also have space for [volunteers](/about#volunteering).',
-				)) as string,
+				await markdown(
+					`We have discounts for [bulk purchasing](${links.tickets}), a [DEI scholarship](/about#dei-scholarship}), and space for [volunteers](/about#volunteering). We also plan on reaching out to local bootcamp and university students, as well as loyal attendees of <a href="https://bostonts.club" target="_blank">Boston TS Club</a>.`,
+				),
 			],
 			[
 				"What does or doesn't a ticket include?",
-				(await markdown(
+				await markdown(
 					`
 Your ticket gets you:
 
 - Access to all attendee social events before, during, and after the conference
 - Complete access to the talks day (Thursday, October 3rd)
+- Access to the morning workshops (Friday, October 4th)
 - Light beverages and snacks through the conference day
-- One "swag bag" with branded apparel and toys
+- One "swag bag" with branded apparel and items
 
-Note that talk tickets do not include:
+Note that talk tickets _do not_ include:
 
 - Meals, including lunch at <a href="https://faneuilhallmarketplace.com" rel="noreferrer" target="_blank">Faneuil Hall Marketplace</a>
-- Paid workshop access: those tickets will be separate and are not yet available
+- Travel to or from the conference
 					`,
-				)) as string,
+				),
 			],
 			[
 				"What is your refund policy?",
-				(await markdown(
+				await markdown(
 					"Full refunds. If you can't make it, please let us know - we can work with you. <br /> Do not come to SquiggleConf if you have any COVID symptoms.",
-				)) as string,
+				),
 			],
 		],
 	],
@@ -95,9 +105,7 @@ Note that talk tickets do not include:
 ---
 
 <section class="faq-section">
-	<SquiggleFlanked class="squiggle-flanked" width="full">
-		<Heading class="h2" id="faqs" level="h2" link>FAQs</Heading>
-	</SquiggleFlanked>
+	<HeadingFlanked id="faqs">FAQs</HeadingFlanked>
 
 	<div class="faqs">
 		{
@@ -128,17 +136,9 @@ Note that talk tickets do not include:
 		width: 100%;
 	}
 
-	.squiggle-flanked {
-		margin-bottom: 3rem;
-	}
-
 	.action-button {
 		display: inline-block;
 		margin: 2rem;
-	}
-
-	.h2 {
-		font-size: var(--fontSizeH2);
 	}
 
 	.faqs {
