@@ -529,12 +529,12 @@ export const talksBySlug: Record<string, TalkInfo> = {
 	},
 	"talk-titian-cernicova-dragomir": {
 		description:
-			"More code, more problems. TypeScript is wonderful for adding type safety but if you’re not careful, can bog down your builds and code complexity as your project grows. Titian works at Bloomberg on the shared JavaScript & TypeScript infrastructure used by thousands of developers — and has seen it all.\n\nThis talk will cover many of the strategies and tips for being effective at scale with TypeScript and related tooling. We’ll cover both the architectural needs - type features to use or avoid, common build tools, the new TypeScript Isolated Declarations as contributed by Titian and team, as well as how to work with distributed teams in isolated or shared TypeScript projects.\n\nAttendees will leave with practical knowledge on scaling TypeScript projects from hundreds to thousands of files, ensuring type safety and efficiency.",
+			"We’re finalizing details on this talk with Titian and will post it soon. Get excited - it’s going to be a wonderful romp through TypeScript tooling and working with types at scale!",
 		people: [peopleBySlug["titian-cernicova-dragomir"]],
 		slug: "talk-titian-cernicova-dragomir",
 		tags: ["TypeScript", "Monorepo Tooling", "Debugging", "Build Optimization"],
 		talkFormat: "Full",
-		title: "TypeScript at Scale: Tools and Techniques",
+		title: "Details To Be Announced",
 	},
 	"talk-yagiz-nizipli": {
 		description:
