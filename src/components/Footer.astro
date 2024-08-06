@@ -1,11 +1,21 @@
 ---
-import { locations } from "~/data/index";
+import { links, locations } from "~/data/index.js";
 
 import HeroName from "./HeroName.astro";
 import LocationLink from "./LocationLink.astro";
+import AnchorButton from "./AnchorButton.astro";
 ---
 
 <footer>
+	<AnchorButton
+		class="footer-tickets"
+		href={links.tickets}
+		target="_blank"
+		rel="noreferrer"
+	>
+		$450 Tickets Available Now
+	</AnchorButton>
+
 	<div class="halves">
 		<div class="half logo">
 			<HeroName align="left" color="inherit" level="h2" />
@@ -22,7 +32,16 @@ import LocationLink from "./LocationLink.astro";
 
 	<style>
 		footer {
+			align-items: center;
+			display: flex;
+			gap: 2rem;
+			flex-direction: column;
 			margin-bottom: 2rem;
+			text-align: center;
+		}
+
+		.footer-tickets {
+			display: inline-block;
 		}
 
 		.texts {
@@ -71,6 +90,7 @@ import LocationLink from "./LocationLink.astro";
 				margin: 2rem auto clamp(0.5rem, 5vw, 4rem);
 				max-width: var(--widthBodyFull);
 				padding: 0 var(--widthBodyPadding);
+				width: 100%;
 			}
 
 			.texts {
