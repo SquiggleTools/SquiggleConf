@@ -55,8 +55,8 @@ export const peopleBySlug = {
 			youtube: "https://youtube.com/@cmgriffing",
 		},
 		name: "Chris Griffing",
-		qualification: "Extism Author",
-		role: "[Axosoft](https://www.axosoft.com/) \\([GitKraken](https://www.gitkraken.com/), [GitLens](https://www.gitkraken.com/gitlens)\\)",
+		qualification: "WASM Fanatic",
+		role: "[GitKraken](https://www.gitkraken.com), [GitLens](https://www.gitkraken.com/gitlens)\\)",
 		slug: "chris-griffing",
 	},
 	"corina-murg": {
