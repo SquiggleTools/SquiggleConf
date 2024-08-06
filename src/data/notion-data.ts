@@ -347,7 +347,7 @@ export const peopleBySlug = {
 		slug: "sylwia-vargas",
 	},
 	"titian-cernicova-dragomir": {
-		bio: "",
+		bio: "Hi, I’m Titian! I’m a software engineer on the JavaScript Infrastructure team at Bloomberg, where I work on JavaScript and TypeScript tooling for the company’s internal developers. I am passionate about TypeScript and, together with my colleagues, have contributed to TypeScript features such as Private Methods in classes and Isolated Declarations. I also enjoy answering questions about TypeScript, so you might have come across one of my Stack Overflow answers. Feel free to ask me any questions! In my free time, I love spending time with my lovely wife, two kids, and my fully gray cat.",
 		links: {
 			bluesky: null,
 			github: "https://github.com/dragomirtitian",
@@ -529,12 +529,12 @@ export const talksBySlug: Record<string, TalkInfo> = {
 	},
 	"talk-titian-cernicova-dragomir": {
 		description:
-			"We’re finalizing details on this talk with Titian and will post it soon. Get excited - it’s going to be a wonderful romp through TypeScript tooling and working with types at scale!",
+			"Isolated Declarations is a new feature in TypeScript 5.5 that is designed to help speed up build times in monorepos. In this talk, we'll discuss how Bloomberg, in collaboration with Google and Microsoft, helped develop this feature. You'll learn how Isolated Declarations can enable parallel builds for faster overall build times, and we'll also examine what this means for how you author your code.",
 		people: [peopleBySlug["titian-cernicova-dragomir"]],
 		slug: "talk-titian-cernicova-dragomir",
 		tags: ["TypeScript", "Monorepo Tooling", "Debugging", "Build Optimization"],
 		talkFormat: "Full",
-		title: "Details To Be Announced",
+		title: "The Road to Faster Builds: Developing Isolated Declarations",
 	},
 	"talk-yagiz-nizipli": {
 		description:
