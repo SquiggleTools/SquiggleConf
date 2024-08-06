@@ -36,7 +36,7 @@ export const peopleBySlug = {
 			youtube: null,
 		},
 		name: "Aakansha Doshi",
-		qualification: "[Excalidraw](https://excalidraw.com) Core Maintainer",
+		qualification: "[Excalidraw](https://excalidraw.com/) Core Maintainer",
 		role: "Open Source",
 		slug: "aakansha-doshi",
 	},
@@ -56,7 +56,7 @@ export const peopleBySlug = {
 		},
 		name: "Chris Griffing",
 		qualification: "WASM Fanatic",
-		role: "[GitKraken](https://www.gitkraken.com)",
+		role: "[GitKraken](https://www.gitkraken.com/)",
 		slug: "chris-griffing",
 	},
 	"corina-murg": {
@@ -94,7 +94,7 @@ export const peopleBySlug = {
 		},
 		name: "Dan Vanderkam",
 		qualification: "TypeScript Compiler Contributor",
-		role: "[Effective TypeScript](https://effectivetypescript.com/) Author",
+		role: "[_Effective TypeScript_](https://effectivetypescript.com/) Author",
 		slug: "dan-vanderkam",
 	},
 	"don-isaac": {
@@ -118,10 +118,10 @@ export const peopleBySlug = {
 		slug: "don-isaac",
 	},
 	"fatima-sarah-khalid": {
-		bio: "",
+		bio: "As a Developer Evangelist at GitLab, Fatima specializes in CI/CD, community building, and evangelizing AI-powered workflows. She is deeply passionate about open source and is committed to building more inclusive tech communities. Better known as \"sugaroverflow\" on the internet, she's known for storytelling, simplifying technical concepts, and keynotes on inclusion & ally-ship. In recognition of her contributions to technology and advocacy, she received the WCT Rising Star award in 2018. When she's not playing board games with friends, you'll find her reading science fiction by the ocean.",
 		links: {
-			bluesky: null,
-			github: null,
+			bluesky: "https://bsky.app/profile/sugaroverflow.bsky.social",
+			github: "https://github.com/sugaroverflow",
 			gitlab: "https://gitlab.com/sugaroverflow",
 			linkedin: "https://www.linkedin.com/in/sugaroverflow",
 			mastodon: "https://hachyderm.io/@sugaroverflow",
@@ -189,7 +189,7 @@ export const peopleBySlug = {
 			youtube: null,
 		},
 		name: "Laurynas Keturakis",
-		qualification: "[Autometics](https://autometrics.dev/) Maintainer",
+		qualification: "[fpx](https://github.com/fiberplane/fpx) Maintainer",
 		role: "Developer, [Fiberplane](https://fiberplane.com/)",
 		slug: "laurynas-keturakis",
 	},
@@ -233,7 +233,7 @@ export const peopleBySlug = {
 		slug: "max-kless",
 	},
 	"nick-nisi": {
-		bio: "Nick Nisi is a software engineer and veteran of open source web development from Nebraska. He's a panelist on JS Party, a lover of karaoke, a conference organizer extraordinaire, a lover of new experiences, a vim user, and a beacon of expertise, kindness and hope for his development team.",
+		bio: "I’ve been immersed in TypeScript for over a decade, bringing my experience and expertise to a variety of companies and contributing to significant projects like The Dojo Toolkit and Codesandbox. I’m a panelist on the popular JavaScript podcast, JS Party, where I have the pleasure of interviewing and learning from the best in the industry. Currently, I’m a software engineer at a leading tech company, and I actively engage with the tech community by speaking at conferences and sharing my passion for web development, TypeScript, and Vim. My goal is to foster a collaborative environment and inspire fellow developers. When I’m not coding or podcasting, I’m practicing my public speaking through the art of karaoke, or being kept on my toes by my two kids who ensure life is never dull!",
 		links: {
 			bluesky: "https://bsky.app/profile/nicknisi.com",
 			github: "https://github.com/nicknisi",
@@ -247,9 +247,8 @@ export const peopleBySlug = {
 			youtube: "https://www.youtube.com/nicknisi",
 		},
 		name: "Nick Nisi",
-		qualification:
-			"MC for [TS Conf](https://archive.tsconf.io/2021/), Panelist of [JS Party](https://changelog.com/jsparty)",
-		role: "Software Engineer, [Meta](https://www.meta.com/)",
+		qualification: "MC for [TS Conf](https://archive.tsconf.io/2021/)",
+		role: "Panelist of [JS Party](https://changelog.com/jsparty)",
 		slug: "nick-nisi",
 	},
 	"rachel-nabors": {
@@ -377,7 +376,7 @@ export const peopleBySlug = {
 			medium: null,
 			twitch: null,
 			twitter: "https://x.com/yagiznizipli",
-			website: "yagiz.co",
+			website: "https://yagiz.co",
 			youtube: null,
 		},
 		name: "Yagiz Nizipli",
@@ -498,7 +497,7 @@ export const talksBySlug = {
 	},
 	"talk-rick-viscomi": {
 		description:
-			"Excellent tools are at the heart of every performance optimization workflow. From synthetic testing, auditing, and diagnosing performance issues to collecting and analyzing performance data from real-world user experiences. A good performance workflow utilizes both real-world and synthetic tooling to help you understand how fast your site is and how to make it faster.\n\nIn this talk, we'll explore Google's recommended web performance tooling workflow for fast [Core Web Vitals](https://web.dev/articles/vitals). We'll focus on Chrome DevTools and the powerful [Performance panel](https://developer.chrome.com/docs/devtools/performance) to get a better understanding of what's happening under the hood. We'll also look at a typical data pipeline for collecting and analyzing real-user data to get a better understanding of the top performance issues and opportunities. Finally, we'll look at a few techniques to significantly improve some of the most common and impactful issues with loading performance and interaction responsiveness.",
+			"Excellent tools are at the heart of every performance optimization workflow. From synthetic testing, auditing, and diagnosing performance issues to collecting and analyzing performance data from real-world user experiences. A good performance workflow utilizes both real-world _and_ synthetic tooling to help you understand how fast your site is and how to make it faster.\n\nIn this talk, we'll explore Google's recommended web performance tooling workflow for fast [Core Web Vitals](https://web.dev/articles/vitals). We'll focus on Chrome DevTools and the powerful [Performance panel](https://developer.chrome.com/docs/devtools/performance) to get a better understanding of what's happening under the hood. We'll also look at a typical data pipeline for collecting and analyzing real-user data to get a better understanding of the top performance issues and opportunities. Finally, we'll look at a few techniques to significantly improve some of the most common and impactful issues with loading performance and interaction responsiveness.",
 		people: [peopleBySlug["rick-viscomi"]],
 		slug: "talk-rick-viscomi",
 		tags: ["Chrome DevTools", "Performance", "Core Web Vitals"],
@@ -548,7 +547,7 @@ export const talksBySlug = {
 	},
 	"workshop-katerina-and-max": {
 		description:
-			"You will leave this workshop having built and installed a custom VSCode and JetBrains extension!  Learn how to enchant your IDE in a \\(seasonally witch-themed!\\) deep dive into IDE plugins and what it takes to build one.  We’ve learned a lot in the process of building and maintaining editor extensions, and we’re ready to share our best tips and tricks!\n\nOnce you’re feeling confident building a basic cross-platform extension, you’ll get a chance to implement a small feature in a mature one: [Nx Console](https://marketplace.visualstudio.com/items?itemName=nrwl.angular-console). We’ll learn a bit about what [Nx](https://nx.dev/) the role the extension has in our customers’ satisfaction with our tools.\n\nIf you’ve ever thought to yourself “I wish someone at my company could make an editor extension” then after this workshop, you might be the one to do it!",
+			"You will leave this workshop having built and installed a custom VSCode _and_ JetBrains extension! Learn how to enchant your Editor in a \\(seasonally witch-themed!\\) deep dive into Editor plugins and what it takes to build one. You will gain hands-on experience with [Nx](https://nx.dev/) and how you can use it to compose a clean architecture in a complex repo.\n\nWe’ve learned a lot in the process of building and maintaining both [Nx](https://nx.dev/) and [Nx Console](https://marketplace.visualstudio.com/items?itemName=nrwl.angular-console), our editor extension - we’re ready to share our best tips and tricks!\n\nIf you want to learn more about Nx of if you’ve ever thought to yourself “I wish someone at my company could make an editor extension” then this workshop is for you! Come and see how easy it is to get started.",
 		people: [peopleBySlug["katerina-skroumpelou"], peopleBySlug["max-kless"]],
 		slug: "workshop-katerina-and-max",
 		tags: [
@@ -558,7 +557,7 @@ export const talksBySlug = {
 			"Kotlin",
 		],
 		talkFormat: "Workshop",
-		title: "Build a VS Code Extension with the Makers of Nx Console",
+		title: "Build Editor Extensions with the Makers of Nx Console",
 	},
 	"workshop-sylwia-vargas": {
 		description: "",
