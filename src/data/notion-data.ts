@@ -36,7 +36,7 @@ export const peopleBySlug = {
 			youtube: null,
 		},
 		name: "Aakansha Doshi",
-		qualification: "Core [Excalidraw](https://excalidraw.com) Maintainer",
+		qualification: "[Excalidraw](https://excalidraw.com) Core Maintainer",
 		role: "Open Source",
 		slug: "aakansha-doshi",
 	},
