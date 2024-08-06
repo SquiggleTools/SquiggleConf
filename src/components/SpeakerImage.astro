@@ -1,0 +1,26 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+	slug: string;
+	name: string;
+}
+
+const image = import(`../assets/avatars/${Astro.props.slug}.jpg`);
+---
+
+<Image
+	alt={`${Astro.props.name} Avatar`}
+	class="speaker-image"
+	src={image}
+	width={128}
+	height={128}
+/>
+
+<style>
+	.speaker-image {
+		border-radius: 100%;
+		height: var(--imageSize);
+		width: var(--imageSize);
+	}
+</style>

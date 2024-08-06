@@ -16,6 +16,7 @@ interface Props {
 	class?: string;
 	links: BioLinksPlatforms;
 	name: string;
+	size?: "normal" | "large";
 }
 
 export interface BioLinksPlatforms {
@@ -31,10 +32,17 @@ export interface BioLinksPlatforms {
 	medium?: string | null;
 }
 
-const { class: className, links, name, ...rest } = Astro.props;
+const { class: className, links, name, size, ...rest } = Astro.props;
 ---
 
-<div class:list={["bio-links", className]} {...rest}>
+<div
+	class:list={[
+		"bio-links",
+		className,
+		size === "large" ? "bio-links-large" : "bio-links-normal",
+	]}
+	{...rest}
+>
 	{
 		links.github && (
 			<a href={links.github} target="_blank" rel="noreferrer">
@@ -115,9 +123,17 @@ const { class: className, links, name, ...rest } = Astro.props;
 		gap: 0.25rem 0.5rem;
 	}
 
+	.bio-links-normal {
+		--bioLinkImageSize: 1rem;
+	}
+
+	.bio-links-large {
+		--bioLinkImageSize: 1.35rem;
+	}
+
 	.link {
-		height: 1rem;
+		height: var(--bioLinkImageSize);
 		filter: brightness(1.5);
-		width: 1rem;
+		width: var(--bioLinkImageSize);
 	}
 </style>

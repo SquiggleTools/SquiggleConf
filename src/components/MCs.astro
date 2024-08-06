@@ -4,7 +4,7 @@ import { peopleBySlug } from "~/data/notion-data";
 import CardsList from "./CardsList.astro";
 import FullSection from "./FullSection.astro";
 import HeadingFlanked from "./HeadingFlanked.astro";
-import Speaker from "./Speaker.astro";
+import SpeakerSmall from "./SpeakerSmall.astro";
 import SubtleCard from "./SubtleCard.astro";
 import BodyText from "./BodyText.astro";
 ---
@@ -21,7 +21,7 @@ import BodyText from "./BodyText.astro";
 		{
 			(["nick-nisi", "fatima-sarah-khalid"] as const).map((person) => (
 				<SubtleCard class="mc-card">
-					<Speaker
+					<SpeakerSmall
 						href={`/speakers#${peopleBySlug[person].slug}`}
 						person={peopleBySlug[person]}
 					/>

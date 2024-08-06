@@ -5,7 +5,7 @@ import BodyText from "./BodyText.astro";
 import CardsList from "./CardsList.astro";
 import FullSection from "./FullSection.astro";
 import HeadingFlanked from "./HeadingFlanked.astro";
-import Speaker from "./Speaker.astro";
+import Speaker from "./SpeakerSmall.astro";
 import SubtleCard from "./SubtleCard.astro";
 import TagLine from "./TagLine.astro";
 ---
@@ -14,7 +14,9 @@ import TagLine from "./TagLine.astro";
 	<TagLine />
 	<br />
 	<BodyText as="p" class="speakers-body-text" size="large" width="lean">
-		See full details on <a href="/sessions">Sessions</a>.
+		See full details on <a href="/sessions">Sessions</a> and <a href="/speakers"
+			>Speakers</a
+		>.
 	</BodyText>
 
 	<CardsList class="speakers-list">
@@ -22,7 +24,7 @@ import TagLine from "./TagLine.astro";
 			talks.flatMap((talk) =>
 				talk.people.map((person) => (
 					<SubtleCard class="speaker-card">
-						<Speaker href={`/talks#${talk.slug}`} link person={person} />
+						<Speaker href={`/talks#${talk.slug}`} person={person} />
 					</SubtleCard>
 				)),
 			)
@@ -34,7 +36,9 @@ import TagLine from "./TagLine.astro";
 		whether you’re already a tooling wizard or trying to become one.
 		<br />
 		<br />
-		See full details on <a href="/sessions">Sessions</a>.
+		See full details on <a href="/sessions">Sessions</a> and <a href="/speakers"
+			>Speakers</a
+		>.
 	</BodyText>
 </FullSection>
 

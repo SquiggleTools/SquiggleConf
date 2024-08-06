@@ -1,20 +1,20 @@
-import youtube from "~/assets/logos/YouTube.svg";
-import bluesky from "~/assets/logos/bluesky.svg";
-import discord from "~/assets/logos/discord.svg";
-import github from "~/assets/logos/github.svg";
-import linkedin from "~/assets/logos/linkedin.svg";
-import mastodon from "~/assets/logos/mastodon.svg";
-import twitter from "~/assets/logos/twitter.svg";
-import jsParty from "~/assets/partners/js-party.png";
-import thisWeekInReactDarkMode from "~/assets/partners/this-week-in-react-dark-mode.png";
-import thisWeekInReactLightMode from "~/assets/partners/this-week-in-react-light-mode.png";
-import inngest from "~/assets/sponsors/inngest.svg";
-import inngestBlack from "~/assets/sponsors/inngest-black.svg";
-import openjsFoundationColor from "~/assets/sponsors/openjs-foundation-color.svg";
-import openjsFoundationLight from "~/assets/sponsors/openjs-foundation-light.svg";
-import * as notionData from "~/data/notion-data";
+import youtube from "../assets/logos/YouTube.svg";
+import bluesky from "../assets/logos/bluesky.svg";
+import discord from "../assets/logos/discord.svg";
+import github from "../assets/logos/github.svg";
+import linkedin from "../assets/logos/linkedin.svg";
+import mastodon from "../assets/logos/mastodon.svg";
+import twitter from "../assets/logos/twitter.svg";
+import jsParty from "../assets/partners/js-party.png";
+import thisWeekInReactDarkMode from "../assets/partners/this-week-in-react-dark-mode.png";
+import thisWeekInReactLightMode from "../assets/partners/this-week-in-react-light-mode.png";
+import inngest from "../assets/sponsors/inngest.svg";
+import inngestBlack from "../assets/sponsors/inngest-black.svg";
+import openjsFoundationColor from "../assets/sponsors/openjs-foundation-color.svg";
+import openjsFoundationLight from "../assets/sponsors/openjs-foundation-light.svg";
 
-export type { Person, TalkFormat, TalkInfo } from "~/data/notion-data";
+export type { Person, TalkFormat, TalkInfo } from "./notion-data.js";
+import * as notionData from "./notion-data.js";
 
 export const partners = [
 	{
@@ -127,11 +127,11 @@ const sortOrder: TalkSlug[] = [
 	"workshop-sylwia-vargas",
 ];
 
-// sorty by sortOrder
+// sort by sortOrder
 export const talks = Object.values(notionData.talksBySlug)
-	.filter((t) => !talksToExclude.includes(t.slug as TalkSlug))
+	.filter((t) => !talksToExclude.includes(t.slug))
 	.sort((a, b) => {
-		const aIndex = sortOrder.indexOf(a.slug as TalkSlug);
-		const bIndex = sortOrder.indexOf(b.slug as TalkSlug);
+		const aIndex = sortOrder.indexOf(a.slug);
+		const bIndex = sortOrder.indexOf(b.slug);
 		return aIndex - bIndex;
 	});

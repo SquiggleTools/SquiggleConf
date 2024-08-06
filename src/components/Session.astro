@@ -1,11 +1,11 @@
 ---
 import { type TalkInfo } from "~/data";
 
-import TalkTag from "./TalkTag.astro";
-import TalkDiscord from "./TalkDiscord.astro";
-import Speaker from "./Speaker.astro";
-import { Markdown } from "@astropub/md";
 import SafeMarkdown from "./SafeMarkdown.astro";
+import SessionDiscord from "./SessionDiscord.astro";
+import SessionTag from "./SessionTag.astro";
+import SpeakerSmall from "./SpeakerSmall.astro";
+import SubtleCard from "./SubtleCard.astro";
 
 interface Props {
 	class?: string;
@@ -38,50 +38,49 @@ const {
 ---
 
 <li class:list={["talk", className]} id={slug} {...rest}>
-	<div class="talk-top">
-		<a class="title" href={`#${slug}`}>{title}</a>
-		<div class="talk-description">
-			<SafeMarkdown of={description} />
+	<SubtleCard>
+		<div class="talk-top">
+			<a class="title" href={`#${slug}`}>{title}</a>
+			<div class="talk-description">
+				<SafeMarkdown of={description} />
+			</div>
+			<div class="tags">
+				{
+					tags
+						.flatMap((t) => {
+							if (t === "Language Soup") {
+								return languageSoup;
+							}
+							return t;
+						})
+						.map((tag) => <SessionTag tag={tag} />)
+				}
+			</div>
 		</div>
-		<div class="tags">
-			{
-				tags
-					.flatMap((t) => {
-						if (t === "Language Soup") {
-							return languageSoup;
-						}
-						return t;
-					})
-					.map((tag) => <TalkTag tag={tag} />)
-			}
-		</div>
-	</div>
 
-	<div class="talk-details">
-		<ul class="speakers">
-			{people.map((person) => <Speaker href={`#${slug}`} person={person} />)}
-		</ul>
-		<div class="talk-details-links">
-			<TalkDiscord discord={slug} />
+		<div class="talk-details">
+			<ul class="speakers">
+				{
+					people.map((person) => (
+						<SpeakerSmall href={`/speakers#${person.slug}`} person={person} />
+					))
+				}
+			</ul>
+			<SessionDiscord discord={slug} />
 		</div>
-	</div>
+		<div class="talk-details-links"></div>
+	</SubtleCard>
 </li>
 
 <style>
 	.talk {
 		--fontSize: var(--fontSizeBodySmaller);
 		--imageSize: clamp(3.5rem, 10vw, 6rem);
-		align-items: flex-start;
-		background-color: var(--colorBackdropLight);
-		border-radius: 0.5rem;
-		border: 1px solid white;
-		box-shadow: 0 0 0.125rem var(--colorTextShadow);
 		display: flex;
 		flex-basis: 0;
 		flex-direction: column;
 		font-family: var(--fontFamilyBody);
 		justify-content: space-between;
-		padding: 1.5rem;
 		scroll-margin-top: 1rem;
 	}
 
@@ -122,7 +121,7 @@ const {
 		display: flex;
 		flex-direction: column;
 		gap: 0.5rem;
-		line-height: 1.25em;
+		line-height: 1.25;
 		overflow: hidden;
 		text-align: left;
 		transition: var(--transitionMedium) line-height;

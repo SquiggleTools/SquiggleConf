@@ -1,111 +1,132 @@
 ---
-import { Image } from "astro:assets";
-
-import { type Person } from "~/data";
+import { Person, TalkInfo } from "~/data/notion-data";
 
 import BioLinks from "./BioLinks.astro";
 import SafeMarkdown from "./SafeMarkdown.astro";
+import SessionDiscord from "./SessionDiscord.astro";
+import SpeakerImage from "./SpeakerImage.astro";
+import SubtleCard from "./SubtleCard.astro";
 
 interface Props {
 	class?: string;
-	link?: boolean;
-	href: string;
-	person: Person;
+	speaker: Person;
+	talks: TalkInfo[];
 }
 
-const { class: className, person: speaker, link, ...rest } = Astro.props;
-
-const image = import(`../assets/avatars/${speaker.slug}.jpg`);
+const {
+	class: className,
+	speaker: { bio, links, qualification, name, role, slug },
+	talks,
+	...rest
+} = Astro.props;
 ---
 
-<li class:list={["speaker", className]} {...rest}>
-	<div class="speaker-image-container">
-		<Image
-			alt={`${speaker.name} Avatar`}
-			class="speaker-image"
-			src={image}
-			width={128}
-			height={128}
-		/>
-	</div>
-	<div class="speaker-text">
-		{link && <a class="speaker-text-links" href={Astro.props.href} />}
-		<div class="name">{speaker.name}</div>
-		<div class="details">
-			{speaker.qualification && <SafeMarkdown of={speaker.qualification} />}
-			{speaker.role && <SafeMarkdown of={speaker.role} />}
+<li class:list={["speaker", className]} id={slug} {...rest}>
+	<SubtleCard>
+		<div class="speaker-content">
+			<div class="speaker-image-container">
+				<SpeakerImage name={name} slug={slug} />
+			</div>
+			<div class="speaker-headline">
+				<div class="speaker-headline-text">
+					<a class="title" href={`#${slug}`}>{name}</a>
+					{
+						qualification && (
+							<div>
+								<SafeMarkdown of={qualification} />
+							</div>
+						)
+					}
+					{
+						role && (
+							<div>
+								<SafeMarkdown of={role} />
+							</div>
+						)
+					}
+				</div>
+				<ul class="speaker-talks">
+					{
+						talks.map((talk) => (
+							<li>
+								<a href={`/talks#${talk.slug}`}>{talk.title}</a>
+							</li>
+						))
+					}
+				</ul>
+			</div>
 		</div>
-		<BioLinks
-			class="speaker-bio-links"
-			name={speaker.name}
-			links={speaker.links}
-		/>
-	</div>
+		<div class="bio">
+			<SafeMarkdown of={bio!} />
+		</div>
+		<div class="speaker-links">
+			<BioLinks
+				class="speaker-bio-links"
+				links={links}
+				name={name}
+				size="large"
+			/>
+			<SessionDiscord discord={`speaker-${slug}`} ` />
+		</div>
+	</SubtleCard>
 </li>
 
 <style>
-	.speaker {
-		position: relative;
-		align-items: center;
+	.speaker-content {
 		display: flex;
+		flex-direction: row;
 		gap: 1rem;
-		text-align: left;
-	}
-
-	.speaker-image {
-		border-radius: 100%;
-		height: var(--imageSize);
-		width: var(--imageSize);
-	}
-
-	.speaker-text {
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
-	}
-
-	.speaker-text-links {
-		display: flex;
-		flex-direction: column;
-		justify-content: flex-start;
-		gap: 0.5rem;
-		text-decoration: none;
-	}
-
-	.speaker-text-links::before {
-		bottom: calc(-1.1 * var(--cardPadding));
-		content: "";
-		left: calc(-1.1 * var(--cardPadding));
-		position: absolute;
-		right: calc(-1.1 * var(--cardPadding));
-		top: calc(-1.1 * var(--cardPadding));
-	}
-
-	.speaker-text-links {
-		display: flex;
-		flex-direction: column;
-		justify-content: flex-start;
-		gap: 0.5rem;
-		text-decoration: none;
-	}
-
-	.name {
-		color: var(--colorForegroundBody);
-		font-size: var(--fontSizeH4);
-		display: flex;
-		line-height: 0.9em;
-	}
-
-	.details {
-		font-size: var(--fontSizeBodySmaller);
-		font-weight: var(--fontWeightLight);
-		display: flex;
-		gap: 0.25rem;
 		position: relative;
-		flex-direction: column;
 	}
 
-	.speaker-bio-links {
-		z-index: 1;
+	.title {
+		display: block;
+		color: var(--colorForegroundBody);
+		font-size: var(--fontSizeH3);
+		font-weight: var(--fontWeightBold);
+		text-align: left;
+		margin-bottom: 0.25rem;
+		text-decoration: none;
+	}
+
+	.title::after {
+		content: " 🔗";
+		opacity: 0;
+		transition: var(--transitionMedium) opacity;
+	}
+
+	:is(.speaker:hover, .speaker:focus-within) .title::after {
+		opacity: 1;
+	}
+
+	.speaker-headline-text {
+		margin-bottom: 0.5rem;
+	}
+
+	.speaker-talks {
+		list-style: none;
+		padding-top: 0.5rem;
+		padding-left: 0;
+		font-size: var(--fontSizeBody);
+	}
+
+	.speaker-content {
+		margin-bottom: 1rem;
+	}
+
+	.bio {
+		line-height: 1.25;
+		transition: var(--transitionMedium) line-height;
+	}
+
+	html.dark .bio {
+		line-height: 1.4;
+	}
+
+	.speaker-links {
+		justify-content: space-between;
+		display: flex;
+		flex-direction: row;
+		margin-top: 1rem;
 	}
 </style>

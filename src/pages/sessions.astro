@@ -1,9 +1,9 @@
 ---
-import HeroForPage from "~/components/HeroForPage.astro";
-import PrimaryContents from "~/components/PrimaryContents.astro";
-import Talk from "~/components/Talk.astro";
 import BodyText from "~/components/BodyText.astro";
 import HeadingFlanked from "~/components/HeadingFlanked.astro";
+import HeroForPage from "~/components/HeroForPage.astro";
+import PrimaryContents from "~/components/PrimaryContents.astro";
+import Session from "~/components/Session.astro";
 import { talks } from "~/data/index.js";
 import ContentLayout from "~/layouts/ContentLayout.astro";
 
@@ -48,7 +48,7 @@ const sections = [
 		</BodyText>
 
 		{
-			sections.map(({ talkFormat, name, description, date }) => (
+			sections.map(({ talkFormat, name, description }) => (
 				<>
 					<HeadingFlanked id={name.toLowerCase().replaceAll(" ", "-")}>
 						{name}
@@ -58,7 +58,7 @@ const sections = [
 						{talks
 							.filter((t) => t.talkFormat === talkFormat)
 							.map((talk) => (
-								<Talk talk={talk} />
+								<Session talk={talk} />
 							))}
 					</ul>
 				</>

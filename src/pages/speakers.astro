@@ -1,0 +1,54 @@
+---
+import HeroForPage from "~/components/HeroForPage.astro";
+import PrimaryContents from "~/components/PrimaryContents.astro";
+import ContentLayout from "~/layouts/ContentLayout.astro";
+import { peopleBySlug, talksBySlug } from "~/data/notion-data";
+import Speaker from "~/components/Speaker.astro";
+
+const speakersToExclude = new Set([
+	// Sylwia might not be able to make it 😢
+	"sylwia-vargas",
+]);
+---
+
+<ContentLayout>
+	<HeroForPage>Speakers</HeroForPage>
+
+	<PrimaryContents>
+		<ul class="speakers-list">
+			{
+				Object.values(peopleBySlug)
+					.filter((person) => !speakersToExclude.has(person.slug))
+					.sort((a, b) =>
+						!!a.bio === !!b.bio ? a.name.localeCompare(b.name) : a.bio ? -1 : 1,
+					)
+					.map((person) => (
+						<Speaker
+							speaker={person}
+							talks={Object.values(talksBySlug).filter((talk) =>
+								talk.people.includes(person),
+							)}
+						/>
+					))
+			}
+		</ul>
+	</PrimaryContents>
+</ContentLayout>;
+
+<style>
+	.speakers-list {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		flex-wrap: wrap;
+		list-style-type: none;
+		margin: 2rem;
+		padding: 0 var(--widthBodyPadding);
+	}
+
+	@media (min-width: 1017px) {
+		.speakers-list {
+			width: var(--widthBodyLean);
+		}
+	}
+</style>
