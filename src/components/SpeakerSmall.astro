@@ -1,6 +1,7 @@
 ---
 import { type Person } from "~/data";
 
+import BioLinks from "./BioLinks.astro";
 import SafeMarkdown from "./SafeMarkdown.astro";
 import SpeakerImage from "./SpeakerImage.astro";
 
@@ -36,6 +37,7 @@ const { class: className, href, person: speaker, ...rest } = Astro.props;
 				)
 			}
 		</div>
+		<slot />
 	</div>
 </li>
 
