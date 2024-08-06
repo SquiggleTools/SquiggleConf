@@ -1,0 +1,65 @@
+---
+import "@fontsource-variable/josefin-sans";
+import "@fontsource/urbanist";
+
+import AdContents from "~/components/AdContents.astro";
+import BioLinks from "~/components/BioLinks.astro";
+import DeepBlueSea from "~/components/DeepBlueSea.astro";
+import Head from "~/components/Head.astro";
+import SpeakerSmall from "~/components/SpeakerSmall.astro";
+import SubtleCard from "~/components/SubtleCard.astro";
+import { peopleBySlug } from "~/data/notion-data";
+
+import "~/layouts/base.css";
+import "~/layouts/normalize.css";
+
+const excludedSpeakers = new Set([
+	// Not confident will be able to make it
+	"sylwia-vargas",
+	// MCs
+	"nick-nisi",
+	"fatima-sarah-khalid",
+]);
+---
+
+<html lang="en">
+	<Head />
+	<body>
+		<main>
+			<DeepBlueSea class="deep-blue-ad">
+				<AdContents title="SquiggleConf 2024" subTitle="Speaker Lineup">
+					<ul class="speakers-ad-list">
+						{
+							Object.values(peopleBySlug)
+								.filter((speaker) => !excludedSpeakers.has(speaker.slug))
+								.map((person) => (
+									<SubtleCard>
+										<SpeakerSmall person={person}>
+											<BioLinks
+												class="speaker-bio-links"
+												name={person.name}
+												links={person.links}
+											/>
+										</SpeakerSmall>
+									</SubtleCard>
+								))
+						}
+						<div></div>
+					</ul>
+				</AdContents>
+			</DeepBlueSea>
+		</main>
+		<style>
+			.deep-blue-ad {
+				height: 100vh;
+			}
+		</style>
+		<style>
+			.speakers-ad-list {
+				display: grid;
+				gap: 2rem;
+				grid-template-columns: repeat(4, 1fr);
+			}
+		</style>
+	</body>
+</html>

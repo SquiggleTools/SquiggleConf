@@ -4,6 +4,7 @@ import "@fontsource/urbanist";
 
 import openjsFoundationLight from "~/assets/sponsors/openjs-foundation-light.svg";
 import AdContents from "~/components/AdContents.astro";
+import AdImage from "~/components/AdImage.astro";
 import DeepBlueSea from "~/components/DeepBlueSea.astro";
 import Head from "~/components/Head.astro";
 
@@ -16,7 +17,12 @@ import "~/layouts/normalize.css";
 	<body>
 		<main>
 			<DeepBlueSea class="deep-blue-ad">
-				<AdContents logo={openjsFoundationLight} title="OpenJS Foundation" />
+				<AdContents
+					subTitle="OpenJS Foundation"
+					title="Thank you to our sponsor"
+				>
+					<AdImage src={openjsFoundationLight} />
+				</AdContents>
 			</DeepBlueSea>
 		</main>
 		<style>

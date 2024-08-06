@@ -7,6 +7,7 @@ import HeadingFlanked from "./HeadingFlanked.astro";
 import SpeakerSmall from "./SpeakerSmall.astro";
 import SubtleCard from "./SubtleCard.astro";
 import BodyText from "./BodyText.astro";
+import BioLinks from "./BioLinks.astro";
 ---
 
 <FullSection class="full-mcs">
@@ -24,7 +25,13 @@ import BodyText from "./BodyText.astro";
 					<SpeakerSmall
 						href={`/speakers#${peopleBySlug[person].slug}`}
 						person={peopleBySlug[person]}
-					/>
+					>
+						<BioLinks
+							class="speaker-bio-links"
+							name={peopleBySlug[person].name}
+							links={peopleBySlug[person].links}
+						/>
+					</SpeakerSmall>
 				</SubtleCard>
 			))
 		}

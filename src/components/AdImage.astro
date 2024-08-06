@@ -1,0 +1,19 @@
+---
+import { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
+interface Props {
+	src: ImageMetadata;
+}
+---
+
+<Image alt="" class="ad-image" src={Astro.props.src} />
+
+<style>
+	.ad-image {
+		height: 100%;
+		max-height: 10rem;
+		max-width: 70vw;
+		width: 100%;
+	}
+</style>
