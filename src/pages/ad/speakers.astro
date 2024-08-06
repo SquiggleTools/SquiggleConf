@@ -34,13 +34,7 @@ const excludedSpeakers = new Set([
 								.filter((speaker) => !excludedSpeakers.has(speaker.slug))
 								.map((person) => (
 									<SubtleCard>
-										<SpeakerSmall person={person}>
-											<BioLinks
-												class="speaker-bio-links"
-												name={person.name}
-												links={person.links}
-											/>
-										</SpeakerSmall>
+										<SpeakerSmall person={person} />
 									</SubtleCard>
 								))
 						}
