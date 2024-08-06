@@ -1,31 +1,22 @@
-@layer normalize {
-	* {
-		box-sizing: border-box;
-	}
+* {
+	box-sizing: border-box;
+}
 
-	body {
-		margin: 0;
-	}
+body {
+	margin: 0;
+}
 
-	a {
-		color: inherit;
-		text-decoration-thickness: 1px;
-	}
+a {
+	color: inherit;
+	text-decoration-thickness: 1px;
+}
 
-	h1,
-	h2,
-	h3,
-	li,
-	ol,
-	p,
-	ul {
-		margin: 0;
-		padding: 0;
-		font-size: inherit;
-	}
-
-	ol,
-	ul {
-		list-style: none;
-	}
+h1,
+h2,
+h3,
+ol,
+p {
+	margin: 0;
+	padding: 0;
+	font-size: inherit;
 }

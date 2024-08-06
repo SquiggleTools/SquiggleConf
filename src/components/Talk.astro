@@ -1,0 +1,176 @@
+---
+import { type TalkInfo } from "~/data";
+
+import TalkTag from "./TalkTag.astro";
+import TalkDiscord from "./TalkDiscord.astro";
+import Speaker from "./Speaker.astro";
+import { Markdown } from "@astropub/md";
+import SafeMarkdown from "./SafeMarkdown.astro";
+
+interface Props {
+	class?: string;
+	talk: TalkInfo;
+}
+
+const languageSoup = [
+	"Rust",
+	"TypeScript",
+	"Zig",
+	"Go",
+	"C++",
+	"C",
+	"OCaml",
+	"Haskell",
+	"Python",
+	"Ruby",
+	"Elixir",
+	"Java",
+	".Net",
+	"Perl",
+	"PHP",
+];
+
+const {
+	class: className,
+	talk: { title, people, tags, description, slug },
+	...rest
+} = Astro.props;
+---
+
+<li class:list={["talk", className]} id={slug} {...rest}>
+	<div class="talk-top">
+		<a class="title" href={`#${slug}`}>{title}</a>
+		<div class="talk-description">
+			<SafeMarkdown of={description} />
+		</div>
+		<div class="tags">
+			{
+				tags
+					.flatMap((t) => {
+						if (t === "Language Soup") {
+							return languageSoup;
+						}
+						return t;
+					})
+					.map((tag) => <TalkTag tag={tag} />)
+			}
+		</div>
+	</div>
+
+	<div class="talk-details">
+		<ul class="speakers">
+			{people.map((person) => <Speaker href={`#${slug}`} person={person} />)}
+		</ul>
+		<div class="talk-details-links">
+			<TalkDiscord discord={slug} />
+		</div>
+	</div>
+</li>
+
+<style>
+	.talk {
+		--fontSize: var(--fontSizeBodySmaller);
+		--imageSize: clamp(3.5rem, 10vw, 6rem);
+		align-items: flex-start;
+		background-color: var(--colorBackdropLight);
+		border-radius: 0.5rem;
+		border: 1px solid white;
+		box-shadow: 0 0 0.125rem var(--colorTextShadow);
+		display: flex;
+		flex-basis: 0;
+		flex-direction: column;
+		font-family: var(--fontFamilyBody);
+		justify-content: space-between;
+		padding: 1.5rem;
+		scroll-margin-top: 1rem;
+	}
+
+	.talk-top {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+	}
+
+	.title {
+		color: var(--colorForegroundBody);
+		font-size: var(--fontSizeH3);
+		font-weight: var(--fontWeightBold);
+		text-align: left;
+		margin-bottom: 0.5rem;
+		text-decoration: none;
+	}
+
+	.title::after {
+		content: " 🔗";
+		opacity: 0;
+		transition: var(--transitionMedium) opacity;
+	}
+
+	:is(.talk:hover, .talk:focus-within) .title::after {
+		opacity: 1;
+	}
+
+	.tags {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0.5rem 0;
+		gap: 0.75rem;
+	}
+
+	.talk-description {
+		color: var(--colorForegroundBody);
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		line-height: 1.25em;
+		overflow: hidden;
+		text-align: left;
+		transition: var(--transitionMedium) line-height;
+	}
+
+	html.dark .talk-description {
+		line-height: 1.4;
+	}
+
+	.talk-details {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 1rem;
+		justify-content: space-between;
+		width: 100%;
+	}
+
+	.talk-details-links {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+	}
+
+	.speakers {
+		align-items: flex-start;
+		display: flex;
+		flex-direction: column;
+		font-family: var(--fontFamilyBody);
+		gap: 2rem;
+		margin-top: 1.5rem;
+		padding-left: 0;
+	}
+
+	p {
+		margin: 1rem !important;
+	}
+
+	@media (min-width: 700px) {
+		.talk-details {
+			align-items: flex-end;
+			flex-direction: row;
+		}
+	}
+
+	@media (min-width: 1017px) {
+		.talk {
+			max-width: var(--widthBodyFull);
+		}
+	}
+</style>

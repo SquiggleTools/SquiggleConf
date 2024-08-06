@@ -1,10 +1,13 @@
 ---
-import { links } from "~/data";
+import { links } from "~/data/index";
 
 import AnchorButton from "./AnchorButton.astro";
 import Hero from "./Hero.astro";
 import HeroName from "./HeroName.astro";
 import NoBreak from "./NoBreak.astro";
+import LinkOut from "~/assets/glyphs/link-out.svg";
+import { Image } from "astro:assets";
+import ThemeToggle from "./ThemeToggle.astro";
 ---
 
 <Hero>
@@ -21,7 +24,8 @@ import NoBreak from "./NoBreak.astro";
 			rel="noreferrer"
 		>
 			<NoBreak>Apply for</NoBreak>
-			<NoBreak>DEI Scholarship ↗</NoBreak>
+			<NoBreak>DEI Scholarship </NoBreak>
+			<Image alt="" class="link-out" src={LinkOut} />
 		</a>
 		<a
 			class="sub-mention"
@@ -30,7 +34,8 @@ import NoBreak from "./NoBreak.astro";
 			rel="noreferrer"
 		>
 			<NoBreak>Apply to</NoBreak>
-			<NoBreak>Volunteer ↗</NoBreak>
+			<NoBreak>Volunteer</NoBreak>
+			<Image alt="" class="link-out" src={LinkOut} />
 		</a>
 		<a
 			class="sub-mention"
@@ -39,9 +44,12 @@ import NoBreak from "./NoBreak.astro";
 			rel="noreferrer"
 		>
 			<NoBreak>Bulk Tickets</NoBreak>
-			<NoBreak>Now Available ↗</NoBreak>
+			<NoBreak>Now Available</NoBreak>
+			<Image alt="" class="link-out" src={LinkOut} />
 		</a>
 	</div>
+
+	<ThemeToggle />
 </Hero>
 
 <style>
@@ -52,15 +60,34 @@ import NoBreak from "./NoBreak.astro";
 	}
 
 	.sub-mention {
-		color: #cae6ff;
-		font-size: var(--fontSizeBody);
+		color: var(--colorBlueLight);
+		font-size: var(--fontSizeBodySmall);
 		font-family: var(--fontFamilyHeading);
 		text-underline-offset: 0.2em;
+		transition: var(--transitionMedium) color;
+	}
+
+	.sub-mention:hover {
+		color: var(--colorWhite);
+	}
+
+	.link-out {
+		display: none;
 	}
 
 	@media (min-width: 819px) {
+		.link-out {
+			display: inline;
+			height: 1rem;
+			width: 1rem;
+		}
+
 		.sub-mentions {
 			padding-bottom: 2rem;
+		}
+
+		.sub-mention {
+			font-size: var(--fontSizeBody);
 		}
 	}
 </style>

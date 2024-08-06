@@ -25,8 +25,8 @@ importers:
         specifier: 0.8.1
         version: 0.8.1(prettier-plugin-astro@0.14.0)(prettier@3.3.3)(typescript@5.5.3)
       '@astropub/md':
-        specifier: 0.4.0
-        version: 0.4.0(@astrojs/markdown-remark@5.1.1)
+        specifier: 1.0.0
+        version: 1.0.0(@astrojs/markdown-remark@5.1.1)
       '@eslint-community/eslint-plugin-eslint-comments':
         specifier: 4.3.0
         version: 4.3.0(eslint@8.57.0)
@@ -173,10 +173,10 @@ packages:
     peerDependencies:
       astro: ^4.2.0
 
-  '@astropub/md@0.4.0':
-    resolution: {integrity: sha512-f0kJIfywRKLcVqlizqUPModBBuJ7WwBEIWJEt1Eq/ksSYixtOl8HQWMZKJhv9Xtc9OKHhkQf0AQc56EV1xNUnw==}
+  '@astropub/md@1.0.0':
+    resolution: {integrity: sha512-++urcyulQogbLAF0VC2rEp6qLUfnRX9iaDREAkN1su9fF8V84DVaMHbQXn7qqQ27wYT5AVVeoK+4+vggYYVbQg==}
     peerDependencies:
-      '@astrojs/markdown-remark': ^4
+      '@astrojs/markdown-remark': ^5
 
   '@babel/code-frame@7.24.7':
     resolution: {integrity: sha512-BcYH1CVJBO9tvyIZ2jVeXgSIMvGZ2FDRvDdOIVQyuklNKSsx+eppDEBq/g47Ayw+RqNFE+URvOShmf+f/qwAlA==}
@@ -4459,7 +4459,7 @@ snapshots:
       - react
       - supports-color
 
-  '@astropub/md@0.4.0(@astrojs/markdown-remark@5.1.1)':
+  '@astropub/md@1.0.0(@astrojs/markdown-remark@5.1.1)':
     dependencies:
       '@astrojs/markdown-remark': 5.1.1
 

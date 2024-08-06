@@ -1,9 +1,8 @@
 ---
 import BodyText from "~/components/BodyText.astro";
-import Heading from "~/components/Heading.astro";
+import HeadingFlanked from "~/components/HeadingFlanked.astro";
 import HeroForPage from "~/components/HeroForPage.astro";
 import PrimaryContents from "~/components/PrimaryContents.astro";
-import SquiggleFlanked from "~/components/SquiggleFlanked.astro";
 import ContentLayout from "~/layouts/ContentLayout.astro";
 ---
 
@@ -11,11 +10,7 @@ import ContentLayout from "~/layouts/ContentLayout.astro";
 	<HeroForPage>Travel</HeroForPage>
 
 	<PrimaryContents>
-		<SquiggleFlanked class="squiggle-flanked" width="lean">
-			<Heading class="heading" id="accommodations" level="h2" link>
-				Accommodations
-			</Heading>
-		</SquiggleFlanked>
+		<HeadingFlanked id="hotel">Hotel</HeadingFlanked>
 
 		<BodyText as="p" size="large" width="full">
 			We recommend the
@@ -27,9 +22,6 @@ import ContentLayout from "~/layouts/ContentLayout.astro";
 			<strong>SQUOCT24</strong> — and let us know if not.
 		</BodyText>
 
-		<br />
-		<br />
-
 		<iframe
 			allowfullscreen=""
 			height="450"
@@ -39,11 +31,7 @@ import ContentLayout from "~/layouts/ContentLayout.astro";
 			style="border:0;"
 			width="600"></iframe>
 
-		<br />
-
-		<SquiggleFlanked class="squiggle-flanked" width="lean">
-			<Heading class="heading" id="flights" level="h2" link>Flights</Heading>
-		</SquiggleFlanked>
+		<HeadingFlanked class="travel-heading" id="flights">Flights</HeadingFlanked>
 
 		<BodyText as="p" size="large" width="full">
 			<a
@@ -55,31 +43,53 @@ import ContentLayout from "~/layouts/ContentLayout.astro";
 			> is your best bet to get into Boston from out-of-town.
 		</BodyText>
 
-		<br />
-
-		<SquiggleFlanked class="squiggle-flanked" width="lean">
-			<Heading class="heading" id="local-directions" level="h2" link>
-				Local Directions
-			</Heading>
-		</SquiggleFlanked>
+		<HeadingFlanked class="travel-heading" id="trains">Trains</HeadingFlanked>
 
 		<BodyText as="p" size="large" width="full">
-			Once you're in Boston, see <a
+			The <a
+				href="https://www.mbta.com/stops/place-sstat"
+				target="_blank"
+				rel="noreferrer">MBTA South Station</a
+			> is a 15-20 minute walk from the conference center.
+			<br />
+			<a
+				href="https://www.amtrak.com/stations/bos"
+				target="_blank"
+				rel="noreferrer">Amtrak</a
+			> arrives there, including ~4 hour trains from New York City.
+		</BodyText>
+
+		<HeadingFlanked class="travel-heading" id="local-directions">
+			Local Directions
+		</HeadingFlanked>
+
+		<BodyText as="p" size="large" width="full">
+			See <a
 				href="https://www.neaq.org/visit/directions-and-parking"
 				target="_blank"
-				rel="noreferrer">neaq.org/visit/directions-and-parking</a
-			> for directions to the New England Aquarium. The Simons Theater is in the
-			same address.
+				rel="noreferrer">neaq.org</a
+			> for New England Aquarium directions. The Simons Theater is in the same address.
+			<br />
+			The <a
+				href="https://www.mbta.com/stops/place-aqucl"
+				target="_blank"
+				rel="noreferrer">Blue Line Aquarium subway stop</a
+			> and <a
+				href="https://www.mbta.com/stops/30233"
+				target="_blank"
+				rel="noreferrer">Atlantic Ave @ Milk St 4 Line Bus stop</a
+			> are next door.
 		</BodyText>
 	</PrimaryContents>
 </ContentLayout>
 
 <style>
-	.squiggle-flanked {
-		margin: 3rem;
+	.travel-heading {
+		margin-top: 5rem;
 	}
 
-	.heading {
-		font-size: var(--fontSizeH2);
+	iframe {
+		margin-top: 2rem;
+		max-width: calc(100vw - var(--widthBodyPadding) * 2);
 	}
 </style>

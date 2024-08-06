@@ -1,32 +1,27 @@
 ---
-import BodyText from "~/components/BodyText.astro";
 import Partners from "~/components/Partners.astro";
 import Sponsors from "~/components/Sponsors.astro";
-import Information from "~/components/Information.astro";
 import PrimaryContents from "~/components/PrimaryContents.astro";
 import PrimaryHero from "~/components/PrimaryHero.astro";
 import SpeakersContent from "~/components/SpeakersContent.astro";
 import ContentLayout from "~/layouts/ContentLayout.astro";
+import MCs from "~/components/MCs.astro";
+import Newsletter from "~/components/Newsletter.astro";
+import FunInfo from "~/components/FunInfo.astro";
+import PrimaryInfo from "~/components/PrimaryInfo.astro";
 ---
 
 <ContentLayout>
 	<PrimaryHero />
 	<PrimaryContents>
 		<div class="contents">
-			<Information />
-			<SpeakersContent heading>
-				<BodyText size="large" width="lean">
-					See more on <a href="/speakers">Speakers</a>.
-
-					<br />
-					<br />
-
-					You’ll emerge with the best techniques to supercharge your projects —
-					whether you’re already a tooling wizard or trying to become one.
-				</BodyText>
-			</SpeakersContent>
+			<PrimaryInfo />
+			<SpeakersContent />
+			<MCs />
 			<Sponsors />
 			<Partners />
+			<Newsletter class="newsletter" />
+			<FunInfo />
 		</div>
 	</PrimaryContents>
 </ContentLayout>
@@ -37,5 +32,9 @@ import ContentLayout from "~/layouts/ContentLayout.astro";
 		display: flex;
 		gap: 7rem;
 		flex-direction: column;
+	}
+
+	.newsletter {
+		max-width: fit-content;
 	}
 </style>

@@ -44,7 +44,7 @@
 	},
 	"devDependencies": {
 		"@astrojs/check": "0.8.1",
-		"@astropub/md": "0.4.0",
+		"@astropub/md": "1.0.0",
 		"@eslint-community/eslint-plugin-eslint-comments": "4.3.0",
 		"@eslint/js": "9.7.0",
 		"@fontsource-variable/josefin-sans": "5.0.21",

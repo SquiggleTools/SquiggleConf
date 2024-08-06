@@ -17,11 +17,17 @@ import SquiggleFlanked from "./SquiggleFlanked.astro";
 
 	<SquiggleFlanked class="flanked" width="full">
 		<div class="date-cell">
-			<Heading class="heading" id="talks" level="h2" link>Talks</Heading>
+			<Heading class="heading" id="talks" level="h2" link="/sessions#"
+				>Talks</Heading
+			>
 			<p class="date">Thursday <span class="together">Oct. 3rd</span></p>
 		</div>
 		<div class="date-cell">
-			<Heading class="heading" id="workshops" level="h2" link>Workshops</Heading
+			<Heading
+				class="heading"
+				id="workshops"
+				level="h2"
+				link="/sessions#workshops">Workshops</Heading
 			>
 			<p class="date">Friday <span class="together">Oct. 4th</span></p>
 		</div>
@@ -44,7 +50,7 @@ import SquiggleFlanked from "./SquiggleFlanked.astro";
 	}
 
 	.flanked {
-		margin: 5rem 0;
+		margin: 5rem 0 -2rem;
 	}
 
 	.date-cell {

@@ -2,20 +2,29 @@
 	:root {
 		color-scheme: light;
 
-		--colorBackdropDark: #c9e6f3;
-		--colorBackdropLight: #edebe4;
+		--colorCream: #edebe4;
+		--colorBlueLight: #c9e6f3;
+		--colorDull: #b6c1c6;
+		--colorOffWhite: #eaeaff;
+		--colorRedDark: #7f3a5c;
+		--colorRedLight: #ffbfc2;
+		--colorWhite: #ffffff;
+
+		--colorBackdropDark: var(--colorBlueLight);
+		--colorBackdropLight: var(--colorCream);
+		--colorBackdropOff: var(--colorOffWhite);
 		--colorEmphasized: #1b80a1;
 		--colorEmphasizedBackground: #085e7a;
-		--colorInverted: #edebe4;
+		--colorInverted: var(--colorCream);
 		--colorInvertedMild: #78c1d9;
+		--colorInvertedDull: rgb(165, 204, 218);
 		--colorForeground: #1f3840;
 		--colorForegroundBody: #203238;
-		--colorOffWhite: #eaeaff;
 		--colorSubtleLight: #a5e2fc;
 		--colorSubtle: var(--colorSubtleLight);
 		--colorHeroShadow: #002547;
 		--colorTextShadow: rgba(35, 49, 70, 0.75);
-		--colorUnhappy: #7f3a5c;
+		--colorUnhappy: var(--colorRedDark);
 
 		--fontFamilyBody: "Urbanist";
 		--fontFamilyHeading: "Josefin Sans Variable";
@@ -53,11 +62,14 @@
 
 		--colorBackdropDark: var(--colorSubtle);
 		--colorBackdropLight: var(--colorInverted);
+		--colorBackdropOff: var(--colorSubtle);
 		--colorEmphasized: #0685af;
-		--colorForeground: rgb(188, 223, 233);
-		--colorForegroundBody: rgb(210, 235, 241);
+		--colorForeground: #bcdfe9;
+		--colorForegroundBody: #d2ebf1;
 		--colorInverted: #10141b;
 		--colorSubtle: #062430;
+		--colorTextShadow: var(--colorEmphasized);
+		--colorUnhappy: var(--colorRedLight);
 
 		--lineHeightBody: 1.5;
 		--lineHeightSecondary: 1.1;

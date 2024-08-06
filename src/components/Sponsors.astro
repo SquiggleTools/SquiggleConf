@@ -1,18 +1,15 @@
 ---
-import Heading from "./Heading.astro";
-import SquiggleFlanked from "./SquiggleFlanked.astro";
-
-import FullSection from "./FullSection.astro";
-import AnchorButton from "./AnchorButton.astro";
-import BodyText from "./BodyText.astro";
-import { sponsors } from "~/data";
 import { Image } from "astro:assets";
+
+import { sponsors } from "~/data/index";
+
+import BodyText from "./BodyText.astro";
+import FullSection from "./FullSection.astro";
+import HeadingFlanked from "./HeadingFlanked.astro";
 ---
 
 <FullSection>
-	<SquiggleFlanked class="squiggle-flanked" width="lean">
-		<Heading class="heading" id="sponsors" level="h2" link> Sponsors </Heading>
-	</SquiggleFlanked>
+	<HeadingFlanked id="sponsors">Sponsors</HeadingFlanked>
 	<BodyText size="large" width="lean">
 		The support of our generous sponsors help make SquiggleConf possible. They
 		have our sincere appreciation and thanks.
@@ -22,60 +19,41 @@ import { Image } from "astro:assets";
 		{
 			sponsors.map((sponsor) => (
 				<a href={sponsor.href} rel="noreferrer" target="_blank">
-					<Image alt="" src={sponsor.logo} height={128} />
+					<Image
+						alt=""
+						class="sponsor-logo-dark"
+						src={sponsor.logos.dark}
+						height={128}
+					/>
+					<Image
+						alt=""
+						class="sponsor-logo-light"
+						src={sponsor.logos.light}
+						height={128}
+					/>
 				</a>
 			))
 		}
 	</div>
-
-	<SquiggleFlanked class="squiggle-flanked" width="lean">
-		<Heading class="heading" id="sponsorships" level="h2" link>
-			Sponsorships
-		</Heading>
-	</SquiggleFlanked>
-
-	<BodyText size="large" width="lean">
-		Get your branding in front of enthusiastic web developers and key players in
-		great web tooling.
-	</BodyText>
-	<AnchorButton
-		class="action-button"
-		href="https://docs.google.com/document/d/1zyWidlU_kx9TDZQx4pez4tQX-kWRyXS18ukhoC9dLko"
-		target="_blank"
-		rel="noreferrer"
-	>
-		Sponsorship Prospectus
-	</AnchorButton>
-	<BodyText size="large">
-		Contact us at <a
-			href="mailto:sponsorships@squiggleconf.com"
-			target="_blank"
-		>
-			sponsorships@squiggleconf.com</a
-		>.
-	</BodyText>
 </FullSection>
 
 <style>
-	.squiggle-flanked {
-		margin-bottom: 3rem;
-	}
-
-	.heading {
-		font-size: var(--fontSizeH2);
-	}
-
 	.sponsors {
 		align-items: center;
 		display: flex;
 		flex-direction: column;
-		padding: 2rem 2rem 4rem;
+		padding: 2rem 2rem 0;
 		justify-content: center;
 		margin: auto;
 	}
 
 	.sponsors img {
 		max-width: 14rem;
+	}
+
+	html.dark .sponsor-logo-light,
+	html:not(.dark) .sponsor-logo-dark {
+		display: none;
 	}
 
 	.action-button {

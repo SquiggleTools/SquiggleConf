@@ -1,52 +1,58 @@
 ---
 import { Image } from "astro:assets";
 
-import bluesky from "~/assets/bluesky.svg";
-import github from "~/assets/github.svg";
-import linkedin from "~/assets/linkedin.svg";
-import mastodon from "~/assets/mastodon.svg";
-import twitter from "~/assets/twitter.svg";
-import website from "~/assets/website.svg";
-import youtube from "~/assets/youtube.svg";
+import bluesky from "~/assets/logos/bluesky.svg";
+import github from "~/assets/logos/github.svg";
+import linkedin from "~/assets/logos/linkedin.svg";
+import mastodon from "~/assets/logos/mastodon.svg";
+import twitch from "~/assets/logos/twitch.svg";
+import twitter from "~/assets/logos/twitter.svg";
+import website from "~/assets/logos/website.svg";
+import youtube from "~/assets/logos/YouTube.svg";
+import gitlab from "~/assets/logos/GitLab.svg";
+import medium from "~/assets/logos/Medium.svg";
 
 interface Props {
+	class?: string;
 	links: BioLinksPlatforms;
 	name: string;
 }
 
 export interface BioLinksPlatforms {
-	bluesky?: string;
-	github?: string;
-	linkedin?: string;
-	mastodon?: string;
-	twitter?: string;
-	website?: string;
-	youtube?: string;
+	bluesky?: string | null;
+	github?: string | null;
+	gitlab?: string | null;
+	linkedin?: string | null;
+	mastodon?: string | null;
+	twitch?: string | null;
+	twitter?: string | null;
+	website?: string | null;
+	youtube?: string | null;
+	medium?: string | null;
 }
 
-const { links, name } = Astro.props;
+const { class: className, links, name, ...rest } = Astro.props;
 ---
 
-<div class="bio-links">
+<div class:list={["bio-links", className]} {...rest}>
 	{
-		links.bluesky && (
-			<a
-				href={`https://bsky.app/profile/${links.bluesky}`}
-				target="_blank"
-				rel="noreferrer"
-			>
-				<Image alt={`${name} on bluesky`} class="link" src={bluesky} />
+		links.github && (
+			<a href={links.github} target="_blank" rel="noreferrer">
+				<Image alt={`${name} on GitHub`} class="link" src={github} />
 			</a>
 		)
 	}
 	{
-		links.github && (
-			<a
-				href={`https://github.com/${links.github}`}
-				target="_blank"
-				rel="noreferrer"
-			>
-				<Image alt={`${name} on GitHub`} class="link" src={github} />
+		links.gitlab && (
+			<a href={links.gitlab} target="_blank" rel="noreferrer">
+				<Image alt={`${name} on GitLab`} class="link" src={gitlab} />
+			</a>
+		)
+	}
+	{
+		links.bluesky && (
+			<a href={links.bluesky} target="_blank" rel="noreferrer">
+				<Image alt={`${name} on bluesky`} class="link" src={bluesky} />
 			</a>
 		)
 	}
@@ -65,20 +71,16 @@ const { links, name } = Astro.props;
 		)
 	}
 	{
-		links.twitter && (
-			<a
-				href={`https://twitter.com/${links.twitter}`}
-				target="_blank"
-				rel="noreferrer"
-			>
-				<Image alt={`${name} on Twitter`} class="link" src={twitter} />
+		links.twitch && (
+			<a href={links.twitch} target="_blank" rel="noreferrer">
+				<Image alt={`${name} on Twitch`} class="link" src={twitch} />
 			</a>
 		)
 	}
 	{
-		links.website && (
-			<a href={links.website} target="_blank" rel="noreferrer">
-				<Image alt={`${name}'s website'`} class="link" src={website} />
+		links.twitter && (
+			<a href={links.twitter} target="_blank" rel="noreferrer">
+				<Image alt={`${name} on Twitter`} class="link" src={twitter} />
 			</a>
 		)
 	}
@@ -89,14 +91,28 @@ const { links, name } = Astro.props;
 			</a>
 		)
 	}
+	{
+		links.medium && (
+			<a href={links.medium} target="_blank" rel="noreferrer">
+				<Image alt={`${name} on Medium'`} class="link" src={medium} />
+			</a>
+		)
+	}
+	{
+		links.website && (
+			<a href={links.website} target="_blank" rel="noreferrer">
+				<Image alt={`${name}'s website'`} class="link" src={website} />
+			</a>
+		)
+	}
 </div>
 
 <style>
 	.bio-links {
 		align-items: center;
 		display: flex;
-		gap: 0.5rem;
-		margin-top: 0.25rem;
+		flex-wrap: wrap;
+		gap: 0.25rem 0.5rem;
 	}
 
 	.link {
