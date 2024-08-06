@@ -4,6 +4,7 @@ import PrimaryContents from "~/components/PrimaryContents.astro";
 import ContentLayout from "~/layouts/ContentLayout.astro";
 import { peopleBySlug, talksBySlug } from "~/data/notion-data";
 import Speaker from "~/components/Speaker.astro";
+import BodyText from "~/components/BodyText.astro";
 
 const speakersToExclude = new Set([
 	// Sylwia might not be able to make it 😢
@@ -15,6 +16,12 @@ const speakersToExclude = new Set([
 	<HeroForPage>Speakers</HeroForPage>
 
 	<PrimaryContents>
+		<BodyText class="speakers-top" size="large" width="full">
+			Our speakers will all be in-person for SquiggleConf 2024.
+			<br />
+			See talk and workshop details on <a href="/sessions">Sessions</a>.
+		</BodyText>
+
 		<ul class="speakers-list">
 			{
 				Object.values(peopleBySlug)
@@ -32,10 +39,20 @@ const speakersToExclude = new Set([
 					))
 			}
 		</ul>
+
+		<BodyText class="speakers-bottom" size="large" width="full">
+			Our speakers will all be in-person for SquiggleConf 2024.
+			<br />
+			See talk and workshop details on <a href="/sessions">Sessions</a>.
+		</BodyText>
 	</PrimaryContents>
 </ContentLayout>;
 
 <style>
+	.speakers-top {
+		margin-bottom: 2rem;
+	}
+
 	.speakers-list {
 		display: flex;
 		flex-direction: column;
@@ -44,6 +61,10 @@ const speakersToExclude = new Set([
 		list-style-type: none;
 		margin: 2rem;
 		padding: 0 var(--widthBodyPadding);
+	}
+
+	.speakers-bottom {
+		margin-top: 3.5rem;
 	}
 
 	@media (min-width: 1017px) {
