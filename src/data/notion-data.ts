@@ -27,7 +27,7 @@ export const peopleBySlug = {
 			bluesky: null,
 			github: "https://github.com/ad1992",
 			gitlab: null,
-			linkedin: null,
+			linkedin: "https://www.linkedin.com/in/aa1992",
 			mastodon: null,
 			medium: null,
 			twitch: null,
