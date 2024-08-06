@@ -22,7 +22,7 @@ export interface Person {
 
 export const peopleBySlug = {
 	"aakansha-doshi": {
-		bio: "",
+		bio: "Aakansha is passionate about Free and open-source software (FOSS) and loves deep diving into the internals of Web and Javascript. She is a core maintainer of excalidraw, react-tags, mermaid-to-excalidraw and more. She also leads the FOSS meetups in Bangalore, India. Beyond her tech interests, she is a big foodie, loves traveling, and spending quality time with her family.",
 		links: {
 			bluesky: null,
 			github: "https://github.com/ad1992",
