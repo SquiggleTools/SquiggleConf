@@ -22,13 +22,13 @@ import HeadingFlanked from "./HeadingFlanked.astro";
 				<a href={partner.href} rel="noreferrer" target="_blank">
 					<Image
 						alt=""
-						class="partner-logo-dark"
+						class="partner-logo partner-logo-dark"
 						src={partner.logos.dark}
 						height={128}
 					/>
 					<Image
 						alt=""
-						class="partner-logo-light"
+						class="partner-logo partner-logo-light"
 						src={partner.logos.light}
 						height={128}
 					/>
@@ -46,6 +46,7 @@ import HeadingFlanked from "./HeadingFlanked.astro";
 		padding: 2rem;
 		justify-content: center;
 		margin: auto;
+		max-width: 90vw;
 	}
 
 	html.dark .partner-logo-light,

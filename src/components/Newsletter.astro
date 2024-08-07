@@ -96,16 +96,14 @@ const { class: className, ...rest } = Astro.props;
 
 <style>
 	.newsletter {
-		align-items: center;
-		display: grid;
+		display: flex;
+		flex-direction: column;
 		font-family: var(--fontFamilyBody);
 		font-size: var(--fontSizeBody);
 		font-weight: var(--fontWeightBody);
-		grid-column-gap: 1rem;
-		grid-row-gap: 1rem;
-		grid-template-columns: repeat(2, auto);
-		grid-template-rows: repeat(2, auto);
+		gap: 1rem;
 		padding: 0 var(--widthBodyPadding);
+		text-align: center;
 	}
 
 	label {
@@ -169,5 +167,16 @@ const { class: className, ...rest } = Astro.props;
 
 	#newsletter-message.unhappy {
 		color: var(--colorUnhappy);
+	}
+
+	@media (min-width: 700px) {
+		.newsletter {
+			align-items: center;
+			display: grid;
+			grid-column-gap: 1rem;
+			grid-row-gap: 1rem;
+			grid-template-columns: repeat(2, auto);
+			grid-template-rows: repeat(2, auto);
+		}
 	}
 </style>

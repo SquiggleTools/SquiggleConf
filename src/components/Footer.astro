@@ -42,6 +42,7 @@ import AnchorButton from "./AnchorButton.astro";
 
 		.footer-tickets {
 			display: inline-block;
+			margin: 0 var(--widthBodyPadding);
 		}
 
 		.texts {
@@ -67,6 +68,9 @@ import AnchorButton from "./AnchorButton.astro";
 		.logos {
 			display: flex;
 			gap: 1rem;
+			flex-wrap: wrap;
+			width: 12rem;
+			justify-content: center;
 		}
 
 		.texts-line {
@@ -80,6 +84,12 @@ import AnchorButton from "./AnchorButton.astro";
 
 		html.dark .texts img {
 			filter: invert() hue-rotate(180deg);
+		}
+
+		@media (min-width: 700px) {
+			.logos {
+				width: 100%;
+			}
 		}
 
 		@media (min-width: 1017px) {
@@ -106,9 +116,7 @@ import AnchorButton from "./AnchorButton.astro";
 			}
 
 			.logos {
-				display: flex;
 				justify-content: right;
-				width: 100%;
 			}
 		}
 	</style>
