@@ -479,7 +479,7 @@ export const talksBySlug: Record<string, TalkInfo> = {
 		slug: "talk-loris-cro",
 		tags: ["Zig", "Language Server Protocol", "TreeSitter", "Parsing"],
 		talkFormat: "Full",
-		title: "Building LSP Server from Scratch in Zig",
+		title: "Building an LSP Server from Scratch in Zig",
 	},
 	"talk-rachel-nabors": {
 		description:
