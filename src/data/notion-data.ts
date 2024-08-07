@@ -525,7 +525,7 @@ export const talksBySlug: Record<string, TalkInfo> = {
 			"Open Source",
 		],
 		talkFormat: "Full",
-		title: "Oh My Zsh: Learnings Over 15 years of CLI Innovation",
+		title: "Oh My Zsh: Learnings Over 15 Years of CLI Innovation",
 	},
 	"talk-titian-cernicova-dragomir": {
 		description:

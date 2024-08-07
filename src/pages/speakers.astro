@@ -5,6 +5,7 @@ import ContentLayout from "~/layouts/ContentLayout.astro";
 import { peopleBySlug, talksBySlug } from "~/data/notion-data";
 import Speaker from "~/components/Speaker.astro";
 import BodyText from "~/components/BodyText.astro";
+import SafeMarkdown from "~/components/SafeMarkdown.astro";
 
 const speakersToExclude = new Set([
 	// Sylwia might not be able to make it 😢
@@ -36,7 +37,11 @@ const speakersToExclude = new Set([
 							talks={Object.values(talksBySlug).filter((talk) =>
 								talk.people.includes(person),
 							)}
-						/>
+						>
+							<div class="bio" slot="center">
+								<SafeMarkdown of={person.bio!} />
+							</div>
+						</Speaker>
 					))
 			}
 		</ul>
@@ -62,6 +67,12 @@ const speakersToExclude = new Set([
 		list-style-type: none;
 		margin: 2rem;
 		padding: 0 var(--widthBodyPadding);
+	}
+
+	.bio {
+		line-height: 1.25;
+		padding-top: 0.5rem;
+		transition: var(--transitionMedium) line-height;
 	}
 
 	.speakers-bottom {
