@@ -27,10 +27,13 @@ const excludedSpeakers = new Set([
 		<ul class="speakers-ad-list">
 			{
 				Object.values(peopleBySlug)
-					.filter((speaker) => !excludedSpeakers.has(speaker.slug))
+					.filter((person) => !excludedSpeakers.has(person.slug))
 					.map((person) => (
 						<SubtleCard>
-							<SpeakerSmall person={person} />
+							<SpeakerSmall
+								href={`/ad/speaker/${person.slug}`}
+								person={person}
+							/>
 						</SubtleCard>
 					))
 			}
