@@ -1,20 +1,18 @@
 ---
 import { links } from "~/data/index";
 
-import AnchorButton from "./AnchorButton.astro";
 import Hero from "./Hero.astro";
 import HeroName from "./HeroName.astro";
 import NoBreak from "./NoBreak.astro";
 import LinkOut from "~/assets/glyphs/link-out.svg";
 import { Image } from "astro:assets";
 import ThemeToggle from "./ThemeToggle.astro";
+import TicketsButton from "./TicketsButton.astro";
 ---
 
 <Hero>
 	<HeroName align="center" color="inverted" level="h1" />
-	<AnchorButton href={links.tickets} target="_blank" rel="noreferrer">
-		Tickets Available Now
-	</AnchorButton>
+	<TicketsButton />
 
 	<div class="sub-mentions">
 		<a

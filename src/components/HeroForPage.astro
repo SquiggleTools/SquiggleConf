@@ -3,10 +3,12 @@ import Arrow from "~/components/Arrow.astro";
 import Heading from "~/components/Heading.astro";
 import Hero from "./Hero.astro";
 import ThemeToggle from "./ThemeToggle.astro";
+import TicketsButton from "./TicketsButton.astro";
 ---
 
 <Hero>
 	<Heading class="hero-heading" level="h1"><slot /></Heading>
+	<TicketsButton />
 	<a class="back" href="/">
 		<Arrow />
 		SquiggleConf
