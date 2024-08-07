@@ -6,56 +6,65 @@ import SafeMarkdown from "./SafeMarkdown.astro";
 import SessionDiscord from "./SessionDiscord.astro";
 import SpeakerImage from "./SpeakerImage.astro";
 import SubtleCard from "./SubtleCard.astro";
+import SessionTags from "./SessionTags.astro";
 
 interface Props {
 	class?: string;
+	showBioLinkText?: boolean;
+	renderAs: "div" | "li";
 	speaker: Person;
 	talks: TalkInfo[];
 }
 
 const {
 	class: className,
+	renderAs: As,
+	showBioLinkText,
 	speaker: { bio, links, qualification, name, role, slug },
 	talks,
 	...rest
 } = Astro.props;
 ---
 
-<li class:list={["speaker", className]} id={slug} {...rest}>
+<As class:list={["speaker", className]} id={slug} {...rest}>
 	<SubtleCard>
-		<div class="speaker-content">
-			<div class="speaker-image-container">
-				<SpeakerImage name={name} slug={slug} />
-			</div>
-			<div class="speaker-headline">
-				<div class="speaker-headline-text">
-					<a class="title" href={`#${slug}`}>{name}</a>
-					{
-						qualification && (
-							<div>
-								<SafeMarkdown of={qualification} />
-							</div>
-						)
-					}
-					{
-						role && (
-							<div>
-								<SafeMarkdown of={role} />
-							</div>
-						)
-					}
+		<div class="speaker-top">
+			<div class="speaker-top-content">
+				<div class="speaker-image-container">
+					<SpeakerImage name={name} slug={slug} />
 				</div>
-				<ul class="speaker-talks">
-					{
-						talks.map((talk) => (
-							<li>
-								<a href={`/talks#${talk.slug}`}>{talk.title}</a>
-							</li>
-						))
-					}
-				</ul>
+				<div class="speaker-headline">
+					<div class="speaker-headline-text">
+						<a class="title" href={`#${slug}`}>{name}</a>
+						{
+							qualification && (
+								<div>
+									<SafeMarkdown of={qualification} />
+								</div>
+							)
+						}
+						{
+							role && (
+								<div>
+									<SafeMarkdown of={role} />
+								</div>
+							)
+						}
+					</div>
+					<ul class="speaker-talks">
+						{
+							talks.map((talk) => (
+								<li>
+									<a href={`/talks#${talk.slug}`}>{talk.title}</a>
+								</li>
+							))
+						}
+					</ul>
+				</div>
 			</div>
+			<slot name="top-right" />
 		</div>
+		<slot name="center" />
 		<div class="bio">
 			<SafeMarkdown of={bio!} />
 		</div>
@@ -65,6 +74,7 @@ const {
 				links={links}
 				name={name}
 				size="large"
+				showText={showBioLinkText}
 			/>
 			{
 				talks.length
@@ -73,14 +83,24 @@ const {
 			}
 		</div>
 	</SubtleCard>
-</li>
+</As>
 
 <style>
-	.speaker-content {
+	.speaker {
+		text-align: left;
+	}
+
+	.speaker-top {
+		display: flex;
+		align-items: flex-start;
+	}
+
+	.speaker-top-content {
 		display: flex;
 		flex-direction: row;
 		gap: 1rem;
 		position: relative;
+		width: 100%;
 	}
 
 	.title {
@@ -88,7 +108,6 @@ const {
 		color: var(--colorForegroundBody);
 		font-size: var(--fontSizeH3);
 		font-weight: var(--fontWeightBold);
-		text-align: left;
 		margin-bottom: 0.25rem;
 		text-decoration: none;
 	}
@@ -114,12 +133,9 @@ const {
 		font-size: var(--fontSizeBody);
 	}
 
-	.speaker-content {
-		margin-bottom: 1rem;
-	}
-
 	.bio {
 		line-height: 1.25;
+		padding-top: 0.5rem;
 		transition: var(--transitionMedium) line-height;
 	}
 

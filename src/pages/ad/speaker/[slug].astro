@@ -1,0 +1,55 @@
+---
+import "@fontsource-variable/josefin-sans";
+import "@fontsource/urbanist";
+
+import AdContents from "~/components/AdContents.astro";
+import SessionTags from "~/components/SessionTags.astro";
+import Speaker from "~/components/Speaker.astro";
+import { peopleBySlug, talksBySlug } from "~/data/notion-data";
+import AdLayout from "~/layouts/AdLayout.astro";
+
+export function getStaticPaths() {
+	return Object.keys(peopleBySlug).map((slug) => ({
+		params: { slug: slug as keyof typeof peopleBySlug },
+	}));
+}
+
+const speaker = peopleBySlug[Astro.params.slug];
+const talks = Object.values(talksBySlug).filter((talk) =>
+	talk.people.includes(speaker),
+);
+---
+
+<AdLayout>
+	<AdContents title="SquiggleConf 2024" subTitle="Speaker">
+		<Speaker
+			class="speaker-ad"
+			renderAs="div"
+			showBioLinkText
+			speaker={speaker}
+			talks={Object.values(talksBySlug).filter((talk) =>
+				talk.people.includes(speaker),
+			)}
+		>
+			<Fragment slot="top-right">
+				{
+					talks.map((talk) => (
+						<SessionTags class="speaker-top-tags" tags={talk.tags} />
+					))
+				}
+			</Fragment>
+		</Speaker>
+	</AdContents>
+
+	<style>
+		.speaker-ad {
+			max-width: 65rem;
+		}
+
+		.speaker-top-tags {
+			align-items: right;
+			width: 21rem;
+			justify-content: right;
+		}
+	</style>
+</AdLayout>

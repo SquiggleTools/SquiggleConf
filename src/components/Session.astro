@@ -3,32 +3,14 @@ import { type TalkInfo } from "~/data";
 
 import SafeMarkdown from "./SafeMarkdown.astro";
 import SessionDiscord from "./SessionDiscord.astro";
-import SessionTag from "./SessionTag.astro";
 import SpeakerSmall from "./SpeakerSmall.astro";
 import SubtleCard from "./SubtleCard.astro";
+import SessionTags from "./SessionTags.astro";
 
 interface Props {
 	class?: string;
 	talk: TalkInfo;
 }
-
-const languageSoup = [
-	"Rust",
-	"TypeScript",
-	"Zig",
-	"Go",
-	"C++",
-	"C",
-	"OCaml",
-	"Haskell",
-	"Python",
-	"Ruby",
-	"Elixir",
-	"Java",
-	".Net",
-	"Perl",
-	"PHP",
-];
 
 const {
 	class: className,
@@ -44,18 +26,7 @@ const {
 			<div class="talk-description">
 				<SafeMarkdown of={description} />
 			</div>
-			<div class="tags">
-				{
-					tags
-						.flatMap((t) => {
-							if (t === "Language Soup") {
-								return languageSoup;
-							}
-							return t;
-						})
-						.map((tag) => <SessionTag tag={tag} />)
-				}
-			</div>
+			<SessionTags tags={tags} />
 		</div>
 
 		<div class="talk-details">
@@ -107,13 +78,6 @@ const {
 
 	:is(.talk:hover, .talk:focus-within) .title::after {
 		opacity: 1;
-	}
-
-	.tags {
-		display: flex;
-		flex-wrap: wrap;
-		margin: 0.5rem 0;
-		gap: 0.75rem;
 	}
 
 	.talk-description {

@@ -31,6 +31,7 @@ const speakersToExclude = new Set([
 					)
 					.map((person) => (
 						<Speaker
+							renderAs="li"
 							speaker={person}
 							talks={Object.values(talksBySlug).filter((talk) =>
 								talk.people.includes(person),

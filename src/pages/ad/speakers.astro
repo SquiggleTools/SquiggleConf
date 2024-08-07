@@ -8,6 +8,7 @@ import Head from "~/components/Head.astro";
 import SpeakerSmall from "~/components/SpeakerSmall.astro";
 import SubtleCard from "~/components/SubtleCard.astro";
 import { peopleBySlug } from "~/data/notion-data";
+import AdLayout from "~/layouts/AdLayout.astro";
 
 import "~/layouts/base.css";
 import "~/layouts/normalize.css";
@@ -21,38 +22,27 @@ const excludedSpeakers = new Set([
 ]);
 ---
 
-<html lang="en">
-	<Head />
-	<body>
-		<main>
-			<DeepBlueSea class="deep-blue-ad">
-				<AdContents title="SquiggleConf 2024" subTitle="Speaker Lineup">
-					<ul class="speakers-ad-list">
-						{
-							Object.values(peopleBySlug)
-								.filter((speaker) => !excludedSpeakers.has(speaker.slug))
-								.map((person) => (
-									<SubtleCard>
-										<SpeakerSmall person={person} />
-									</SubtleCard>
-								))
-						}
-						<div></div>
-					</ul>
-				</AdContents>
-			</DeepBlueSea>
-		</main>
-		<style>
-			.deep-blue-ad {
-				height: 100vh;
+<AdLayout>
+	<AdContents title="SquiggleConf 2024" subTitle="Speaker Lineup">
+		<ul class="speakers-ad-list">
+			{
+				Object.values(peopleBySlug)
+					.filter((speaker) => !excludedSpeakers.has(speaker.slug))
+					.map((person) => (
+						<SubtleCard>
+							<SpeakerSmall person={person} />
+						</SubtleCard>
+					))
 			}
-		</style>
-		<style>
-			.speakers-ad-list {
-				display: grid;
-				gap: 2rem;
-				grid-template-columns: repeat(4, 1fr);
-			}
-		</style>
-	</body>
-</html>
+			<div></div>
+		</ul>
+	</AdContents>
+</AdLayout>
+
+<style>
+	.speakers-ad-list {
+		display: grid;
+		gap: 2rem;
+		grid-template-columns: repeat(4, 1fr);
+	}
+</style>

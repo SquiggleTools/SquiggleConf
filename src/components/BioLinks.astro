@@ -16,6 +16,7 @@ interface Props {
 	class?: string;
 	links: BioLinksPlatforms;
 	name: string;
+	showText?: boolean;
 	size?: "normal" | "large";
 }
 
@@ -32,7 +33,20 @@ export interface BioLinksPlatforms {
 	medium?: string | null;
 }
 
-const { class: className, links, name, size, ...rest } = Astro.props;
+const { class: className, links, name, size, showText, ...rest } = Astro.props;
+
+const aliases = [
+	["bluesky", "on bluesky", bluesky],
+	["github", "on GitHub", github],
+	["gitlab", "on GitLab", gitlab],
+	["linkedin", "on LinkedIn", linkedin],
+	["mastodon", "on Mastodon", mastodon],
+	["medium", "on Medium", medium],
+	["twitch", "on Twitch", twitch],
+	["twitter", "on Twitter", twitter],
+	["youtube", "on YouTube", youtube],
+	["website", "'s website", medium],
+] as const;
 ---
 
 <div
@@ -44,74 +58,28 @@ const { class: className, links, name, size, ...rest } = Astro.props;
 	{...rest}
 >
 	{
-		links.github && (
-			<a href={links.github} target="_blank" rel="noreferrer">
-				<Image alt={`${name} on GitHub`} class="link" src={github} />
-			</a>
-		)
-	}
-	{
-		links.gitlab && (
-			<a href={links.gitlab} target="_blank" rel="noreferrer">
-				<Image alt={`${name} on GitLab`} class="link" src={gitlab} />
-			</a>
-		)
-	}
-	{
-		links.bluesky && (
-			<a href={links.bluesky} target="_blank" rel="noreferrer">
-				<Image alt={`${name} on bluesky`} class="link" src={bluesky} />
-			</a>
-		)
-	}
-	{
-		links.linkedin && (
-			<a href={links.linkedin} target="_blank" rel="noreferrer">
-				<Image alt={`${name} on LinkedIn`} class="link" src={linkedin} />
-			</a>
-		)
-	}
-	{
-		links.mastodon && (
-			<a href={links.mastodon} target="_blank" rel="noreferrer">
-				<Image alt={`${name} on mastodon`} class="link" src={mastodon} />
-			</a>
-		)
-	}
-	{
-		links.twitch && (
-			<a href={links.twitch} target="_blank" rel="noreferrer">
-				<Image alt={`${name} on Twitch`} class="link" src={twitch} />
-			</a>
-		)
-	}
-	{
-		links.twitter && (
-			<a href={links.twitter} target="_blank" rel="noreferrer">
-				<Image alt={`${name} on Twitter`} class="link" src={twitter} />
-			</a>
-		)
-	}
-	{
-		links.youtube && (
-			<a href={links.youtube} target="_blank" rel="noreferrer">
-				<Image alt={`${name} on YouTube'`} class="link" src={youtube} />
-			</a>
-		)
-	}
-	{
-		links.medium && (
-			<a href={links.medium} target="_blank" rel="noreferrer">
-				<Image alt={`${name} on Medium'`} class="link" src={medium} />
-			</a>
-		)
-	}
-	{
-		links.website && (
-			<a href={links.website} target="_blank" rel="noreferrer">
-				<Image alt={`${name}'s website'`} class="link" src={website} />
-			</a>
-		)
+		aliases
+			.map(
+				([link, platform, src]) =>
+					links[link] && (
+						<a
+							class="bio-link"
+							href={links[link]}
+							target="_blank"
+							rel="noreferrer"
+						>
+							{showText ? (
+								<>
+									<Image alt="" class="link" src={src} />
+									<span class="link-text">{links[link].split("/").at(-1)}</span>
+								</>
+							) : (
+								<Image alt={`${name}${platform}`} class="link" src={src} />
+							)}
+						</a>
+					),
+			)
+			.filter(Boolean)
 	}
 </div>
 
@@ -131,9 +99,20 @@ const { class: className, links, name, size, ...rest } = Astro.props;
 		--bioLinkImageSize: 1.35rem;
 	}
 
+	.bio-link {
+		display: flex;
+		gap: 0.25rem;
+		text-decoration: none;
+	}
+
 	.link {
 		height: var(--bioLinkImageSize);
 		filter: brightness(1.5);
 		width: var(--bioLinkImageSize);
+	}
+
+	.link-text {
+		color: var(--colorBlueDarkDull);
+		margin-right: 1rem;
 	}
 </style>

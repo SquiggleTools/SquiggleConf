@@ -1,0 +1,26 @@
+---
+import DeepBlueSea from "~/components/DeepBlueSea.astro";
+import Head from "~/components/Head.astro";
+
+import "@fontsource-variable/josefin-sans";
+import "@fontsource/urbanist";
+
+import "./base.css";
+import "./normalize.css";
+---
+
+<html lang="en">
+	<Head />
+	<body>
+		<main>
+			<DeepBlueSea class="deep-blue-ad">
+				<slot />
+			</DeepBlueSea>
+		</main>
+		<style>
+			.deep-blue-ad {
+				height: 100vh;
+			}
+		</style>
+	</body>
+</html>
