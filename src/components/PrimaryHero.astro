@@ -56,7 +56,9 @@ import ThemeToggle from "./ThemeToggle.astro";
 	.sub-mentions {
 		align-items: center;
 		display: flex;
+		flex-wrap: wrap;
 		gap: clamp(1rem, 5vw, 2rem);
+		justify-content: center;
 	}
 
 	.sub-mention {
@@ -72,16 +74,11 @@ import ThemeToggle from "./ThemeToggle.astro";
 	}
 
 	.link-out {
-		display: none;
+		height: 1rem;
+		width: 1rem;
 	}
 
 	@media (min-width: 819px) {
-		.link-out {
-			display: inline;
-			height: 1rem;
-			width: 1rem;
-		}
-
 		.sub-mentions {
 			padding-bottom: 2rem;
 		}

@@ -16,25 +16,37 @@ import SquiggleFlanked from "./SquiggleFlanked.astro";
 	</BodyText>
 
 	<SquiggleFlanked class="flanked" width="full">
-		<div class="date-cell">
-			<Heading class="heading" id="talks" level="h2" link="/sessions#"
-				>Talks</Heading
-			>
-			<p class="date">Thursday <span class="together">Oct. 3rd</span></p>
-		</div>
-		<div class="date-cell">
-			<Heading
-				class="heading"
-				id="workshops"
-				level="h2"
-				link="/sessions#workshops">Workshops</Heading
-			>
-			<p class="date">Friday <span class="together">Oct. 4th</span></p>
+		<div class="flanked-contents">
+			<div class="date-cell">
+				<Heading class="heading" id="talks" level="h2" link="/sessions#"
+					>Talks</Heading
+				>
+				<p class="date">Thursday <span class="together">Oct. 3rd</span></p>
+			</div>
+			<div class="date-cell">
+				<Heading
+					class="heading"
+					id="workshops"
+					level="h2"
+					link="/sessions#workshops">Workshops</Heading
+				>
+				<p class="date">Friday <span class="together">Oct. 4th</span></p>
+			</div>
 		</div>
 	</SquiggleFlanked>
 </section>
 
 <style>
+	.flanked {
+		margin: 5rem 0 -2rem;
+	}
+
+	.flanked-contents {
+		display: flex;
+		gap: 1rem;
+		flex-direction: column;
+	}
+
 	.primary-h2 {
 		font-family: var(--fontFamilyHeading);
 		font-size: var(--fontSizeH2);
@@ -47,10 +59,6 @@ import SquiggleFlanked from "./SquiggleFlanked.astro";
 
 	.byline {
 		margin: 2rem auto 0;
-	}
-
-	.flanked {
-		margin: 5rem 0 -2rem;
 	}
 
 	.date-cell {
@@ -68,5 +76,11 @@ import SquiggleFlanked from "./SquiggleFlanked.astro";
 
 	.together {
 		display: inline-block;
+	}
+
+	@media (min-width: 490px) {
+		.flanked-contents {
+			flex-direction: row;
+		}
 	}
 </style>
