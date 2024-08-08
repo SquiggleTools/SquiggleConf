@@ -324,7 +324,7 @@ export const peopleBySlug = {
 		},
 		name: "Robby Russell",
 		qualification: "[Oh My Zsh](https://ohmyz.sh/) Creator",
-		role: "CEO, [Planet Argon](https://www.planetargon.com/)",
+		role: "CEO, [Planet Argon](https://www.planetargon.com/), host of [Maintainable](https://maintainable.fm/)",
 		slug: "robby-russell",
 	},
 	"sylwia-vargas": {
