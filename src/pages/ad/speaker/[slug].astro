@@ -1,10 +1,14 @@
 ---
 import "@fontsource-variable/josefin-sans";
 import "@fontsource/urbanist";
+import { Image } from "astro:assets";
 
 import AdContents from "~/components/AdContents.astro";
+import SafeMarkdown from "~/components/SafeMarkdown.astro";
 import SessionTags from "~/components/SessionTags.astro";
 import Speaker from "~/components/Speaker.astro";
+import SpeakerImage from "~/components/SpeakerImage.astro";
+import SubtleCard from "~/components/SubtleCard.astro";
 import { peopleBySlug, talksBySlug } from "~/data/notion-data";
 import AdLayout from "~/layouts/AdLayout.astro";
 
@@ -21,8 +25,8 @@ const talks = Object.values(talksBySlug).filter((talk) =>
 ---
 
 <AdLayout>
-	<AdContents title="SquiggleConf 2024" subTitle="Speaker">
-		<Speaker
+	<AdContents title="SquiggleConf 2024 Speaker" subTitle={speaker.name}>
+		<!-- <Speaker
 			class="speaker-ad"
 			renderAs="div"
 			showBioLinkText
@@ -38,18 +42,58 @@ const talks = Object.values(talksBySlug).filter((talk) =>
 					))
 				}
 			</Fragment>
-		</Speaker>
+		</Speaker> -->
+		<SubtleCard class="speaker-ad-card">
+			<SpeakerImage name={speaker.name} slug={speaker.slug} size={256} />
+			<div class="speaker-ad-contents">
+				{talks.map((talk) => <p class="talk-title">{talk.title}</p>)}
+				{
+					talks.map((talk) => (
+						<SessionTags
+							class="speaker-top-tags"
+							size="large"
+							tags={talk.tags}
+						/>
+					))
+				}
+				<div class="speaker-details">
+					<div>
+						<SafeMarkdown of={speaker.qualification} />
+					</div>
+					<div>
+						<SafeMarkdown of={speaker.role} />
+					</div>
+				</div>
+			</div>
+		</SubtleCard>
 	</AdContents>
 
 	<style>
-		.speaker-ad {
-			max-width: 85vh;
+		.speaker-ad-card {
+			display: flex;
+			width: 85vh;
+			gap: 1rem;
+			padding: 1.5rem 2rem;
+			align-items: center;
 		}
 
-		.speaker-top-tags {
-			align-items: right;
-			width: 24rem;
-			justify-content: right;
+		.speaker-ad-contents {
+			padding: 1rem;
+			display: flex;
+			flex-direction: column;
+			gap: 2rem;
+			justify-content: space-between;
+			text-align: left;
+			height: 100%;
+		}
+
+		.talk-title {
+			font-family: var(--fontFamilyHeading);
+			font-size: 3.5rem;
+		}
+
+		.speaker-details {
+			font-size: 1.35rem;
 		}
 	</style>
 </AdLayout>

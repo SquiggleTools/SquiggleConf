@@ -1,5 +1,5 @@
 ---
-import SessionTag from "./SessionTag.astro";
+import SessionTag, { SessionTagSize } from "./SessionTag.astro";
 
 const languageSoup = [
 	"Rust",
@@ -21,17 +21,18 @@ const languageSoup = [
 
 interface Props {
 	class?: string;
+	size?: SessionTagSize;
 	tags: string[];
 }
 
-const { class: className, tags, ...rest } = Astro.props;
+const { class: className, size, tags, ...rest } = Astro.props;
 ---
 
 <div class:list={["tags", className]} {...rest}>
 	{
 		tags
 			.flatMap((tag) => (tag === "Language Soup" ? languageSoup : tag))
-			.map((tag) => <SessionTag tag={tag} />)
+			.map((tag) => <SessionTag size={size} tag={tag} />)
 	}
 </div>
 
@@ -41,5 +42,9 @@ const { class: className, tags, ...rest } = Astro.props;
 		flex-wrap: wrap;
 		margin: 0.5rem 0;
 		gap: 0.75rem;
+	}
+
+	.tags-large {
+		font-size: 2rem;
 	}
 </style>
