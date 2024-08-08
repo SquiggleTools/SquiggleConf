@@ -51,7 +51,10 @@ const sections = [
 		{
 			sections.map(({ talkFormat, name, description }) => (
 				<>
-					<HeadingFlanked id={name.toLowerCase().replaceAll(" ", "-")}>
+					<HeadingFlanked
+						class="sessions-header-flanked"
+						id={name.toLowerCase().replaceAll(" ", "-")}
+					>
 						{name}
 					</HeadingFlanked>
 					<BodyText as="p">{description}</BodyText>
@@ -81,6 +84,10 @@ const sections = [
 	.sessions-top {
 		margin-bottom: 5rem;
 		text-align: left;
+	}
+
+	.sessions-header-flanked {
+		margin-top: 1rem;
 	}
 
 	.talks-list {
