@@ -555,6 +555,7 @@ export const talksBySlug: Record<string, TalkInfo> = {
 			"Language Server Protocol",
 			"TypeScript",
 			"Kotlin",
+			"VS Code",
 		],
 		talkFormat: "Workshop",
 		title: "Build Editor Extensions with the Makers of Nx Console",
