@@ -3,8 +3,7 @@ import "@fontsource-variable/josefin-sans";
 import "@fontsource/urbanist";
 
 import AdContents from "~/components/AdContents.astro";
-import DeepBlueSea from "~/components/DeepBlueSea.astro";
-import Head from "~/components/Head.astro";
+import AdTitleAndSubtitle from "~/components/AdTitleAndSubtitle.astro";
 import SpeakerSmall from "~/components/SpeakerSmall.astro";
 import SubtleCard from "~/components/SubtleCard.astro";
 import { peopleBySlug } from "~/data/notion-data";
@@ -23,8 +22,13 @@ const excludedSpeakers = new Set([
 ---
 
 <AdLayout>
-	<AdContents title="SquiggleConf 2024" subTitle="Speaker Lineup">
-		<ul class="speakers-ad-list">
+	<AdContents>
+		<AdTitleAndSubtitle
+			title="SquiggleConf 2024"
+			subTitle="Speaker Lineup"
+			slot="top"
+		/>
+		<ul class="speakers-ad-list" slot="body">
 			{
 				Object.values(peopleBySlug)
 					.filter((person) => !excludedSpeakers.has(person.slug))
@@ -37,7 +41,6 @@ const excludedSpeakers = new Set([
 						</SubtleCard>
 					))
 			}
-			<div></div>
 		</ul>
 	</AdContents>
 </AdLayout>

@@ -1,12 +1,11 @@
 ---
 import "@fontsource-variable/josefin-sans";
 import "@fontsource/urbanist";
-import { Image } from "astro:assets";
 
 import AdContents from "~/components/AdContents.astro";
+import AdTitle from "~/components/AdTitle.astro";
 import SafeMarkdown from "~/components/SafeMarkdown.astro";
 import SessionTags from "~/components/SessionTags.astro";
-import Speaker from "~/components/Speaker.astro";
 import SpeakerImage from "~/components/SpeakerImage.astro";
 import SubtleCard from "~/components/SubtleCard.astro";
 import { peopleBySlug, talksBySlug } from "~/data/notion-data";
@@ -25,56 +24,46 @@ const talks = Object.values(talksBySlug).filter((talk) =>
 ---
 
 <AdLayout>
-	<AdContents title="SquiggleConf 2024 Speaker" subTitle={speaker.name}>
-		<!-- <Speaker
-			class="speaker-ad"
-			renderAs="div"
-			showBioLinkText
-			speaker={speaker}
-			talks={Object.values(talksBySlug).filter((talk) =>
-				talk.people.includes(speaker),
-			)}
-		>
-			<Fragment slot="top-right">
-				{
-					talks.map((talk) => (
-						<SessionTags class="speaker-top-tags" tags={talk.tags} />
-					))
-				}
-			</Fragment>
-		</Speaker> -->
-		<SubtleCard class="speaker-ad-card">
-			<SpeakerImage name={speaker.name} slug={speaker.slug} size={256} />
-			<div class="speaker-ad-contents">
-				{talks.map((talk) => <p class="talk-title">{talk.title}</p>)}
-				{
-					talks.map((talk) => (
-						<SessionTags
-							class="speaker-top-tags"
-							size="large"
-							tags={talk.tags}
-						/>
-					))
-				}
-				<div class="speaker-details">
-					<div>
-						<SafeMarkdown of={speaker.qualification} />
-					</div>
-					<div>
-						<SafeMarkdown of={speaker.role} />
+	<AdContents>
+		<AdTitle slot="top">{speaker.name}</AdTitle>
+		<Fragment slot="body">
+			<SubtleCard class="speaker-ad-card">
+				<div class="speaker-ad-image-container">
+					<SpeakerImage name={speaker.name} slug={speaker.slug} size={256} />
+				</div>
+				<div class="speaker-ad-contents">
+					{talks.map((talk) => <p class="talk-title">{talk.title}</p>)}
+					<div class="speaker-details">
+						<div>
+							<SafeMarkdown of={speaker.qualification} />
+						</div>
+						<div>
+							<SafeMarkdown of={speaker.role} />
+						</div>
 					</div>
 				</div>
-			</div>
-		</SubtleCard>
+			</SubtleCard>
+			<ul class="speaker-ad-tags">
+				{talks.map((talk) => <SessionTags size="large" tags={talk.tags} />)}
+			</ul>
+		</Fragment>
 	</AdContents>
 
 	<style>
 		.speaker-ad-card {
+			align-items: center;
 			display: flex;
-			width: 85vh;
 			gap: 1rem;
 			padding: 1.5rem 2rem;
-			align-items: center;
+			margin: -2.5rem 0 -5rem;
+			position: relative;
+			width: 85vh;
+		}
+
+		.speaker-ad-image-container {
+			position: absolute;
+			right: -5rem;
+			top: -5rem;
 		}
 
 		.speaker-ad-contents {
@@ -90,10 +79,12 @@ const talks = Object.values(talksBySlug).filter((talk) =>
 		.talk-title {
 			font-family: var(--fontFamilyHeading);
 			font-size: 3.5rem;
+			margin-right: 10rem;
 		}
 
 		.speaker-details {
-			font-size: 1.35rem;
+			font-size: 1.5rem;
+			text-align: right;
 		}
 	</style>
 </AdLayout>

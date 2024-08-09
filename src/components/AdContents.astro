@@ -1,19 +1,13 @@
 ---
 import HeroName from "./HeroName.astro";
-
-interface Props {
-	subTitle?: string;
-	title: string;
-}
 ---
 
 <div class="ad-contents">
 	<div class="ad-top">
-		<h1>{Astro.props.title}</h1>
-		<strong>{Astro.props.subTitle}</strong>
+		<slot name="top" />
 	</div>
 
-	<slot />
+	<slot name="body" />
 
 	<div class="ad-bottom">
 		<HeroName align="center" color="inverted" level="h2" size="normal" />
@@ -42,10 +36,6 @@ interface Props {
 	}
 
 	h1 {
-		font-size: 3rem;
-	}
-
-	strong {
-		font-size: 4.5rem;
+		font-size: 7.5rem;
 	}
 </style>

@@ -5,6 +5,7 @@ import "@fontsource/urbanist";
 import inngest from "~/assets/sponsors/inngest.svg";
 import AdContents from "~/components/AdContents.astro";
 import AdImage from "~/components/AdImage.astro";
+import AdTitleAndSubtitle from "~/components/AdTitleAndSubtitle.astro";
 import DeepBlueSea from "~/components/DeepBlueSea.astro";
 import Head from "~/components/Head.astro";
 
@@ -17,8 +18,13 @@ import "~/layouts/normalize.css";
 	<body>
 		<main>
 			<DeepBlueSea class="deep-blue-ad">
-				<AdContents subTitle="OpenJS Foundation" title="Inngest">
-					<AdImage src={inngest} />
+				<AdContents>
+					<AdTitleAndSubtitle
+						slot="top"
+						subTitle="Inngest"
+						title="Thank you to our sponsor"
+					/>
+					<AdImage slot="body" src={inngest} />
 				</AdContents>
 			</DeepBlueSea>
 		</main>
