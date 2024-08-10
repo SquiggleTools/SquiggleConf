@@ -20,9 +20,9 @@ export interface Person {
 	slug: string;
 }
 
-export const peopleBySlug = {
+export const peopleBySlug: Record<string, Person> = {
 	"aakansha-doshi": {
-		bio: "Aakansha is passionate about Free and open-source software (FOSS) and loves deep diving into the internals of Web and Javascript. She is a core maintainer of excalidraw, react-tags, mermaid-to-excalidraw and more. She also leads the FOSS meetups in Bangalore, India. Beyond her tech interests, she is a big foodie, loves traveling, and spending quality time with her family.",
+		bio: "Aakansha is passionate about Free and open-source software \\(FOSS\\) and loves deep diving into the internals of Web and Javascript. She is a core maintainer of excalidraw, react-tags, mermaid-to-excalidraw and more. She also leads the FOSS meetups in Bangalore, India. Beyond her tech interests, she is a big foodie, loves traveling, and spending quality time with her family.",
 		links: {
 			bluesky: null,
 			github: "https://github.com/ad1992",
@@ -60,7 +60,7 @@ export const peopleBySlug = {
 		slug: "chris-griffing",
 	},
 	"corina-murg": {
-		bio: "I’m a certified accessibility engineer and founder of Web for Everyone, an initiative dedicated to introducing accessibility concepts to frontend developers. I’m also the accessibility specialist for Gridiron Survivor, an open source project building a SaaS application. In my previous career as a high school math teacher, I was regularly concerned with creating learning experiences that were accessible and welcoming to each and everyone of my students. Teaching a legally blind student first introduced me to the concept of digital accessibility. Through my work in frontend development, I want to make sure that everyone, including my former student and other people with disabilities, can easily navigate and understand the products and services we build. Outside coding, I love reading and memorizing poems, as well as taking walks with my cat.",
+		bio: "I’m a certified accessibility engineer and founder of Web for Everyone, an initiative dedicated to introducing accessibility concepts to frontend developers. I’m also the accessibility specialist for Gridiron Survivor, an open source project building a SaaS application. In my previous career as a high school math teacher, I was regularly concerned with creating learning experiences that were accessible and welcoming to each and everyone of my students. Teaching a legally blind student first introduced me to the concept of digital accessibility.  Through my work in frontend development, I want to make sure that everyone, including my former student and other people with disabilities, can easily navigate and understand the products and services we build. Outside coding, I love reading and memorizing poems, as well as taking walks with my cat.",
 		links: {
 			bluesky: null,
 			github: "https://github.com/CorinaMurg",
@@ -324,7 +324,7 @@ export const peopleBySlug = {
 		},
 		name: "Robby Russell",
 		qualification: "[Oh My Zsh](https://ohmyz.sh/) Creator",
-		role: "CEO, [Planet Argon](https://www.planetargon.com/), host of [Maintainable](https://maintainable.fm/)",
+		role: "CEO, [Planet Argon](https://www.planetargon.com/); host of [Maintainable](https://maintainable.fm/)",
 		slug: "robby-russell",
 	},
 	"sylwia-vargas": {
@@ -385,7 +385,7 @@ export const peopleBySlug = {
 		role: "Principal Systems Engineer, [Cloudflare](https://www.cloudflare.com/)",
 		slug: "yagiz-nizipli",
 	},
-} satisfies Record<string, Person>;
+};
 
 export type TalkFormat = "Full" | "Lightning" | "Workshop";
 
@@ -556,6 +556,7 @@ export const talksBySlug: Record<string, TalkInfo> = {
 			"TypeScript",
 			"Kotlin",
 			"VS Code",
+			"JetBrains",
 		],
 		talkFormat: "Workshop",
 		title: "Build Editor Extensions with the Makers of Nx Console",

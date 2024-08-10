@@ -5,7 +5,6 @@ import { Image } from "astro:assets";
 import ChromeDevTools from "~/assets/logos/ChromeDevTools.svg";
 import C from "~/assets/logos/C.png";
 import Cpp from "~/assets/logos/Cpp.png";
-import Computer from "~/assets/logos/Computer.png";
 import Go from "~/assets/logos/Go.svg";
 import JavaScript from "~/assets/logos/JavaScript.png";
 import NodeJSLogo from "~/assets/logos/NodeJS.svg";
@@ -22,7 +21,8 @@ import OCaml from "~/assets/logos/OCaml.svg";
 import Java from "~/assets/logos/Java.svg";
 import Perl from "~/assets/logos/Perl.svg";
 import PHP from "~/assets/logos/PHP.svg";
-import Kotlin from "~/assets/logos/Kotlin.png";
+import Kotlin from "~/assets/logos/Kotlin.svg";
+import JetBrains from "~/assets/logos/JetBrains.svg";
 import Python from "~/assets/logos/Python.svg";
 import Ruby from "~/assets/logos/Ruby.svg";
 import Elixir from "~/assets/logos/Elixir.svg";
@@ -39,6 +39,7 @@ import Diversity from "~/assets/logos/icon-diversity.svg";
 import Dock from "~/assets/logos/icon-dock.svg";
 import Docs from "~/assets/logos/icon-docs.svg";
 import Edit from "~/assets/logos/icon-edit.svg";
+import Extension from "~/assets/logos/icon-extension.svg";
 import Footprint from "~/assets/logos/icon-footprint.svg";
 import Forrest from "~/assets/logos/icon-forrest.svg";
 import Handyman from "~/assets/logos/icon-handyman.svg";
@@ -67,6 +68,7 @@ const whiteStrokeIcons = [
 	Dock,
 	Docs,
 	Edit,
+	Extension,
 	Footprint,
 	Forrest,
 	Handyman,
@@ -85,19 +87,19 @@ const whiteStrokeIcons = [
 
 const images: Record<string, ImageMetadata> = {
 	".Net": DotNet,
-	Haskell: Haskell,
-	OCaml: OCaml,
-	Java: Java,
-	Kotlin: Kotlin,
-	Perl: Perl,
-	PHP: PHP,
-	Python: Python,
-	Ruby: Ruby,
-	Elixir: Elixir,
+	Haskell,
+	OCaml,
+	Java,
+	Kotlin,
+	Perl,
+	PHP,
+	Python,
+	Ruby,
+	Elixir,
 	ASTs: AST,
 	"Accessibility Tree": Accessibility,
 	"Build Optimization": Handyman,
-	C: C,
+	C,
 	"C++": Cpp,
 	CLIs: Terminal,
 	"CSS Animations Panel": Autoplay,
@@ -110,11 +112,12 @@ const images: Record<string, ImageMetadata> = {
 	Debugging: Bug,
 	Design: Stylus,
 	"Developer Relations": Headset,
-	Docs: Docs,
+	Docs,
 	Documentation: Docs,
-	"Editor Extensions": Computer,
+	"Editor Extensions": Extension,
 	"Inclusive Design": Inclusive,
-	JavaScript: JavaScript,
+	JavaScript,
+	JetBrains,
 	"Language Server Protocol": Protocol,
 	"Launching Software Products": Rocket,
 	"Monorepo Tooling": Monorepo,
@@ -123,17 +126,17 @@ const images: Record<string, ImageMetadata> = {
 	"Open Telemetry": OpenTelemetry,
 	Parsing: Calculate,
 	Performance: Lightning,
-	Rust: Rust,
-	SVG: SVG,
+	Rust,
+	SVG,
 	"Source Code": Code,
 	"Technical Writing": Edit,
 	Tracing: Footprint,
 	TreeSitter: Forrest,
-	TypeScript: TypeScript,
+	TypeScript,
 	"Web Animations API": AnimationIcon,
-	WebAssembly: WebAssembly,
-	Zig: Zig,
-	Go: Go,
+	WebAssembly,
+	Zig,
+	Go,
 	"VS Code": VSCode,
 };
 
