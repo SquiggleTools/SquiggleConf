@@ -22,7 +22,7 @@ export interface Person {
 
 export const peopleBySlug: Record<string, Person> = {
 	"aakansha-doshi": {
-		bio: "Aakansha is passionate about Free and open-source software \\(FOSS\\) and loves deep diving into the internals of Web and Javascript. She is a core maintainer of excalidraw, react-tags, mermaid-to-excalidraw and more. She also leads the FOSS meetups in Bangalore, India. Beyond her tech interests, she is a big foodie, loves traveling, and spending quality time with her family.",
+		bio: "I'm deeply passionate about Free and open-source software \\(FOSS\\) and love exploring the inner workings of the Web and JavaScript. As a core maintainer of projects like [Excalidraw](https://excalidraw.com/), [React-Tags](https://github.com/react-tags/react-tags), [Mermaid-to-Excalidraw](https://github.com/excalidraw/mermaid-to-excalidraw) and more libraries, I’m dedicated to contributing to the open-source community. I also organize and lead monthly FOSS meetups in Bangalore, India. Outside of tech, I’m a big foodie with a love for travel and cherish spending quality time with my family.",
 		links: {
 			bluesky: null,
 			github: "https://github.com/ad1992",
