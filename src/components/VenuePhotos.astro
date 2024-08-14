@@ -1,0 +1,63 @@
+---
+import simonsTheaterLecture from "~/assets/photos/simons-theater-lecture.jpg";
+import simonsTheaterLobby from "~/assets/photos/simons-theatre-lobby.jpg";
+import BodyText from "./BodyText.astro";
+import HeadingFlanked from "./HeadingFlanked.astro";
+
+interface Props {
+	class?: string;
+}
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<div class="venue-photos">
+	<div class="venue-photo-group">
+		<img
+			alt="Audience view of the Simons Theater showing a giant screen and people seated in the movie theater seats. Two people are sitting on Q&A seats in front of the screen."
+			class="venue-photo"
+			src={simonsTheaterLecture.src}
+		/>
+		<BodyText>
+			Experience the tech conference with the most comfortable theater seats.
+		</BodyText>
+	</div>
+	<div class="venue-photo-group">
+		<img
+			alt="Audience view of the Simons Theater showing a giant screen and people seated in the movie theater seats. Two people are sitting on Q&A seats in front of the screen."
+			class="venue-photo"
+			src={simonsTheaterLobby.src}
+		/>
+		<BodyText>
+			Rub shoulders with some of the coolest, nicest people in web dev tooling.
+		</BodyText>
+	</div>
+</div>
+
+<style>
+	.venue-photos {
+		display: flex;
+		gap: 1rem;
+		flex-direction: column;
+		align-items: center;
+		padding: 0 var(--widthBodyPadding);
+		text-align: center;
+		width: 100%;
+	}
+
+	.venue-photo {
+		/* aspect-ratio: 1 / 1; */
+		max-width: 100%;
+	}
+
+	@media (min-width: 819px) {
+		.venue-photos {
+			flex-direction: row;
+			max-width: var(--widthBodyFull);
+		}
+
+		.venue-photo-group {
+			width: 50%;
+		}
+	}
+</style>
