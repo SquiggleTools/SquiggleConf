@@ -1,0 +1,42 @@
+---
+import simonsTheaterLecture from "~/assets/photos/simons-theater-lecture.jpg";
+import simonsTheaterLobby from "~/assets/photos/simons-theatre-lobby.jpg";
+import BodyText from "./BodyText.astro";
+import HeadingFlanked from "./HeadingFlanked.astro";
+
+interface Props {
+	class?: string;
+}
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<div class="venue-photos">
+	<img
+		alt="Audience view of the Simons Theater showing a giant screen and people seated in the movie theater seats. Two people are sitting on Q&A seats in front of the screen."
+		class="venue-photo"
+		src={simonsTheaterLecture.src}
+	/>
+	<BodyText>
+		Experience the tech conference with the most comfortable theater seats, the
+		best viewing angle, and the most spectacular IMAX screen.
+		<br />
+		Also a penguin exhibit next door.
+	</BodyText>
+</div>
+
+<style>
+	.venue-photos {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		max-width: var(--widthBodyFull);
+		text-align: center;
+		width: 100%;
+	}
+
+	.venue-photo {
+		max-width: 100%;
+	}
+</style>
