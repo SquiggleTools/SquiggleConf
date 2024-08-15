@@ -2,15 +2,23 @@
 import "@fontsource-variable/josefin-sans";
 import "@fontsource/urbanist";
 
-import openjsFoundationLight from "~/assets/sponsors/openjs-foundation-light.svg";
+import "~/layouts/base.css";
+import "~/layouts/normalize.css";
+
 import AdContents from "~/components/AdContents.astro";
 import AdImage from "~/components/AdImage.astro";
 import AdTitleAndSubtitle from "~/components/AdTitleAndSubtitle.astro";
 import DeepBlueSea from "~/components/DeepBlueSea.astro";
 import Head from "~/components/Head.astro";
+import { sponsorsBySlug } from "~/data";
 
-import "~/layouts/base.css";
-import "~/layouts/normalize.css";
+export function getStaticPaths() {
+	return Object.keys(sponsorsBySlug).map((slug) => ({
+		params: { slug: slug as keyof typeof sponsorsBySlug },
+	}));
+}
+
+const sponsor = sponsorsBySlug[Astro.params.slug];
 ---
 
 <html lang="en">
@@ -21,10 +29,10 @@ import "~/layouts/normalize.css";
 				<AdContents>
 					<AdTitleAndSubtitle
 						slot="top"
-						subTitle="OpenJS Foundation"
+						subTitle={sponsor.title}
 						title="Thank you to our sponsor"
 					/>
-					<AdImage slot="body" src={openjsFoundationLight} />
+					<AdImage slot="body" src={sponsor.logos.dark} />
 				</AdContents>
 			</DeepBlueSea>
 		</main>

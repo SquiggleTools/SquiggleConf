@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 
-import { sponsors } from "~/data/index";
+import { sponsorsBySlug } from "~/data/index";
 
 import BodyText from "./BodyText.astro";
 import FullSection from "./FullSection.astro";
@@ -10,14 +10,14 @@ import HeadingFlanked from "./HeadingFlanked.astro";
 
 <FullSection>
 	<HeadingFlanked id="sponsors">Sponsors</HeadingFlanked>
-	<BodyText size="large" width="lean">
+	<BodyText class="sponsors-blurb" size="large" width="lean">
 		The support of our generous sponsors help make SquiggleConf possible. They
 		have our sincere appreciation and thanks.
 	</BodyText>
 
 	<div class="sponsors">
 		{
-			sponsors.map((sponsor) => (
+			Object.values(sponsorsBySlug).map((sponsor) => (
 				<a href={sponsor.href} rel="noreferrer" target="_blank">
 					<Image
 						alt=""
@@ -38,6 +38,10 @@ import HeadingFlanked from "./HeadingFlanked.astro";
 </FullSection>
 
 <style>
+	.sponsors-blurb {
+		margin: auto;
+	}
+
 	.sponsors {
 		align-items: center;
 		display: flex;

@@ -8,6 +8,8 @@ import twitter from "../assets/logos/twitter.svg";
 import jsParty from "../assets/partners/js-party.png";
 import thisWeekInReactDarkMode from "../assets/partners/this-week-in-react-dark-mode.png";
 import thisWeekInReactLightMode from "../assets/partners/this-week-in-react-light-mode.png";
+import bloombergBlack from "../assets/sponsors/bloomberg-black.svg";
+import bloombergWhite from "../assets/sponsors/bloomberg-white.svg";
 import inngest from "../assets/sponsors/inngest.svg";
 import inngestBlack from "../assets/sponsors/inngest-black.svg";
 import openjsFoundationColor from "../assets/sponsors/openjs-foundation-color.svg";
@@ -41,8 +43,16 @@ export const links = {
 	volunteer: "https://volunteer.squiggleconf.com",
 };
 
-export const sponsors = [
-	{
+export const sponsorsBySlug = {
+	bloomberg: {
+		href: "https://bloomberg.com?utm_source=squiggleconf",
+		logos: {
+			dark: bloombergWhite,
+			light: bloombergBlack,
+		},
+		title: "Bloomberg",
+	},
+	inngest: {
 		href: "https://inngest.com?utm_source=squiggleconf",
 		logos: {
 			dark: inngest,
@@ -50,7 +60,7 @@ export const sponsors = [
 		},
 		title: "Inngest",
 	},
-	{
+	"openjs-foundation": {
 		href: "https://openjsf.org?utm_source=squiggleconf",
 		logos: {
 			dark: openjsFoundationLight,
@@ -58,7 +68,7 @@ export const sponsors = [
 		},
 		title: "OpenJS Foundation",
 	},
-];
+};
 
 export const locations = [
 	{

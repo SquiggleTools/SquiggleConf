@@ -35,10 +35,10 @@ const talks = Object.values(talksBySlug).filter((talk) =>
 					{talks.map((talk) => <p class="talk-title">{talk.title}</p>)}
 					<div class="speaker-details">
 						<div>
-							<SafeMarkdown of={speaker.qualification} />
+							<SafeMarkdown of={speaker.qualification!} />
 						</div>
 						<div>
-							<SafeMarkdown of={speaker.role} />
+							<SafeMarkdown of={speaker.role!} />
 						</div>
 					</div>
 				</div>
