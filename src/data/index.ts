@@ -45,7 +45,7 @@ export const links = {
 
 export const sponsorsBySlug = {
 	bloomberg: {
-		href: "https://bloomberg.com?utm_source=squiggleconf",
+		href: "https://techatbloomberg.com/javascript?utm_source=squiggleconf",
 		logos: {
 			dark: bloombergWhite,
 			light: bloombergBlack,
