@@ -73,26 +73,30 @@ const sections = [
 		line-height: var(--lineHeightSecondary);
 	}
 
-	@media (min-width: 560px) {
+	@media (min-width: 700px) {
+		.secondary-info {
+			justify-content: center;
+		}
+
 		.item {
-			width: calc(49% - 0.5rem);
+			max-width: calc(40% - 1.5rem);
 			padding: 0 0.25rem;
 		}
 	}
 
-	@media (min-width: 819px) {
+	@media (min-width: 1170px) {
 		.secondary-info {
 			padding: 0;
+			justify-content: space-between;
 		}
 
 		.item {
 			width: calc(24% - 0.25rem);
-			min-width: 12rem;
 			padding: 0 0.25rem;
 		}
 	}
 
-	@media (min-width: 1017px) {
+	@media (min-width: 1400px) {
 		.secondary-info {
 			width: calc(100% + 2rem);
 		}
