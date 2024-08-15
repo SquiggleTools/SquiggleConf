@@ -23,7 +23,12 @@ const { class: className, ...rest } = Astro.props;
 			Enter your email for deadlines, announcements, and other great
 			SquiggleConf news.
 		</label>
-		<input id="email" type="email" placeholder="you.are@awesome.com" />
+		<input
+			id="email"
+			name="email"
+			type="email"
+			placeholder="you.are@awesome.com"
+		/>
 		<button class="button" type="submit">Subscribe</button>
 	</form>
 
@@ -57,7 +62,7 @@ const { class: className, ...rest } = Astro.props;
 		const email = emailInput.value;
 
 		const formBody = "userGroup=&email=" + encodeURIComponent(email);
-
+		console.log({ formBody });
 		fetch(form.action, {
 			method: "POST",
 			body: formBody,
