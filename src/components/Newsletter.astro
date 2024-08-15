@@ -62,7 +62,6 @@ const { class: className, ...rest } = Astro.props;
 		const email = emailInput.value;
 
 		const formBody = "userGroup=&email=" + encodeURIComponent(email);
-		console.log({ formBody });
 		fetch(form.action, {
 			method: "POST",
 			body: formBody,
