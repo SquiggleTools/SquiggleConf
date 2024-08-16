@@ -27,11 +27,7 @@ const sponsor = sponsorsBySlug[Astro.params.slug];
 		<main>
 			<DeepBlueSea class="deep-blue-ad">
 				<AdContents>
-					<AdTitleAndSubtitle
-						slot="top"
-						subTitle={sponsor.title}
-						title="Thank you to our sponsor"
-					/>
+					<AdTitleAndSubtitle slot="top" title="Thank you to our sponsor" />
 					<AdImage slot="body" src={sponsor.logos.dark} />
 				</AdContents>
 			</DeepBlueSea>

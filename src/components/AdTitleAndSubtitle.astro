@@ -1,13 +1,13 @@
 ---
 interface Props {
 	title: string;
-	subTitle: string;
+	subTitle?: string;
 }
 ---
 
 <div class="ad-title-and-subtitle">
 	<h1>{Astro.props.title}</h1>
-	<strong>{Astro.props.subTitle}</strong>
+	{Astro.props.subTitle && <strong>{Astro.props.subTitle}</strong>}
 </div>
 
 <style>

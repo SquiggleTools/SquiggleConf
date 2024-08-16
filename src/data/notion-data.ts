@@ -381,7 +381,7 @@ export const peopleBySlug: Record<string, Person> = {
 		},
 		name: "Yagiz Nizipli",
 		qualification:
-			"[Node.JS TSC](https://github.com/nodejs/TSC) Member, a top Node.JS [Contributor](https://github.com/nodejs/node/commits?author=anonrig)",
+			"[Node.JS TSC](https://github.com/nodejs/TSC) Member & Frequent [Contributor](https://github.com/nodejs/node/commits?author=anonrig)",
 		role: "Principal Systems Engineer, [Cloudflare](https://www.cloudflare.com/)",
 		slug: "yagiz-nizipli",
 	},
