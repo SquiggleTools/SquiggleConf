@@ -1,4 +1,7 @@
 ---
+import HeadingFlanked from "./HeadingFlanked.astro";
+import VenuePhotos from "./VenuePhotos.astro";
+
 const sections = [
 	[
 		"🎪",
@@ -8,7 +11,7 @@ const sections = [
 	[
 		"🏙️",
 		"Lovely Location",
-		"Right in Boston’s historic district, next to Faneuil Hall Marketplace and the Boston harbor.",
+		"Right in the heart of downtown Boston’s historic district, next to Faneuil Hall Marketplace, sitting in the Boston harbor.",
 	],
 	[
 		"🗣️",
@@ -23,25 +26,37 @@ const sections = [
 ];
 ---
 
-<ul class="secondary-info">
-	{
-		sections.map(([emoji, title, contents]) => (
-			<li class="item">
-				<h3>
-					<div class="emoji">{emoji}</div>
-					<div class="title">
-						{title.split(" ").map((word) => (
-							<div>{word}</div>
-						))}
-					</div>
-				</h3>
-				<div class="contents">{contents}</div>
-			</li>
-		))
-	}
-</ul>
+<div class="funInfo">
+	<HeadingFlanked id="experience">Event Highlights</HeadingFlanked>
+
+	<ul class="secondary-info">
+		{
+			sections.map(([emoji, title, contents]) => (
+				<li class="item">
+					<h3 class="section">
+						<div class="emoji">{emoji}</div>
+						<div class="title">
+							{title.split(" ").map((word) => (
+								<div>{word}</div>
+							))}
+						</div>
+					</h3>
+					<div class="contents">{contents}</div>
+				</li>
+			))
+		}
+	</ul>
+
+	<VenuePhotos />
+</div>
 
 <style>
+	.funInfo {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+
 	.secondary-info {
 		align-items: center;
 		display: flex;
@@ -49,7 +64,7 @@ const sections = [
 		font-family: var(--fontFamilyHeading);
 		justify-content: space-between;
 		list-style: none;
-		margin: auto;
+		margin-top: -2rem;
 		max-width: var(--widthBodyFull);
 		padding: 0 var(--widthBodyPadding);
 		row-gap: 2rem;
@@ -57,11 +72,20 @@ const sections = [
 		width: 100%;
 	}
 
+	.section {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+	}
+
 	.emoji {
 		font-size: 3rem;
+		margin-right: 1rem;
 	}
 
 	.title {
+		line-height: var(--lineHeightBody);
 		font-size: var(--fontSizeH4);
 	}
 
@@ -71,6 +95,17 @@ const sections = [
 		font-weight: var(--fontWeightLight);
 		margin-top: 0.75rem;
 		line-height: var(--lineHeightSecondary);
+	}
+
+	@media (min-width: 0) {
+		.secondary-info {
+			justify-content: center;
+		}
+
+		.item {
+			max-width: calc(80% - 1.5rem);
+			padding: 0 0.25rem;
+		}
 	}
 
 	@media (min-width: 700px) {

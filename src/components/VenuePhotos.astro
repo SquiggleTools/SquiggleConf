@@ -2,7 +2,6 @@
 import simonsTheaterLecture from "~/assets/photos/simons-theater-lecture.jpg";
 import simonsTheaterLobby from "~/assets/photos/simons-theatre-lobby.jpg";
 import BodyText from "./BodyText.astro";
-import HeadingFlanked from "./HeadingFlanked.astro";
 
 interface Props {
 	class?: string;
@@ -12,12 +11,13 @@ const { class: className, ...rest } = Astro.props;
 ---
 
 <div class="venue-photos">
+	<div class="title"><div class="emoji">🎥</div>The Simons IMAX Theater</div>
 	<img
 		alt="Audience view of the Simons Theater showing a giant screen and people seated in the movie theater seats. Two people are sitting on Q&A seats in front of the screen."
 		class="venue-photo"
 		src={simonsTheaterLecture.src}
 	/>
-	<BodyText>
+	<BodyText class="description">
 		Experience the tech conference with the most comfortable theater seats, the
 		best viewing angle, and the most spectacular IMAX screen.
 		<br />
@@ -26,11 +26,25 @@ const { class: className, ...rest } = Astro.props;
 </div>
 
 <style>
+	.title {
+		font-family: var(--fontFamilyHeading);
+
+		line-height: var(--lineHeightBody);
+		font-size: var(--fontSizeH3);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.emoji {
+		font-size: 3rem;
+		margin-right: 1rem;
+	}
+
 	.venue-photos {
 		align-items: center;
 		display: flex;
 		flex-direction: column;
-		gap: 1rem;
 		max-width: var(--widthBodyFull);
 		text-align: center;
 		width: 100%;
@@ -38,6 +52,14 @@ const { class: className, ...rest } = Astro.props;
 
 	.venue-photo {
 		width: 100%;
+		margin-top: 0.5rem;
 		max-width: calc(100vw - var(--widthBodyPadding));
+		border-radius: 0.5rem;
+		border: 1px solid var(--colorBackdropOff);
+		box-shadow: 0 0 0.125rem var(--colorTextShadow);
+	}
+
+	.description {
+		margin-top: 1rem;
 	}
 </style>
