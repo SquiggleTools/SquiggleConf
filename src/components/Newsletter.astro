@@ -52,10 +52,6 @@ const { class: className, ...rest } = Astro.props;
 		}
 	}
 
-	console.log("Adding submit.");
-	form.onsubmit = () => {
-		console.log("onsubmit");
-	};
 	form.addEventListener("submit", (event) => {
 		event.preventDefault();
 
