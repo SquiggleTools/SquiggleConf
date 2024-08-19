@@ -1,3 +1,8 @@
+---
+import { Image } from "astro:assets";
+import home from "~/assets/glyphs/home.svg";
+---
+
 <header>
 	<details id="details">
 		<summary aria-label="Toggle header">≡</summary>
@@ -5,6 +10,7 @@
 			<a href="/">Home</a>
 			<a href="/about">About Us</a>
 			<a href="/faqs">FAQs</a>
+			<a href="/schedule">Schedule</a>
 			<a href="/sessions">Sessions</a>
 			<a href="/speakers">Speakers</a>
 			<a href="/travel">Travel</a>
@@ -15,6 +21,7 @@
 		<a href="/">Home</a>
 		<a href="/about">About Us</a>
 		<a href="/faqs">FAQs</a>
+		<a href="/schedule">Schedule</a>
 		<a href="/sessions">Sessions</a>
 		<a href="/speakers">Speakers</a>
 		<a href="/travel">Travel</a>
@@ -108,7 +115,7 @@
 		display: none;
 	}
 
-	@media (min-width: 700px) {
+	@media (min-width: 819px) {
 		header {
 			padding: 2rem;
 			position: absolute;
