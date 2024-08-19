@@ -16,7 +16,7 @@ const { class: className, ...rest } = Astro.props;
 		{...rest}
 		class:list={["newsletter", className]}
 		action="https://app.loops.so/api/newsletter-form/clwpkthom0067d11n8jbrxb3b"
-		id="newsletter"
+		id="newsletter-form"
 		method="POST"
 	>
 		<label for="email">
@@ -36,7 +36,7 @@ const { class: className, ...rest } = Astro.props;
 </div>
 
 <script>
-	const form = document.getElementById("newsletter") as HTMLFormElement;
+	const form = document.getElementById("newsletter-form") as HTMLFormElement;
 
 	function setMessage(text: string, status: "happy" | "unhappy") {
 		const messageDiv = document.getElementById(
