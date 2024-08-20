@@ -1,0 +1,34 @@
+---
+import HeadingFlanked from "~/components/HeadingFlanked.astro";
+import HeroForPage from "~/components/HeroForPage.astro";
+import PrimaryContents from "~/components/PrimaryContents.astro";
+import ScheduledActivity from "~/components/ScheduledActivity.astro";
+import ContentLayout from "~/layouts/ContentLayout.astro";
+import { days } from "~/data/schedule";
+---
+
+<ContentLayout>
+	<HeroForPage>Schedule</HeroForPage>
+
+	<PrimaryContents>
+		{
+			days.map(({ activities, title }) => (
+				<section class="schedule-day">
+					<HeadingFlanked id={title.split(/\W+/)[0].toLowerCase()}>
+						{title}
+					</HeadingFlanked>
+
+					{activities.map((activity) => (
+						<ScheduledActivity activity={activity} />
+					))}
+				</section>
+			))
+		}
+	</PrimaryContents>
+</ContentLayout>
+
+<style>
+	.schedule-day:not(:last-of-type) {
+		margin-bottom: 3rem;
+	}
+</style>
