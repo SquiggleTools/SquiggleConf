@@ -21,7 +21,7 @@ const descriptionLines = await Promise.all(
 	<Heading level="h3" class="activity-title">{activity.title}</Heading>
 	<div class="activity-locators">
 		<div class="activity-time">
-			<span class="activity-time-zone">EDT</span>
+			{activity.time && <span class="activity-time-zone">EDT</span>}
 			<span class="activity-time-value">{activity.time ?? "Time TBA"}</span>
 		</div>
 		<div class="activity-location">{activity.location ?? "Location TBA"}</div>
