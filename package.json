@@ -49,7 +49,6 @@
 		"@eslint/js": "9.7.0",
 		"@fontsource-variable/josefin-sans": "5.0.21",
 		"@fontsource/urbanist": "5.0.20",
-		"@release-it/conventional-changelog": "8.0.1",
 		"@types/eslint-plugin-markdown": "2.0.2",
 		"accessible-astro-components": "2.3.6",
 		"astro": "4.11.5",
@@ -73,7 +72,6 @@
 		"prettier-plugin-astro": "0.14.0",
 		"prettier-plugin-curly": "0.2.1",
 		"prettier-plugin-packagejson": "2.5.1",
-		"release-it": "17.6.0",
 		"sentences-per-line": "0.2.1",
 		"typescript": "5.5.3",
 		"typescript-eslint": "7.16.1"
