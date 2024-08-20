@@ -12,11 +12,9 @@ interface Props {
 
 const { class: className, activity, ...rest } = Astro.props;
 
-const descriptionLines = (
-	await Promise.all(activity.description.map(async (p) => await markdown(p)))
-)
-	.flat()
-	.filter(Boolean);
+const descriptionLines = await Promise.all(
+	activity.description.map(async (p) => await markdown(p)),
+);
 ---
 
 <div class:list={["scheduled-activity", className]} {...rest}>
