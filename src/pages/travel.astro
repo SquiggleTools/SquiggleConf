@@ -12,7 +12,7 @@ import ContentLayout from "~/layouts/ContentLayout.astro";
 	<PrimaryContents>
 		<HeadingFlanked id="hotel">Hotel</HeadingFlanked>
 
-		<BodyText as="p" size="large" width="full">
+		<BodyText class="travel-body-text" as="p" size="large" width="full">
 			We recommend the
 			<a href="https://www.harborsideinnboston.com" target="_blank"
 				>Harborside Inn</a
@@ -33,7 +33,7 @@ import ContentLayout from "~/layouts/ContentLayout.astro";
 
 		<HeadingFlanked class="travel-heading" id="flights">Flights</HeadingFlanked>
 
-		<BodyText as="p" size="large" width="full">
+		<BodyText class="travel-body-text" as="p" size="large" width="full">
 			<a
 				href="https://massport.com/logan-airport"
 				target="_blank"
@@ -45,7 +45,7 @@ import ContentLayout from "~/layouts/ContentLayout.astro";
 
 		<HeadingFlanked class="travel-heading" id="trains">Trains</HeadingFlanked>
 
-		<BodyText as="p" size="large" width="full">
+		<BodyText class="travel-body-text" as="p" size="large" width="full">
 			The <a
 				href="https://www.mbta.com/stops/place-sstat"
 				target="_blank"
@@ -63,7 +63,7 @@ import ContentLayout from "~/layouts/ContentLayout.astro";
 			Local Directions
 		</HeadingFlanked>
 
-		<BodyText as="p" size="large" width="full">
+		<BodyText class="travel-body-text" as="p" size="large" width="full">
 			See <a
 				href="https://www.neaq.org/visit/directions-and-parking"
 				target="_blank"
@@ -85,7 +85,7 @@ import ContentLayout from "~/layouts/ContentLayout.astro";
 			Parking
 		</HeadingFlanked>
 
-		<BodyText as="p" size="large" width="full">
+		<BodyText class="travel-body-text" as="p" size="large" width="full">
 			The <a
 				href="https://www.google.com/maps/place/Boston+Harbor+Garage/@42.3583167,-71.0512442,15z/data=!4m2!3m1!1s0x0:0x8a0e2aa33837506b?sa=X&ved=1t:2428&ictx=111"
 				target="_blank"
@@ -100,6 +100,10 @@ import ContentLayout from "~/layouts/ContentLayout.astro";
 <style>
 	.travel-heading {
 		margin-top: 5rem;
+	}
+
+	.travel-body-text {
+		text-align: center;
 	}
 
 	iframe {
