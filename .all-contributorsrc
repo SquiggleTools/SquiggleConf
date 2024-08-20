@@ -17,7 +17,8 @@
         "infra",
         "maintenance",
         "projectManagement",
-        "tool"
+        "tool",
+        "bug"
       ]
     },
     {
@@ -44,7 +45,7 @@
   ],
   "imageSize": 100,
   "projectName": "SquiggleConf",
-  "projectOwner": "JoshuaKGoldberg",
+  "projectOwner": "SquiggleTools",
   "repoHost": "https://github.com",
   "repoType": "github"
 }
