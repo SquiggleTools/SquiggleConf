@@ -20,7 +20,10 @@ const descriptionLines = await Promise.all(
 <div class:list={["scheduled-activity", className]} {...rest}>
 	<Heading level="h3" class="activity-title">{activity.title}</Heading>
 	<div class="activity-locators">
-		<div class="activity-time">{activity.time ?? "Time TBA"}</div>
+		<div class="activity-time">
+			<span class="activity-time-zone">EDT</span>
+			<span class="activity-time-value">{activity.time ?? "Time TBA"}</span>
+		</div>
 		<div class="activity-location">{activity.location ?? "Location TBA"}</div>
 	</div>
 	{
@@ -58,7 +61,7 @@ const descriptionLines = await Promise.all(
 		text-align: right;
 	}
 
-	.activity-time {
+	.activity-time-value {
 		font-size: var(--fontSizeH3);
 		font-family: var(--fontFamilyHeading);
 	}
