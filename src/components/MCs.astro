@@ -21,7 +21,7 @@ import BioLinks from "./BioLinks.astro";
 	<CardsList>
 		{
 			(["nick-nisi", "fatima-sarah-khalid"] as const).map((person) => (
-				<SubtleCard class="mc-card">
+				<SubtleCard class="mc-card" renderAs="li">
 					<SpeakerSmall
 						href={`/speakers#${peopleBySlug[person].slug}`}
 						person={peopleBySlug[person]}
