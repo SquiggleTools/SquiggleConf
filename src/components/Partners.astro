@@ -19,7 +19,12 @@ import HeadingFlanked from "./HeadingFlanked.astro";
 	<div class="partners">
 		{
 			partners.map((partner) => (
-				<a href={partner.href} rel="noreferrer" target="_blank">
+				<a
+					href={partner.href}
+					rel="noreferrer"
+					target="_blank"
+					title={partner.title}
+				>
 					<Image
 						alt=""
 						class="partner-logo partner-logo-dark"

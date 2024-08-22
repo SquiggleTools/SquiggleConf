@@ -18,7 +18,12 @@ import HeadingFlanked from "./HeadingFlanked.astro";
 	<div class="sponsors">
 		{
 			Object.values(sponsorsBySlug).map((sponsor) => (
-				<a href={sponsor.href} rel="noreferrer" target="_blank">
+				<a
+					href={sponsor.href}
+					rel="noreferrer"
+					target="_blank"
+					title={sponsor.title}
+				>
 					<Image
 						alt=""
 						class="sponsor-logo-dark"
