@@ -23,7 +23,7 @@ import BioLinks from "./BioLinks.astro";
 		{
 			talks.flatMap((talk) =>
 				talk.people.map((person) => (
-					<SubtleCard class="speaker-card">
+					<SubtleCard class="speaker-card" renderAs="li">
 						<SpeakerSmall href={`/talks#${talk.slug}`} person={person}>
 							<BioLinks
 								class="speaker-bio-links"
