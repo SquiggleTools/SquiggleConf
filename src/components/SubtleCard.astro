@@ -1,14 +1,15 @@
 ---
 interface Props {
 	class?: string;
+	renderAs?: "div" | "li";
 }
 
-const { class: className, ...rest } = Astro.props;
+const { class: className, renderAs: As = "div", ...rest } = Astro.props;
 ---
 
-<div class:list={["subtle-card", className]} {...rest}>
+<As class:list={["subtle-card", className]} {...rest}>
 	<slot />
-</div>
+</As>
 
 <style>
 	.subtle-card {
@@ -19,6 +20,7 @@ const { class: className, ...rest } = Astro.props;
 		border: 1px solid var(--colorBackdropOff);
 		box-shadow: 0 0 0.125rem var(--colorTextShadow);
 		font-family: var(--fontFamilyBody);
+		list-style: none;
 		padding: var(--cardPadding);
 	}
 </style>

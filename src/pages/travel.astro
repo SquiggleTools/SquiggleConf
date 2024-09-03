@@ -10,16 +10,12 @@ import ContentLayout from "~/layouts/ContentLayout.astro";
 	<HeroForPage>Travel</HeroForPage>
 
 	<PrimaryContents>
-		<HeadingFlanked id="hotel">Hotel</HeadingFlanked>
-
 		<BodyText class="travel-body-text" as="p" size="large" width="full">
-			We recommend the
-			<a href="https://www.harborsideinnboston.com" target="_blank"
-				>Harborside Inn</a
+			SquiggleConf 2024 is at the
+			<a href="https://www.neaq.org/visit/simons-theatre/" target="_blank">
+				New England Aquarium Simons Theatre</a
 			>
-			down the street from the venue. Call or email them to see if there are discounted
-			rooms still available under group code
-			<strong>SQUOCT24</strong> — and let us know if not.
+			at 1 Central Wharf.
 		</BodyText>
 
 		<iframe
@@ -27,9 +23,35 @@ import ContentLayout from "~/layouts/ContentLayout.astro";
 			height="450"
 			loading="lazy"
 			referrerpolicy="no-referrer-when-downgrade"
-			src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2948.2158780259606!2d-71.05545732319314!3d42.35923837119303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e370864b81aa3b%3A0x29c5617b4f529e85!2sHarborside%20Inn!5e0!3m2!1sen!2sus!4v1721144122397!5m2!1sen!2sus"
+			src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2948.2374277204103!2d-71.05276952319306!3d42.35877907119312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e3708790db7415%3A0xa9fbb8bf1c5e8e24!2sSimons%20Theatre!5e0!3m2!1sen!2sus!4v1724284919111!5m2!1sen!2sus"
 			style="border:0;"
 			width="600"></iframe>
+
+		<div class="travel-links">
+			<a
+				href="https://maps.apple.com/?auid=11717693884170167159"
+				target="_blank"
+			>
+				Apple Maps
+			</a>
+			<a href="https://maps.app.goo.gl/4jWEL7z6iBoA6y9z8" target="_blank">
+				Google Maps
+			</a>
+			<a href="https://waze.com/ul/hdrt2zpnrn" target="_blank">Waze</a>
+		</div>
+
+		<HeadingFlanked id="hotel">Hotel</HeadingFlanked>
+
+		<BodyText class="travel-body-text" as="p" size="large" width="full">
+			We recommend the
+			<a href="https://www.harborsideinnboston.com" target="_blank"
+				>Harborside Inn</a
+			> at 185 State St, down the street from the venue.
+			<br />
+			Call or email them to see if there are discounted rooms still available under
+			group code
+			<strong>SQUOCT24</strong>.
+		</BodyText>
 
 		<HeadingFlanked class="travel-heading" id="flights">Flights</HeadingFlanked>
 
@@ -41,6 +63,12 @@ import ContentLayout from "~/layouts/ContentLayout.astro";
 			>
 				Boston Logan International Airport (BOS)</a
 			> is your best bet to get into Boston from out-of-town.
+			<br />
+			To get downtown, you can take a ~15 minute Lyft/Uber, or see
+			<a
+				href="https://www.massport.com/logan-airport/getting-to-logan/public-transportation"
+				target="_blank">Boston Logan Public Transportation</a
+			>.
 		</BodyText>
 
 		<HeadingFlanked class="travel-heading" id="trains">Trains</HeadingFlanked>
@@ -105,5 +133,13 @@ import ContentLayout from "~/layouts/ContentLayout.astro";
 	iframe {
 		margin-top: 2rem;
 		max-width: calc(100vw - var(--widthBodyPadding) * 2);
+	}
+
+	.travel-links {
+		font-family: var(--fontFamilyBody);
+		font-size: var(--fontSizeBody);
+		margin: 1rem 1rem 5rem;
+		display: flex;
+		gap: 1rem;
 	}
 </style>

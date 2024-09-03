@@ -13,12 +13,16 @@ interface Props {
 const { class: className, href, person: speaker, ...rest } = Astro.props;
 ---
 
-<li class:list={["speaker", className]} {...rest}>
+<div class:list={["speaker-small", className]} {...rest}>
 	<div class="speaker-image-container">
 		<SpeakerImage name={speaker.name} slug={speaker.slug} />
 	</div>
 	<div class="speaker-text">
-		{href && <a class="speaker-text-links" href={href} />}
+		{
+			href && (
+				<a class="speaker-text-links" href={href} aria-label={speaker.name} />
+			)
+		}
 		<div class="name">{speaker.name}</div>
 		<div class="details">
 			{
@@ -38,10 +42,10 @@ const { class: className, href, person: speaker, ...rest } = Astro.props;
 		</div>
 		<slot />
 	</div>
-</li>
+</div>
 
 <style>
-	.speaker {
+	.speaker-small {
 		position: relative;
 		align-items: center;
 		display: flex;

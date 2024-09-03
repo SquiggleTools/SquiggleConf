@@ -5,10 +5,15 @@ import PrimaryContents from "~/components/PrimaryContents.astro";
 import ScheduledActivity from "~/components/ScheduledActivity.astro";
 import ContentLayout from "~/layouts/ContentLayout.astro";
 import { days } from "~/data/schedule";
+import BodyText from "~/components/BodyText.astro";
 ---
 
 <ContentLayout>
 	<HeroForPage>Schedule</HeroForPage>
+
+	<BodyText class="schedule-body-text" width="lean">
+		All times are in EDT, local to Boston.
+	</BodyText>
 
 	<PrimaryContents>
 		{
@@ -28,6 +33,10 @@ import { days } from "~/data/schedule";
 </ContentLayout>
 
 <style>
+	.schedule-body-text {
+		margin: 4rem auto 0;
+	}
+
 	.schedule-day:not(:last-of-type) {
 		margin-bottom: 3rem;
 	}

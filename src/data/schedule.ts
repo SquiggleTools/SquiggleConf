@@ -45,7 +45,7 @@ export const days: ScheduleDay[] = [
 			{
 				description: ["Full-length and lightning talks from our speakers."],
 				location: "Simons Theater",
-				time: "9:45am",
+				time: "9:40am",
 				title: "Talks",
 			},
 			{

@@ -10,14 +10,12 @@ import SubtleCard from "./SubtleCard.astro";
 interface Props {
 	class?: string;
 	showBioLinkText?: boolean;
-	renderAs: "div" | "li";
 	speaker: Person;
 	talks: TalkInfo[];
 }
 
 const {
 	class: className,
-	renderAs: As,
 	showBioLinkText,
 	speaker: { links, qualification, name, role, slug },
 	talks,
@@ -25,7 +23,7 @@ const {
 } = Astro.props;
 ---
 
-<As class:list={["speaker", className]} id={slug} {...rest}>
+<li class:list={["speaker", className]} id={slug} {...rest}>
 	<SubtleCard>
 		<div class="speaker-top">
 			<div class="speaker-top-content">
@@ -81,7 +79,7 @@ const {
 			}
 		</div>
 	</SubtleCard>
-</As>
+</li>
 
 <style>
 	.speaker {

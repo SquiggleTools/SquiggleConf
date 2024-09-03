@@ -50,7 +50,7 @@
 		"@fontsource-variable/josefin-sans": "5.0.21",
 		"@fontsource/urbanist": "5.0.20",
 		"@types/eslint-plugin-markdown": "2.0.2",
-		"accessible-astro-components": "2.3.6",
+		"accessible-astro-components": "^2.3.6",
 		"astro": "4.11.5",
 		"cspell": "8.10.4",
 		"eslint": "8.57.0",
