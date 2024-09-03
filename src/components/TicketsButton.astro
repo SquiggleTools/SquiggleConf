@@ -4,6 +4,17 @@ import { links } from "~/data/index";
 import AnchorButton from "./AnchorButton.astro";
 ---
 
-<AnchorButton href={links.tickets} target="_blank" rel="noreferrer">
+<AnchorButton
+	href={links.tickets}
+	class="tickets"
+	target="_blank"
+	rel="noreferrer"
+>
 	Tickets Available Now
 </AnchorButton>
+
+<style>
+	.tickets {
+		user-select: none;
+	}
+</style>
