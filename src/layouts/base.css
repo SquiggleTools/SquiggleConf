@@ -58,6 +58,10 @@
 		--widthBodyPadding: clamp(1rem, 5vw, 2rem);
 	}
 
+	html {
+		min-height: 100%;
+	}
+
 	html.dark {
 		color-scheme: dark;
 
