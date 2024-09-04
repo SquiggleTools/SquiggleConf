@@ -32,7 +32,13 @@ const talks = Object.values(talksBySlug).filter((talk) =>
 					<SpeakerImage name={speaker.name} slug={speaker.slug} size={256} />
 				</div>
 				<div class="speaker-ad-contents">
-					{talks.map((talk) => <p class="talk-title">{talk.title}</p>)}
+					{
+						talks.map((talk) => (
+							<a class="talk-title" href={`/sessions#talk-${speaker.slug}`}>
+								{talk.title}
+							</a>
+						))
+					}
 					<div class="speaker-details">
 						<div>
 							<SafeMarkdown of={speaker.qualification!} />
@@ -80,6 +86,7 @@ const talks = Object.values(talksBySlug).filter((talk) =>
 			font-family: var(--fontFamilyHeading);
 			font-size: 3.5rem;
 			margin-right: 10rem;
+			text-decoration: none;
 		}
 
 		.speaker-details {
