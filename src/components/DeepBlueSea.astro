@@ -1,32 +1,18 @@
 ---
-import SquiggleWave from "./SquiggleWave.astro";
+import SquiggleWavesBackdrop from "./SquiggleWavesBackdrop.astro";
 
-const { class: className, ...rest } = Astro.props;
+interface Props {
+	class?: string;
+	unmasked?: boolean;
+}
+
+const { class: className, unmasked, ...rest } = Astro.props;
 ---
 
 <div class:list={["deepBlueSea", className]} id="home" {...rest}>
 	<slot name="toggle" />
-	<div class="squiggles">
-		<SquiggleWave left={-5} scale={0.5} top={5} />
-		<SquiggleWave left={20} scale={0.5} top={5} />
-		<SquiggleWave left={45} scale={0.5} top={5} />
-		<SquiggleWave left={70} scale={0.5} top={5} />
-		<SquiggleWave left={95} scale={0.5} top={5} />
-		<SquiggleWave left={-10} scale={0.65} top={30} />
-		<SquiggleWave left={15} scale={0.65} top={30} />
-		<SquiggleWave left={40} scale={0.65} top={30} />
-		<SquiggleWave left={65} scale={0.65} top={30} />
-		<SquiggleWave left={90} scale={0.65} top={30} />
-		<SquiggleWave left={-15} scale={0.85} top={55} />
-		<SquiggleWave left={10} scale={0.85} top={55} />
-		<SquiggleWave left={35} scale={0.85} top={55} />
-		<SquiggleWave left={60} scale={0.85} top={55} />
-		<SquiggleWave left={85} scale={0.85} top={55} />
-		<SquiggleWave left={-20} scale={1} top={85} />
-		<SquiggleWave left={5} scale={1} top={85} />
-		<SquiggleWave left={30} scale={1} top={85} />
-		<SquiggleWave left={55} scale={1} top={85} />
-		<SquiggleWave left={80} scale={1} top={85} />
+	<div class:list={["squiggles", unmasked && "squiggles-unmasked"]}>
+		<SquiggleWavesBackdrop />
 	</div>
 	<slot />
 	<slot name="waves" />
@@ -47,11 +33,14 @@ const { class: className, ...rest } = Astro.props;
 	.squiggles {
 		bottom: 0;
 		left: 0;
-		mask-image: radial-gradient(circle at center, transparent 10%, #000 80%);
 		position: absolute;
 		right: 0;
 		top: 0;
 		user-select: none;
+	}
+
+	.squiggles:not(.squiggles-unmasked) {
+		mask-image: radial-gradient(circle at center, transparent 10%, #000 80%);
 	}
 
 	.squiggle {

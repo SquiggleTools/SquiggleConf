@@ -1,8 +1,6 @@
 ---
-import { Image } from "astro:assets";
-
-import squiggleLogo from "~/assets/squiggle-logo.svg";
-import Heading from "./Heading.astro";
+import HeroNameDetails from "./HeroNameDetails.astro";
+import HeroNameHeading from "./HeroNameHeading.astro";
 
 interface Props {
 	align: "center" | "left";
@@ -12,35 +10,21 @@ interface Props {
 	size?: "normal" | "small";
 }
 
-const { class: className, ...rest } = Astro.props;
+const { class: className, align, color, level, size, ...rest } = Astro.props;
 ---
 
 <div
 	class:list={[
 		"hero-name",
-		Astro.props.align === "left" ? "hero-name-left" : "hero-name-center",
-		Astro.props.color === "inverted"
-			? "hero-name-inverted"
-			: "hero-name-inherited",
-		Astro.props.size === "small" ? "hero-name-small" : "hero-name-normal",
+		align === "left" ? "hero-name-left" : "hero-name-center",
+		color === "inverted" ? "hero-name-inverted" : "hero-name-inherited",
+		size === "small" ? "hero-name-small" : "hero-name-normal",
 		className,
 	]}
 	{...rest}
 >
-	<Heading class="hero-heading" level={Astro.props.level}>
-		<span class="heading-text">
-			<span class="word">
-				<span class="word-contents">Squiggle</span>
-				<Image alt="" class="squiggle" src={squiggleLogo} />
-			</span><span class="word"><span class="word-contents">Conf</span></span>
-		</span>
-	</Heading>
-
-	<p class="details">
-		<span class="together">October 3-4, 2024</span>
-		<span class="dot">·</span>
-		<span class="together">Boston New England Aquarium</span>
-	</p>
+	<HeroNameHeading align={align} color={color} level={level} size={size} />
+	<HeroNameDetails align={align} color={color} size={size} />
 </div>
 
 <style>
@@ -51,133 +35,18 @@ const { class: className, ...rest } = Astro.props;
 		text-align: center;
 	}
 
-	.hero-name.hero-name-inverted {
-		--colorHeadingText: var(--colorOffWhite);
-		--colorShadow: rgba(0, 0, 0, 0.35);
-	}
-
-	.hero-name.hero-name-inherited {
-		--colorHeadingText: inherit;
-		--colorShadow: rgba(240, 240, 255, 0.35);
-	}
-
 	html.dark .hero-name {
 		--colorShadow: transparent;
-	}
-
-	.hero-name.hero-name-normal {
-		--fontSizeHeroHeading: var(--fontSizeHero);
-		--fontSizeDetails: var(--fontSizeH3);
-		--marginDetails: 2rem;
-	}
-
-	.hero-name.hero-name-small {
-		--fontSizeHeroHeading: var(--fontSizeHeroSmall);
-		--fontSizeDetails: var(--fontSizeH4);
-		--marginDetails: 0.75rem;
-	}
-
-	.hero-heading {
-		box-sizing: border-box;
-		display: inline-flex;
-		color: var(--colorHeadingText);
-		flex-direction: column;
-		font-size: var(--fontSizeHeroHeading);
-		overflow: hidden;
-		padding: 0.75rem 0 0.5rem;
-		position: relative;
-	}
-
-	.hero-name-center .hero-heading {
-		align-items: center;
-	}
-
-	.word {
-		display: inline-block;
-		position: relative;
-	}
-
-	.word + .word {
-		margin-top: 1rem;
-	}
-
-	.squiggle {
-		bottom: -0.5rem;
-		left: 0;
-		position: absolute;
-		user-select: none;
-		width: 100%;
-	}
-
-	.heading-text {
-		position: relative;
-		text-shadow: 0 3px 7px var(--colorShadow);
-		z-index: 1;
-	}
-
-	.details {
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
-		margin-top: 1rem;
-		font-weight: 700;
-		font-size: var(--fontSizeDetails);
-		font-family: var(--fontFamilyHeading);
-		letter-spacing: var(--letterSpacingHeading);
-		text-shadow: 0 3px 7px var(--colorShadow);
-	}
-
-	.hero-name-center .details {
-		text-align: center;
-	}
-
-	.hero-name-inverted .details {
-		color: #cae6ff;
 	}
 
 	.together {
 		display: inline-block;
 	}
 
-	.dot {
-		display: none;
-	}
-
-	.word-contents {
-		position: relative;
-		z-index: 1;
-	}
-
-	@media (min-width: 700px) {
-		.details {
-			margin-top: var(--marginDetails);
-		}
-
-		.word + .word {
-			margin-top: 0;
-		}
-	}
-
 	@media (min-width: 1017px) {
-		.details {
-			flex-direction: row;
-		}
-
-		.word + .word {
-			margin-top: 0;
-		}
-
-		.word-contents {
-			position: relative;
-		}
-
 		.hero-name-left {
 			align-items: flex-start;
 			text-align: left;
-		}
-
-		.dot {
-			display: initial;
 		}
 	}
 </style>

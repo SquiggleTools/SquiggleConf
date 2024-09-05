@@ -1,0 +1,51 @@
+---
+import "@fontsource-variable/josefin-sans";
+import "@fontsource/urbanist";
+
+import BadgeLayout from "~/layouts/BadgeLayout.astro";
+import HeroNameDetails from "~/components/HeroNameDetails.astro";
+import HeroNameHeading from "~/components/HeroNameHeading.astro";
+
+import "~/layouts/base.css";
+import "~/layouts/normalize.css";
+import Heading from "~/components/Heading.astro";
+---
+
+<BadgeLayout unmasked>
+	<div class="contents">
+		<div class="top">
+			<HeroNameHeading align="center" color="inverted" level="h2" />
+			<HeroNameDetails align="center" color="inverted" />
+		</div>
+		<div class="white-area"></div>
+		<Heading class="role" level="h2">Attendee</Heading>
+	</div>
+</BadgeLayout>
+
+<style>
+	.contents {
+		height: 100%;
+		position: relative;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		padding: 3.5rem 2.5rem;
+		width: 100%;
+	}
+
+	.top {
+		flex-grow: 999;
+	}
+
+	.role {
+		color: var(--colorOffWhite);
+		font-size: 3rem;
+	}
+
+	.white-area {
+		width: 85%;
+		margin: 10% auto;
+		height: 40%;
+		background: white;
+	}
+</style>

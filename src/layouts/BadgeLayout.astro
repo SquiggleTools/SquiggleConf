@@ -16,14 +16,20 @@ interface Props {
 <html lang="en">
 	<Head />
 	<body>
-		<main>
-			<DeepBlueSea class="deep-blue-ad" unmasked={Astro.props.unmasked}>
+		<main class="badge">
+			<DeepBlueSea class="deep-blue-badge" unmasked={Astro.props.unmasked}>
 				<slot />
 			</DeepBlueSea>
 		</main>
 		<style>
-			.deep-blue-ad {
-				height: 100vh;
+			.badge {
+				width: 45rem;
+				height: 60rem;
+				position: absolute;
+			}
+
+			.deep-blue-badge {
+				height: 100%;
 			}
 		</style>
 	</body>
