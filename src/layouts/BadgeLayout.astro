@@ -7,17 +7,13 @@ import "@fontsource/urbanist";
 
 import "./base.css";
 import "./normalize.css";
-
-interface Props {
-	unmasked?: boolean;
-}
 ---
 
 <html lang="en">
 	<Head />
 	<body>
 		<main class="badge">
-			<DeepBlueSea class="deep-blue-badge" unmasked={Astro.props.unmasked}>
+			<DeepBlueSea class="deep-blue-badge" light="top" unmasked>
 				<slot />
 			</DeepBlueSea>
 		</main>

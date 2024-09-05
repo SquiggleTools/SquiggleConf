@@ -3,13 +3,22 @@ import SquiggleWavesBackdrop from "./SquiggleWavesBackdrop.astro";
 
 interface Props {
 	class?: string;
+	light?: "bottom" | "top";
 	unmasked?: boolean;
 }
 
-const { class: className, unmasked, ...rest } = Astro.props;
+const { class: className, light, unmasked, ...rest } = Astro.props;
 ---
 
-<div class:list={["deepBlueSea", className]} id="home" {...rest}>
+<div
+	class:list={[
+		"deep-blue-sea",
+		light === "top" ? "deep-blue-sea-top" : "deep-blue-sea-bottom",
+		className,
+	]}
+	id="home"
+	{...rest}
+>
 	<slot name="toggle" />
 	<div class:list={["squiggles", unmasked && "squiggles-unmasked"]}>
 		<SquiggleWavesBackdrop />
@@ -19,15 +28,26 @@ const { class: className, unmasked, ...rest } = Astro.props;
 </div>
 
 <style>
-	.deepBlueSea {
+	.deep-blue-sea {
+		overflow: hidden;
+		position: relative;
+		text-align: center;
+	}
+
+	.deep-blue-sea-bottom {
 		background: linear-gradient(
 			180deg,
 			var(--colorHeroShadow) 0%,
 			#156283 100%
 		);
-		overflow: hidden;
-		position: relative;
-		text-align: center;
+	}
+
+	.deep-blue-sea-top {
+		background: linear-gradient(
+			180deg,
+			#156283 0%,
+			var(--colorHeroShadow) 100%
+		);
 	}
 
 	.squiggles {

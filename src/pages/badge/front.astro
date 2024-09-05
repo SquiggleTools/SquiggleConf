@@ -9,16 +9,24 @@ import HeroNameHeading from "~/components/HeroNameHeading.astro";
 import "~/layouts/base.css";
 import "~/layouts/normalize.css";
 import Heading from "~/components/Heading.astro";
+
+const name = Astro.url.searchParams.get("name");
+const role = Astro.url.searchParams.get("role");
+const position = Astro.url.searchParams.get("position");
 ---
 
-<BadgeLayout unmasked>
+<BadgeLayout>
 	<div class="contents">
 		<div class="top">
 			<HeroNameHeading align="center" color="inverted" level="h2" />
 			<HeroNameDetails align="center" color="inverted" />
 		</div>
-		<div class="white-area"></div>
-		<Heading class="role" level="h2">Attendee</Heading>
+		<!-- {showWhiteArea ? <div class="white-area" /> : <div></div>} -->
+		<div class="texts">
+			<Heading class="name" level="h2">{name}</Heading>
+			<Heading class="position" level="h3">{position}</Heading>
+			<Heading class="role" level="h3">{role}</Heading>
+		</div>
 	</div>
 </BadgeLayout>
 
@@ -29,7 +37,8 @@ import Heading from "~/components/Heading.astro";
 		display: flex;
 		align-items: center;
 		flex-direction: column;
-		padding: 4.5rem 2.5rem;
+		padding: 4.5rem 2.5rem 3.5rem;
+		text-shadow: 0 3px 7px var(--colorTextShadow);
 		width: 100%;
 	}
 
@@ -37,9 +46,24 @@ import Heading from "~/components/Heading.astro";
 		flex-grow: 999;
 	}
 
-	.role {
+	.texts {
 		color: var(--colorOffWhite);
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.name {
+		font-size: 3.5rem;
+	}
+
+	.position {
+		font-size: 2.5rem;
+	}
+
+	.role {
 		font-size: 3rem;
+		margin-top: 3rem;
 	}
 
 	.white-area {
