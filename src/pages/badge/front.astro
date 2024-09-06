@@ -12,7 +12,6 @@ import Heading from "~/components/Heading.astro";
 
 const name = Astro.url.searchParams.get("name");
 const role = Astro.url.searchParams.get("role");
-const position = Astro.url.searchParams.get("position");
 ---
 
 <BadgeLayout>
@@ -21,10 +20,8 @@ const position = Astro.url.searchParams.get("position");
 			<HeroNameHeading align="center" color="inverted" level="h2" />
 			<Heading class="date" level="h2">October 3-4 2024</Heading>
 		</div>
-		<!-- {showWhiteArea ? <div class="white-area" /> : <div></div>} -->
 		<div class="texts">
 			<Heading class="name" level="h2">{name}</Heading>
-			<Heading class="position" level="h3">{position}</Heading>
 			<Heading class="role" level="h3">{role}</Heading>
 		</div>
 	</div>
@@ -32,24 +29,25 @@ const position = Astro.url.searchParams.get("position");
 
 <style>
 	.contents {
-		height: 100%;
-		position: relative;
-		display: flex;
 		align-items: center;
+		display: flex;
 		flex-direction: column;
-		padding: 4.5rem 2.5rem 3.25rem;
-		text-shadow: 0 3px 7px var(--colorTextShadow);
+		gap: 1.5rem;
+		height: 100%;
+		height: 100%;
+		justify-content: space-between;
+		padding: 4.5rem 3.5rem 3rem;
+		position: relative;
+		text-shadow:
+			0 1px 7px var(--colorTextShadow),
+			0 3px 14px var(--colorTextShadow);
 		width: 100%;
-	}
-
-	.top {
-		flex-grow: 999;
 	}
 
 	.date {
 		font-size: 3rem;
 		margin-top: 1rem;
-		color: #cae6ff;
+		color: var(--colorBlueLight);
 	}
 
 	.texts {
@@ -57,19 +55,38 @@ const position = Astro.url.searchParams.get("position");
 		display: flex;
 		flex-direction: column;
 		gap: 1.5rem;
+		height: 100%;
+		padding: 0 2.5rem;
+		width: 100%;
 	}
 
 	.name {
-		font-size: 3.5rem;
+		align-items: center;
+		display: flex;
+		font-size: 5.5rem;
+		height: 100%;
+		position: relative;
+		padding-left: 2.5rem;
+		text-align: left;
 	}
 
-	.position {
-		font-size: 2rem;
+	.name::before {
+		position: absolute;
+		content: "";
+		top: 0;
+		left: 0;
+		bottom: 0;
+		width: 1rem;
+		background: linear-gradient(
+			to bottom,
+			transparent 0%,
+			var(--colorEmphasized) 70%
+		);
 	}
 
 	.role {
 		font-size: 3rem;
 		margin-top: 5rem;
-		color: #cae6ff;
+		color: var(--colorBlueLight);
 	}
 </style>
