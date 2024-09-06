@@ -11,7 +11,7 @@ import HeadingFlanked from "./HeadingFlanked.astro";
 <FullSection>
 	<HeadingFlanked id="partners">Partners</HeadingFlanked>
 
-	<BodyText size="large" width="lean">
+	<BodyText class="partners-blurb" size="large" width="lean">
 		Our partners are lovely friends in the industry who also work to push the
 		state of web dev tooling forward.
 	</BodyText>
@@ -47,11 +47,16 @@ import HeadingFlanked from "./HeadingFlanked.astro";
 	.partners {
 		align-items: center;
 		display: flex;
+		gap: 2rem 0;
 		flex-direction: column;
 		padding: 2rem;
 		justify-content: center;
 		margin: auto;
 		max-width: 90vw;
+	}
+
+	.partners-blurb {
+		margin: 0 auto;
 	}
 
 	.partner-logo {
@@ -77,7 +82,7 @@ import HeadingFlanked from "./HeadingFlanked.astro";
 		}
 
 		.partners a {
-			padding: 1.5rem 3.5rem;
+			padding: 1.5rem;
 		}
 	}
 </style>

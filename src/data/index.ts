@@ -5,6 +5,7 @@ import github from "../assets/logos/github.svg";
 import linkedin from "../assets/logos/linkedin.svg";
 import mastodon from "../assets/logos/mastodon.svg";
 import twitter from "../assets/logos/twitter.svg";
+import conTejasCode from "../assets/partners/contejas-code.png";
 import jsParty from "../assets/partners/js-party.png";
 import thisWeekInReactDarkMode from "../assets/partners/this-week-in-react-dark-mode.png";
 import thisWeekInReactLightMode from "../assets/partners/this-week-in-react-light-mode.png";
@@ -19,6 +20,14 @@ export type { Person, TalkFormat, TalkInfo } from "./notion-data.js";
 import * as notionData from "./notion-data.js";
 
 export const partners = [
+	{
+		href: "https://tej.as/#podcast",
+		logos: {
+			dark: conTejasCode,
+			light: conTejasCode,
+		},
+		title: "ConTejas Code Podcast",
+	},
 	{
 		href: "https://changelog.com/jsparty?utm_source=squiggleconf",
 		logos: {
