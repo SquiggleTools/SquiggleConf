@@ -1,14 +1,15 @@
 ---
+import squiggleLogoYellow from "~/assets/squiggle-logo-yellow.svg";
 import "@fontsource-variable/josefin-sans";
 import "@fontsource/urbanist";
 
 import BadgeLayout from "~/layouts/BadgeLayout.astro";
-import HeroNameDetails from "~/components/HeroNameDetails.astro";
 import HeroNameHeading from "~/components/HeroNameHeading.astro";
 
 import "~/layouts/base.css";
 import "~/layouts/normalize.css";
 import Heading from "~/components/Heading.astro";
+import { Image } from "astro:assets";
 
 const name = Astro.url.searchParams.get("name");
 const role = Astro.url.searchParams.get("role");
@@ -22,7 +23,10 @@ const role = Astro.url.searchParams.get("role");
 		</div>
 		<div class="texts">
 			<Heading class="name" level="h2">{name}</Heading>
-			<Heading class="role" level="h3">{role}</Heading>
+			<Heading class="role" level="h3">
+				<span class="role-contents">{role}</span>
+				<Image alt="" class="role-squiggle" src={squiggleLogoYellow} /></Heading
+			>
 		</div>
 	</div>
 </BadgeLayout>
@@ -66,7 +70,7 @@ const role = Astro.url.searchParams.get("role");
 		font-size: 5.5rem;
 		height: 100%;
 		position: relative;
-		padding-left: 2.5rem;
+		padding: 2.5rem 0 0 2.5rem;
 		text-align: left;
 	}
 
@@ -85,8 +89,24 @@ const role = Astro.url.searchParams.get("role");
 	}
 
 	.role {
+		align-self: center;
+		color: var(--colorBlueLight);
 		font-size: 3rem;
 		margin-top: 5rem;
-		color: var(--colorBlueLight);
+		padding-bottom: 0.75rem;
+		position: relative;
+	}
+
+	.role-contents {
+		z-index: 1;
+		position: relative;
+	}
+
+	.role-squiggle {
+		bottom: 0;
+		left: 0;
+		position: absolute;
+		right: 0;
+		width: 100%;
 	}
 </style>

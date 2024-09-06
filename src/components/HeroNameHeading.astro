@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 
-import squiggleLogo from "~/assets/squiggle-logo.svg";
+import squiggleLogoRed from "~/assets/squiggle-logo-red.svg";
 import Heading from "./Heading.astro";
 
 interface Props {
@@ -28,7 +28,7 @@ const { align, color, level, size } = Astro.props;
 			<span class="word-contents">Squiggle</span><Image
 				alt=""
 				class="squiggle"
-				src={squiggleLogo}
+				src={squiggleLogoRed}
 			/></span
 		><span class="word">
 			<span class="word-contents">Conf</span>
