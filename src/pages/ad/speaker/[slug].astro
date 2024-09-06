@@ -61,7 +61,7 @@ const talks = Object.values(talksBySlug).filter((talk) =>
 			display: flex;
 			gap: 1rem;
 			padding: 1.5rem 2rem;
-			margin: -2.5rem 0 -5rem;
+			margin: -1rem 0 -5rem;
 			position: relative;
 			width: 85vh;
 		}
@@ -69,7 +69,7 @@ const talks = Object.values(talksBySlug).filter((talk) =>
 		.speaker-ad-image-container {
 			position: absolute;
 			right: -5rem;
-			top: -5rem;
+			top: -3.5rem;
 		}
 
 		.speaker-ad-contents {
@@ -82,15 +82,19 @@ const talks = Object.values(talksBySlug).filter((talk) =>
 			height: 100%;
 		}
 
+		.speaker-ad-tags {
+			padding-top: 1rem;
+		}
+
 		.talk-title {
 			font-family: var(--fontFamilyHeading);
-			font-size: 3.5rem;
+			font-size: 4.5rem;
 			margin-right: 10rem;
 			text-decoration: none;
 		}
 
 		.speaker-details {
-			font-size: 1.5rem;
+			font-size: 2rem;
 			text-align: right;
 		}
 	</style>
