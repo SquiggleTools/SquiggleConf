@@ -19,7 +19,7 @@ const position = Astro.url.searchParams.get("position");
 	<div class="contents">
 		<div class="top">
 			<HeroNameHeading align="center" color="inverted" level="h2" />
-			<HeroNameDetails align="center" color="inverted" />
+			<Heading class="date" level="h2">October 3-4 2024</Heading>
 		</div>
 		<!-- {showWhiteArea ? <div class="white-area" /> : <div></div>} -->
 		<div class="texts">
@@ -46,6 +46,12 @@ const position = Astro.url.searchParams.get("position");
 		flex-grow: 999;
 	}
 
+	.date {
+		font-size: 3rem;
+		margin-top: 1rem;
+		color: #cae6ff;
+	}
+
 	.texts {
 		color: var(--colorOffWhite);
 		display: flex;
@@ -63,13 +69,7 @@ const position = Astro.url.searchParams.get("position");
 
 	.role {
 		font-size: 3rem;
-		margin-top: 3rem;
-	}
-
-	.white-area {
-		width: 85%;
-		margin: 10% auto;
-		height: 40%;
-		background: white;
+		margin-top: 5rem;
+		color: #cae6ff;
 	}
 </style>

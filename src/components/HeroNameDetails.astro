@@ -2,19 +2,31 @@
 interface Props {
 	align: "center" | "left";
 	color: "inherit" | "inverted";
-	size?: "normal" | "small";
+	class?: string;
+	direction?: "horizontal" | "vertical";
+	size?: "large" | "normal" | "small";
 }
 
-const { align, color, size } = Astro.props;
+const {
+	align,
+	class: className,
+	color,
+	direction,
+	size,
+	...rest
+} = Astro.props;
 ---
 
 <p
 	class:list={[
 		"details",
+		className,
 		align === "center" && "details-center",
 		color === "inverted" && "details-inverted",
-		size === "small" ? "details-small" : "details-normal",
+		direction === "vertical" ? "details-vertical" : "details-horizontal",
+		`details-${size}`,
 	]}
+	{...rest}
 >
 	<span class="together">October 3-4, 2024</span>
 	<span class="dot">·</span>
@@ -32,6 +44,11 @@ const { align, color, size } = Astro.props;
 		font-family: var(--fontFamilyHeading);
 		letter-spacing: var(--letterSpacingHeading);
 		text-shadow: 0 3px 7px var(--colorShadow);
+	}
+
+	.details-large {
+		--fontSizeDetails: 3rem;
+		--marginDetails: 1.5rem;
 	}
 
 	.details-normal {
@@ -63,11 +80,11 @@ const { align, color, size } = Astro.props;
 	}
 
 	@media (min-width: 1017px) {
-		.details {
+		.details-horizontal {
 			flex-direction: row;
 		}
 
-		.dot {
+		.details-horizontal .dot {
 			display: initial;
 		}
 	}
