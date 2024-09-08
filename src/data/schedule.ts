@@ -1,4 +1,4 @@
-import { links } from "./links";
+import { links } from "./links.js";
 
 export interface ScheduleDay {
 	activities: ActivityData[];
