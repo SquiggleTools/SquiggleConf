@@ -21,7 +21,15 @@ const descriptionLines = await Promise.all(
 	<Heading level="h3" class="activity-title">{activity.title}</Heading>
 	<div class="activity-locators">
 		<div class="activity-time">{activity.time ?? "Time TBA"}</div>
-		<div class="activity-location">{activity.location ?? "Location TBA"}</div>
+		{
+			activity.location ? (
+				<a class="activity-location" href={activity.location.href}>
+					{activity.location.text}
+				</a>
+			) : (
+				<div class="activity-location">Location TBA</div>
+			)
+		}
 	</div>
 	<div class="activity-description">{descriptionLines}</div>
 </div>

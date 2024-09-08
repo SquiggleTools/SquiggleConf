@@ -46,12 +46,6 @@ export const partners = [
 	},
 ];
 
-export const links = {
-	scholarship: "https://forms.gle/pnoAmVgijk3p4j5C7",
-	tickets: "https://ticket.squiggleconf.com",
-	volunteer: "https://volunteer.squiggleconf.com",
-};
-
 export const sponsorsBySlug = {
 	bloomberg: {
 		href: "https://www.bloomberg.com/company/values/tech-at-bloomberg/javascript?utm_source=squiggleconf",
