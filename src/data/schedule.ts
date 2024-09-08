@@ -15,10 +15,11 @@ export const days: ScheduleDay[] = [
 		activities: [
 			{
 				description: [
-					"We'll have a free volunteering event in partnership with a local nonprofit as a mixer. Join us to do good for the Boston community with fellow conference-goers.",
-					"Subscribe to our [newsletter](/#newsletter) to be the first to hear about it.",
+					"[Artists for Humanity (AFH)](https://www.afhboston.org) is a Boston not-for-profit that employs local teens after school, giving them invaluable art, coding, and design experience.",
+					"We'll come over there to help the teens with their coding projects and lead mini-workshops on useful development topics.",
 				],
-				title: "Volunteering Event",
+				time: "3:00pm - 6:00pm",
+				title: "Artists for Humanity Volunteering Event",
 			},
 		],
 		title: "Wednesday, October 2nd",
