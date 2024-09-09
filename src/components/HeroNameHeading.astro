@@ -1,0 +1,116 @@
+---
+import { Image } from "astro:assets";
+
+import squiggleLogoRed from "~/assets/squiggle-logo-red.svg";
+import Heading from "./Heading.astro";
+
+interface Props {
+	align: "center" | "left";
+	color: "inherit" | "inverted";
+	level: "h1" | "h2";
+	size?: "normal" | "small";
+}
+
+const { align, color, level, size } = Astro.props;
+---
+
+<Heading
+	class:list={[
+		"hero-heading",
+		align === "center" && "hero-heading-center",
+		color === "inverted" ? "hero-heading-inverted" : "hero-heading-inherited",
+		size === "small" ? "hero-heading-small" : "hero-heading-normal",
+	]}
+	level={level}
+>
+	<span class="heading-text">
+		<span class="word">
+			<span class="word-contents">Squiggle</span><Image
+				alt=""
+				class="squiggle"
+				src={squiggleLogoRed}
+			/></span
+		><span class="word">
+			<span class="word-contents">Conf</span>
+		</span>
+	</span>
+</Heading>
+
+<style>
+	.hero-heading {
+		box-sizing: border-box;
+		display: inline-flex;
+		color: var(--colorHeadingText);
+		flex-direction: column;
+		font-size: var(--fontSizeHeroHeading);
+		overflow: hidden;
+		padding: 0.75rem 0 0.5rem;
+		position: relative;
+	}
+
+	.hero-heading-inverted {
+		--colorHeadingText: var(--colorOffWhite);
+		--colorShadow: rgba(0, 0, 0, 0.35);
+	}
+
+	.hero-heading-inherited {
+		--colorHeadingText: inherit;
+		--colorShadow: rgba(240, 240, 255, 0.35);
+	}
+
+	.hero-heading-normal {
+		--fontSizeHeroHeading: var(--fontSizeHero);
+	}
+
+	.hero-heading-small {
+		--fontSizeHeroHeading: var(--fontSizeHeroSmall);
+	}
+
+	.hero-heading-center {
+		align-items: center;
+	}
+
+	.heading-text {
+		position: relative;
+		text-shadow: 0 3px 7px var(--colorShadow);
+		z-index: 1;
+	}
+
+	.squiggle {
+		bottom: -0.5rem;
+		left: 0;
+		position: absolute;
+		user-select: none;
+		width: 100%;
+	}
+
+	.word {
+		display: inline-block;
+		position: relative;
+	}
+
+	.word + .word {
+		margin-top: 1rem;
+	}
+
+	.word-contents {
+		position: relative;
+		z-index: 1;
+	}
+
+	@media (min-width: 700px) {
+		.word + .word {
+			margin-top: 0;
+		}
+	}
+
+	@media (min-width: 1017px) {
+		.word + .word {
+			margin-top: 0;
+		}
+
+		.word-contents {
+			position: relative;
+		}
+	}
+</style>

@@ -1,0 +1,112 @@
+---
+import squiggleLogoYellow from "~/assets/squiggle-logo-yellow.svg";
+import "@fontsource-variable/josefin-sans";
+import "@fontsource/urbanist";
+
+import BadgeLayout from "~/layouts/BadgeLayout.astro";
+import HeroNameHeading from "~/components/HeroNameHeading.astro";
+
+import "~/layouts/base.css";
+import "~/layouts/normalize.css";
+import Heading from "~/components/Heading.astro";
+import { Image } from "astro:assets";
+
+const name = Astro.url.searchParams.get("name");
+const role = Astro.url.searchParams.get("role");
+---
+
+<BadgeLayout>
+	<div class="contents">
+		<div class="top">
+			<HeroNameHeading align="center" color="inverted" level="h2" />
+			<Heading class="date" level="h2">October 3-4 2024</Heading>
+		</div>
+		<div class="texts">
+			<Heading class="name" level="h2">{name}</Heading>
+			<Heading class="role" level="h3">
+				<span class="role-contents">{role}</span>
+				<Image alt="" class="role-squiggle" src={squiggleLogoYellow} /></Heading
+			>
+		</div>
+	</div>
+</BadgeLayout>
+
+<style>
+	.contents {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		height: 100%;
+		height: 100%;
+		justify-content: space-between;
+		padding: 4.5rem 3.5rem 2.5rem;
+		position: relative;
+		text-shadow:
+			0 1px 7px var(--colorTextShadow),
+			0 3px 14px var(--colorTextShadow);
+		width: 100%;
+	}
+
+	.date {
+		font-size: 3rem;
+		margin-top: 1rem;
+		color: var(--colorBlueLight);
+	}
+
+	.texts {
+		color: var(--colorOffWhite);
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		height: 100%;
+		padding: 0 2.5rem;
+		width: 100%;
+	}
+
+	.name {
+		align-items: center;
+		display: flex;
+		font-size: 5.5rem;
+		height: 100%;
+		position: relative;
+		padding: 2.5rem 0 0 2.5rem;
+		text-align: left;
+	}
+
+	.name::before {
+		position: absolute;
+		content: "";
+		top: 0;
+		left: 0;
+		bottom: 0;
+		width: 1rem;
+		background: linear-gradient(
+			to bottom,
+			transparent 0%,
+			var(--colorEmphasized) 70%
+		);
+	}
+
+	.role {
+		align-self: center;
+		color: var(--colorBlueLight);
+		font-size: 3rem;
+		margin-top: 5rem;
+		padding-bottom: 0.75rem;
+		position: relative;
+	}
+
+	.role-contents {
+		z-index: 1;
+		position: relative;
+	}
+
+	.role-squiggle {
+		bottom: 0;
+		left: 0;
+		position: absolute;
+		right: 0;
+		width: 100%;
+	}
+</style>

@@ -1,0 +1,91 @@
+---
+interface Props {
+	align: "center" | "left";
+	color: "inherit" | "inverted";
+	class?: string;
+	direction?: "horizontal" | "vertical";
+	size?: "large" | "normal" | "small";
+}
+
+const {
+	align,
+	class: className,
+	color,
+	direction,
+	size,
+	...rest
+} = Astro.props;
+---
+
+<p
+	class:list={[
+		"details",
+		className,
+		align === "center" && "details-center",
+		color === "inverted" && "details-inverted",
+		direction === "vertical" ? "details-vertical" : "details-horizontal",
+		`details-${size}`,
+	]}
+	{...rest}
+>
+	<span class="together">October 3-4, 2024</span>
+	<span class="dot">·</span>
+	<span class="together">Boston New England Aquarium</span>
+</p>
+
+<style>
+	.details {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		margin-top: 1rem;
+		font-weight: 700;
+		font-size: var(--fontSizeDetails);
+		font-family: var(--fontFamilyHeading);
+		letter-spacing: var(--letterSpacingHeading);
+		text-shadow: 0 3px 7px var(--colorShadow);
+	}
+
+	.details-large {
+		--fontSizeDetails: 3rem;
+		--marginDetails: 1.5rem;
+	}
+
+	.details-normal {
+		--fontSizeDetails: var(--fontSizeH3);
+		--marginDetails: 2rem;
+	}
+
+	.details-small {
+		--fontSizeDetails: var(--fontSizeH4);
+		--marginDetails: 0.75rem;
+	}
+
+	.details-center {
+		text-align: center;
+	}
+
+	.details-inverted {
+		color: #cae6ff;
+	}
+
+	.dot {
+		display: none;
+	}
+
+	@media (min-width: 700px) {
+		.details {
+			margin-top: var(--marginDetails);
+		}
+	}
+
+	@media (min-width: 1017px) {
+		.details-horizontal {
+			flex-direction: row;
+		}
+
+		.details-horizontal .dot {
+			display: initial;
+		}
+	}
+</style>
