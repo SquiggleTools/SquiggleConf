@@ -15,6 +15,8 @@ import inngest from "../assets/sponsors/inngest.svg";
 import inngestBlack from "../assets/sponsors/inngest-black.svg";
 import openjsFoundationColor from "../assets/sponsors/openjs-foundation-color.svg";
 import openjsFoundationLight from "../assets/sponsors/openjs-foundation-light.svg";
+import prismaBlack from "../assets/sponsors/prisma-black.svg";
+import prismaWhite from "../assets/sponsors/prisma-white.svg";
 
 export type { Person, TalkFormat, TalkInfo } from "./notion-data.js";
 import * as notionData from "./notion-data.js";
@@ -76,6 +78,14 @@ export const sponsorsBySlug = {
 			light: openjsFoundationColor,
 		},
 		title: "OpenJS Foundation",
+	},
+	prisma: {
+		href: "https://www.prisma.io/?utm_source=squiggleconf",
+		logos: {
+			dark: prismaWhite,
+			light: prismaBlack,
+		},
+		title: "Prisma",
 	},
 };
 
