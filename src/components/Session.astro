@@ -6,6 +6,7 @@ import SessionDiscord from "./SessionDiscord.astro";
 import SpeakerSmall from "./SpeakerSmall.astro";
 import SubtleCard from "./SubtleCard.astro";
 import SessionTags from "./SessionTags.astro";
+import { days } from "~/data/schedule";
 
 interface Props {
 	class?: string;
@@ -17,6 +18,17 @@ const {
 	talk: { title, people, tags, description, slug },
 	...rest
 } = Astro.props;
+
+const schedule = days
+	.flatMap((day) =>
+		day.activities.flatMap((activity) =>
+			activity.within
+				?.filter((inner) => inner.type === "session" && inner.session === slug)
+				.map((activity) => ({ activity, day })),
+		),
+	)
+	.filter((x) => !!x?.activity)
+	.at(0)!;
 ---
 
 <li class:list={["talk", className]} id={slug} {...rest}>
@@ -37,7 +49,13 @@ const {
 					))
 				}
 			</ul>
-			<SessionDiscord discord={slug} />
+			<div class="talk-metadata">
+				<SessionDiscord discord={slug} />
+				<a class="talk-time" href={`/schedule#${slug}`}>
+					{schedule.activity.at}
+					{schedule.day.title}
+				</a>
+			</div>
 		</div>
 		<div class="talk-details-links"></div>
 	</SubtleCard>
@@ -120,6 +138,17 @@ const {
 		padding-left: 0;
 	}
 
+	.talk-metadata {
+		color: var(--colorBlueDarkDull);
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.talk-time {
+		font-size: var(--fontSizeBody);
+	}
+
 	p {
 		margin: 1rem !important;
 	}
@@ -134,6 +163,12 @@ const {
 	@media (min-width: 1017px) {
 		.talk {
 			max-width: var(--widthBodyFull);
+		}
+
+		.talk-metadata {
+			align-items: flex-end;
+			padding: 0.25rem;
+			text-align: right;
 		}
 	}
 </style>
