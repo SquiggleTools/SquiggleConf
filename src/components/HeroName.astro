@@ -24,7 +24,12 @@ const { class: className, align, color, level, size, ...rest } = Astro.props;
 	{...rest}
 >
 	<HeroNameHeading align={align} color={color} level={level} size={size} />
-	<HeroNameDetails align={align} color={color} size={size} />
+	<HeroNameDetails
+		align={align}
+		color={color}
+		direction="horizontal"
+		size={size}
+	/>
 </div>
 
 <style>
