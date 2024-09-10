@@ -10,7 +10,8 @@ import AdImage from "~/components/AdImage.astro";
 import AdTitleAndSubtitle from "~/components/AdTitleAndSubtitle.astro";
 import DeepBlueSea from "~/components/DeepBlueSea.astro";
 import Head from "~/components/Head.astro";
-import { partnersBySlug, sponsorsBySlug } from "~/data";
+import { partnersBySlug } from "~/data/partners";
+import { sponsorsBySlug } from "~/data/sponsors";
 
 export function getStaticPaths() {
 	return [
