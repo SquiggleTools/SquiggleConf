@@ -2,6 +2,8 @@ import bloombergBlack from "../assets/sponsors/bloomberg-black.svg";
 import bloombergWhite from "../assets/sponsors/bloomberg-white.svg";
 import inngest from "../assets/sponsors/inngest.svg";
 import inngestBlack from "../assets/sponsors/inngest-black.svg";
+import nxDarkBlue from "../assets/sponsors/nx-dark-blue.svg";
+import nxWhite from "../assets/sponsors/nx-white.svg";
 import openjsFoundationColor from "../assets/sponsors/openjs-foundation-color.svg";
 import openjsFoundationLight from "../assets/sponsors/openjs-foundation-light.svg";
 import prismaBlack from "../assets/sponsors/prisma-black.svg";
@@ -23,6 +25,14 @@ export const sponsorsBySlug = {
 			light: inngestBlack,
 		},
 		title: "Inngest",
+	},
+	nx: {
+		href: "https://nx.dev?utm_source=squiggleconf",
+		logos: {
+			dark: nxWhite,
+			light: nxDarkBlue,
+		},
+		title: "OpenJS Foundation",
 	},
 	"openjs-foundation": {
 		href: "https://openjsf.org?utm_source=squiggleconf",
