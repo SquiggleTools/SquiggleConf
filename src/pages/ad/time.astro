@@ -1,0 +1,23 @@
+---
+import "@fontsource-variable/josefin-sans";
+import "@fontsource/urbanist";
+
+import AdContents from "~/components/AdContents.astro";
+import AdLayout from "~/layouts/AdLayout.astro";
+
+import "~/layouts/base.css";
+import "~/layouts/normalize.css";
+---
+
+<AdLayout>
+	<AdContents>
+		<h1 slot="body">3 Weeks To Go!</h1>
+	</AdContents>
+</AdLayout>
+
+<style>
+	h1 {
+		color: var(--colorOffWhite);
+		font-size: 7rem;
+	}
+</style>
