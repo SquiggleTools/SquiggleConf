@@ -5,6 +5,8 @@ import github from "../assets/logos/github.svg";
 import linkedin from "../assets/logos/linkedin.svg";
 import mastodon from "../assets/logos/mastodon.svg";
 import twitter from "../assets/logos/twitter.svg";
+import afhBlack from "../assets/partners/afh-black.svg";
+import afhWhite from "../assets/partners/afh-white.svg";
 import conTejasCode from "../assets/partners/contejas-code.png";
 import jsParty from "../assets/partners/js-party.png";
 import thisWeekInReactDarkMode from "../assets/partners/this-week-in-react-dark-mode.png";
@@ -21,8 +23,22 @@ import prismaWhite from "../assets/sponsors/prisma-white.svg";
 export type { Person, TalkFormat, TalkInfo } from "./notion-data.js";
 import * as notionData from "./notion-data.js";
 
-export const partners = [
-	{
+export const links = {
+	scholarship: "https://forms.gle/pnoAmVgijk3p4j5C7",
+	tickets: "https://ticket.squiggleconf.com",
+	volunteer: "https://volunteer.squiggleconf.com",
+};
+
+export const partnersBySlug = {
+	afh: {
+		href: "https://www.afhboston.org/?utm_source=squiggleconf",
+		logos: {
+			dark: afhWhite,
+			light: afhBlack,
+		},
+		title: "Artists for Humanity",
+	},
+	contejas: {
 		href: "https://tej.as/#podcast",
 		logos: {
 			dark: conTejasCode,
@@ -30,7 +46,7 @@ export const partners = [
 		},
 		title: "ConTejas Code Podcast",
 	},
-	{
+	jsparty: {
 		href: "https://changelog.com/jsparty?utm_source=squiggleconf",
 		logos: {
 			dark: jsParty,
@@ -38,7 +54,7 @@ export const partners = [
 		},
 		title: "JS Party",
 	},
-	{
+	twir: {
 		href: "https://thisweekinreact.com?utm_source=squiggleconf",
 		logos: {
 			dark: thisWeekInReactDarkMode,
@@ -46,7 +62,7 @@ export const partners = [
 		},
 		title: "This Week In React",
 	},
-];
+};
 
 export const sponsorsBySlug = {
 	bloomberg: {

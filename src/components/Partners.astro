@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 
-import { partners } from "~/data/index.js";
+import { partnersBySlug } from "~/data/index.js";
 
 import FullSection from "./FullSection.astro";
 import BodyText from "./BodyText.astro";
@@ -12,15 +12,16 @@ import HeadingFlanked from "./HeadingFlanked.astro";
 	<HeadingFlanked id="partners">Partners</HeadingFlanked>
 
 	<BodyText class="partners-blurb" size="large" width="lean">
-		Our partners are lovely friends in the industry who also work to push the
-		state of web dev tooling forward.
+		Our partners are lovely friends in the industry who also work to better the
+		world around them.
 	</BodyText>
 
 	<div class="partners">
 		{
-			partners.map((partner) => (
+			Object.values(partnersBySlug).map((partner) => (
 				<a
 					href={partner.href}
+					class="partner"
 					rel="noreferrer"
 					target="_blank"
 					title={partner.title}
@@ -78,11 +79,16 @@ import HeadingFlanked from "./HeadingFlanked.astro";
 	@media (min-width: 819px) {
 		.partners {
 			flex-direction: row;
-			gap: 4rem;
+			flex-wrap: wrap;
 		}
 
 		.partners a {
 			padding: 1.5rem;
+		}
+
+		.partner {
+			max-width: calc(49% - 5rem);
+			width: 100%;
 		}
 	}
 </style>

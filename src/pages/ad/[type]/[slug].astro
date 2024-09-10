@@ -10,15 +10,25 @@ import AdImage from "~/components/AdImage.astro";
 import AdTitleAndSubtitle from "~/components/AdTitleAndSubtitle.astro";
 import DeepBlueSea from "~/components/DeepBlueSea.astro";
 import Head from "~/components/Head.astro";
-import { sponsorsBySlug } from "~/data";
+import { partnersBySlug, sponsorsBySlug } from "~/data";
 
 export function getStaticPaths() {
-	return Object.keys(sponsorsBySlug).map((slug) => ({
-		params: { slug: slug as keyof typeof sponsorsBySlug },
-	}));
+	return [
+		...Object.keys(partnersBySlug).map((slug) => ({
+			params: { type: "partner", slug: slug as keyof typeof partnersBySlug },
+		})),
+		...Object.keys(sponsorsBySlug).map((slug) => ({
+			params: { type: "sponsor", slug: slug as keyof typeof sponsorsBySlug },
+		})),
+	];
 }
 
-const sponsor = sponsorsBySlug[Astro.params.slug];
+const { type, slug } = Astro.params;
+
+const entity =
+	type === "sponsor"
+		? sponsorsBySlug[slug as keyof typeof sponsorsBySlug]
+		: partnersBySlug[slug as keyof typeof partnersBySlug];
 ---
 
 <html lang="en">
@@ -27,8 +37,8 @@ const sponsor = sponsorsBySlug[Astro.params.slug];
 		<main>
 			<DeepBlueSea class="deep-blue-ad">
 				<AdContents>
-					<AdTitleAndSubtitle slot="top" title="Thank you to our sponsor" />
-					<AdImage slot="body" src={sponsor.logos.dark} />
+					<AdTitleAndSubtitle slot="top" title={`Thank you to our ${type}`} />
+					<AdImage slot="body" src={entity.logos.dark} />
 				</AdContents>
 			</DeepBlueSea>
 		</main>
