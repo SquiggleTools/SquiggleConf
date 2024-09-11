@@ -1,48 +1,120 @@
 ---
 import { markdown } from "@astropub/md";
 
-import { ActivityData } from "~/data/schedule";
+import { ActivityLocation } from "~/data/schedule";
 
 import Heading from "./Heading.astro";
+import Arrow from "./Arrow.astro";
 
 interface Props {
-	activity: ActivityData;
+	at?: string;
+	description?: string[];
+	href?: string;
+	id: string;
+	location?: ActivityLocation;
 	class?: string;
+	level?: "h3" | "h4";
+	title: string;
 }
 
-const { class: className, activity, ...rest } = Astro.props;
+const {
+	at,
+	class: className,
+	description = [],
+	id,
+	href,
+	location,
+	level = "h3",
+	title,
+	...rest
+} = Astro.props;
 
 const descriptionLines = await Promise.all(
-	activity.description.map(async (p) => await markdown(p)),
+	description.map(async (p) => await markdown(p)),
 );
 ---
 
-<div class:list={["scheduled-activity", className]} {...rest}>
-	<Heading level="h3" class="activity-title">{activity.title}</Heading>
+<div
+	class:list={[
+		"scheduled-activity",
+		level === "h3" ? "scheduled-activity-h3" : "scheduled-activity-h4",
+		className,
+	]}
+	id={id}
+	{...rest}
+>
+	{
+		href ? (
+			<a class="activity-title" href={href}>
+				<Heading level={level} class="activity-title-inner">
+					{title}
+				</Heading>
+				<Arrow class="activity-title-after" rotate={315} />
+			</a>
+		) : (
+			<Heading level={level} class="activity-title">
+				{title}
+			</Heading>
+		)
+	}
 	<div class="activity-locators">
-		<div class="activity-time">{activity.time ?? "Time TBA"}</div>
+		<div class="activity-time">{at ?? "Time TBA"}</div>
 		{
-			activity.location ? (
-				<a class="activity-location" href={activity.location.href}>
-					{activity.location.text}
+			location && (
+				<a class="activity-location" href={location.href}>
+					{location.text}
 				</a>
-			) : (
-				<div class="activity-location">Location TBA</div>
 			)
 		}
 	</div>
-	<div class="activity-description">{descriptionLines}</div>
+	{
+		descriptionLines && (
+			<div class="activity-description">{descriptionLines}</div>
+		)
+	}
 </div>
 
 <style>
 	.scheduled-activity {
 		font-family: var(--fontFamilyBody);
-		margin: 0 var(--widthBodyPadding) 3rem;
+		margin: 0 var(--widthBodyPadding);
 		max-width: var(--widthBodyLean);
+		scroll-margin-top: 2rem;
+	}
+
+	.scheduled-activity-h3 {
+		--fontSizeTitle: var(--fontSizeH3);
+		margin-top: 3rem;
+	}
+
+	.scheduled-activity-h4 {
+		--fontSizeTitle: var(--fontSizeH4);
+		margin-top: 1.5rem;
 	}
 
 	.activity-title {
-		font-size: var(--fontSizeH3);
+		font-size: var(--fontSizeTitle);
+		text-decoration: none;
+	}
+
+	a.activity-title {
+		margin-top: -0.35rem;
+	}
+
+	a.activity-title .activity-title-after {
+		content: " 🔗";
+		display: inline;
+		opacity: 0;
+		transition: var(--transitionMedium) opacity;
+	}
+
+	a.activity-title:focus-within .activity-title-after,
+	a.activity-title:hover .activity-title-after {
+		opacity: 1;
+	}
+
+	.activity-title-inner {
+		display: inline;
 	}
 
 	.activity-locators {
@@ -53,7 +125,7 @@ const descriptionLines = await Promise.all(
 	}
 
 	.activity-time {
-		font-size: var(--fontSizeH3);
+		font-size: var(--fontSizeTitle);
 		font-family: var(--fontFamilyHeading);
 	}
 
@@ -70,11 +142,16 @@ const descriptionLines = await Promise.all(
 		width: 100%;
 	}
 
+	.activity-within {
+		list-style: none;
+		padding-left: 0;
+	}
+
 	@media (min-width: 490px) {
 		.scheduled-activity {
 			display: grid;
 			grid-template-columns: clamp(5rem, 20vw, 10rem) auto;
-			grid-template-rows: auto auto;
+			grid-template-rows: auto auto auto;
 			gap: 0.75rem 1rem;
 		}
 
@@ -92,6 +169,10 @@ const descriptionLines = await Promise.all(
 
 		.activity-description {
 			grid-area: 2 / 2 / 3 / 3;
+		}
+
+		.activity-within {
+			grid-area: 3 / 1 / 4 / 3;
 		}
 	}
 </style>

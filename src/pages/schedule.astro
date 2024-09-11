@@ -3,9 +3,11 @@ import HeadingFlanked from "~/components/HeadingFlanked.astro";
 import HeroForPage from "~/components/HeroForPage.astro";
 import PrimaryContents from "~/components/PrimaryContents.astro";
 import ScheduledActivity from "~/components/ScheduledActivity.astro";
-import ContentLayout from "~/layouts/ContentLayout.astro";
-import { days } from "~/data/schedule";
 import BodyText from "~/components/BodyText.astro";
+import ScheduledActivityBetween from "~/components/ScheduledActivityBetween.astro";
+import ScheduledActivitySession from "~/components/ScheduledActivitySession.astro";
+import { days } from "~/data/schedule";
+import ContentLayout from "~/layouts/ContentLayout.astro";
 ---
 
 <ContentLayout
@@ -27,7 +29,22 @@ import BodyText from "~/components/BodyText.astro";
 					</HeadingFlanked>
 
 					{activities.map((activity) => (
-						<ScheduledActivity activity={activity} />
+						<>
+							<ScheduledActivity
+								at={activity.at}
+								description={activity.description}
+								location={activity.location}
+								title={activity.title}
+							/>
+							{activity.within &&
+								activity.within.map((inner) =>
+									inner.type === "between" ? (
+										<ScheduledActivityBetween activity={inner} />
+									) : (
+										<ScheduledActivitySession activity={inner} />
+									),
+								)}
+						</>
 					))}
 				</section>
 			))
