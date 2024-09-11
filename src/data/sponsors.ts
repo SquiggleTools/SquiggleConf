@@ -1,5 +1,7 @@
 import bloombergBlack from "../assets/sponsors/bloomberg-black.svg";
 import bloombergWhite from "../assets/sponsors/bloomberg-white.svg";
+import igaliaBlack from "../assets/sponsors/igalia-black.svg";
+import igaliaWhite from "../assets/sponsors/igalia-white.svg";
 import inngest from "../assets/sponsors/inngest.svg";
 import inngestBlack from "../assets/sponsors/inngest-black.svg";
 import nxDarkBlue from "../assets/sponsors/nx-dark-blue.svg";
@@ -16,7 +18,17 @@ export const sponsorsBySlug = {
 			dark: bloombergWhite,
 			light: bloombergBlack,
 		},
+		placement: "first",
 		title: "Bloomberg",
+	},
+	igalia: {
+		href: "https://igalia.com?utm_source=squiggleconf",
+		logos: {
+			dark: igaliaWhite,
+			light: igaliaBlack,
+		},
+		placement: "second",
+		title: "Igalia",
 	},
 	inngest: {
 		href: "https://inngest.com?utm_source=squiggleconf",
@@ -24,6 +36,7 @@ export const sponsorsBySlug = {
 			dark: inngest,
 			light: inngestBlack,
 		},
+		placement: "first",
 		title: "Inngest",
 	},
 	nx: {
@@ -32,6 +45,7 @@ export const sponsorsBySlug = {
 			dark: nxWhite,
 			light: nxDarkBlue,
 		},
+		placement: "second",
 		title: "OpenJS Foundation",
 	},
 	"openjs-foundation": {
@@ -40,6 +54,7 @@ export const sponsorsBySlug = {
 			dark: openjsFoundationLight,
 			light: openjsFoundationColor,
 		},
+		placement: "first",
 		title: "OpenJS Foundation",
 	},
 	prisma: {
@@ -48,6 +63,7 @@ export const sponsorsBySlug = {
 			dark: prismaWhite,
 			light: prismaBlack,
 		},
+		placement: "first",
 		title: "Prisma",
 	},
 };
