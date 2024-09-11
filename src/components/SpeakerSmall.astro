@@ -5,15 +5,22 @@ import SafeMarkdown from "./SafeMarkdown.astro";
 import SpeakerImage from "./SpeakerImage.astro";
 
 interface Props {
+	as: "div" | "li";
 	class?: string;
 	href?: string;
 	person: Person;
 }
 
-const { class: className, href, person: speaker, ...rest } = Astro.props;
+const {
+	as: As = "div",
+	class: className,
+	href,
+	person: speaker,
+	...rest
+} = Astro.props;
 ---
 
-<div class:list={["speaker-small", className]} {...rest}>
+<As class:list={["speaker-small", className]} {...rest}>
 	<div class="speaker-image-container">
 		<SpeakerImage name={speaker.name} slug={speaker.slug} />
 	</div>
@@ -42,7 +49,7 @@ const { class: className, href, person: speaker, ...rest } = Astro.props;
 		</div>
 		<slot />
 	</div>
-</div>
+</As>
 
 <style>
 	.speaker-small {

@@ -33,7 +33,11 @@ const {
 			<ul class="speakers">
 				{
 					people.map((person) => (
-						<SpeakerSmall href={`/speakers#${person.slug}`} person={person} />
+						<SpeakerSmall
+							as="li"
+							href={`/speakers#${person.slug}`}
+							person={person}
+						/>
 					))
 				}
 			</ul>

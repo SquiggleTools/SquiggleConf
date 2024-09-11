@@ -88,11 +88,13 @@ const aliases = [
 		align-items: center;
 		display: flex;
 		flex-wrap: wrap;
-		gap: 0.25rem 0.5rem;
+		gap: 0 var(--bioLinkPadding);
+		margin-left: calc(-1 * var(--bioLinkPadding));
+		--bioLinkPadding: 0.25rem;
 	}
 
 	.bio-links-normal {
-		--bioLinkImageSize: 1.15rem;
+		--bioLinkImageSize: 1.2rem;
 	}
 
 	.bio-links-large {
@@ -101,7 +103,8 @@ const aliases = [
 
 	.bio-link {
 		display: flex;
-		gap: 0.25rem;
+		gap: var(--bioLinkPadding);
+		padding: var(--bioLinkPadding);
 		text-decoration: none;
 	}
 
