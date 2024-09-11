@@ -438,7 +438,7 @@ export const talksBySlug: Record<string, TalkInfo> = {
 		slug: "talk-dan-vanderkam",
 		tags: ["ASTs", "Parsing", "Source Code"],
 		talkFormat: "Full",
-		title: "The Battle for Source Code: Text, ASTs, or Other?",
+		title: "The Battle for Source Code: Why Text Always Wins?",
 	},
 	"talk-don-isaac": {
 		description:
