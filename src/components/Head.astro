@@ -1,15 +1,30 @@
 ---
-const description = "A Boston conference focused on excellent web dev tooling.";
+export interface Props {
+	description: string;
+	title?: string;
+}
+
+const { description } = Astro.props;
+
 const image = new URL("favicon.png", Astro.site).toString();
-const title = "SquiggleConf | Supercharging web devs and their tools.";
+
 const keywords = [
 	"squiggleconf",
 	"conference",
 	"devtools",
 	"javascript",
 	"typescript",
+	"rust",
 	"static analysis",
 ];
+
+const title = [
+	Astro.props.title,
+	"SquiggleConf",
+	"Supercharging web devs and their tools",
+]
+	.filter(Boolean)
+	.join(" | ");
 
 const metaPairs = [
 	{
