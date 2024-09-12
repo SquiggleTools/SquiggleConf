@@ -7,6 +7,7 @@
 		--colorDull: #b6c1c6;
 		--colorOffWhite: #eaeaff;
 		--colorBlueDarkDull: #3a5a6e;
+		--colorBlueLightDull: #85a7bc;
 		--colorRedDark: #7f3a5c;
 		--colorRedLight: #ffbfc2;
 		--colorWhite: #ffffff;
@@ -14,6 +15,7 @@
 		--colorBackdropDark: var(--colorBlueLight);
 		--colorBackdropLight: var(--colorCream);
 		--colorBackdropOff: var(--colorOffWhite);
+		--colorDull: var(--colorBlueDarkDull);
 		--colorEmphasized: #1b80a1;
 		--colorEmphasizedBackground: #085e7a;
 		--colorInverted: var(--colorCream);
@@ -68,6 +70,7 @@
 		--colorBackdropDark: var(--colorSubtle);
 		--colorBackdropLight: var(--colorInverted);
 		--colorBackdropOff: var(--colorSubtle);
+		--colorDull: var(--colorBlueLightDull);
 		--colorEmphasized: #0685af;
 		--colorForeground: #bcdfe9;
 		--colorForegroundBody: #d2ebf1;
