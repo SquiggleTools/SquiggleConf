@@ -24,11 +24,10 @@ const schedule = days
 		day.activities.flatMap((activity) =>
 			activity.within
 				?.filter((inner) => inner.type === "session" && inner.session === slug)
-				.map((activity) => ({ activity, day })),
+				.map((inner) => ({ activity: inner, day })),
 		),
 	)
-	.filter((x) => !!x?.activity)
-	.at(0)!;
+	.find((x) => !!x?.activity)!;
 ---
 
 <li class:list={["talk", className]} id={slug} {...rest}>
