@@ -259,6 +259,10 @@ export const days: ScheduleDay[] = [
 				description: [
 					"Learn actionable day-to-day skills and technological takeaways from some of our partners and sponsors.",
 				],
+				location: {
+					href: "https://www.marriott.com/en-us/hotels/boslw-boston-marriott-long-wharf",
+					text: "Boston Marriott Long Wharf",
+				},
 				title: "Morning Workshops",
 				within: [
 					{
