@@ -8,10 +8,11 @@ interface Props {
 	align: "center" | "left";
 	color: "inherit" | "inverted";
 	level: "h1" | "h2";
+	shadow?: "extra" | "standard";
 	size?: "normal" | "small";
 }
 
-const { align, color, level, size } = Astro.props;
+const { align, color, level, shadow, size } = Astro.props;
 ---
 
 <Heading
@@ -23,7 +24,14 @@ const { align, color, level, size } = Astro.props;
 	]}
 	level={level}
 >
-	<span class="heading-text">
+	<span
+		class:list={[
+			"heading-text",
+			shadow === "extra"
+				? "heading-text-shadow-extra"
+				: "heading-text-shadow-standard",
+		]}
+	>
 		<span class="word">
 			<span class="word-contents">Squiggle</span><Image
 				alt=""
@@ -43,7 +51,6 @@ const { align, color, level, size } = Astro.props;
 		color: var(--colorHeadingText);
 		flex-direction: column;
 		font-size: var(--fontSizeHeroHeading);
-		overflow: hidden;
 		padding: 0.75rem 0 0.5rem;
 		position: relative;
 	}
@@ -74,6 +81,17 @@ const { align, color, level, size } = Astro.props;
 		position: relative;
 		text-shadow: 0 3px 7px var(--colorShadow);
 		z-index: 1;
+	}
+
+	.heading-text-shadow-standard {
+		text-shadow: 0 3px 7px var(--col + orShadow);
+	}
+
+	.heading-text-shadow-extra {
+		text-shadow:
+			0 1px 7px var(--colorShadow),
+			0 3px 11px var(--colorShadow),
+			0 7px 14px var(--colorShadow);
 	}
 
 	.squiggle {
