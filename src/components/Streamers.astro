@@ -1,0 +1,83 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+	link: string;
+	streamers: Streamer[];
+	time: string;
+}
+
+export interface Streamer {
+	name: string;
+	src: ImageMetadata;
+}
+---
+
+<div class="streamers">
+	<div class="streamers-list">
+		{
+			Astro.props.streamers.map(({ name, src }) => (
+				<div class="streamer">
+					<Image
+						alt=""
+						class="streamer-image"
+						src={src}
+						width={160}
+						height={160}
+					/>
+					{name}
+				</div>
+			))
+		}
+	</div>
+	<div class="info">
+		<div class="time">{Astro.props.time}</div>
+		<div class="link">{Astro.props.link}</div>
+	</div>
+</div>
+
+<style>
+	.streamers {
+		color: var(--colorOffWhite);
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		gap: 7.5rem;
+	}
+
+	.streamers-list {
+		align-items: center;
+		display: flex;
+		font-weight: var(--fontWeightSemibold);
+		justify-content: center;
+		font-size: 3.5rem;
+		gap: 5rem;
+	}
+
+	.streamer {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.streamer-image {
+		border-radius: 100%;
+	}
+
+	.info {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.time {
+		font-weight: var(--fontWeightBold);
+		font-size: 5rem;
+	}
+
+	.link {
+		font-weight: var(--fontWeightSemibold);
+		font-size: 3.5rem;
+	}
+</style>

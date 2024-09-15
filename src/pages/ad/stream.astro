@@ -1,0 +1,46 @@
+---
+import "@fontsource-variable/josefin-sans";
+import "@fontsource/urbanist";
+
+import joshGoldberg from "~/assets/avatars/josh-goldberg.png";
+import marcHess from "~/assets/avatars/marc-hess.jpg";
+import AdContents from "~/components/AdContents.astro";
+import AdTitleAndSubtitle from "~/components/AdTitleAndSubtitle.astro";
+import Streamers from "~/components/Streamers.astro";
+import AdLayout from "~/layouts/AdLayout.astro";
+
+import "~/layouts/base.css";
+import "~/layouts/normalize.css";
+---
+
+<AdLayout>
+	<AdContents>
+		<AdTitleAndSubtitle
+			subTitle="Building a Real-Time Q&A App with Prisma Pulse"
+			title="Livestream"
+			slot="top"
+		/>
+		<Streamers
+			link="twitch.tv/joshuakgoldberg"
+			time="Tuesday Sep 24, 2024 ⋅ 1:15pm – 2:30pm EST"
+			slot="body"
+			streamers={[
+				{
+					name: "Josh Goldberg",
+					src: joshGoldberg,
+				},
+				{
+					name: "Marc Hess",
+					src: marcHess,
+				},
+			]}
+		/>
+	</AdContents>
+</AdLayout>
+
+<style>
+	h1 {
+		color: var(--colorOffWhite);
+		font-size: 7rem;
+	}
+</style>
