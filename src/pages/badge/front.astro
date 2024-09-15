@@ -29,7 +29,7 @@ const role = Astro.url.searchParams.get("role");
 			>
 			</div>
 			<Heading class="name" level="h2">
-				{name}
+				{name?.split(/\s+/g).map((line) => <div>{line}</div>)}
 			</Heading>
 		</div>
 		<div class="role-area">
@@ -90,10 +90,13 @@ const role = Astro.url.searchParams.get("role");
 	}
 
 	.name {
-		width: 100%;
-		font-size: 5rem;
 		color: var(--colorForeground);
+		display: flex;
+		flex-direction: column;
+		font-size: 5.5rem;
+		gap: 1rem;
 		text-shadow: 0 0 3px var(--colorOffWhite);
+		width: 100%;
 	}
 
 	.role {
