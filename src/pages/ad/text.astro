@@ -11,7 +11,7 @@ import "~/layouts/normalize.css";
 
 <AdLayout>
 	<AdContents>
-		<h1 slot="body">3 Weeks To Go!</h1>
+		<h1 slot="body">{Astro.url.searchParams.get("text")}</h1>
 	</AdContents>
 </AdLayout>
 
