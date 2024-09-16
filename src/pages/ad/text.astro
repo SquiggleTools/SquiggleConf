@@ -11,13 +11,22 @@ import "~/layouts/normalize.css";
 
 <AdLayout>
 	<AdContents>
-		<h1 slot="body">{Astro.url.searchParams.get("text")}</h1>
+		<h1 slot="top">{Astro.url.searchParams.get("title")}</h1>
+		<h2 slot="body">{Astro.url.searchParams.get("text")}</h2>
 	</AdContents>
 </AdLayout>
 
 <style>
-	h1 {
+	h1,
+	h2 {
 		color: var(--colorOffWhite);
+	}
+
+	h1 {
+		font-size: 3.5rem;
+	}
+
+	h2 {
 		font-size: 7rem;
 	}
 </style>
