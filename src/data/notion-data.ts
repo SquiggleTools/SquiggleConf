@@ -194,7 +194,7 @@ export const peopleBySlug: Record<string, Person> = {
 		slug: "jess-lin",
 	},
 	"katerina-skroumpelou": {
-		bio: "",
+		bio: "Senior Engineer at [Nx](https://nx.dev/), open source contributor, [GDE](https://developers.google.com/community/experts) for Angular/Google Maps platform, [WTM Ambassador](https://developers.google.com/womentechmakers/ambassadors), [AngularAthens](https://www.meetup.com/angular-athens/) meetup co-founder. Mentoring women into tech, speaking about the cool things I do, climbing mountains and serving cats for life. More at [psyber.city](https://psyber.city/%F0%9F%90%88).",
 		links: {
 			bluesky: null,
 			github: "https://github.com/mandarini",
@@ -251,7 +251,7 @@ export const peopleBySlug: Record<string, Person> = {
 		slug: "loris-cro",
 	},
 	"max-kless": {
-		bio: "",
+		bio: "Max is a software engineer at [Nx](https://nx.dev/) and works on the core team. He spends a lot of his time building [Nx](https://nx.dev/getting-started/intro) & [Nx Console](https://nx.dev/recipes/nx-console) - a VSCode and JetBrains extension for Nx workspaces. When not digging through code, he spends his time travelling, reading sci-fi and listening to music.",
 		links: {
 			bluesky: null,
 			github: "https://github.com/MaxKless",
