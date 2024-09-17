@@ -566,10 +566,16 @@ export const talksBySlug: Record<string, TalkInfo> = {
 	},
 	"workshop-dan-and-aaron": {
 		description:
-			"Your business logic is important - but it requires so many service calls! Internal services, external services, retries, timeouts... Keeping track of all the failure points and logic can become a nightmare in larger applications. Especially for sensitive transactions such as money or personal data.\n\nIntroducing durable execution: the ability to write independent tasks that manage their own retry and timeout behavior. Applications built on these tasks become more traceable and understandable by nature, allowing you to build up reliable business applications with confidence and ease.\n\nJoin Dan Farrelly, CTO of Inngest, and Aaron Harper, engineer at Inngest, as they show us how to make an application built on durable execution. You’ll learn how to get starting using an engine such as Inngest, along with great general tips and tricks you can apply in our own codebases.",
+			"Your business logic is important - but it requires so many service calls! Internal services, external services, retries, timeouts... Keeping track of all the failure points and logic can become a nightmare in larger applications. Especially for sensitive transactions such as money or personal data.\n\nIntroducing durable execution: the ability to write independent tasks that manage their own retry and timeout behavior. Applications built on these tasks become more traceable and understandable by nature, allowing you to build up reliable business applications with confidence and ease.\n\nJoin Dan Farrelly, CTO and co-founder of Inngest, and Aaron Harper, engineer at Inngest, as they show us how to make an application built on durable execution. You’ll learn how to get starting using an engine such as Inngest, along with great general tips and tricks you can apply in our own codebases.",
 		people: [peopleBySlug["dan-farrelly"], peopleBySlug["aaron-harper"]],
 		slug: "workshop-dan-and-aaron",
-		tags: [],
+		tags: [
+			"Architecture",
+			"Durable execution",
+			"Microservices",
+			"Task Management",
+			"Tracing",
+		],
 		talkFormat: "Workshop",
 		title: "Building Resilient Applications with Durable Execution",
 	},
