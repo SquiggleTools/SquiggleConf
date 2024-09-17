@@ -78,6 +78,7 @@
 		"typescript": "5.5.3",
 		"typescript-eslint": "7.16.1"
 	},
+	"packageManager": "pnpm@9.2.0+sha1.886364ebd6dae009284bebc56ed4296bb6dd557a",
 	"engines": {
 		"node": ">=18"
 	}

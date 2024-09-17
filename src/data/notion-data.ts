@@ -40,6 +40,25 @@ export const peopleBySlug: Record<string, Person> = {
 		role: "Open Source",
 		slug: "aakansha-doshi",
 	},
+	"aaron-harper": {
+		bio: "I’m a software developer in Ann Arbor, Michigan. I’m a fan of writing reliable code, my dog Benny, and attending my favorite local meetup: Michigan TypeScript.  When I’m not helping developers implement durable workflows, I love spending time with my wife and daughter, gardening, and building orchestration engines that combine event driven architecture and workflows.",
+		links: {
+			bluesky: null,
+			github: "https://github.com/goodoldneon",
+			gitlab: null,
+			linkedin: "https://www.linkedin.com/in/aaronmharper",
+			mastodon: null,
+			medium: null,
+			twitch: null,
+			twitter: "https://x.com/AliasShmalias",
+			website: null,
+			youtube: null,
+		},
+		name: "Aaron Harper",
+		qualification: "Software Engineer, Inngest",
+		role: "",
+		slug: "aaron-harper",
+	},
 	"chris-griffing": {
 		bio: "I love building things on my Twitch stream and some of those things have been CLI tools. When you are creating binaries, you sometimes want people to be able to extend your tools with their own functionality. The simplest path has traditionally been exposing a server API for someone to interact with but many security-minded users are averse to the idea of a tool they use running a local http server. You can give your users extensibility without the need for a local http server and at the same time allow them to use any of the languages supported by the Extism toolkit.",
 		links: {
@@ -77,6 +96,25 @@ export const peopleBySlug: Record<string, Person> = {
 		qualification: "Accessibility Engineer",
 		role: "Founder, [Web for Everyone](https://webforeveryone.us/)",
 		slug: "corina-murg",
+	},
+	"dan-farrelly": {
+		bio: "I'm Dan. I am a founder at [Inngest](https://www.inngest.com/) and spent previous several years as CTO at [Buffer](https://buffer.com/). Back when I had more time I built [Timezone.io](https://timezone.io/) \\(service, [open-source](https://github.com/timezoneio/timezoneio)\\) and [MailDev](https://maildev.github.io/maildev/) \\(dev tool, [open-source](https://github.com/maildev/maildev)\\).  In 2020 I bought a 96 year old house and started [a restoration and renovation project](https://www.instagram.com/michigancraftsman/) on the weekends. Hit me up if you want to chat home renovations.",
+		links: {
+			bluesky: null,
+			github: "https://github.com/djfarrelly",
+			gitlab: null,
+			linkedin: "https://www.linkedin.com/in/djfarrelly",
+			mastodon: null,
+			medium: null,
+			twitch: null,
+			twitter: "https://x.com/djfarrelly",
+			website: "https://danfarrelly.com",
+			youtube: null,
+		},
+		name: "Dan Farrelly",
+		qualification: "CTO, Inngest",
+		role: "",
+		slug: "dan-farrelly",
 	},
 	"dan-vanderkam": {
 		bio: "",
@@ -161,7 +199,7 @@ export const peopleBySlug: Record<string, Person> = {
 			bluesky: null,
 			github: "https://github.com/mandarini",
 			gitlab: null,
-			linkedin: null,
+			linkedin: "https://www.linkedin.com/in/katerinaskroumpelou/",
 			mastodon: "https://mas.to/@psybercity",
 			medium: "https://pakotinia.medium.com",
 			twitch: null,
@@ -276,7 +314,7 @@ export const peopleBySlug: Record<string, Person> = {
 			bluesky: null,
 			github: "https://github.com/rviscomi",
 			gitlab: null,
-			linkedin: null,
+			linkedin: "https://www.linkedin.com/in/rviscomi/",
 			mastodon: null,
 			medium: null,
 			twitch: null,
@@ -327,25 +365,6 @@ export const peopleBySlug: Record<string, Person> = {
 		role: "CEO, [Planet Argon](https://www.planetargon.com/); host of [Maintainable](https://maintainable.fm/)",
 		slug: "robby-russell",
 	},
-	"sylwia-vargas": {
-		bio: "",
-		links: {
-			bluesky: null,
-			github: null,
-			gitlab: null,
-			linkedin: null,
-			mastodon: null,
-			medium: null,
-			twitch: null,
-			twitter: "https://x.com/SylwiaVargas",
-			website: null,
-			youtube: null,
-		},
-		name: "Sylwia Vargas",
-		qualification: "",
-		role: "",
-		slug: "sylwia-vargas",
-	},
 	"titian-cernicova-dragomir": {
 		bio: "Hi, I’m Titian! I’m a software engineer on the JavaScript Infrastructure team at Bloomberg, where I work on JavaScript and TypeScript tooling for the company’s internal developers. I am passionate about TypeScript and, together with my colleagues, have contributed to TypeScript features such as Private Methods in classes and Isolated Declarations. I also enjoy answering questions about TypeScript, so you might have come across one of my Stack Overflow answers. Feel free to ask me any questions! In my free time, I love spending time with my lovely wife, two kids, and my fully gray cat.",
 		links: {
@@ -371,7 +390,7 @@ export const peopleBySlug: Record<string, Person> = {
 			bluesky: null,
 			github: "https://github.com/anonrig",
 			gitlab: null,
-			linkedin: null,
+			linkedin: "https://www.linkedin.com/in/yagiznizipli/",
 			mastodon: null,
 			medium: null,
 			twitch: null,
@@ -433,7 +452,7 @@ export const talksBySlug: Record<string, TalkInfo> = {
 	},
 	"talk-dan-vanderkam": {
 		description:
-			"There’s nothing more devtool-y than how you store your code.  Over the past 50 years, computers have grown dramatically more powerful, user interfaces have grown increasingly complex, and computer programs have grown orders of magnitude larger. But despite all this change, we still represent computer code the same way we did in 1970: as plain text files. Why is plain text so ubiquitous, and why do attempts to replace it always fail?\n\nThis talk will explore the different attempts and strategies at making something “better” than plain text  for source formats — including defining what “better” might be in the first place. We’ll cover richer text formats, AST-oriented storage, and more explorations in the future.\n\nBenefits of this talk will include a renewed appreciation for how to share, store, and generally work with your computer code sources.",
+			"There’s nothing more devtool-y than how you store your code.  Over the past 50 years, computers have grown dramatically more powerful, user interfaces have grown increasingly complex, and computer programs have grown orders of magnitude larger. But despite all this change, we still represent computer code the same way we did in 1970: as plain text files. Why is plain text so ubiquitous, and why do attempts to replace it always fail?",
 		people: [peopleBySlug["dan-vanderkam"]],
 		slug: "talk-dan-vanderkam",
 		tags: ["ASTs", "Parsing", "Source Code"],
@@ -545,6 +564,15 @@ export const talksBySlug: Record<string, TalkInfo> = {
 		talkFormat: "Lightning",
 		title: "Node.js Core Performance Optimizations, Revealed",
 	},
+	"workshop-dan-and-aaron": {
+		description:
+			"Your business logic is important - but it requires so many service calls! Internal services, external services, retries, timeouts... Keeping track of all the failure points and logic can become a nightmare in larger applications. Especially for sensitive transactions such as money or personal data.\n\nIntroducing durable execution: the ability to write independent tasks that manage their own retry and timeout behavior. Applications built on these tasks become more traceable and understandable by nature, allowing you to build up reliable business applications with confidence and ease.\n\nJoin Dan Farrelly, CTO of Inngest, and Aaron Harper, engineer at Inngest, as they show us how to make an application built on durable execution. You’ll learn how to get starting using an engine such as Inngest, along with great general tips and tricks you can apply in our own codebases.",
+		people: [peopleBySlug["dan-farrelly"], peopleBySlug["aaron-harper"]],
+		slug: "workshop-dan-and-aaron",
+		tags: [],
+		talkFormat: "Workshop",
+		title: "Building Resilient Applications with Durable Execution",
+	},
 	"workshop-katerina-and-max": {
 		description:
 			"You will leave this workshop having built and installed a custom VSCode _and_ JetBrains extension! Learn how to enchant your Editor in a \\(seasonally witch-themed!\\) deep dive into Editor plugins and what it takes to build one. You will gain hands-on experience with [Nx](https://nx.dev/) and how you can use it to compose a clean architecture in a complex repo.\n\nWe’ve learned a lot in the process of building and maintaining both [Nx](https://nx.dev/) and [Nx Console](https://marketplace.visualstudio.com/items?itemName=nrwl.angular-console), our editor extension - we’re ready to share our best tips and tricks!\n\nIf you want to learn more about Nx or if you’ve ever thought to yourself “I wish someone at my company could make an editor extension” then this workshop is for you! Come and see how easy it is to get started.",
@@ -560,13 +588,5 @@ export const talksBySlug: Record<string, TalkInfo> = {
 		],
 		talkFormat: "Workshop",
 		title: "Build Editor Extensions with the Makers of Nx Console",
-	},
-	"workshop-sylwia-vargas": {
-		description: "",
-		people: [peopleBySlug["sylwia-vargas"]],
-		slug: "workshop-sylwia-vargas",
-		tags: [],
-		talkFormat: "Workshop",
-		title: "Inngest",
 	},
 };

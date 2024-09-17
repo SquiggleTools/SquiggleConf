@@ -6,11 +6,6 @@ import { peopleBySlug, talksBySlug } from "~/data/notion-data";
 import Speaker from "~/components/Speaker.astro";
 import BodyText from "~/components/BodyText.astro";
 import SafeMarkdown from "~/components/SafeMarkdown.astro";
-
-const speakersToExclude = new Set([
-	// Sylwia might not be able to make it 😢
-	"sylwia-vargas",
-]);
 ---
 
 <ContentLayout
@@ -29,7 +24,6 @@ const speakersToExclude = new Set([
 		<ul class="speakers-list">
 			{
 				Object.values(peopleBySlug)
-					.filter((person) => !speakersToExclude.has(person.slug))
 					.sort((a, b) =>
 						!!a.bio === !!b.bio ? a.name.localeCompare(b.name) : a.bio ? -1 : 1,
 					)
