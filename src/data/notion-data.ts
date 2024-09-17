@@ -41,7 +41,7 @@ export const peopleBySlug: Record<string, Person> = {
 		slug: "aakansha-doshi",
 	},
 	"aaron-harper": {
-		bio: "I’m a software developer in Ann Arbor, Michigan. I’m a fan of writing reliable code, my dog Benny, and attending my favorite local meetup: Michigan TypeScript.  When I’m not helping developers implement durable workflows, I love spending time with my wife and daughter, gardening, and building orchestration engines that combine event driven architecture and workflows.",
+		bio: "I’m a software developer in Ann Arbor, Michigan. I’m a fan of writing reliable code, my dog Benny, and attending my favorite local meetup: Michigan TypeScript. When I’m not helping developers implement durable workflows, I love spending time with my wife and daughter, gardening, and building orchestration engines that combine event driven architecture and workflows.",
 		links: {
 			bluesky: null,
 			github: "https://github.com/goodoldneon",
