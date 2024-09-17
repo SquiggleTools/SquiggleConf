@@ -68,7 +68,7 @@ export const days: ScheduleDay[] = [
 				title: "Morning Fun Run",
 			},
 			{
-				at: "8:30am",
+				at: "8:45am",
 				description: [
 					"Come over to the venue, collect your badge, and network with fellow attendees.",
 				],
