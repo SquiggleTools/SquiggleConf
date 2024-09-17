@@ -272,8 +272,8 @@ export const days: ScheduleDay[] = [
 					},
 					{
 						at: "10:30am",
-						title: "Workshop to be announced",
-						type: "between",
+						session: "workshop-dan-and-aaron",
+						type: "session",
 					},
 				],
 			},

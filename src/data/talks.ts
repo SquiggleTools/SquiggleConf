@@ -2,10 +2,7 @@ import * as notionData from "./notion-data.js";
 
 type TalkSlug = keyof typeof notionData.talksBySlug;
 
-const talksToExclude: TalkSlug[] = [
-	// (Sylwia might not be able to make it 😢)
-	"workshop-sylwia-vargas",
-];
+const talksToExclude: TalkSlug[] = [];
 
 const sortOrder: TalkSlug[] = [
 	// Full
@@ -26,7 +23,7 @@ const sortOrder: TalkSlug[] = [
 	"talk-yagiz-nizipli",
 	// Workshop
 	"workshop-katerina-and-max",
-	"workshop-sylwia-vargas",
+	"workshop-dan-and-aaron",
 ];
 
 // sort by sortOrder
