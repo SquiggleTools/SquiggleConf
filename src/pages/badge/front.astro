@@ -17,7 +17,6 @@ const role = Astro.url.searchParams.get("role");
 
 <BadgeLayout>
 	<div class="contents">
-		<div class="more-top-gradient"></div>
 		<div class="top">
 			<HeroNameHeading
 				align="center"
@@ -71,19 +70,6 @@ const role = Astro.url.searchParams.get("role");
 		font-size: 3rem;
 		margin-top: 1rem;
 		color: var(--colorBlueLight);
-	}
-
-	.more-top-gradient {
-		background: linear-gradient(
-			180deg,
-			#20576e 0%,
-			var(--colorHeroShadow) 100%
-		);
-		position: absolute;
-		top: 0;
-		height: 50%;
-		left: 0;
-		right: 0;
 	}
 
 	.name-area {
