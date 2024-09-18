@@ -1,23 +1,15 @@
 ---
-import SquiggleLong from "~/assets/squiggle-long.svg";
-
 import DeepBlueSea from "./DeepBlueSea.astro";
 ---
 
 <DeepBlueSea>
-	<div class="contents">
+	<div class="hero-contents">
 		<slot />
-	</div>
-	<div
-		class="wave-long"
-		slot="waves"
-		style={{ "background-image": `url(${SquiggleLong.src})` }}
-	>
 	</div>
 </DeepBlueSea>
 
 <style>
-	.contents {
+	.hero-contents {
 		align-items: center;
 		display: flex;
 		flex-direction: column;
@@ -26,21 +18,8 @@ import DeepBlueSea from "./DeepBlueSea.astro";
 		position: relative;
 	}
 
-	.wave-long {
-		width: 100%;
-		position: absolute;
-		bottom: -0.5rem;
-		height: 1rem;
-		right: 0;
-		left: 0;
-	}
-
-	html.dark .wave-long {
-		filter: invert() hue-rotate(180deg) brightness(0.8);
-	}
-
 	@media (min-width: 700px) {
-		.contents {
+		.hero-contents {
 			padding-top: clamp(7rem, 10vw, 9rem);
 		}
 	}

@@ -1,12 +1,15 @@
 ---
 import DeepBlueSea from "~/components/DeepBlueSea.astro";
 import Head from "~/components/Head.astro";
+import Heading from "~/components/Heading.astro";
+import HeroNameHeading from "~/components/HeroNameHeading.astro";
 
 import "@fontsource-variable/josefin-sans";
 import "@fontsource/urbanist";
 
 import "./base.css";
 import "./normalize.css";
+import BodyArea from "~/components/BodyArea.astro";
 ---
 
 <html lang="en">
@@ -14,7 +17,21 @@ import "./normalize.css";
 	<body>
 		<main class="badge">
 			<DeepBlueSea class="deep-blue-badge" light="contrast">
-				<slot />
+				<div class="contents">
+					<div class="top">
+						<HeroNameHeading
+							align="center"
+							color="inverted"
+							level="h2"
+							shadow="extra"
+						/>
+						<Heading class="date" level="h2">October 3-4 2024</Heading>
+					</div>
+					<BodyArea class="badge-body-area">
+						<slot name="body" />
+					</BodyArea>
+					<slot name="footer" />
+				</div>
 			</DeepBlueSea>
 		</main>
 		<style>
@@ -26,6 +43,39 @@ import "./normalize.css";
 
 			.deep-blue-badge {
 				height: 100%;
+			}
+
+			.contents {
+				align-items: center;
+				display: flex;
+				flex-direction: column;
+				gap: 1.5rem;
+				height: 100%;
+				height: 100%;
+				justify-content: space-between;
+				padding-top: 2rem;
+				position: relative;
+				text-shadow:
+					0 1px 7px var(--colorTextShadow),
+					0 3px 7px var(--colorTextShadow),
+					0 3px 14px var(--colorTextShadow),
+					0 3px 14px var(--colorTextShadow);
+				width: 100%;
+			}
+
+			.top {
+				padding: 1.75rem 0;
+			}
+
+			.date {
+				font-size: 3rem;
+				margin-top: 1rem;
+				color: var(--colorBlueLight);
+			}
+
+			.badge-body-area {
+				height: 35rem;
+				margin-top: 2.5rem;
 			}
 		</style>
 	</body>

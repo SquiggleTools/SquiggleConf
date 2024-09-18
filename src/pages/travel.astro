@@ -2,7 +2,6 @@
 import BodyText from "~/components/BodyText.astro";
 import HeadingFlanked from "~/components/HeadingFlanked.astro";
 import HeroForPage from "~/components/HeroForPage.astro";
-import PrimaryContents from "~/components/PrimaryContents.astro";
 import ContentLayout from "~/layouts/ContentLayout.astro";
 ---
 
@@ -10,123 +9,115 @@ import ContentLayout from "~/layouts/ContentLayout.astro";
 	description="Traveling to SquiggleConf: a Boston conference focused on excellent web dev tooling."
 	title="Travel Info"
 >
-	<HeroForPage>Travel</HeroForPage>
+	<HeroForPage slot="hero">Travel</HeroForPage>
 
-	<PrimaryContents>
-		<BodyText class="travel-body-text" as="p" size="large" width="full">
-			SquiggleConf 2024 is at the
-			<a href="https://www.neaq.org/visit/simons-theatre/" target="_blank">
-				New England Aquarium Simons Theatre</a
-			>
-			at 1 Central Wharf.
-		</BodyText>
+	<BodyText class="travel-body-text" as="p" size="large" width="full">
+		SquiggleConf 2024 is at the
+		<a href="https://www.neaq.org/visit/simons-theatre/" target="_blank">
+			New England Aquarium Simons Theatre</a
+		>
+		at 1 Central Wharf.
+	</BodyText>
 
-		<iframe
-			allowfullscreen=""
-			height="450"
-			loading="lazy"
-			referrerpolicy="no-referrer-when-downgrade"
-			src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2948.2374277204103!2d-71.05276952319306!3d42.35877907119312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e3708790db7415%3A0xa9fbb8bf1c5e8e24!2sSimons%20Theatre!5e0!3m2!1sen!2sus!4v1724284919111!5m2!1sen!2sus"
-			style="border:0;"
-			title="Simons Theatre on Google Maps"
-			width="600"></iframe>
+	<iframe
+		allowfullscreen=""
+		height="450"
+		loading="lazy"
+		referrerpolicy="no-referrer-when-downgrade"
+		src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2948.2374277204103!2d-71.05276952319306!3d42.35877907119312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e3708790db7415%3A0xa9fbb8bf1c5e8e24!2sSimons%20Theatre!5e0!3m2!1sen!2sus!4v1724284919111!5m2!1sen!2sus"
+		style="border:0;"
+		title="Simons Theatre on Google Maps"
+		width="600"></iframe>
 
-		<div class="travel-links">
-			<a
-				href="https://maps.apple.com/?auid=11717693884170167159"
-				target="_blank"
-			>
-				Apple Maps
-			</a>
-			<a href="https://maps.app.goo.gl/4jWEL7z6iBoA6y9z8" target="_blank">
-				Google Maps
-			</a>
-			<a href="https://waze.com/ul/hdrt2zpnrn" target="_blank">Waze</a>
-		</div>
+	<div class="travel-links">
+		<a href="https://maps.apple.com/?auid=11717693884170167159" target="_blank">
+			Apple Maps
+		</a>
+		<a href="https://maps.app.goo.gl/4jWEL7z6iBoA6y9z8" target="_blank">
+			Google Maps
+		</a>
+		<a href="https://waze.com/ul/hdrt2zpnrn" target="_blank">Waze</a>
+	</div>
 
-		<HeadingFlanked id="hotel">Hotel</HeadingFlanked>
+	<HeadingFlanked id="hotel">Hotel</HeadingFlanked>
 
-		<BodyText class="travel-body-text" as="p" size="large" width="full">
-			We recommend the
-			<a href="https://www.harborsideinnboston.com" target="_blank"
-				>Harborside Inn</a
-			> at 185 State St, down the street from the venue.
-			<br />
-			Call them to see if there are discounted rooms still available under group
-			code
-			<strong>SQUOCT24</strong>.
-		</BodyText>
+	<BodyText class="travel-body-text" as="p" size="large" width="full">
+		We recommend the
+		<a href="https://www.harborsideinnboston.com" target="_blank"
+			>Harborside Inn</a
+		> at 185 State St, down the street from the venue.
+		<br />
+		Call them to see if there are discounted rooms still available under group code
+		<strong>SQUOCT24</strong>.
+	</BodyText>
 
-		<HeadingFlanked class="travel-heading" id="flights">Flights</HeadingFlanked>
+	<HeadingFlanked class="travel-heading" id="flights">Flights</HeadingFlanked>
 
-		<BodyText class="travel-body-text" as="p" size="large" width="full">
-			<a
-				href="https://massport.com/logan-airport"
-				target="_blank"
-				rel="noreferrer"
-			>
-				Boston Logan International Airport (BOS)</a
-			> is your best bet to get into Boston from out-of-town.
-			<br />
-			To get downtown, you can take a ~15 minute Lyft/Uber, or see
-			<a
-				href="https://www.massport.com/logan-airport/getting-to-logan/public-transportation"
-				target="_blank">Boston Logan Public Transportation</a
-			>.
-		</BodyText>
+	<BodyText class="travel-body-text" as="p" size="large" width="full">
+		<a
+			href="https://massport.com/logan-airport"
+			target="_blank"
+			rel="noreferrer"
+		>
+			Boston Logan International Airport (BOS)</a
+		> is your best bet to get into Boston from out-of-town.
+		<br />
+		To get downtown, you can take a ~15 minute Lyft/Uber, or see
+		<a
+			href="https://www.massport.com/logan-airport/getting-to-logan/public-transportation"
+			target="_blank">Boston Logan Public Transportation</a
+		>.
+	</BodyText>
 
-		<HeadingFlanked class="travel-heading" id="trains">Trains</HeadingFlanked>
+	<HeadingFlanked class="travel-heading" id="trains">Trains</HeadingFlanked>
 
-		<BodyText class="travel-body-text" as="p" size="large" width="full">
-			The <a
-				href="https://www.mbta.com/stops/place-sstat"
-				target="_blank"
-				rel="noreferrer">MBTA South Station</a
-			> is a 15-20 minute walk from the conference center.
-			<br />
-			<a
-				href="https://www.amtrak.com/stations/bos"
-				target="_blank"
-				rel="noreferrer">Amtrak</a
-			> arrives there, including ~4 hour trains from New York City.
-		</BodyText>
+	<BodyText class="travel-body-text" as="p" size="large" width="full">
+		The <a
+			href="https://www.mbta.com/stops/place-sstat"
+			target="_blank"
+			rel="noreferrer">MBTA South Station</a
+		> is a 15-20 minute walk from the conference center.
+		<br />
+		<a
+			href="https://www.amtrak.com/stations/bos"
+			target="_blank"
+			rel="noreferrer">Amtrak</a
+		> arrives there, including ~4 hour trains from New York City.
+	</BodyText>
 
-		<HeadingFlanked class="travel-heading" id="local-directions">
-			Local Directions
-		</HeadingFlanked>
+	<HeadingFlanked class="travel-heading" id="local-directions">
+		Local Directions
+	</HeadingFlanked>
 
-		<BodyText class="travel-body-text" as="p" size="large" width="full">
-			See <a
-				href="https://www.neaq.org/visit/directions-and-parking"
-				target="_blank"
-				rel="noreferrer">neaq.org</a
-			> for New England Aquarium directions. The Simons Theater is in the same address.
-			<br />
-			The <a
-				href="https://www.mbta.com/stops/place-aqucl"
-				target="_blank"
-				rel="noreferrer">Blue Line Aquarium subway stop</a
-			> and <a
-				href="https://www.mbta.com/stops/30233"
-				target="_blank"
-				rel="noreferrer">Atlantic Ave @ Milk St 4 Line Bus stop</a
-			> are next door.
-		</BodyText>
+	<BodyText class="travel-body-text" as="p" size="large" width="full">
+		See <a
+			href="https://www.neaq.org/visit/directions-and-parking"
+			target="_blank"
+			rel="noreferrer">neaq.org</a
+		> for New England Aquarium directions. The Simons Theater is in the same address.
+		<br />
+		The <a
+			href="https://www.mbta.com/stops/place-aqucl"
+			target="_blank"
+			rel="noreferrer">Blue Line Aquarium subway stop</a
+		> and <a
+			href="https://www.mbta.com/stops/30233"
+			target="_blank"
+			rel="noreferrer">Atlantic Ave @ Milk St 4 Line Bus stop</a
+		> are next door.
+	</BodyText>
 
-		<HeadingFlanked class="travel-heading" id="parking">
-			Parking
-		</HeadingFlanked>
+	<HeadingFlanked class="travel-heading" id="parking"> Parking </HeadingFlanked>
 
-		<BodyText class="travel-body-text" as="p" size="large" width="full">
-			The <a
-				href="https://www.google.com/maps/place/Boston+Harbor+Garage/@42.3583167,-71.0512442,15z/data=!4m2!3m1!1s0x0:0x8a0e2aa33837506b?sa=X&ved=1t:2428&ictx=111"
-				target="_blank"
-				rel="noreferrer">Boston Harbor Garage</a
-			> is next door to the venue.
-			<br />
-			There are many other parking garages within walking distance as well.
-		</BodyText>
-	</PrimaryContents>
+	<BodyText class="travel-body-text" as="p" size="large" width="full">
+		The <a
+			href="https://www.google.com/maps/place/Boston+Harbor+Garage/@42.3583167,-71.0512442,15z/data=!4m2!3m1!1s0x0:0x8a0e2aa33837506b?sa=X&ved=1t:2428&ictx=111"
+			target="_blank"
+			rel="noreferrer">Boston Harbor Garage</a
+		> is next door to the venue.
+		<br />
+		There are many other parking garages within walking distance as well.
+	</BodyText>
 </ContentLayout>
 
 <style>

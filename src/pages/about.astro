@@ -8,7 +8,6 @@ import Bio, { Props as BioProps } from "~/components/Bio.astro";
 import BodyText from "~/components/BodyText.astro";
 import HeadingFlanked from "~/components/HeadingFlanked.astro";
 import HeroForPage from "~/components/HeroForPage.astro";
-import PrimaryContents from "~/components/PrimaryContents.astro";
 import { links } from "~/data/links";
 import ContentLayout from "~/layouts/ContentLayout.astro";
 
@@ -60,76 +59,73 @@ const bios: Omit<BioProps, "size">[] = [
 	description="About SquiggleConf: a Boston conference focused on excellent web dev tooling."
 	title="About Us"
 >
-	<HeroForPage>About Us</HeroForPage>
+	<HeroForPage slot="hero">About Us</HeroForPage>
 
-	<PrimaryContents>
-		<BodyText as="p" size="large" width="full">
-			Our goal with SquiggleConf is to create an enriching conference
-			environment to talk about the latest and greatest in web developer
-			tooling. We aim to include everyone from newcomers to the space and web
-			platform team members to authors & maintainers of open source tools.
-		</BodyText>
+	<BodyText as="p" size="large" width="full">
+		Our goal with SquiggleConf is to create an enriching conference environment
+		to talk about the latest and greatest in web developer tooling. We aim to
+		include everyone from newcomers to the space and web platform team members
+		to authors & maintainers of open source tools.
+	</BodyText>
 
-		<br />
+	<br />
 
-		<HeadingFlanked class="about-heading" id="dei-scholarship">
-			DEI Scholarship
-		</HeadingFlanked>
+	<HeadingFlanked class="about-heading" id="dei-scholarship">
+		DEI Scholarship
+	</HeadingFlanked>
 
-		<BodyText as="p" size="large" width="full">
-			We believe that a thriving tech industry needs to be diverse, equitable,
-			and inclusive. That includes the individuals and teams contributing to web
-			dev tooling. We’d like to sponsor historically underrepresented
-			individuals to attend SquiggleConf as our way of helping move towards that
-			vision.
-		</BodyText>
+	<BodyText as="p" size="large" width="full">
+		We believe that a thriving tech industry needs to be diverse, equitable, and
+		inclusive. That includes the individuals and teams contributing to web dev
+		tooling. We’d like to sponsor historically underrepresented individuals to
+		attend SquiggleConf as our way of helping move towards that vision.
+	</BodyText>
 
-		<AnchorButton
-			class="action-button"
-			href={links.scholarship}
-			target="_blank"
-			rel="noreferrer"
-		>
-			Apply for the DEI Scholarship
-		</AnchorButton>
+	<AnchorButton
+		class="action-button"
+		href={links.scholarship}
+		target="_blank"
+		rel="noreferrer"
+	>
+		Apply for the DEI Scholarship
+	</AnchorButton>
 
-		<HeadingFlanked class="about-heading" id="volunteering">
-			Volunteering
-		</HeadingFlanked>
+	<HeadingFlanked class="about-heading" id="volunteering">
+		Volunteering
+	</HeadingFlanked>
 
-		<BodyText as="p" size="large" width="full">
-			Volunteering gives you an opportunity to get right in the thick of the
-			conference, including access to speakers, sponsors, and other organizers &
-			volunteers. Additionally, we'll cover your ticket to the conference and a
-			workshop the next day, and you'll get a nice swag bag from us at the end.
-			If you can't afford a ticket, this can be a great way to experience
-			SquiggleConf!
-		</BodyText>
+	<BodyText as="p" size="large" width="full">
+		Volunteering gives you an opportunity to get right in the thick of the
+		conference, including access to speakers, sponsors, and other organizers &
+		volunteers. Additionally, we'll cover your ticket to the conference and a
+		workshop the next day, and you'll get a nice swag bag from us at the end. If
+		you can't afford a ticket, this can be a great way to experience
+		SquiggleConf!
+	</BodyText>
 
-		<AnchorButton
-			class="action-button"
-			href={links.volunteer}
-			target="_blank"
-			rel="noreferrer"
-		>
-			Volunteer at SquiggleConf
-		</AnchorButton>
+	<AnchorButton
+		class="action-button"
+		href={links.volunteer}
+		target="_blank"
+		rel="noreferrer"
+	>
+		Volunteer at SquiggleConf
+	</AnchorButton>
 
-		<HeadingFlanked class="about-heading" id="squiggle-tools">
-			Squiggle.Tools
-		</HeadingFlanked>
+	<HeadingFlanked class="about-heading" id="squiggle-tools">
+		Squiggle.Tools
+	</HeadingFlanked>
 
-		<BodyText as="p" size="large" width="full">
-			SquiggleConf is a production of Squiggle.Tools, a nonprofit organization
-			(501(c)3 pending) offering ongoing learning opportunities that enable
-			participants to engage, learn, and advance their careers—regardless of
-			their background or resources.
-		</BodyText>
+	<BodyText as="p" size="large" width="full">
+		SquiggleConf is a production of Squiggle.Tools, a nonprofit organization
+		(501(c)3 pending) offering ongoing learning opportunities that enable
+		participants to engage, learn, and advance their careers—regardless of their
+		background or resources.
+	</BodyText>
 
-		<ul class="bios">
-			{bios.map((bio) => <Bio class="about-us-bio" {...bio} size="medium" />)}
-		</ul>
-	</PrimaryContents>
+	<ul class="bios">
+		{bios.map((bio) => <Bio class="about-us-bio" {...bio} size="medium" />)}
+	</ul>
 </ContentLayout>
 
 <style>

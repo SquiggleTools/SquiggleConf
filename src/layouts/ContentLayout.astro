@@ -8,6 +8,7 @@ import Footer from "~/components/Footer.astro";
 import Header from "~/components/Header.astro";
 
 import BaseLayout from "./BaseLayout.astro";
+import BodyArea from "~/components/BodyArea.astro";
 
 type Props = HeadProps;
 ---
@@ -16,7 +17,10 @@ type Props = HeadProps;
 	<SkipLinks />
 	<main id="main-content">
 		<Header />
-		<slot />
+		<slot name="hero" />
+		<BodyArea class="primary-contents">
+			<slot />
+		</BodyArea>
 	</main>
 	<Footer />
 	<style>
@@ -28,6 +32,13 @@ type Props = HeadProps;
 			);
 
 			color: var(--colorForeground);
+		}
+
+		.primary-contents {
+			align-items: center;
+			display: flex;
+			flex-direction: column;
+			padding: clamp(2.5rem, 10vw, 5rem) 0 7.5rem;
 		}
 	</style>
 </BaseLayout>

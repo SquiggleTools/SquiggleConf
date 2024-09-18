@@ -36,47 +36,45 @@ const sections = [
 	description="Sessions at SquiggleConf: a Boston conference focused on excellent web dev tooling."
 	title="Sessions"
 >
-	<HeroForPage>Sessions</HeroForPage>
+	<HeroForPage slot="hero">Sessions</HeroForPage>
 
-	<PrimaryContents>
-		<BodyText class="sessions-top" size="large" width="full">
-			SquiggleConf 2024 will consist of two days:
-			<ul>
-				<li>
-					Thursday, October 3rd: A full-day single-track series of full-length
-					and lightning talks
-				</li>
-				<li>Friday, October 4th: Free 1-2 hour morning workshops</li>
-			</ul>
-			See speaker details on <a href="/speakers">Speakers</a>.
-		</BodyText>
+	<BodyText class="sessions-top" size="large" width="full">
+		SquiggleConf 2024 will consist of two days:
+		<ul>
+			<li>
+				Thursday, October 3rd: A full-day single-track series of full-length and
+				lightning talks
+			</li>
+			<li>Friday, October 4th: Free 1-2 hour morning workshops</li>
+		</ul>
+		See speaker details on <a href="/speakers">Speakers</a>.
+	</BodyText>
 
-		{
-			sections.map(({ talkFormat, name, description }) => (
-				<>
-					<HeadingFlanked
-						class="sessions-header-flanked"
-						id={name.toLowerCase().replaceAll(" ", "-")}
-					>
-						{name}
-					</HeadingFlanked>
-					<BodyText as="p">{description}</BodyText>
-					<ul class="talks-list">
-						{talks
-							.filter((t) => t.talkFormat === talkFormat)
-							.map((talk) => (
-								<Session talk={talk} />
-							))}
-					</ul>
-				</>
-			))
-		}
+	{
+		sections.map(({ talkFormat, name, description }) => (
+			<>
+				<HeadingFlanked
+					class="sessions-header-flanked"
+					id={name.toLowerCase().replaceAll(" ", "-")}
+				>
+					{name}
+				</HeadingFlanked>
+				<BodyText as="p">{description}</BodyText>
+				<ul class="talks-list">
+					{talks
+						.filter((t) => t.talkFormat === talkFormat)
+						.map((talk) => (
+							<Session talk={talk} />
+						))}
+				</ul>
+			</>
+		))
+	}
 
-		<BodyText as="p" class="talks-body-text" size="large" width="lean">
-			You’ll emerge with the best techniques to supercharge your projects —
-			whether you’re already a tooling wizard or trying to become one.
-		</BodyText>
-	</PrimaryContents>
+	<BodyText as="p" class="talks-body-text" size="large" width="lean">
+		You’ll emerge with the best techniques to supercharge your projects —
+		whether you’re already a tooling wizard or trying to become one.
+	</BodyText>
 </ContentLayout>
 
 <style>

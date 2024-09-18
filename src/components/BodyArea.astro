@@ -1,0 +1,47 @@
+---
+import SquiggleLong from "~/assets/squiggle-long.svg";
+
+interface Props {
+	class?: string;
+}
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<div class:list={["body-area", className]} {...rest}>
+	<div
+		class="wave-long"
+		slot="waves"
+		style={{ "background-image": `url(${SquiggleLong.src})` }}
+	>
+	</div>
+	<slot />
+</div>
+
+<style>
+	.body-area {
+		background: linear-gradient(
+			180deg,
+			var(--colorBackdropDark) 20%,
+			var(--colorBackdropLight) 100%
+		);
+		position: relative;
+		width: 100%;
+		align-items: center;
+		justify-content: center;
+		display: flex;
+	}
+
+	.wave-long {
+		height: 1rem;
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: -0.5rem;
+		width: 100%;
+	}
+
+	html.dark .wave-long {
+		filter: invert() hue-rotate(180deg) brightness(0.8);
+	}
+</style>

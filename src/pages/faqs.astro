@@ -3,28 +3,25 @@ import HeroForPage from "~/components/HeroForPage.astro";
 import ContentLayout from "~/layouts/ContentLayout.astro";
 import FAQs from "~/components/FAQs.astro";
 import BodyText from "~/components/BodyText.astro";
-import PrimaryContents from "~/components/PrimaryContents.astro";
 ---
 
 <ContentLayout
 	description="FAQs for SquiggleConf: a Boston conference focused on excellent web dev tooling."
 	title="FAQs"
 >
-	<HeroForPage>Frequently Asked Questions</HeroForPage>
+	<HeroForPage slot="hero">Frequently Asked Questions</HeroForPage>
 
-	<PrimaryContents class="primary-faq-contents">
-		<BodyText class="byline" size="large">
-			Got questions not covered here? Reach out, we’d be happy to talk!
-			<br />
-			<a href="mailto:questions@squiggleconf.com">questions@squiggleconf.com</a>
-		</BodyText>
+	<BodyText class="byline primary-faq-contents" size="large">
+		Got questions not covered here? Reach out, we’d be happy to talk!
+		<br />
+		<a href="mailto:questions@squiggleconf.com">questions@squiggleconf.com</a>
+	</BodyText>
 
-		<FAQs />
-	</PrimaryContents>
+	<FAQs />
 </ContentLayout>
 
 <style>
 	.primary-faq-contents {
-		gap: 4rem;
+		margin-bottom: 4rem;
 	}
 </style>

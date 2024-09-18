@@ -1,0 +1,99 @@
+---
+import "@fontsource-variable/josefin-sans";
+import "@fontsource/urbanist";
+
+import "~/layouts/base.css";
+import "~/layouts/normalize.css";
+
+import SquiggleLong from "~/assets/squiggle-long.svg";
+import HeroNameHeading from "~/components/HeroNameHeading.astro";
+import Heading from "~/components/Heading.astro";
+import BadgeLayout from "~/layouts/BadgeLayout.astro";
+---
+
+<BadgeLayout>
+	<div class="contents">
+		<div class="top">
+			<HeroNameHeading
+				align="center"
+				color="inverted"
+				level="h2"
+				shadow="extra"
+			/>
+			<Heading class="date" level="h2">October 3-4 2024</Heading>
+		</div>
+		<div class="name-area">
+			<div
+				class="wave-long"
+				slot="waves"
+				style={{ "background-image": `url(${SquiggleLong.src})` }}
+			>
+			</div>
+			<Heading class="name" level="h2"> hi </Heading>
+		</div>
+	</div>
+</BadgeLayout>
+
+<style>
+	.contents {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		height: 100%;
+		height: 100%;
+		justify-content: space-between;
+		padding-top: 2rem;
+		position: relative;
+		text-shadow:
+			0 1px 7px var(--colorTextShadow),
+			0 3px 7px var(--colorTextShadow),
+			0 3px 14px var(--colorTextShadow),
+			0 3px 14px var(--colorTextShadow);
+		width: 100%;
+	}
+
+	.top {
+		padding: 1.75rem 0;
+	}
+
+	.date {
+		font-size: 3rem;
+		margin-top: 1rem;
+		color: var(--colorBlueLight);
+	}
+
+	.name-area {
+		background: linear-gradient(
+			180deg,
+			var(--colorBackdropDark) 20%,
+			var(--colorBackdropLight) 100%
+		);
+		position: relative;
+		height: 35rem;
+		margin-top: 2.5rem;
+		width: 100%;
+		align-items: center;
+		justify-content: center;
+		display: flex;
+	}
+
+	.wave-long {
+		height: 1rem;
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: -0.5rem;
+		width: 100%;
+	}
+
+	.name {
+		color: var(--colorForeground);
+		display: flex;
+		flex-direction: column;
+		font-size: 5.5rem;
+		gap: 1rem;
+		text-shadow: 0 0 3px var(--colorOffWhite);
+		width: 100%;
+	}
+</style>

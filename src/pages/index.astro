@@ -3,7 +3,6 @@ import FunInfo from "~/components/FunInfo.astro";
 import MCs from "~/components/MCs.astro";
 import Newsletter from "~/components/Newsletter.astro";
 import Partners from "~/components/Partners.astro";
-import PrimaryContents from "~/components/PrimaryContents.astro";
 import PrimaryHero from "~/components/PrimaryHero.astro";
 import PrimaryInfo from "~/components/PrimaryInfo.astro";
 import SpeakersContent from "~/components/SpeakersContent.astro";
@@ -14,22 +13,20 @@ import ContentLayout from "~/layouts/ContentLayout.astro";
 <ContentLayout
 	description="A Boston conference focused on excellent web dev tooling."
 >
-	<PrimaryHero />
-	<PrimaryContents>
-		<div class="contents">
-			<PrimaryInfo />
-			<SpeakersContent />
-			<MCs />
-			<Sponsors />
-			<Partners />
-			<Newsletter class="newsletter" />
-			<FunInfo />
-		</div>
-	</PrimaryContents>
+	<PrimaryHero slot="hero" />
+	<div class="index-contents">
+		<PrimaryInfo />
+		<SpeakersContent />
+		<MCs />
+		<Sponsors />
+		<Partners />
+		<Newsletter class="newsletter" />
+		<FunInfo />
+	</div>
 </ContentLayout>
 
 <style>
-	.contents {
+	.index-contents {
 		align-items: center;
 		display: flex;
 		gap: 7rem;
