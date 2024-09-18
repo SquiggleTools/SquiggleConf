@@ -5,15 +5,23 @@ import "@fontsource/urbanist";
 import "~/layouts/base.css";
 import "~/layouts/normalize.css";
 
+import qrDiscord from "~/assets/qr/2024-schedule.svg";
 import SponsorLogos from "~/components/SponsorLogos.astro";
 import BadgeLayout from "~/layouts/BadgeLayout.astro";
+import { Image } from "astro:assets";
 ---
 
-<BadgeLayout>
+<BadgeLayout heroSize="small">
 	<div class="badge-back-body" slot="body">
 		<SponsorLogos light size="small" />
 	</div>
-	<div class="footer" slot="footer">2024.squiggleconf.com/schedule</div>
+	<div class="footer" slot="footer">
+		<Image alt="" src={qrDiscord} height={144} width={144} />
+		<div class="footer-text">
+			<div>See the schedule, speakers, and more on</div>
+			<div class="discord-link">discord.squiggleconf.com</div>
+		</div>
+	</div>
 </BadgeLayout>
 
 <style>
@@ -59,11 +67,26 @@ import BadgeLayout from "~/layouts/BadgeLayout.astro";
 
 	.footer {
 		color: var(--colorBlueLight);
-		font-family: var(--fontFamilyHeading);
+		font-family: var(--fontFamilyBody);
 		font-size: 2rem;
 		font-weight: var(--fontWeightBold);
-		padding: 0.6rem 0 2.5rem;
+		padding: 0 3rem 3rem;
+		align-items: center;
+		gap: 2rem;
 		position: relative;
-		width: calc(100% + 2rem);
+		display: flex;
+	}
+
+	.footer-text {
+		display: flex;
+		gap: 1rem;
+		font-size: 1.5rem;
+		flex-direction: column;
+		text-align: left;
+	}
+
+	.discord-link {
+		font-family: var(--fontFamilyHeading);
+		font-size: 2.25rem;
 	}
 </style>

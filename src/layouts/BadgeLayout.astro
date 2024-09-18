@@ -9,7 +9,10 @@ import "@fontsource/urbanist";
 
 import "./base.css";
 import "./normalize.css";
-import BodyArea from "~/components/BodyArea.astro";
+
+interface Props {
+	heroSize: "normal" | "small";
+}
 ---
 
 <html lang="en">
@@ -18,12 +21,18 @@ import BodyArea from "~/components/BodyArea.astro";
 		<main class="badge">
 			<DeepBlueSea class="deep-blue-badge" light="contrast">
 				<div class="contents">
-					<div class="top">
+					<div
+						class:list={[
+							"top",
+							Astro.props.heroSize === "small" ? "top-small" : "top-large",
+						]}
+					>
 						<HeroNameHeading
 							align="center"
 							color="inverted"
 							level="h2"
 							shadow="extra"
+							size={Astro.props.heroSize}
 						/>
 						<Heading class="date" level="h2">October 3-4 2024</Heading>
 					</div>
@@ -66,9 +75,17 @@ import BodyArea from "~/components/BodyArea.astro";
 			}
 
 			.date {
+				color: var(--colorBlueLight);
+			}
+
+			.top-normal .date {
 				font-size: 3rem;
 				margin-top: 1rem;
-				color: var(--colorBlueLight);
+			}
+
+			.top-small .date {
+				font-size: 2rem;
+				margin-top: 0.5rem;
 			}
 		</style>
 	</body>
