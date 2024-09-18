@@ -38,13 +38,13 @@ const { size = "normal", light } = Astro.props;
 							alt=""
 							class="sponsor-logo-dark"
 							src={sponsor.logos.dark}
-							height={128}
+							height={size === "small" ? 96 : 128}
 						/>
 						<Image
 							alt=""
 							class="sponsor-logo-light"
 							src={light ? sponsor.logos.dark : sponsor.logos.light}
-							height={128}
+							height={size === "small" ? 96 : 128}
 						/>
 					</a>
 				))}

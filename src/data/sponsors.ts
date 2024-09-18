@@ -1,5 +1,7 @@
 import bloombergBlack from "../assets/sponsors/bloomberg-black.svg";
 import bloombergWhite from "../assets/sponsors/bloomberg-white.svg";
+import datastaxBlack from "../assets/sponsors/datastax-black.svg";
+import datastaxWhite from "../assets/sponsors/datastax-white.svg";
 import igaliaBlack from "../assets/sponsors/igalia-black.svg";
 import igaliaWhite from "../assets/sponsors/igalia-white.svg";
 import inngest from "../assets/sponsors/inngest.svg";
@@ -24,8 +26,8 @@ export const sponsorsBySlug = {
 	datastax: {
 		href: "https://www.datastax.com?utm_source=squiggleconf",
 		logos: {
-			dark: bloombergWhite,
-			light: bloombergBlack,
+			dark: datastaxBlack,
+			light: datastaxWhite,
 		},
 		placement: "first",
 		title: "Datastax",
