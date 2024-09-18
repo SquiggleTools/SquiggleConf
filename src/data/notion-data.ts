@@ -571,7 +571,7 @@ export const talksBySlug: Record<string, TalkInfo> = {
 		slug: "workshop-dan-and-aaron",
 		tags: [
 			"Architecture",
-			"Durable execution",
+			"Durable Execution",
 			"Microservices",
 			"Task Management",
 			"Tracing",
