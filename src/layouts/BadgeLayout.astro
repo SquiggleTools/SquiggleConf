@@ -27,9 +27,7 @@ import BodyArea from "~/components/BodyArea.astro";
 						/>
 						<Heading class="date" level="h2">October 3-4 2024</Heading>
 					</div>
-					<BodyArea class="badge-body-area">
-						<slot name="body" />
-					</BodyArea>
+					<slot name="body" />
 					<slot name="footer" />
 				</div>
 			</DeepBlueSea>
@@ -49,22 +47,22 @@ import BodyArea from "~/components/BodyArea.astro";
 				align-items: center;
 				display: flex;
 				flex-direction: column;
+				font-family: var(--fontFamilyHeading);
 				gap: 1.5rem;
-				height: 100%;
 				height: 100%;
 				justify-content: space-between;
 				padding-top: 2rem;
 				position: relative;
-				text-shadow:
-					0 1px 7px var(--colorTextShadow),
-					0 3px 7px var(--colorTextShadow),
-					0 3px 14px var(--colorTextShadow),
-					0 3px 14px var(--colorTextShadow);
 				width: 100%;
 			}
 
 			.top {
 				padding: 1.75rem 0;
+				text-shadow:
+					0 1px 7px var(--colorTextShadow),
+					0 3px 7px var(--colorTextShadow),
+					0 3px 14px var(--colorTextShadow),
+					0 3px 14px var(--colorTextShadow);
 			}
 
 			.date {

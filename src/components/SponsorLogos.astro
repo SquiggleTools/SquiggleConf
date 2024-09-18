@@ -1,0 +1,125 @@
+---
+import _ from "lodash";
+import { Image } from "astro:assets";
+
+import { sponsorsBySlug } from "~/data/sponsors";
+
+const sponsorGroups = _.groupBy(
+	Object.values(sponsorsBySlug),
+	(sponsor) => sponsor.placement,
+);
+
+interface Props {
+	light?: boolean;
+	size?: "normal" | "small";
+}
+
+const { size = "normal", light } = Astro.props;
+---
+
+<div
+	class:list={[
+		"sponsor-logos",
+		size === "small" ? "sponsor-logos-small" : "sponsor-logos-normal",
+	]}
+>
+	{
+		Object.values(sponsorGroups).map((sponsors) => (
+			<div class="sponsor-group">
+				{sponsors!.map((sponsor) => (
+					<a
+						class="sponsor"
+						href={sponsor.href}
+						rel="noreferrer"
+						target="_blank"
+						title={sponsor.title}
+					>
+						<Image
+							alt=""
+							class="sponsor-logo-dark"
+							src={sponsor.logos.dark}
+							height={128}
+						/>
+						<Image
+							alt=""
+							class="sponsor-logo-light"
+							src={light ? sponsor.logos.dark : sponsor.logos.light}
+							height={128}
+						/>
+					</a>
+				))}
+			</div>
+		))
+	}
+</div>
+
+<style>
+	.sponsors-blurb {
+		margin: auto;
+	}
+
+	.sponsor-group {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		padding: 0 2rem;
+		justify-content: center;
+		margin: auto;
+	}
+
+	.sponsor-logos-normal {
+		--sponsorSizeFirst: 14rem;
+		--sponsorSpacingFirst: 5rem;
+		--sponsorSizeSecond: 7rem;
+		--sponsorSpacingSecond: 10rem;
+		--sponsorSpacingVertical: 1.5rem;
+	}
+
+	.sponsor-logos-small {
+		--sponsorSizeFirst: 11rem;
+		--sponsorSpacingFirst: 2.5rem;
+		--sponsorSizeSecond: 5rem;
+		--sponsorSpacingSecond: 5rem;
+		--sponsorSpacingVertical: 0;
+	}
+
+	.sponsor-group:nth-of-type(1) {
+		--sponsorSize: var(--sponsorSizeFirst);
+		--sponsorSpacing: var(--sponsorSpacingFirst);
+	}
+
+	.sponsor-logos-normal .sponsor-group:nth-of-type(1) {
+		margin-top: 3rem;
+	}
+
+	.sponsor-group:nth-of-type(2) {
+		--sponsorSize: var(--sponsorSizeSecond);
+		--sponsorSpacing: var(--sponsorSpacingSecond);
+	}
+
+	.sponsor-group img {
+		max-width: var(--sponsorSize);
+	}
+
+	html.dark .sponsor-logo-light,
+	html:not(.dark) .sponsor-logo-dark {
+		display: none;
+	}
+
+	@media (min-width: 819px) {
+		.sponsor-group {
+			flex-direction: row;
+			flex-wrap: wrap;
+			gap: 0;
+		}
+
+		.sponsor-group a {
+			padding: var(--sponsorSpacingVertical) 0;
+		}
+
+		.sponsor {
+			max-width: calc(49% - var(--sponsorSpacing));
+			width: 100%;
+		}
+	}
+</style>

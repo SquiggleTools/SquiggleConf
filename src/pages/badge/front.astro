@@ -8,21 +8,28 @@ import "~/layouts/normalize.css";
 import Heading from "~/components/Heading.astro";
 import SquiggleFlanked from "~/components/SquiggleFlanked.astro";
 import BadgeLayout from "~/layouts/BadgeLayout.astro";
+import BodyArea from "~/components/BodyArea.astro";
 
 const name = Astro.url.searchParams.get("name");
 const role = Astro.url.searchParams.get("role");
 ---
 
 <BadgeLayout>
-	<Heading class="name" level="h2" slot="body">
-		{name?.split(/\s+/g).map((line) => <div>{line}</div>)}
-	</Heading>
-	<div class="role-area" slot="footer">
+	<BodyArea class="badge-front-body-area" slot="body">
+		<Heading class="name" level="h2">
+			{name?.split(/\s+/g).map((line) => <div>{line}</div>)}
+		</Heading>
+	</BodyArea>
+	<div slot="footer">
 		<SquiggleFlanked class="role" width="lean">{role}</SquiggleFlanked>
 	</div>
 </BadgeLayout>
 
 <style>
+	.badge-front-body-area {
+		height: 35rem;
+	}
+
 	.name {
 		color: var(--colorForeground);
 		display: flex;

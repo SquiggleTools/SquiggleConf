@@ -21,6 +21,15 @@ export const sponsorsBySlug = {
 		placement: "first",
 		title: "Bloomberg",
 	},
+	datastax: {
+		href: "https://www.datastax.com?utm_source=squiggleconf",
+		logos: {
+			dark: bloombergWhite,
+			light: bloombergBlack,
+		},
+		placement: "first",
+		title: "Datastax",
+	},
 	igalia: {
 		href: "https://igalia.com?utm_source=squiggleconf",
 		logos: {
