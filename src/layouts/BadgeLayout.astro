@@ -9,10 +9,6 @@ import "@fontsource/urbanist";
 
 import "./base.css";
 import "./normalize.css";
-
-interface Props {
-	heroSize: "normal" | "small";
-}
 ---
 
 <html lang="en">
@@ -21,18 +17,13 @@ interface Props {
 		<main class="badge">
 			<DeepBlueSea class="deep-blue-badge" light="contrast">
 				<div class="contents">
-					<div
-						class:list={[
-							"top",
-							Astro.props.heroSize === "small" ? "top-small" : "top-normal",
-						]}
-					>
+					<div class="top">
 						<HeroNameHeading
 							align="center"
 							color="inverted"
 							level="h2"
 							shadow="extra"
-							size={Astro.props.heroSize}
+							size="normal"
 						/>
 						<Heading class="date" level="h2">October 3-4 2024</Heading>
 					</div>
@@ -78,14 +69,9 @@ interface Props {
 				color: var(--colorBlueLight);
 			}
 
-			.top-normal .date {
+			.date {
 				font-size: 3rem;
 				margin-top: 1rem;
-			}
-
-			.top-small .date {
-				font-size: 2rem;
-				margin-top: 0.5rem;
 			}
 		</style>
 	</body>

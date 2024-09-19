@@ -14,7 +14,7 @@ const name = Astro.url.searchParams.get("name");
 const role = Astro.url.searchParams.get("role");
 ---
 
-<BadgeLayout heroSize="normal">
+<BadgeLayout>
 	<BodyArea class="badge-front-body-area" slot="body">
 		<Heading class="name" level="h2">
 			{name?.split(/\s+/g).map((line) => <div>{line}</div>)}

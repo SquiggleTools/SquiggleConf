@@ -5,20 +5,22 @@ import "@fontsource/urbanist";
 import "~/layouts/base.css";
 import "~/layouts/normalize.css";
 
-import qrDiscord from "~/assets/qr/2024-schedule.svg";
+import qrDiscord from "~/assets/qr/discord.png";
 import SponsorLogos from "~/components/SponsorLogos.astro";
 import BadgeLayout from "~/layouts/BadgeLayout.astro";
 import { Image } from "astro:assets";
 ---
 
-<BadgeLayout heroSize="normal">
+<BadgeLayout>
 	<div class="badge-back-body" slot="body">
 		<SponsorLogos light size="small" />
 	</div>
 	<div class="footer" slot="footer">
 		<Image alt="" src={qrDiscord} height={144} width={144} />
 		<div class="footer-text">
-			<div>See the schedule, speakers, and more on</div>
+			<div class="discord-explainer">
+				See the schedule, speakers, and more on
+			</div>
 			<div class="discord-link">discord.squiggleconf.com</div>
 		</div>
 	</div>
@@ -80,7 +82,7 @@ import { Image } from "astro:assets";
 	.footer-text {
 		display: flex;
 		gap: 1rem;
-		font-size: 1.5rem;
+		font-size: 1.45rem;
 		flex-direction: column;
 		text-align: left;
 	}
