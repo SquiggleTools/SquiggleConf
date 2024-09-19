@@ -5,22 +5,90 @@ import "@fontsource/urbanist";
 import "~/layouts/base.css";
 import "~/layouts/normalize.css";
 
-import Heading from "~/components/Heading.astro";
+import qrDiscord from "~/assets/qr/discord.png";
+import SponsorLogos from "~/components/SponsorLogos.astro";
 import BadgeLayout from "~/layouts/BadgeLayout.astro";
+import { Image } from "astro:assets";
 ---
 
 <BadgeLayout>
-	<Heading class="name" level="h2" slot="body"> hi </Heading>
+	<div class="badge-back-body" slot="body">
+		<SponsorLogos light size="small" />
+	</div>
+	<div class="footer" slot="footer">
+		<Image alt="" src={qrDiscord} height={144} width={144} />
+		<div class="footer-text">
+			<div class="discord-explainer">
+				See the schedule, speakers, and more on
+			</div>
+			<div class="discord-link">discord.squiggleconf.com</div>
+		</div>
+	</div>
 </BadgeLayout>
 
 <style>
-	.name {
-		color: var(--colorForeground);
+	.badge-back-body {
+		color: var(--colorBlueLight);
 		display: flex;
 		flex-direction: column;
-		font-size: 5.5rem;
-		gap: 1rem;
-		text-shadow: 0 0 3px var(--colorOffWhite);
+		gap: 3.5rem;
+		font-family: var(--fontFamilyHeading);
 		width: 100%;
+	}
+
+	.sections {
+		color: var(--colorBlueLight);
+		padding: 0 1.5rem;
+		justify-content: space-between;
+		display: flex;
+		list-style: none;
+		width: 100%;
+	}
+
+	.section {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		flex-direction: column;
+	}
+
+	label {
+		color: var(--colorBlueLight);
+		font-size: 2rem;
+		font-weight: 700;
+	}
+
+	pre {
+		font-size: 1.25rem;
+		line-height: 0;
+	}
+
+	h2 {
+		font-size: 2rem;
+	}
+
+	.footer {
+		color: var(--colorBlueLight);
+		font-family: var(--fontFamilyBody);
+		font-size: 2rem;
+		font-weight: var(--fontWeightBold);
+		padding: 0 3rem 3rem;
+		align-items: center;
+		gap: 2rem;
+		position: relative;
+		display: flex;
+	}
+
+	.footer-text {
+		display: flex;
+		gap: 1rem;
+		font-size: 1.45rem;
+		flex-direction: column;
+		text-align: left;
+	}
+
+	.discord-link {
+		font-family: var(--fontFamilyHeading);
+		font-size: 2.25rem;
 	}
 </style>

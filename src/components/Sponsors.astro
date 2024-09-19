@@ -1,17 +1,10 @@
 ---
 import _ from "lodash";
-import { Image } from "astro:assets";
-
-import { sponsorsBySlug } from "~/data/sponsors";
 
 import BodyText from "./BodyText.astro";
 import FullSection from "./FullSection.astro";
 import HeadingFlanked from "./HeadingFlanked.astro";
-
-const sponsorGroups = _.groupBy(
-	Object.values(sponsorsBySlug),
-	(sponsor) => sponsor.placement,
-);
+import SponsorLogos from "./SponsorLogos.astro";
 ---
 
 <FullSection>
@@ -21,36 +14,7 @@ const sponsorGroups = _.groupBy(
 		have our sincere appreciation and thanks.
 	</BodyText>
 
-	<div class="sponsors">
-		{
-			Object.values(sponsorGroups).map((sponsors) => (
-				<div class="sponsor-group">
-					{sponsors!.map((sponsor) => (
-						<a
-							class="sponsor"
-							href={sponsor.href}
-							rel="noreferrer"
-							target="_blank"
-							title={sponsor.title}
-						>
-							<Image
-								alt=""
-								class="sponsor-logo-dark"
-								src={sponsor.logos.dark}
-								height={128}
-							/>
-							<Image
-								alt=""
-								class="sponsor-logo-light"
-								src={sponsor.logos.light}
-								height={128}
-							/>
-						</a>
-					))}
-				</div>
-			))
-		}
-	</div>
+	<SponsorLogos />
 </FullSection>
 
 <style>
@@ -58,47 +22,7 @@ const sponsorGroups = _.groupBy(
 		margin: auto;
 	}
 
-	.sponsor-group {
-		align-items: center;
-		display: flex;
-		flex-direction: column;
-		padding: 0 2rem;
-		justify-content: center;
-		margin: auto;
-	}
-
-	.sponsor-group:nth-of-type(1) {
-		margin-top: 3rem;
-		--sponsorSize: 14rem;
-		--sponsorSpacing: 5rem;
-	}
-
-	.sponsor-group:nth-of-type(2) {
-		--sponsorSize: 7rem;
-		--sponsorSpacing: 10rem;
-	}
-
-	.sponsor-group img {
-		max-width: var(--sponsorSize);
-	}
-
-	html.dark .sponsor-logo-light,
-	html:not(.dark) .sponsor-logo-dark {
-		display: none;
-	}
-
-	.action-button {
-		display: inline-block;
-		margin: 2rem;
-	}
-
 	@media (min-width: 819px) {
-		.sponsor-group {
-			flex-direction: row;
-			flex-wrap: wrap;
-			gap: 0;
-		}
-
 		.sponsor-group a {
 			padding: 1.5rem 0;
 		}
