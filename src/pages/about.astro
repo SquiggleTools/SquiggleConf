@@ -4,6 +4,7 @@ import dimitriMitropoulos from "~/assets/avatars/dimitri-mitropoulos.jpg";
 import joshGoldberg from "~/assets/avatars/josh-goldberg.png";
 import bostonTSClub from "~/assets/boston-ts-club.svg";
 import favicon from "~/assets/favicon.png";
+import hero from "~/assets/branding/hero.png";
 import thumbnail from "~/assets/branding/thumbnail.png";
 import michiganTypeScript from "~/assets/michigan-typescript.png";
 import Bio, { Props as BioProps } from "~/components/Bio.astro";
@@ -57,14 +58,20 @@ const bios: Omit<BioProps, "size">[] = [
 
 const brandingAssets = [
 	{
-		alt: "'SC' favicon with red squiggly underline",
+		alt: "'SC' icon with red squiggly underline",
 		displayWidth: 128,
 		src: favicon,
-		text: "Icon",
+		text: "Favicon",
 	},
 	{
-		alt: "Thumbnail. Centered: 'SquiggleConf' logo with red squiggly under 'Squiggle' above a dark-blue/teal to medium-blue/teal background with blue/teal squigglies. October 3-4, 2024 - Boston New England Aquarium",
-		displayWidth: 227,
+		alt: "'SquiggleConf' logo with red squiggly under 'Squiggle'. October 3-4, 2024 - Boston New England Aquarium",
+		displayWidth: 388,
+		src: hero,
+		text: "Hero",
+	},
+	{
+		alt: "Centered: 'SquiggleConf' logo with red squiggly under 'Squiggle' above a dark-blue/teal to medium-blue/teal background with blue/teal squigglies. October 3-4, 2024 - Boston New England Aquarium",
+		displayWidth: 210,
 		src: thumbnail,
 		text: "Thumbnail",
 	},
@@ -113,6 +120,7 @@ const brandingAssets = [
 				<a class="branding-asset" href={asset.src.src} target="_blank">
 					<Image
 						alt={asset.alt}
+						class="branding-asset-image"
 						height={128}
 						width={asset.displayWidth}
 						src={asset.src}
@@ -159,9 +167,14 @@ const brandingAssets = [
 	.branding-asset {
 		display: flex;
 		flex-direction: column;
-		text-align: center;
-		gap: 1rem;
 		font-family: var(--fontFamilyBody);
+		gap: 1rem;
+		text-align: center;
+	}
+
+	.branding-asset-image {
+		background: black;
+		padding: 0.75rem;
 	}
 
 	.bios {
