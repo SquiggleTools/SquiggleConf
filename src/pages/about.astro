@@ -4,7 +4,8 @@ import dimitriMitropoulos from "~/assets/avatars/dimitri-mitropoulos.jpg";
 import joshGoldberg from "~/assets/avatars/josh-goldberg.png";
 import bostonTSClub from "~/assets/boston-ts-club.svg";
 import favicon from "~/assets/favicon.png";
-import hero from "~/assets/branding/hero.png";
+import heroDark from "~/assets/branding/hero-dark.png";
+import heroLight from "~/assets/branding/hero-light.png";
 import thumbnail from "~/assets/branding/thumbnail.png";
 import michiganTypeScript from "~/assets/michigan-typescript.png";
 import Bio, { Props as BioProps } from "~/components/Bio.astro";
@@ -59,19 +60,26 @@ const bios: Omit<BioProps, "size">[] = [
 const brandingAssets = [
 	{
 		alt: "'SC' icon with red squiggly underline",
-		displayWidth: 128,
+		displayWidth: 96,
 		src: favicon,
 		text: "Favicon",
 	},
 	{
-		alt: "'SquiggleConf' logo with red squiggly under 'Squiggle'. October 3-4, 2024 - Boston New England Aquarium",
-		displayWidth: 388,
-		src: hero,
-		text: "Hero",
+		alt: "Dark text 'SquiggleConf' logo with red squiggly under 'Squiggle'. October 3-4, 2024 - Boston New England Aquarium",
+		background: "light",
+		displayWidth: 285,
+		src: heroDark,
+		text: "Hero (Dark)",
+	},
+	{
+		alt: "Light text 'SquiggleConf' logo with red squiggly under 'Squiggle'. October 3-4, 2024 - Boston New England Aquarium",
+		displayWidth: 285,
+		src: heroLight,
+		text: "Hero (Light)",
 	},
 	{
 		alt: "Centered: 'SquiggleConf' logo with red squiggly under 'Squiggle' above a dark-blue/teal to medium-blue/teal background with blue/teal squigglies. October 3-4, 2024 - Boston New England Aquarium",
-		displayWidth: 210,
+		displayWidth: 160,
 		src: thumbnail,
 		text: "Thumbnail",
 	},
@@ -117,11 +125,20 @@ const brandingAssets = [
 	<div class="branding-assets">
 		{
 			brandingAssets.map((asset) => (
-				<a class="branding-asset" href={asset.src.src} target="_blank">
+				<a
+					class:list={[
+						"branding-asset",
+						asset.background === "light"
+							? "branding-asset-light"
+							: "branding-asset-dark",
+					]}
+					href={asset.src.src}
+					target="_blank"
+				>
 					<Image
 						alt={asset.alt}
 						class="branding-asset-image"
-						height={128}
+						height={96}
 						width={asset.displayWidth}
 						src={asset.src}
 					/>
@@ -168,13 +185,22 @@ const brandingAssets = [
 		display: flex;
 		flex-direction: column;
 		font-family: var(--fontFamilyBody);
-		gap: 1rem;
+		gap: 0.5rem;
 		text-align: center;
 	}
 
 	.branding-asset-image {
-		background: black;
 		padding: 0.75rem;
+	}
+
+	.branding-asset-dark .branding-asset-image {
+		background: black;
+		border: 1px solid white;
+	}
+
+	.branding-asset-light .branding-asset-image {
+		background: white;
+		border: 1px solid black;
 	}
 
 	.bios {
