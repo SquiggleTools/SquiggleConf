@@ -3,12 +3,10 @@ import bostonTSClub from "~/assets/boston-ts-club.svg";
 import michiganTypeScript from "~/assets/michigan-typescript.png";
 import dimitriMitropoulos from "~/assets/avatars/dimitri-mitropoulos.jpg";
 import joshGoldberg from "~/assets/avatars/josh-goldberg.png";
-import AnchorButton from "~/components/AnchorButton.astro";
 import Bio, { Props as BioProps } from "~/components/Bio.astro";
 import BodyText from "~/components/BodyText.astro";
 import HeadingFlanked from "~/components/HeadingFlanked.astro";
 import HeroForPage from "~/components/HeroForPage.astro";
-import { links } from "~/data/links";
 import ContentLayout from "~/layouts/ContentLayout.astro";
 
 const bios: Omit<BioProps, "size">[] = [
