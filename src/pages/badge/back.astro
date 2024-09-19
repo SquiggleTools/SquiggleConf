@@ -5,7 +5,6 @@ import "@fontsource/urbanist";
 import "~/layouts/base.css";
 import "~/layouts/normalize.css";
 
-// import place from "~/assets/logos/icon-place.svg";
 import wifi from "~/assets/logos/icon-wifi.svg";
 import qrDiscord from "~/assets/qr/discord.png";
 import SponsorLogos from "~/components/SponsorLogos.astro";
@@ -13,11 +12,6 @@ import BadgeLayout from "~/layouts/BadgeLayout.astro";
 import { Image } from "astro:assets";
 
 const iconPairs = [
-	// {
-	// 	className: "footer-icon-pair-text",
-	// 	src: place,
-	// 	text: "Simons Theatre, 1 Central Wharf",
-	// },
 	{ className: "footer-icon-pair-code", src: wifi, text: "neaqguest" },
 ];
 ---
@@ -40,8 +34,9 @@ const iconPairs = [
 			{
 				iconPairs.map(({ className, src, text }) => (
 					<div class:list={["footer-icon-pair", className]}>
-						<pre>{text}</pre>
+						wifi
 						<Image alt="" src={src} height={36} width={36} />
+						<pre>{text}</pre>
 					</div>
 				))
 			}
