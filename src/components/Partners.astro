@@ -30,13 +30,21 @@ import HeadingFlanked from "./HeadingFlanked.astro";
 						alt=""
 						class="partner-logo partner-logo-dark"
 						src={partner.logos.dark}
-						width={200}
+						width={
+							partner.logos.light.width > partner.logos.light.height * 2
+								? 250
+								: 150
+						}
 					/>
 					<Image
 						alt=""
 						class="partner-logo partner-logo-light"
 						src={partner.logos.light}
-						width={200}
+						width={
+							partner.logos.light.width > partner.logos.light.height * 2
+								? 250
+								: 150
+						}
 					/>
 				</a>
 			))
@@ -61,9 +69,10 @@ import HeadingFlanked from "./HeadingFlanked.astro";
 	}
 
 	.partner {
-		min-height: 7rem;
-		display: flex;
 		align-items: center;
+		display: flex;
+		justify-content: center;
+		min-height: 7rem;
 	}
 
 	.partner-logo {
@@ -93,8 +102,14 @@ import HeadingFlanked from "./HeadingFlanked.astro";
 		}
 
 		.partner {
-			max-width: calc(35% - 5rem);
+			max-width: calc(49% - 5rem);
 			width: 100%;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.partner {
+			max-width: calc(35% - 5rem);
 		}
 	}
 </style>
