@@ -130,22 +130,22 @@ const brandingAssets = [
 			))
 		}
 	</div>
+
+	<HeadingFlanked class="about-heading" id="squiggle-tools">
+		Squiggle.Tools
+	</HeadingFlanked>
+
+	<BodyText as="p" size="large" width="full">
+		SquiggleConf is a production of Squiggle.Tools, a nonprofit organization
+		(501(c)3 pending) offering ongoing learning opportunities that enable
+		participants to engage, learn, and advance their careers—regardless of their
+		background or resources.
+	</BodyText>
+
+	<ul class="bios">
+		{bios.map((bio) => <Bio class="about-us-bio" {...bio} size="medium" />)}
+	</ul>
 </ContentLayout>
-
-<HeadingFlanked class="about-heading" id="squiggle-tools">
-	Squiggle.Tools
-</HeadingFlanked>
-
-<BodyText as="p" size="large" width="full">
-	SquiggleConf is a production of Squiggle.Tools, a nonprofit organization
-	(501(c)3 pending) offering ongoing learning opportunities that enable
-	participants to engage, learn, and advance their careers—regardless of their
-	background or resources.
-</BodyText>
-
-<ul class="bios">
-	{bios.map((bio) => <Bio class="about-us-bio" {...bio} size="medium" />)}
-</ul>
 
 <style>
 	.about-heading {
