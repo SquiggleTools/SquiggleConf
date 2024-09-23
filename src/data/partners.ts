@@ -4,6 +4,8 @@ import conTejasCode from "../assets/partners/contejas-code.png";
 import hackDiversityBlue from "../assets/partners/hack-diversity-blue.svg";
 import hackDiversityWhite from "../assets/partners/hack-diversity-white.svg";
 import jsParty from "../assets/partners/js-party.png";
+import reactAfricaDark from "../assets/partners/react-africa-dark.png";
+import reactAfricaLight from "../assets/partners/react-africa-light.webp";
 import thisWeekInReactDarkMode from "../assets/partners/this-week-in-react-dark-mode.png";
 import thisWeekInReactLightMode from "../assets/partners/this-week-in-react-light-mode.png";
 
@@ -39,6 +41,14 @@ export const partnersBySlug = {
 			light: jsParty,
 		},
 		title: "JS Party",
+	},
+	reactAfrica: {
+		href: "https://react-africa.com/?utm_source=squiggleconf",
+		logos: {
+			dark: reactAfricaLight,
+			light: reactAfricaDark,
+		},
+		title: "React Africa",
 	},
 	twir: {
 		href: "https://thisweekinreact.com?utm_source=squiggleconf",
