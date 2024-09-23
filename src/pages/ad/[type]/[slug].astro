@@ -12,6 +12,7 @@ import DeepBlueSea from "~/components/DeepBlueSea.astro";
 import Head from "~/components/Head.astro";
 import { partnersBySlug } from "~/data/partners";
 import { sponsorsBySlug } from "~/data/sponsors";
+import { venuesBySlug } from "~/data/venues";
 
 export function getStaticPaths() {
 	return [
@@ -21,15 +22,24 @@ export function getStaticPaths() {
 		...Object.keys(sponsorsBySlug).map((slug) => ({
 			params: { type: "sponsor", slug: slug as keyof typeof sponsorsBySlug },
 		})),
+		...Object.keys(venuesBySlug).map((slug) => ({
+			params: { type: "venue", slug: slug as keyof typeof venuesBySlug },
+		})),
 	];
 }
 
-const { type, slug } = Astro.params;
+const entityMaps = {
+	sponsor: sponsorsBySlug,
+	venue: venuesBySlug,
+	partner: partnersBySlug,
+} as const;
 
-const entity =
-	type === "sponsor"
-		? sponsorsBySlug[slug as keyof typeof sponsorsBySlug]
-		: partnersBySlug[slug as keyof typeof partnersBySlug];
+const type = Astro.params.type as keyof typeof entityMaps;
+const slug = Astro.params.slug;
+
+const entityMap = entityMaps[type as "partner"];
+
+const entity = entityMap[slug as keyof typeof entityMap];
 ---
 
 <html lang="en">
