@@ -20,12 +20,14 @@ import "~/layouts/normalize.css";
 				Object.values(sponsorsByPlacement).map((sponsors) => (
 					<div class="sponsors-ad-list">
 						{sponsors.map((sponsor) => (
-							<Image
-								alt=""
-								class="ad-sponsor"
-								src={sponsor.logos.dark}
-								height={sponsor.placement === "first" ? 96 : 72}
-							/>
+							<a href={`/ad/sponsor/${sponsor.slug}`}>
+								<Image
+									alt={sponsor.title}
+									class="ad-sponsor"
+									src={sponsor.logos.dark}
+									height={sponsor.placement === "first" ? 96 : 72}
+								/>
+							</a>
 						))}
 					</div>
 				))

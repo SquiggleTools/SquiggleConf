@@ -82,6 +82,9 @@ export const sponsorsBySlug = {
 };
 
 export const sponsorsByPlacement = _.groupBy(
-	Object.values(sponsorsBySlug),
+	Object.entries(sponsorsBySlug).map(([slug, sponsor]) => ({
+		slug,
+		...sponsor,
+	})),
 	(sponsor) => sponsor.placement,
 );
