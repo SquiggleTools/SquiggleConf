@@ -1,0 +1,25 @@
+---
+import "@fontsource-variable/josefin-sans";
+import "@fontsource/urbanist";
+
+import HeroName from "~/components/HeroName.astro";
+import AdLayout from "~/layouts/AdLayout.astro";
+
+import "~/layouts/base.css";
+import "~/layouts/normalize.css";
+---
+
+<AdLayout>
+	<div class="ad-center">
+		<HeroName align="center" color="inverted" level="h2" size="normal" />
+	</div>
+</AdLayout>
+
+<style>
+	.ad-center {
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+</style>
