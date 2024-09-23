@@ -1,14 +1,17 @@
 ---
-import bostonTSClub from "~/assets/boston-ts-club.svg";
-import michiganTypeScript from "~/assets/michigan-typescript.png";
+import { Image } from "astro:assets";
 import dimitriMitropoulos from "~/assets/avatars/dimitri-mitropoulos.jpg";
 import joshGoldberg from "~/assets/avatars/josh-goldberg.png";
-import AnchorButton from "~/components/AnchorButton.astro";
+import bostonTSClub from "~/assets/boston-ts-club.svg";
+import favicon from "~/assets/favicon.png";
+import heroDark from "~/assets/branding/hero-dark.png";
+import heroLight from "~/assets/branding/hero-light.png";
+import thumbnail from "~/assets/branding/thumbnail.png";
+import michiganTypeScript from "~/assets/michigan-typescript.png";
 import Bio, { Props as BioProps } from "~/components/Bio.astro";
 import BodyText from "~/components/BodyText.astro";
 import HeadingFlanked from "~/components/HeadingFlanked.astro";
 import HeroForPage from "~/components/HeroForPage.astro";
-import { links } from "~/data/links";
 import ContentLayout from "~/layouts/ContentLayout.astro";
 
 const bios: Omit<BioProps, "size">[] = [
@@ -53,6 +56,34 @@ const bios: Omit<BioProps, "size">[] = [
 		photo: michiganTypeScript,
 	},
 ] as const;
+
+const brandingAssets = [
+	{
+		alt: "'SC' icon with red squiggly underline",
+		displayWidth: 96,
+		src: favicon,
+		text: "Favicon",
+	},
+	{
+		alt: "Dark text 'SquiggleConf' logo with red squiggly under 'Squiggle'. October 3-4, 2024 - Boston New England Aquarium",
+		background: "light",
+		displayWidth: 280,
+		src: heroDark,
+		text: "Hero (Dark)",
+	},
+	{
+		alt: "Light text 'SquiggleConf' logo with red squiggly under 'Squiggle'. October 3-4, 2024 - Boston New England Aquarium",
+		displayWidth: 280,
+		src: heroLight,
+		text: "Hero (Light)",
+	},
+	{
+		alt: "Centered: 'SquiggleConf' logo with red squiggly under 'Squiggle' above a dark-blue/teal to medium-blue/teal background with blue/teal squigglies. October 3-4, 2024 - Boston New England Aquarium",
+		displayWidth: 150,
+		src: thumbnail,
+		text: "Thumbnail",
+	},
+];
 ---
 
 <ContentLayout
@@ -61,6 +92,10 @@ const bios: Omit<BioProps, "size">[] = [
 >
 	<HeroForPage slot="hero">About Us</HeroForPage>
 
+	<HeadingFlanked id="a-web-dev-conference">
+		A Web Dev Tooling Conference
+	</HeadingFlanked>
+
 	<BodyText as="p" size="large" width="full">
 		Our goal with SquiggleConf is to create an enriching conference environment
 		to talk about the latest and greatest in web developer tooling. We aim to
@@ -68,7 +103,50 @@ const bios: Omit<BioProps, "size">[] = [
 		to authors & maintainers of open source tools.
 	</BodyText>
 
-	<br />
+	<HeadingFlanked class="about-heading" id="branding">
+		Branding
+	</HeadingFlanked>
+
+	<BodyText as="p" size="large" width="full">
+		When referring to us in announcements, social media posts, or other broad
+		communications, please use <em>"SquiggleConf"</em>. We are not
+		<em>"Squiggle Conference"</em> or <em>"SquiggleCon"</em>.
+
+		<br />
+		<br />
+
+		Please also include alt text in any posts with images [<a
+			href="https://www.linkedin.com/help/linkedin/answer/a519856/adding-alternative-text-to-images-for-accessibility?lang=en"
+			>LinkedIn alt text help</a
+		>] and follow platform accessibility guidelines. We can only share posts
+		that are inclusive to all potential recipients.
+	</BodyText>
+
+	<div class="branding-assets">
+		{
+			brandingAssets.map((asset) => (
+				<a
+					class:list={[
+						"branding-asset",
+						asset.background === "light"
+							? "branding-asset-light"
+							: "branding-asset-dark",
+					]}
+					href={asset.src.src}
+					target="_blank"
+				>
+					<Image
+						alt={asset.alt}
+						class="branding-asset-image"
+						height={96}
+						width={asset.displayWidth}
+						src={asset.src}
+					/>
+					<label>{asset.text}</label>
+				</a>
+			))
+		}
+	</div>
 
 	<HeadingFlanked class="about-heading" id="squiggle-tools">
 		Squiggle.Tools
@@ -88,12 +166,41 @@ const bios: Omit<BioProps, "size">[] = [
 
 <style>
 	.about-heading {
-		margin-top: 3rem;
+		margin-top: 5rem;
 	}
 
 	.action-button {
 		display: inline-block;
 		margin: 2rem;
+	}
+
+	.branding-assets {
+		display: flex;
+		flex-direction: column;
+		gap: 3rem;
+		margin-top: 3rem;
+	}
+
+	.branding-asset {
+		display: flex;
+		flex-direction: column;
+		font-family: var(--fontFamilyBody);
+		gap: 0.5rem;
+		text-align: center;
+	}
+
+	.branding-asset-image {
+		padding: 0.75rem;
+	}
+
+	.branding-asset-dark .branding-asset-image {
+		background: black;
+		border: 1px solid white;
+	}
+
+	.branding-asset-light .branding-asset-image {
+		background: white;
+		border: 1px solid black;
 	}
 
 	.bios {
@@ -112,6 +219,10 @@ const bios: Omit<BioProps, "size">[] = [
 	}
 
 	@media (min-width: 819px) {
+		.branding-assets {
+			flex-direction: row;
+		}
+
 		.about-us-bio {
 			min-width: unset;
 		}

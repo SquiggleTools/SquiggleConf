@@ -11,6 +11,7 @@ import BadgeLayout from "~/layouts/BadgeLayout.astro";
 import BodyArea from "~/components/BodyArea.astro";
 
 const name = Astro.url.searchParams.get("name");
+const mode = Astro.url.searchParams.get("mode");
 const role = Astro.url.searchParams.get("role");
 ---
 
@@ -21,32 +22,38 @@ const role = Astro.url.searchParams.get("role");
 		</Heading>
 	</BodyArea>
 	<div slot="footer">
-		<SquiggleFlanked class="role" width="lean">{role}</SquiggleFlanked>
+		<SquiggleFlanked class="role" width="lean">
+			<span class={`mode-${mode}`}>{role}</span>
+		</SquiggleFlanked>
 	</div>
+
+	<style>
+		.badge-front-body-area {
+			height: 36rem;
+			margin-top: 3rem;
+		}
+
+		.name {
+			color: var(--colorForeground);
+			display: flex;
+			flex-direction: column;
+			font-size: 5.5rem;
+			gap: 1rem;
+			text-shadow: 0 0 3px var(--colorOffWhite);
+			width: 100%;
+		}
+
+		.role {
+			color: var(--colorBlueLight);
+			font-family: var(--fontFamilyHeading);
+			font-weight: var(--fontWeightBold);
+			font-size: 2.5rem;
+			position: relative;
+			padding-bottom: 1.5rem;
+		}
+
+		.role .mode-print {
+			color: transparent;
+		}
+	</style>
 </BadgeLayout>
-
-<style>
-	.badge-front-body-area {
-		height: 34rem;
-		margin-top: 1rem;
-	}
-
-	.name {
-		color: var(--colorForeground);
-		display: flex;
-		flex-direction: column;
-		font-size: 5.5rem;
-		gap: 1rem;
-		text-shadow: 0 0 3px var(--colorOffWhite);
-		width: 100%;
-	}
-
-	.role {
-		color: var(--colorBlueLight);
-		font-family: var(--fontFamilyHeading);
-		font-weight: var(--fontWeightBold);
-		font-size: 2.5rem;
-		position: relative;
-		padding-bottom: 1.5rem;
-	}
-</style>

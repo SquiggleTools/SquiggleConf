@@ -5,15 +5,21 @@ import { Image } from "astro:assets";
 interface Props {
 	src: ImageMetadata;
 }
+
+const className =
+	Astro.props.src.height > Astro.props.src.width
+		? "ad-image-tall"
+		: "ad-image-wide";
 ---
 
-<Image alt="" class="ad-image" src={Astro.props.src} />
+<Image alt="" class:list={["ad-image", className]} src={Astro.props.src} />
 
 <style>
-	.ad-image {
-		height: 100%;
+	.ad-image-tall {
 		max-height: 15rem;
+	}
+
+	.ad-image-wide {
 		max-width: 70vw;
-		width: 100%;
 	}
 </style>

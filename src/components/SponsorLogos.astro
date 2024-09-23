@@ -2,12 +2,7 @@
 import _ from "lodash";
 import { Image } from "astro:assets";
 
-import { sponsorsBySlug } from "~/data/sponsors";
-
-const sponsorGroups = _.groupBy(
-	Object.values(sponsorsBySlug),
-	(sponsor) => sponsor.placement,
-);
+import { sponsorsByPlacement } from "~/data/sponsors";
 
 interface Props {
 	light?: boolean;
@@ -24,7 +19,7 @@ const { size = "normal", light } = Astro.props;
 	]}
 >
 	{
-		Object.values(sponsorGroups).map((sponsors) => (
+		Object.values(sponsorsByPlacement).map((sponsors) => (
 			<div class="sponsor-group">
 				{sponsors!.map((sponsor) => (
 					<a
