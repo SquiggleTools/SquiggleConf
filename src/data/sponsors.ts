@@ -1,3 +1,5 @@
+import _ from "lodash";
+
 import bloombergBlack from "../assets/sponsors/bloomberg-black.svg";
 import bloombergWhite from "../assets/sponsors/bloomberg-white.svg";
 import datastaxBlack from "../assets/sponsors/datastax-black.svg";
@@ -78,3 +80,8 @@ export const sponsorsBySlug = {
 		title: "Prisma",
 	},
 };
+
+export const sponsorsByPlacement = _.groupBy(
+	Object.values(sponsorsBySlug),
+	(sponsor) => sponsor.placement,
+);

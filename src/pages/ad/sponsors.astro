@@ -1,0 +1,55 @@
+---
+import "@fontsource-variable/josefin-sans";
+import "@fontsource/urbanist";
+import { Image } from "astro:assets";
+
+import AdContents from "~/components/AdContents.astro";
+import AdTitleAndSubtitle from "~/components/AdTitleAndSubtitle.astro";
+import { sponsorsByPlacement, sponsorsBySlug } from "~/data/sponsors";
+import AdLayout from "~/layouts/AdLayout.astro";
+
+import "~/layouts/base.css";
+import "~/layouts/normalize.css";
+---
+
+<AdLayout>
+	<AdContents>
+		<AdTitleAndSubtitle title="Sponsors" slot="top" />
+		<ul class="sponsors-ad" slot="body">
+			{
+				Object.values(sponsorsByPlacement).map((sponsors) => (
+					<div class="sponsors-ad-list">
+						{sponsors.map((sponsor) => (
+							<Image
+								alt=""
+								class="ad-sponsor"
+								src={sponsor.logos.dark}
+								height={sponsor.placement === "first" ? 96 : 72}
+							/>
+						))}
+					</div>
+				))
+			}
+		</ul>
+	</AdContents>
+</AdLayout>
+
+<style>
+	.sponsors-ad {
+		display: flex;
+		gap: 8rem;
+		flex-direction: column;
+	}
+	.sponsors-ad-list {
+		align-items: center;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 6rem 16rem;
+		justify-content: center;
+		width: 50vw;
+	}
+
+	.ad-sponsor {
+		max-width: 20rem;
+	}
+</style>
