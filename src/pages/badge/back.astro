@@ -5,10 +5,15 @@ import "@fontsource/urbanist";
 import "~/layouts/base.css";
 import "~/layouts/normalize.css";
 
+import wifi from "~/assets/logos/icon-wifi.svg";
 import qrDiscord from "~/assets/qr/discord.png";
 import SponsorLogos from "~/components/SponsorLogos.astro";
 import BadgeLayout from "~/layouts/BadgeLayout.astro";
 import { Image } from "astro:assets";
+
+const iconPairs = [
+	{ className: "footer-icon-pair-code", src: wifi, text: "neaqguest" },
+];
 ---
 
 <BadgeLayout>
@@ -16,12 +21,25 @@ import { Image } from "astro:assets";
 		<SponsorLogos light size="small" />
 	</div>
 	<div class="footer" slot="footer">
-		<Image alt="" src={qrDiscord} height={144} width={144} />
-		<div class="footer-text">
-			<div class="discord-explainer">
-				See the schedule, speakers, and more on
+		<div class="footer-discord">
+			<Image alt="" src={qrDiscord} height={144} width={144} />
+			<div class="footer-discord-text">
+				<div class="discord-explainer">
+					See the schedule, speakers, and more on
+				</div>
+				<div class="discord-link">discord.squiggleconf.com</div>
 			</div>
-			<div class="discord-link">discord.squiggleconf.com</div>
+		</div>
+		<div class="footer-icon-pairs">
+			{
+				iconPairs.map(({ className, src, text }) => (
+					<div class:list={["footer-icon-pair", className]}>
+						wifi
+						<Image alt="" src={src} height={36} width={36} />
+						<pre>{text}</pre>
+					</div>
+				))
+			}
 		</div>
 	</div>
 </BadgeLayout>
@@ -36,22 +54,6 @@ import { Image } from "astro:assets";
 		width: 100%;
 	}
 
-	.sections {
-		color: var(--colorBlueLight);
-		padding: 0 1.5rem;
-		justify-content: space-between;
-		display: flex;
-		list-style: none;
-		width: 100%;
-	}
-
-	.section {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-		flex-direction: column;
-	}
-
 	label {
 		color: var(--colorBlueLight);
 		font-size: 2rem;
@@ -59,7 +61,6 @@ import { Image } from "astro:assets";
 	}
 
 	pre {
-		font-size: 1.25rem;
 		line-height: 0;
 	}
 
@@ -68,23 +69,58 @@ import { Image } from "astro:assets";
 	}
 
 	.footer {
-		color: var(--colorBlueLight);
-		font-family: var(--fontFamilyBody);
-		font-size: 2rem;
-		font-weight: var(--fontWeightBold);
-		padding: 0 3rem 3rem;
 		align-items: center;
-		gap: 2rem;
-		position: relative;
+		color: var(--colorBlueLight);
 		display: flex;
+		flex-direction: column;
+		font-family: var(--fontFamilyBody);
+		font-weight: var(--fontWeightBold);
+		gap: 1rem;
+		padding: 0 2rem 3rem;
+		position: relative;
+		width: 100%;
 	}
 
-	.footer-text {
+	.footer-icon-pairs {
 		display: flex;
-		gap: 1rem;
+		justify-content: flex-end;
+		gap: 2rem;
+		padding: 0 1.5rem;
+		width: 100%;
+	}
+
+	.footer-icon-pair {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-weight: normal;
+	}
+
+	.footer-icon-pair-code {
+		font-size: 1.25rem;
+		letter-spacing: 0.05em;
+	}
+
+	.footer-icon-pair-text {
+		font-size: 1rem;
+	}
+
+	.footer-discord {
+		align-items: center;
+		display: flex;
+		flex-direction: row;
 		font-size: 1.45rem;
-		flex-direction: column;
+		gap: 1.5rem;
+		padding: 0 1rem;
+		justify-content: center;
 		text-align: left;
+		width: 100%;
+	}
+
+	.footer-discord-text {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
 	}
 
 	.discord-link {
