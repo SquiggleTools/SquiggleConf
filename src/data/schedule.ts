@@ -137,7 +137,7 @@ export const days: ScheduleDay[] = [
 				title: "Lunch",
 			},
 			{
-				at: "2:00pm",
+				at: "1:50pm",
 				description: ["Full-length and lightning talks from our speakers."],
 				location: {
 					href: "https://www.neaq.org/visit/simons-theatre",
@@ -145,6 +145,11 @@ export const days: ScheduleDay[] = [
 				},
 				title: "Talks",
 				within: [
+					{
+						at: "1:50pm",
+						title: "Afternoon Announcements",
+						type: "between",
+					},
 					{
 						at: "2:00pm",
 						session: "talk-laurynas-keturakis",
