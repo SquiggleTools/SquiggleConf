@@ -270,8 +270,8 @@ export const days: ScheduleDay[] = [
 					"Learn actionable day-to-day skills and technological takeaways from some of our partners and sponsors.",
 				],
 				location: {
-					href: "https://www.marriott.com/en-us/hotels/boslw-boston-marriott-long-wharf",
-					text: "Boston Marriott Long Wharf",
+					href: "https://faneuilhallmarketplace.com",
+					text: "Faneuil Hall - Center Rotunda",
 				},
 				title: "Morning Workshops",
 				within: [
