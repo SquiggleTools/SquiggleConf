@@ -1,0 +1,62 @@
+---
+import "@fontsource-variable/josefin-sans";
+import "@fontsource/urbanist";
+import { Image } from "astro:assets";
+
+import qrPaypal from "~/assets/qr/paypal.png";
+import qrVenmo from "~/assets/qr/venmo.jpg";
+import qrZelle from "~/assets/qr/zelle.jpg";
+import AdContents from "~/components/AdContents.astro";
+import AdLayout from "~/layouts/AdLayout.astro";
+
+import "~/layouts/base.css";
+import "~/layouts/normalize.css";
+
+const qrs = [
+	["Paypal", qrPaypal],
+	["Venmo", qrVenmo],
+	["Zelle", qrZelle],
+] as const;
+---
+
+<AdLayout unmasked>
+	<AdContents>
+		<h1 slot="top">Merch</h1>
+		<div class="pairs" slot="body">
+			{
+				qrs.map(([label, src]) => (
+					<div class="pair">
+						<Image alt="" src={src} height={200} width={200} />
+						<label>{label}</label>
+					</div>
+				))
+			}
+		</div>
+	</AdContents>
+</AdLayout>
+
+<style>
+	h1,
+	div {
+		color: var(--colorOffWhite);
+	}
+
+	h1 {
+		font-size: 4.9rem;
+	}
+
+	.pairs {
+		display: flex;
+		gap: 3.5rem;
+	}
+
+	.pair {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	label {
+		font-size: 2.1rem;
+	}
+</style>
