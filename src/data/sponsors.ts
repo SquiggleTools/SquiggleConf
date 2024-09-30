@@ -28,8 +28,8 @@ export const sponsorsBySlug = {
 	datastax: {
 		href: "https://www.datastax.com?utm_source=squiggleconf",
 		logos: {
-			dark: datastaxBlack,
-			light: datastaxWhite,
+			dark: datastaxWhite,
+			light: datastaxBlack,
 		},
 		placement: "first",
 		title: "Datastax",
