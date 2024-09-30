@@ -128,7 +128,7 @@ export const days: ScheduleDay[] = [
 				at: "12:30pm",
 				description: [
 					"Head over to the nearby Faneuil Hall Marketplace for lunch.",
-					"We'll have volunteers available to bring groups over to popular food establishments.",
+					"We'll have volunteers available to bring groups to and from popular food establishments.",
 				],
 				location: {
 					href: "https://faneuilhallmarketplace.com",
