@@ -64,6 +64,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "troyciesco",
+      "name": "Troy Ciesco",
+      "avatar_url": "https://avatars.githubusercontent.com/u/24758859?v=4",
+      "profile": "https://troycies.co",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
