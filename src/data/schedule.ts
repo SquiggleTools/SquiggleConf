@@ -42,7 +42,7 @@ export const days: ScheduleDay[] = [
 				description: [
 					"[Artists for Humanity (AFH)](https://www.afhboston.org) is a Boston not-for-profit that employs local teens after school, giving them invaluable art, coding, and design experience.",
 					"We'll come over there to help the teens with their coding projects and run mini-workshops on useful development topics.",
-					`This event is free and open to any attendee who can code in at least HTML. Please [sign up by September 30th to volunteer](${links.volunteering}). 💙`,
+					`This event is free and open to any attendee who can code in at least HTML. Sign-ups have closed, so email us if you want to get in last minute. 💙`,
 				],
 				location: {
 					href: "https://www.afhboston.org",
