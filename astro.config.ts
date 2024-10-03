@@ -9,6 +9,7 @@ export default defineConfig({
 	integrations: [konamiEmojiBlast()],
 	output: "server",
 	redirects: {
+		"/raffle": "https://forms.gle/R9STYeXJqGHjh3H79",
 		"/talks": "/sessions",
 	},
 	site: "https://2024.squiggleconf.com",
