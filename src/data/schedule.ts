@@ -237,7 +237,7 @@ export const days: ScheduleDay[] = [
 				at: "7:30pm",
 				description: [
 					"After dinner, bring your badge for entry and hang out with the organizers, speakers, and fellow attendees in our mixer.",
-					"Expect locally prepared hor'dourves and a craft lemonade stand.",
+					"Expect locally prepared hors d'œuvres and a craft lemonade stand.",
 				],
 				location: {
 					href: "https://www.howlatthemoon.com/boston",
