@@ -4,19 +4,9 @@ import { links } from "~/data/links";
 
 import HeroName from "./HeroName.astro";
 import LocationLink from "./LocationLink.astro";
-import AnchorButton from "./AnchorButton.astro";
 ---
 
 <footer>
-	<AnchorButton
-		class="footer-tickets"
-		href={links.tickets}
-		target="_blank"
-		rel="noreferrer"
-	>
-		Tickets Available Now
-	</AnchorButton>
-
 	<div class="halves">
 		<div class="half logo">
 			<HeroName align="left" color="inherit" level="h2" size="small" />
