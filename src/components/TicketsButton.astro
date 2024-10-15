@@ -1,20 +1,19 @@
----
-import { links } from "~/data/links";
-
-import AnchorButton from "./AnchorButton.astro";
----
-
-<AnchorButton
-	href={links.tickets}
-	class="tickets"
-	target="_blank"
-	rel="noreferrer"
->
-	Tickets Available Now
-</AnchorButton>
+<div class="not-a-button">
+	SquiggleConf 2024 was a blast.
+	<br />
+	We're looking forward to seeing you next year on September 25th-26th!
+</div>
 
 <style>
-	.tickets {
-		user-select: none;
+	.not-a-button {
+		background: var(--colorEmphasizedBackground);
+		border-radius: 1rem;
+		text-shadow: 0 3px 7px rgba(0, 0, 0, 0.5);
+		color: var(--colorOffWhite);
+		font-family: var(--fontFamilyHeading);
+		font-size: var(--fontSizeBodyLarge);
+		font-weight: 700;
+		padding: 1.2rem 2rem 1rem;
+		text-decoration: none;
 	}
 </style>
