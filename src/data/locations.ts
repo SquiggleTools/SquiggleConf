@@ -1,10 +1,10 @@
-import youtube from "../assets/logos/YouTube.svg";
 import bluesky from "../assets/logos/bluesky.svg";
 import discord from "../assets/logos/discord.svg";
 import github from "../assets/logos/github.svg";
 import linkedin from "../assets/logos/linkedin.svg";
 import mastodon from "../assets/logos/mastodon.svg";
 import twitter from "../assets/logos/twitter.svg";
+import youtube from "../assets/logos/YouTube.svg";
 
 export const locations = [
 	{

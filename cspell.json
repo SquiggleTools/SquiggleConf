@@ -2,10 +2,11 @@
 	"dictionaries": ["typescript"],
 	"ignorePaths": [
 		".github",
+		".vercel",
+		"*.svg",
 		"CHANGELOG.md",
 		"node_modules",
-		"pnpm-lock.yaml",
-		"*.svg"
+		"pnpm-lock.yaml"
 	],
 	"words": [
 		"_epichunter",
@@ -96,9 +97,10 @@
 		"twir",
 		"vanderkam",
 		"venmo",
+		"vercel",
 		"viscomi",
 		"xlink",
-		"zelle",
-		"yagiz"
+		"yagiz",
+		"zelle"
 	]
 }

@@ -1,18 +1,18 @@
-import eslint from "@eslint/js";
 import comments from "@eslint-community/eslint-plugin-eslint-comments/configs";
+import eslint from "@eslint/js";
 import jsdoc from "eslint-plugin-jsdoc";
 import jsonc from "eslint-plugin-jsonc";
 import markdown from "eslint-plugin-markdown";
 import n from "eslint-plugin-n";
 import packageJson from "eslint-plugin-package-json/configs/recommended";
-import perfectionistNatural from "eslint-plugin-perfectionist/configs/recommended-natural";
+import perfectionist from "eslint-plugin-perfectionist";
 import * as regexp from "eslint-plugin-regexp";
 import yml from "eslint-plugin-yml";
 import tseslint from "typescript-eslint";
 
 export default tseslint.config(
 	{
-		ignores: ["node_modules", "pnpm-lock.yaml"],
+		ignores: [".vercel", "node_modules", "pnpm-lock.yaml", "src/env.d.ts"],
 	},
 	{
 		linterOptions: {
@@ -28,7 +28,7 @@ export default tseslint.config(
 	jsdoc.configs["flat/recommended-typescript-error"],
 	n.configs["flat/recommended"],
 	packageJson,
-	perfectionistNatural,
+	perfectionist.configs["recommended-natural"],
 	regexp.configs["flat/recommended"],
 	...tseslint.config({
 		extends: [
@@ -38,9 +38,8 @@ export default tseslint.config(
 		files: ["**/*.js", "**/*.ts"],
 		languageOptions: {
 			parserOptions: {
-				EXPERIMENTAL_useProjectService: {
-					allowDefaultProjectForFiles: ["./*.*s", "eslint.config.js"],
-					defaultProject: "./tsconfig.json",
+				projectService: {
+					allowDefaultProject: ["*.config.*s"],
 				},
 			},
 		},
@@ -67,7 +66,7 @@ export default tseslint.config(
 				"error",
 				{
 					order: "asc",
-					"partition-by-comment": true,
+					partitionByComment: true,
 					type: "natural",
 				},
 			],
@@ -77,21 +76,6 @@ export default tseslint.config(
 			"object-shorthand": "error",
 		},
 	}),
-	{
-		files: ["*.jsonc"],
-		rules: {
-			"jsonc/comma-dangle": "off",
-			"jsonc/no-comments": "off",
-			"jsonc/sort-keys": "error",
-		},
-	},
-	{
-		extends: [tseslint.configs.disableTypeChecked],
-		files: ["**/*.md/*.ts"],
-		rules: {
-			"n/no-missing-import": ["error", { allowModules: ["SquiggleConf"] }],
-		},
-	},
 	{
 		files: ["**/*.{yml,yaml}"],
 		rules: {

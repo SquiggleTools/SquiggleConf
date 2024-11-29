@@ -1,6 +1,6 @@
-export interface ScheduleDay {
-	activities: ActivityData[];
+export interface ActivityBetweenData extends ActivityDataWithinBase {
 	title: string;
+	type: "between";
 }
 
 export interface ActivityData {
@@ -11,13 +11,15 @@ export interface ActivityData {
 	within?: ActivityDataWithin[];
 }
 
+export type ActivityDataWithin = ActivityBetweenData | ActivitySessionData;
+
 export interface ActivityDataWithinBase {
 	at: string;
 }
 
-export interface ActivityBetweenData extends ActivityDataWithinBase {
-	title: string;
-	type: "between";
+export interface ActivityLocation {
+	href: string;
+	text: string;
 }
 
 export interface ActivitySessionData extends ActivityDataWithinBase {
@@ -25,11 +27,9 @@ export interface ActivitySessionData extends ActivityDataWithinBase {
 	type: "session";
 }
 
-export type ActivityDataWithin = ActivityBetweenData | ActivitySessionData;
-
-export interface ActivityLocation {
-	href: string;
-	text: string;
+export interface ScheduleDay {
+	activities: ActivityData[];
+	title: string;
 }
 
 export const days: ScheduleDay[] = [

@@ -1,3 +1,12 @@
+export interface Person {
+	bio: null | string;
+	links: PersonLinks;
+	name: string;
+	qualification: null | string;
+	role: null | string;
+	slug: string;
+}
+
 export interface PersonLinks {
 	bluesky: null | string;
 	github: null | string;
@@ -9,15 +18,6 @@ export interface PersonLinks {
 	twitter: null | string;
 	website: null | string;
 	youtube: null | string;
-}
-
-export interface Person {
-	bio: null | string;
-	links: PersonLinks;
-	name: string;
-	qualification: null | string;
-	role: null | string;
-	slug: string;
 }
 
 export const peopleBySlug: Record<string, Person> = {
