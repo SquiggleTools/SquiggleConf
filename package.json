@@ -37,7 +37,7 @@
 		"*": "prettier --ignore-unknown --write"
 	},
 	"dependencies": {
-		"@astrojs/vercel": "^7.7.2",
+		"@astrojs/vercel": "^7.8.2",
 		"@konami-emoji-blast/astro": "^0.0.1",
 		"@types/lodash": "^4.17.7",
 		"konami-emoji-blast": "^0.5.3",
