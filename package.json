@@ -4,7 +4,7 @@
 	"description": "Website for SquiggleConf: a conference for excellent web dev tooling.",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/JoshuaKGoldberg/SquiggleConf"
+		"url": "https://github.com/SquiggleTools/SquiggleConf2024"
 	},
 	"license": "MIT",
 	"author": {
