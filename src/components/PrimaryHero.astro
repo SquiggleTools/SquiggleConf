@@ -1,11 +1,6 @@
 ---
-import { links } from "~/data/links";
-
 import Hero from "./Hero.astro";
 import HeroName from "./HeroName.astro";
-import NoBreak from "./NoBreak.astro";
-import LinkOut from "~/assets/glyphs/link-out.svg";
-import { Image } from "astro:assets";
 import ThemeToggle from "./ThemeToggle.astro";
 import TicketsButton from "./TicketsButton.astro";
 ---
@@ -13,53 +8,7 @@ import TicketsButton from "./TicketsButton.astro";
 <Hero>
 	<HeroName align="center" color="inverted" level="h1" size="normal" />
 
-	<div class="sub-mentions">
-		<a
-			class="sub-mention"
-			href={links.nextYear}
-			target="_blank"
-			rel="noreferrer"
-		>
-			<strong>SquiggleConf 2025</strong>
-			<Image alt="" class="link-out" src={LinkOut} />
-		</a>
-	</div>
-
 	<TicketsButton />
 
 	<ThemeToggle />
 </Hero>
-
-<style>
-	.sub-mentions {
-		align-items: center;
-		display: flex;
-		flex-wrap: wrap;
-		gap: clamp(1rem, 5vw, 2rem);
-		justify-content: center;
-	}
-
-	.sub-mention {
-		color: var(--colorBlueLight);
-		font-size: 2.5rem;
-		font-family: var(--fontFamilyHeading);
-		margin-top: 2rem;
-		text-underline-offset: 0.2em;
-		transition: var(--transitionMedium) color;
-	}
-
-	.sub-mention:hover {
-		color: var(--colorWhite);
-	}
-
-	.link-out {
-		height: 1rem;
-		width: 1rem;
-	}
-
-	@media (min-width: 819px) {
-		.sub-mentions {
-			padding-bottom: 2rem;
-		}
-	}
-</style>
