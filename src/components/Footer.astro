@@ -15,6 +15,9 @@ import LocationLink from "./LocationLink.astro";
 			<div class="line texts-line">
 				<a href={links.shop} rel="noreferrer" target="_blank">Shop</a>
 				<a href="/code-of-conduct">Code of Conduct</a>
+				<a href={links.nextYear} rel="noreferrer" target="_blank">
+					<strong>2025</strong>
+				</a>
 			</div>
 			<div class="logos">
 				{locations.map((location) => <LocationLink {...location} />)}
